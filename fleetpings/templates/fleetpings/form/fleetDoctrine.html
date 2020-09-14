@@ -8,7 +8,7 @@
         {% if fleetDoctrines|length > 0 %}
             <datalist id="fleetDoctrineList">
                 {% for fleetDoctrine in fleetDoctrines %}
-                    <option value="{{ fleetDoctrine }}">
+                    <option value="{{ fleetDoctrine.name }}" data-doctrine-url="{{ fleetDoctrine.link }}">
                 {% endfor %}
             </datalist>
         {% endif %}

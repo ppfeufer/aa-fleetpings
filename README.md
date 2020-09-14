@@ -4,10 +4,9 @@
 [![License](https://img.shields.io/badge/license-GPLv3-green)](https://pypi.org/project/aa-fleetpings/)
 [![Python](https://img.shields.io/pypi/pyversions/aa-fleetpings)](https://pypi.org/project/aa-fleetpings/)
 [![Django](https://img.shields.io/pypi/djversions/aa-fleetpings?label=django)](https://pypi.org/project/aa-fleetpings/)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/aa-fleetpings)](https://pypi.org/project/aa-fleetpings/)
 [![Code Style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](http://black.readthedocs.io/en/latest/)
 
-App for formatting pings for Discord and Slack in Alliance Auth
+App for Alliance Auth that can format your fleet pings and also ping for you to Discord and Slack.
 
 Formerly known as [AA Discord Ping Formatter](https://github.com/ppfeufer/aa-discord-ping-formatter).
  
@@ -108,7 +107,7 @@ _(Example for embedded ping (top) and non embedded ping (bottom))_
 
 ### Using Slack instead of Discord?
 
-Don't worrie, I don't judge and you still can use this module. It supports also pings to Slack. 
+Don't worry, I don't judge and you still can use this module. It supports also pings to Slack. 
 Simply add the following to your `local.py`. 
 
 ```python

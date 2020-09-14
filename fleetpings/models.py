@@ -6,7 +6,10 @@ our models
 
 from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 
 from allianceauth.services.modules.discord.models import DiscordUser
 
@@ -27,20 +30,20 @@ class FleetComm(models.Model):
     """Fleet Comms"""
 
     name = models.CharField(
-        max_length=255, unique=True, help_text="Short name to identify this comms"
+        max_length=255, unique=True, help_text=_("Short name to identify this comms")
     )
 
     notes = models.TextField(
         null=True,
         default=None,
         blank=True,
-        help_text="You can add notes about this configuration here if you want",
+        help_text=_("You can add notes about this configuration here if you want"),
     )
 
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
-        help_text="Whether this comms is enabled or not",
+        help_text=_("Whether this comms is enabled or not"),
     )
 
     def __str__(self) -> str:
@@ -52,8 +55,8 @@ class FleetComm(models.Model):
     class Meta:
         """FleetComm :: Meta"""
 
-        verbose_name = "Fleet Comm"
-        verbose_name_plural = "Fleet Comms"
+        verbose_name = _("Fleet Comm")
+        verbose_name_plural = _("Fleet Comms")
         default_permissions = ()
 
 
@@ -63,7 +66,14 @@ class FleetDoctrine(models.Model):
 
     # doctrine name
     name = models.CharField(
-        max_length=255, unique=True, help_text="Short name to identify this doctrine"
+        max_length=255, unique=True, help_text=_("Short name to identify this doctrine")
+    )
+
+    # link to your doctinre
+    link = models.CharField(
+        max_length=255,
+        help_text=_("A link to a doctrine page for this doctrine if you have."),
+        blank=True,
     )
 
     # doctrine notes
@@ -71,15 +81,33 @@ class FleetDoctrine(models.Model):
         null=True,
         default=None,
         blank=True,
-        help_text="You can add notes about this configuration here if you want",
+        help_text=_("You can add notes about this configuration here if you want"),
     )
 
     # is doctrine active
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
-        help_text="Whether this doctrine is enabled or not",
+        help_text=_("Whether this doctrine is enabled or not"),
     )
+
+    def clean(self, *args, **kwargs):
+        """
+        check if the doctrine link is an actual link to a website
+        :param args:
+        :param kwargs:
+        """
+        doctrine_link = self.link
+        if doctrine_link != "":
+            validate = URLValidator()
+            try:
+                validate(doctrine_link)
+            except ValidationError as exception:
+                raise ValidationError(
+                    _("Your doctrine URL is not valid.")
+                ) from exception
+
+        super().clean(*args, **kwargs)
 
     def __str__(self) -> str:
         return str(self.name)
@@ -90,8 +118,8 @@ class FleetDoctrine(models.Model):
     class Meta:
         """FleetDoctrine :: Meta"""
 
-        verbose_name = "Fleet Doctrine"
-        verbose_name_plural = "Fleet Doctrines"
+        verbose_name = _("Fleet Doctrine")
+        verbose_name_plural = _("Fleet Doctrines")
         default_permissions = ()
 
 
@@ -103,7 +131,7 @@ class FormupLocation(models.Model):
     name = models.CharField(
         max_length=255,
         unique=True,
-        help_text="Short name to identify this formup location",
+        help_text=_("Short name to identify this formup location"),
     )
 
     # formup location notes
@@ -111,14 +139,14 @@ class FormupLocation(models.Model):
         null=True,
         default=None,
         blank=True,
-        help_text="You can add notes about this configuration here if you want",
+        help_text=_("You can add notes about this configuration here if you want"),
     )
 
     # is formup location active
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
-        help_text="Whether this formup location is enabled or not",
+        help_text=_("Whether this formup location is enabled or not"),
     )
 
     def __str__(self) -> str:
@@ -130,8 +158,8 @@ class FormupLocation(models.Model):
     class Meta:
         """FormupLocation :: Meta"""
 
-        verbose_name = "Formup Location"
-        verbose_name_plural = "Formup Locations"
+        verbose_name = _("Formup Location")
+        verbose_name_plural = _("Formup Locations")
         default_permissions = ()
 
 
@@ -145,8 +173,10 @@ class DiscordPingTargets(models.Model):
         on_delete=models.CASCADE,
         unique=True,
         help_text=(
-            "Name of the Discord role to ping. "
-            "(Note: This must be an Auth group that is synched to Discord.)"
+            _(
+                "Name of the Discord role to ping. "
+                "(Note: This must be an Auth group that is synched to Discord.)"
+            )
         ),
     )
 
@@ -155,14 +185,14 @@ class DiscordPingTargets(models.Model):
         max_length=255,
         unique=True,
         blank=True,
-        help_text="ID of the Discord role to ping",
+        help_text=_("ID of the Discord role to ping"),
     )
 
     # restrictions
     restricted_to_group = models.ManyToManyField(
         Group,
         related_name="discord_role_require_groups",
-        help_text="Restrict ping rights to the following group(s) ...",
+        help_text=_("Restrict ping rights to the following group(s) ..."),
     )
 
     # notes
@@ -170,14 +200,14 @@ class DiscordPingTargets(models.Model):
         null=True,
         default=None,
         blank=True,
-        help_text="You can add notes about this configuration here if you want",
+        help_text=_("You can add notes about this configuration here if you want"),
     )
 
     # is this group active
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
-        help_text="Whether this formup location is enabled or not",
+        help_text=_("Whether this formup location is enabled or not"),
     )
 
     def clean(self, *args, **kwargs):
@@ -190,7 +220,7 @@ class DiscordPingTargets(models.Model):
         discord_group_info = DiscordUser.objects.group_to_role(self.name)
 
         if not discord_group_info:
-            raise ValidationError("This group has not been synched to Discord yet.")
+            raise ValidationError(_("This group has not been synched to Discord yet."))
 
         super().clean(*args, **kwargs)
 
@@ -220,8 +250,8 @@ class DiscordPingTargets(models.Model):
     class Meta:
         """DiscordPingTargets :: Meta"""
 
-        verbose_name = "Discord Ping Target"
-        verbose_name_plural = "Discord Ping Targets"
+        verbose_name = _("Discord Ping Target")
+        verbose_name_plural = _("Discord Ping Targets")
         default_permissions = ()
 
 
@@ -233,14 +263,14 @@ class FleetType(models.Model):
     name = models.CharField(
         max_length=255,
         unique=True,
-        help_text="Short name to identify this fleet type",
+        help_text=_("Short name to identify this fleet type"),
     )
 
     # embed color
     embed_color = models.CharField(
         max_length=7,
         blank=True,
-        help_text="Hightlight color for the embed",
+        help_text=_("Hightlight color for the embed"),
     )
 
     # fleet type notes
@@ -248,14 +278,14 @@ class FleetType(models.Model):
         null=True,
         default=None,
         blank=True,
-        help_text="You can add notes about this configuration here if you want",
+        help_text=_("You can add notes about this configuration here if you want"),
     )
 
     # is this fleet type enabled
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
-        help_text="Whether this fleet type is enabled or not",
+        help_text=_("Whether this fleet type is enabled or not"),
     )
 
     def __str__(self) -> str:
@@ -267,8 +297,8 @@ class FleetType(models.Model):
     class Meta:
         """FleetType :: Meta"""
 
-        verbose_name = "Fleet Type"
-        verbose_name_plural = "Fleet Types"
+        verbose_name = _("Fleet Type")
+        verbose_name_plural = _("Fleet Types")
         default_permissions = ()
 
 
@@ -289,14 +319,14 @@ class Webhook(models.Model):
         max_length=7,
         choices=WEBHOOK_TYPE_CHOICES,
         default=WEBHOOK_TYPE_DISCORD,
-        help_text="Is this a Discord or Slack webhook?",
+        help_text=_("Is this a Discord or Slack webhook?"),
     )
 
     # channel name
     name = models.CharField(
         max_length=255,
         unique=True,
-        help_text="Name of the channel this webhook posts to",
+        help_text=_("Name of the channel this webhook posts to"),
     )
 
     # wehbook url
@@ -304,9 +334,11 @@ class Webhook(models.Model):
         max_length=255,
         unique=True,
         help_text=(
-            "URL of this webhook, e.g. "
-            "https://discordapp.com/api/webhooks/123456/abcdef "
-            "or https://hooks.slack.com/services/xxxx/xxxx"
+            _(
+                "URL of this webhook, e.g. "
+                "https://discordapp.com/api/webhooks/123456/abcdef "
+                "or https://hooks.slack.com/services/xxxx/xxxx"
+            )
         ),
     )
 
@@ -315,8 +347,10 @@ class Webhook(models.Model):
         default=True,
         db_index=True,
         help_text=(
-            "Whether this webhook's ping is embedded or not. "
-            "(This setting only effects Discord webhooks.)"
+            _(
+                "Whether this webhook's ping is embedded or not. "
+                "(This setting only effects Discord webhooks.)"
+            )
         ),
     )
 
@@ -324,7 +358,7 @@ class Webhook(models.Model):
     restricted_to_group = models.ManyToManyField(
         Group,
         related_name="webhook_require_groups",
-        help_text="Restrict ping rights to the following group(s) ...",
+        help_text=_("Restrict ping rights to the following group(s) ..."),
     )
 
     # webhook notes
@@ -332,14 +366,14 @@ class Webhook(models.Model):
         null=True,
         default=None,
         blank=True,
-        help_text="You can add notes about this webhook here if you want",
+        help_text=_("You can add notes about this webhook here if you want"),
     )
 
     # is it enabled
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
-        help_text="Whether this webhook is active or not",
+        help_text=_("Whether this webhook is active or not"),
     )
 
     def __str__(self) -> str:
@@ -360,6 +394,6 @@ class Webhook(models.Model):
     class Meta:
         """Webhook :: Meta"""
 
-        verbose_name = "Webhook"
-        verbose_name_plural = "Webhooks"
+        verbose_name = _("Webhook")
+        verbose_name_plural = _("Webhooks")
         default_permissions = ()

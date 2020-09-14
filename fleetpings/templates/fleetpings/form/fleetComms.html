@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<div class="form-group clearfix">
+    <label class="col-md-3 control-label" for="fleetComms">{% trans "Fleet Comms" %}</label>
+    <div class="col-md-9">
+        <input id="fleetComms" name="fleetComms" type="text" class="form-control input-md" list="fleetCommsList">
+
+        {% if fleetComms|length > 0 %}
+            <datalist id="fleetCommsList">
+                {% for fleetComm in fleetComms %}
+                    <option value="{{ fleetComm }}">
+                {% endfor %}
+            </datalist>
+        {% endif %}
+    </div>
+</div>

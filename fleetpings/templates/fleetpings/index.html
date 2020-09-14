@@ -1,0 +1,58 @@
+{% extends 'fleetpings/base.html' %}
+
+{% load i18n %}
+{% load humanize %}
+{% load static %}
+
+{% load set_variable %}
+
+{% block details %}
+    <div class="aa-fleetpings row">
+        <div class="col-md-6">
+            {% include "fleetpings/form.html" %}
+        </div>
+
+        <div class="col-md-6">
+            {% include 'fleetpings/ping.html' %}
+        </div>
+
+        {% if useSlack %}
+            {% set_variable "Slack" as usedPlatform %}
+        {% else %}
+            {% set_variable "Discord" as usedPlatform %}
+        {% endif %}
+
+        <script type="application/javascript">
+            var fleetpingsTranslations = {
+                ping: {
+                    success: '{% blocktrans context "%(usedPlatform)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping has been sent to your {{ usedPlatform }}.{% endblocktrans %}'
+                },
+                copyToClipboard: {
+                    error: '{% trans "Error! Your ping was not copied to your clipboard. Maybe your browser doesn't support this feature." %}',
+                    success: '{% blocktrans context "%(usedPlatform)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your {{ usedPlatform }} so you actually get some people in fleet.{% endblocktrans %}',
+                }
+            };
+        </script>
+    </div>
+{% endblock %}
+
+{% block extra_javascript %}
+    <script type="application/javascript" src="{% static 'fleetpings/js/copy-to-clipboard/copy-to-clipboard.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'fleetpings/js/fleetpings.min.js' %}"></script>
+
+    {% include 'bundles/jquery-datetimepicker-js.html' %}
+{% endblock %}
+
+{% block extra_css %}
+    {% include 'bundles/jquery-datetimepicker-css.html' %}
+{% endblock %}
+
+{% block extra_script %}
+    $('#formupTime').datetimepicker({
+        lang: '{{ LANGUAGE_CODE }}',
+        maskInput: true,
+        format: 'Y-m-d H:i',
+        dayOfWeekStart: 1,
+        step: 15
+    });
+{% endblock extra_script %}

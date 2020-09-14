@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<div class="form-group clearfix">
+    <label class="col-md-3 control-label" for="fleetType">{% trans "Fleet Type" %}</label>
+    <div class="col-md-9">
+        <select id="fleetType" name="fleetType" class="form-control">
+            <option value="">{% trans "Please select" %}</option>
+            <option value="Roaming" data-embed-color="#81FD2D">{% trans "Roaming Fleet" %}</option>
+            <option value="Home Defense" data-embed-color="#F1C40F">{% trans "Home Defense" %}</option>
+            <option value="StratOP" data-embed-color="#E67E22">{% trans "StratOP" %}</option>
+            <option value="CTA" data-embed-color="#E91E63">{% trans "CTA" %}</option>
+
+            {% if additionalFleetTypes|length > 0 %}
+                <option value="" disabled></option>
+                <optgroup label="{% trans 'Additionally configured fleet types' %}">
+                    {% for fleetType in additionalFleetTypes %}
+                        {% if fleetType.embed_color %}
+                            <option value="{{ fleetType.name }}" data-embed-color="{{ fleetType.embed_color }}">{{ fleetType.name }}</option>
+                        {% else %}
+                            <option value="{{ fleetType.name }}" data-embed-color="#FAA61A">{{ fleetType.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </optgroup>
+            {% endif %}
+        </select>
+    </div>
+</div>

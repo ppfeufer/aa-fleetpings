@@ -1,0 +1,55 @@
+{% load i18n %}
+
+<fieldset class="aa-fleetpings-form">
+    <!-- pingTarget.html -->
+    {% include 'fleetpings/form/pingTargets.html' %}
+
+    <!-- prePing.html -->
+    {% include 'fleetpings/form/prePing.html' %}
+
+    <!-- pingChannel.html -->
+    {% include 'fleetpings/form/pingChannel.html' %}
+
+    <!-- fleetType.html -->
+    {% include 'fleetpings/form/fleetType.html' %}
+
+    <!-- fleetCommander.html -->
+    {% include 'fleetpings/form/fleetCommander.html' %}
+
+    <!-- fleetName.html -->
+    {% include 'fleetpings/form/fleetName.html' %}
+
+    <!-- formupLocation.html -->
+    {% include 'fleetpings/form/formupLocation.html' %}
+
+    <!-- formupTime.html -->
+    {% include 'fleetpings/form/formupTime.html' %}
+
+    <!-- fleetComms.html -->
+    {% include 'fleetpings/form/fleetComms.html' %}
+
+    <!-- fleetDoctrine.html -->
+    {% include 'fleetpings/form/fleetDoctrine.html' %}
+
+    <!-- srp.html -->
+    {% include 'fleetpings/form/srp.html' %}
+
+    <!-- additionalInformation.html -->
+    {% include 'fleetpings/form/additionalInformation.html' %}
+
+    <div class="form-group clearfix">
+        <label class="col-md-3 control-label" for="createPingText"></label>
+        <div class="col-md-4">
+            <button id="createPingText" name="createPingText" class="btn btn-primary">{% trans "Create Ping" %}</button>
+        </div>
+    </div>
+</fieldset>
+
+<script type="application/javascript">
+    var fleetpingsSettings = {
+        platformUsed: {% if useSlack %}'Slack'{% else %}'Discord'{% endif %},
+        timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
+        siteUrl: '{{ site_url }}/',
+        pingCreator: '{{ mainCharacter|safe|addslashes }}'
+    };
+</script>

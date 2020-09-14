@@ -172,6 +172,17 @@ jQuery(document).ready(function($) {
         var fleetSrp = sanitizeInput($('select#fleetSrp option:selected').val());
         var additionalInformation = sanitizeInput($('textarea#additionalInformation').val());
 
+        // let's see if we can find a doctrine link
+        var fleetDoctrineLink = null;
+        if(fleetDoctrine !== '') {
+            selectedLink = $('#fleetDoctrineList [value="' + fleetDoctrine + '"]').data('doctrine-url');
+
+            if(undefined !== selectedLink && selectedLink !== '') {
+                // Houston, we have a link!
+                fleetDoctrineLink = selectedLink;
+            }
+        }
+
         // ping webhooks, if configured
         var webhookUrl = false;
 
@@ -262,6 +273,7 @@ jQuery(document).ready(function($) {
                     var timezonesUrl = getTimezonesUrl(formupTime);
 
                     pingText += ' - ' + timezonesUrl;
+
                     if(webhookType === 'Discord') {
                         webhookPingTextContent += ' ([Time Zone Conversion](' + timezonesUrl + '))';
                     }
@@ -283,6 +295,19 @@ jQuery(document).ready(function($) {
         if(fleetDoctrine !== '') {
             pingText += "\n" + '**Ships / Doctrine:** ' + fleetDoctrine;
             webhookPingTextContent += "\n" + '**Ships / Doctrine:** ' + fleetDoctrine;
+
+            // grab the doctrine link if there is one
+            if(fleetDoctrineLink !== null) {
+                pingText += ' - ' + fleetDoctrineLink;
+
+                if(webhookType === 'Discord') {
+                        webhookPingTextContent += ' ([Doctrine Link](' + fleetDoctrineLink + '))';
+                    }
+
+                    if(webhookType === 'Slack') {
+                        webhookPingTextContent += ' (<' + fleetDoctrineLink + '|Doctrine Link>)';
+                    }
+            }
         }
 
         // check if srp is available
@@ -377,7 +402,7 @@ jQuery(document).ready(function($) {
     });
 
     /**
-     * copy the discord ping to clipboard
+     * copy the fleet ping to clipboard
      */
     var CopyFleetPing = (function() {
         /**

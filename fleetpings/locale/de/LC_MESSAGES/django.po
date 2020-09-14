@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 18:36+0200\n"
-"PO-Revision-Date: 2020-09-13 23:11+0200\n"
+"POT-Creation-Date: 2020-09-14 23:50+0200\n"
+"PO-Revision-Date: 2020-09-14 23:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -17,6 +17,158 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.2.4\n"
+
+#: fleetpings/models.py:33
+msgid "Short name to identify this comms"
+msgstr "Name der Flotten Comms"
+
+#: fleetpings/models.py:40 fleetpings/models.py:84 fleetpings/models.py:142
+#: fleetpings/models.py:203 fleetpings/models.py:281
+msgid "You can add notes about this configuration here if you want"
+msgstr "Du kannst Notizen zu dieser Konfiguration hinzufügen wenn Du magst"
+
+#: fleetpings/models.py:46
+msgid "Whether this comms is enabled or not"
+msgstr "Flotten Comms aktiv oder nicht"
+
+#: fleetpings/models.py:58
+msgid "Fleet Comm"
+msgstr "Flotten Comms"
+
+#: fleetpings/models.py:59
+#: fleetpings/templates/fleetpings/form/fleetComms.html:4
+msgid "Fleet Comms"
+msgstr "Flotten Comms"
+
+#: fleetpings/models.py:69
+msgid "Short name to identify this doctrine"
+msgstr "Name der Doktrin"
+
+#: fleetpings/models.py:75
+msgid "A link to a doctrine page for this doctrine if you have."
+msgstr "Link zur Doktrin Webseite falls vorhzanden."
+
+#: fleetpings/models.py:91
+msgid "Whether this doctrine is enabled or not"
+msgstr "Ist diese Doktrin aktiv oder nicht"
+
+#: fleetpings/models.py:107
+msgid "Your doctrine URL is not valid."
+msgstr "Der Link ist ungültig."
+
+#: fleetpings/models.py:121
+msgid "Fleet Doctrine"
+msgstr "Schiffe / Doktrin"
+
+#: fleetpings/models.py:122
+msgid "Fleet Doctrines"
+msgstr "Schiffe / Doktrinen"
+
+#: fleetpings/models.py:134
+msgid "Short name to identify this formup location"
+msgstr "Name des Sammelpunktes. System - Station"
+
+#: fleetpings/models.py:149 fleetpings/models.py:210
+msgid "Whether this formup location is enabled or not"
+msgstr "Sammelpunkt ist aktiv"
+
+#: fleetpings/models.py:161
+#: fleetpings/templates/fleetpings/form/formupLocation.html:4
+msgid "Formup Location"
+msgstr "Sammelpunkt"
+
+#: fleetpings/models.py:162
+msgid "Formup Locations"
+msgstr "Sammelpunkte"
+
+#: fleetpings/models.py:177
+msgid ""
+"Name of the Discord role to ping. (Note: This must be an Auth group that is "
+"synched to Discord.)"
+msgstr ""
+"Name der Discord Gruppe die gepingt werden soll. (Hinweis: Dies muss eine "
+"Auth Gruppe sein, welche zum Discord synchronisiert wurde.)"
+
+#: fleetpings/models.py:188
+msgid "ID of the Discord role to ping"
+msgstr "ID der Rolle auf Discord"
+
+#: fleetpings/models.py:195 fleetpings/models.py:361
+msgid "Restrict ping rights to the following group(s) ..."
+msgstr "Beschränke die Ping Rechte auf folgende Gruppe(n)"
+
+#: fleetpings/models.py:223
+msgid "This group has not been synched to Discord yet."
+msgstr "Diese Gruppe wurde noch nicht zu Discord synchronisiert."
+
+#: fleetpings/models.py:253
+msgid "Discord Ping Target"
+msgstr "Ping Ziel"
+
+#: fleetpings/models.py:254
+msgid "Discord Ping Targets"
+msgstr "Ping Ziele"
+
+#: fleetpings/models.py:266
+msgid "Short name to identify this fleet type"
+msgstr "Flotten Art"
+
+#: fleetpings/models.py:273
+msgid "Hightlight color for the embed"
+msgstr "Hervorhebungsfarbe des Embed"
+
+#: fleetpings/models.py:288
+msgid "Whether this fleet type is enabled or not"
+msgstr "Flotten Art ist aktiv oder nicht"
+
+#: fleetpings/models.py:300
+#: fleetpings/templates/fleetpings/form/fleetType.html:4
+msgid "Fleet Type"
+msgstr "Flotten Art"
+
+#: fleetpings/models.py:301
+msgid "Fleet Types"
+msgstr "Flotten Arten"
+
+#: fleetpings/models.py:322
+msgid "Is this a Discord or Slack webhook?"
+msgstr "Ist dies ein Discord oder Slack Webhook?"
+
+#: fleetpings/models.py:329
+msgid "Name of the channel this webhook posts to"
+msgstr "Name des Kanals an den der Webhook senden soll"
+
+#: fleetpings/models.py:338
+msgid ""
+"URL of this webhook, e.g. https://discordapp.com/api/webhooks/123456/abcdef "
+"or https://hooks.slack.com/services/xxxx/xxxx"
+msgstr ""
+"URL des Webhooks, zum Beispiel https://discordapp.com/api/webhooks/123456/"
+"abcdef oder https://hooks.slack.com/services/xxxx/xxxx"
+
+#: fleetpings/models.py:351
+msgid ""
+"Whether this webhook's ping is embedded or not. (This setting only effects "
+"Discord webhooks.)"
+msgstr ""
+"Soll der Ping als Embed gesendet werden? (Dies betrifft nur Discord "
+"Webhooks.)"
+
+#: fleetpings/models.py:369
+msgid "You can add notes about this webhook here if you want"
+msgstr "Du kannst einige Notizen zu diesem Webhook hinzufügen, wenn Du magst"
+
+#: fleetpings/models.py:376
+msgid "Whether this webhook is active or not"
+msgstr "Ist dieser Webhook aktiv oder nicht"
+
+#: fleetpings/models.py:397
+msgid "Webhook"
+msgstr "Webhook"
+
+#: fleetpings/models.py:398
+msgid "Webhooks"
+msgstr "Webhooks"
 
 #: fleetpings/templates/fleetpings/base.html:5
 #: fleetpings/templates/fleetpings/base.html:9
@@ -35,10 +187,6 @@ msgstr "Zusätzliche Informationen"
 msgid "FC Name"
 msgstr "FC Name"
 
-#: fleetpings/templates/fleetpings/form/fleetComms.html:4
-msgid "Fleet Comms"
-msgstr "Flotten Comms"
-
 #: fleetpings/templates/fleetpings/form/fleetDoctrine.html:4
 msgid "Ships / Doctrine"
 msgstr "Schiffe / Doktrin"
@@ -46,10 +194,6 @@ msgstr "Schiffe / Doktrin"
 #: fleetpings/templates/fleetpings/form/fleetName.html:4
 msgid "Fleet Name"
 msgstr "Flotten Name"
-
-#: fleetpings/templates/fleetpings/form/fleetType.html:4
-msgid "Fleet Type"
-msgstr "Flotten Art"
 
 #: fleetpings/templates/fleetpings/form/fleetType.html:7
 #: fleetpings/templates/fleetpings/form/srp.html:7
@@ -76,17 +220,13 @@ msgstr "CTA"
 msgid "Additionally configured fleet types"
 msgstr "Zusätzlich konfigurierte Flotten Arten"
 
-#: fleetpings/templates/fleetpings/form/formupLocation.html:4
-msgid "Formup Location"
-msgstr "Sammelpunkt"
-
 #: fleetpings/templates/fleetpings/form/formupTime.html:4
 msgid "Formup Time"
 msgstr "Startzeit"
 
 #: fleetpings/templates/fleetpings/form/formupTime.html:4
 msgid "This is Eve Time"
-msgstr "Dies ist Eve Zeit"
+msgstr "In Eve Zeit angeben"
 
 #: fleetpings/templates/fleetpings/form/formupTime.html:7
 msgid ""
@@ -163,7 +303,7 @@ msgstr "Erfolg! Dein Ping wurde an Dein %(usedPlatform)s gesendet."
 #: fleetpings/templates/fleetpings/index.html:31
 msgid ""
 "Error! Your ping was not copied to your clipboard. Maybe your browser "
-"doesn't support this feature."
+"doesn&apos;t support this feature."
 msgstr ""
 "Fehler! Der Ping wurde nicht in Deine Zwischenablage kopiert. Vielleicht "
 "unterstützt Dein Browser diese Funktion nicht."

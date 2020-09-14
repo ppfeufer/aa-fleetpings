@@ -15,11 +15,11 @@ Since the original app evolved and with the now added support to ping Slack as w
 I felt the name was no longer fitting, so I re-branded the app as "AA Fleet Pings". The old Discord ping 
 formatter will be discontinued in favor of this one.
 
-If you used the old app until now, don't worrie, nothing is breaking. At least I hope so. 
+If you used the old app until now (not the alpha versions), don't worry, nothing is breaking. At least I hope so. 
 Since this app has a complete new code base and a different name it shouldn't interfere with the old one.
 All you need to do is to set the new permission for the groups that need to have access to this app.
 
-If you run into any trouble, feel free to shout at me on the Alliance Auth Support Discord. 
+If you run into any trouble, feel free to shout at me on the [Alliance Auth Support Discord](https://discord.gg/fjnHAmk). 
 You find me there as Rounon Dax.
 
 ## Contents

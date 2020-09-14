@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<div class="form-group clearfix">
+    <label class="col-md-3 control-label" for="formupLocation">{% trans "Formup Location" %}</label>
+    <div class="col-md-9">
+        <input id="formupLocation" name="formupLocation" type="text" class="form-control input-md" list="formupLocationList">
+
+        {% if fleetFormupLocations|length > 0 %}
+            <datalist id="formupLocationList">
+                {% for formupLocation in fleetFormupLocations %}
+                    <option value="{{ formupLocation }}">
+                {% endfor %}
+            </datalist>
+        {% endif %}
+    </div>
+</div>

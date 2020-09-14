@@ -1,0 +1,15 @@
+{% load i18n %}
+
+<div class="aa-fleetpings-ping" style="display: none;">
+    <div class="aa-fleetpings-ping-header">
+        <p><b>{% trans "Formatted Ping Text" %}</b></p>
+    </div>
+
+    <div class="aa-fleetpings-ping-text"></div>
+
+    <div class="aa-fleetpings-ping-copyresult"></div>
+
+    <div class="form-group clearfix">
+        <p><button id="copyFleetPing" name="copyFleetPing" class="btn btn-primary" data-clipboard-action="copy" data-clipboard-target=".aa-fleetpings-ping-text">{% trans "Copy Ping Text" %}</button></p>
+    </div>
+</div>

@@ -1,1 +1,120 @@
-# aa-fleetpings
+# AA Fleet Pings
+
+[![Version](https://img.shields.io/pypi/v/aa-fleetpings?label=release)](https://pypi.org/project/aa-fleetpings/)
+[![License](https://img.shields.io/badge/license-GPLv3-green)](https://pypi.org/project/aa-fleetpings/)
+[![Python](https://img.shields.io/pypi/pyversions/aa-fleetpings)](https://pypi.org/project/aa-fleetpings/)
+[![Django](https://img.shields.io/pypi/djversions/aa-fleetpings?label=django)](https://pypi.org/project/aa-fleetpings/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/aa-fleetpings)](https://pypi.org/project/aa-fleetpings/)
+[![Code Style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](http://black.readthedocs.io/en/latest/)
+
+App for formatting pings for Discord and Slack in Alliance Auth
+
+Formerly known as [AA Discord Ping Formatter](https://github.com/ppfeufer/aa-discord-ping-formatter).
+ 
+Since the original app evolved and with the now added support to ping Slack as well, 
+I felt the name was no longer fitting, so I re-branded the app as "AA Fleet Pings". The old Discord ping 
+formatter will be discontinued in favor of this one.
+
+If you used the old app until now, don't worrie, nothing is breaking. At least I hope so. 
+Since this app has a complete new code base and a different name it shouldn't interfere with the old one.
+All you need to do is to set the new permission for the groups that need to have access to this app.
+
+If you run into any trouble, feel free to shout at me on the Alliance Auth Support Discord. 
+You find me there as Rounon Dax.
+
+## Contents
+
+- [Installation](#installation)
+- [Updating](#updating)
+- [Screenshots](#screenshots)
+- [Configuration](#configuration)
+- [Change Log](CHANGELOG.md)
+
+## Installation
+
+**Important**: This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already, 
+please install it first before proceeding. 
+(see the official [AA installation guide](https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html) for details)
+
+### Step 1 - Install app
+
+Make sure you are in the virtual environment (venv) of your Alliance Auth installation. 
+Then install the latest version:
+
+```bash
+pip install aa-fleetpings
+```
+
+### Step 2 - Update your AA settings
+
+Configure your AA settings (`local.py`) as follows:
+
+- Add `'fleetpings',` to `INSTALLED_APPS`
+
+
+### Step 3 - Finalize the installation
+
+Copy static files and run migrations
+
+```bash
+python manage.py collectstatic
+```
+
+```bash
+python manage.py migrate
+```
+
+Restart your supervisor services for AA
+
+### Step 4 - Setup permissions
+
+Now you can setup permissions in Alliance Auth for your users. 
+Add ``fleetpings | aa fleet pings | Can access this app`` to the states and/or 
+groups you would like to have access.
+
+## Updating
+
+To update your existing installation of AA Discord Ping Formatter first enable your virtual environment.
+
+Then run the following commands from your AA project directory (the one that contains `manage.py`).
+
+```bash
+pip install -U aa-fleetpings
+```
+
+```bash
+python manage.py collectstatic
+```
+
+```bash
+python manage.py migrate
+```
+
+Finally restart your AA supervisor services.
+
+## Screenshots
+
+### View in Alliance Auth
+
+![AA View](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/aa-view.jpg)
+
+### Discord Ping
+
+![Discord Ping Examples](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/ping-examples.jpg)
+
+_(Example for embedded ping (top) and non embedded ping (bottom))_
+
+## Configuration
+
+### Using Slack instead of Discord?
+
+Don't worrie, I don't judge and you still can use this module. It supports also pings to Slack. 
+Simply add the following to your `local.py`. 
+
+```python
+## AA Fleet Pings
+AA_FLEETPINGS_USE_SLACK = True
+```
+
+Although you cannot use your Auth groups as targets for pings with Slack. Auth doesn't supprt Slack as of yet. 
+(Maybe if someone writes a service?)

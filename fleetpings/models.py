@@ -6,6 +6,7 @@ our models
 
 from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 from django.db import models
 
 from allianceauth.services.modules.discord.models import DiscordUser
@@ -66,6 +67,13 @@ class FleetDoctrine(models.Model):
         max_length=255, unique=True, help_text="Short name to identify this doctrine"
     )
 
+    # link to your doctinre
+    link = models.CharField(
+        max_length=255,
+        help_text="A link to a doctrine page for this doctrine if you have.",
+        blank=True,
+    )
+
     # doctrine notes
     notes = models.TextField(
         null=True,
@@ -80,6 +88,22 @@ class FleetDoctrine(models.Model):
         db_index=True,
         help_text="Whether this doctrine is enabled or not",
     )
+
+    def clean(self, *args, **kwargs):
+        """
+        check if the doctrine link is an actual link to a website
+        :param args:
+        :param kwargs:
+        """
+        doctrine_link = self.link
+        if doctrine_link != "":
+            validate = URLValidator()
+            try:
+                validate(doctrine_link)
+            except ValidationError as exception:
+                raise ValidationError("Your doctrine URL is not valid.") from exception
+
+        super().clean(*args, **kwargs)
 
     def __str__(self) -> str:
         return str(self.name)

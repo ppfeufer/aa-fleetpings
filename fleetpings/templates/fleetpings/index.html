@@ -28,7 +28,7 @@
                     success: '{% blocktrans context "%(usedPlatform)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping has been sent to your {{ usedPlatform }}.{% endblocktrans %}'
                 },
                 copyToClipboard: {
-                    error: '{% trans "Error! Your ping was not copied to your clipboard. Maybe your browser doesn't support this feature." %}',
+                    error: "{% trans 'Error! Your ping was not copied to your clipboard. Maybe your browser doesn\'t support this feature.' %}",
                     success: '{% blocktrans context "%(usedPlatform)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your {{ usedPlatform }} so you actually get some people in fleet.{% endblocktrans %}',
                 }
             };

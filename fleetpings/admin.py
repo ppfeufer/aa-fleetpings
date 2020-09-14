@@ -33,7 +33,7 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
     FleetDoctrineAdmin
     """
 
-    list_display = ("name", "notes", "is_enabled")
+    list_display = ("name", "link", "notes", "is_enabled")
     list_filter = ("is_enabled",)
     ordering = ("name",)
 

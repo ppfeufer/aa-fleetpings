@@ -469,6 +469,7 @@ jQuery(document).ready(function($) {
             $('#formupTime').prop('disabled', true);
         } else {
             $('#formupTime').removeAttr('disabled');
+            $('#prePing').prop('checked', true);
         }
     });
 

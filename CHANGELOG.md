@@ -5,14 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.0a5] - 2020-09-14
-
-### Changed / New
+## [2.0.0] - 2020-09-15
 
 This is the official re-brand of AA Discord Ping Formatter, since the original name didn't fit anymore with 
 the new features, like automatic pings and now the new Slack implementation.
 
-If you were testing the other alpha version of AA Discord Ping Formatter, make sure to migrate 
+If you were testing one of the alpha versions of AA Discord Ping Formatter, make sure to migrate 
 discordpingformatter zero and deactivate the old app in your local.py before activating this one. 
 They will not run side by side.
 
@@ -25,45 +23,22 @@ Now remove the `'discordpingformatter',` line and add `'fleetpings',` instead.
 Once done, run collectstatic and migrations again. You now have to re-do your settings in the admin 
 backend, since we just nuked them from the old app.
 
+### Added
 
-## [2.0.0a4] - 2020-09-13
+- **Support for pings to Slack.** If you're using Slack, simply add ``AA_FLEETPINGS_USE_SLACK = True`` to your `local.py`
 
 ### Changed
 
+- **!! breaking change !!** Settings are no longer in your `local.py`. You find them now in your admin backend. Which means. after installing this version, you _have_ to re-do you setting in the admin backend of Auth. But trust me, it's worth the effort. 
 - Minimum AA version set to 2.7.4 since we use a feature that was introduced in this version. So make sure to update your Alliance Auth before testing this app.
-
-
-## [2.0.0a3] - 2020-09-13
 
 ### Fixed
 
-- Using Python 3 style `super()` without arguments
-- Import order
-
-### Removed
-
-- template tags since they are no longer needed
+- Several logic errors in the JavaScript
 
 
-## [2.0.0a2] - 2020-09-12
 
-### Changed
-
-- Groups for PingTargets can now be selected via drop down in admin and the respective Discord group_id is assigned automatically. **!! IMPORTANT !!** In case you already defined PingTargets in v2.0.0a1, you have to remove them before migrating.
-
-
-## [2.0.0a1] - 2020-09-12
-
-### Added
-
-- Support for pings to Slack. If you're using Slack, add ``AA_FLEETPINGFORMATTER_USE_SLACK = True`` to your `local.py`
-
-### Changed
-
-- **!! breaking change !!** Settings are no longer in your `local.py`. You find them now in your admin backend. Which means. after updating to this version, you _have_ to re-do you setting in the admin backend of Auth. 
-
-
-# From the discontinued AA Discord Ping Formatter (to keep the history alive)
+## From the discontinued AA Discord Ping Formatter (to keep the history alive)
 
 
 ## [1.1.4] - 2020-08-14

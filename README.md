@@ -97,9 +97,15 @@ Finally restart your AA supervisor services.
 
 ![AA View](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/aa-view.jpg)
 
-### Discord Ping
+### Discord Ping Examples
 
-![Discord Ping Examples](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/ping-examples.jpg)
+#### Not embedded
+
+![Discord Ping No Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping.jpg)
+
+#### Embedded
+
+![Discord Ping Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping-embedded.jpg)
 
 _(Example for embedded ping (top) and non embedded ping (bottom))_
 
@@ -117,3 +123,7 @@ AA_FLEETPINGS_USE_SLACK = True
 
 Although you cannot use your Auth groups as targets for pings with Slack. Auth doesn't supprt Slack as of yet. 
 (Maybe if someone writes a service?)
+
+### Slack Ping Example
+
+![Slack Ping](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/slack-ping.jpg)

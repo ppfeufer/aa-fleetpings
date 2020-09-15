@@ -15,6 +15,7 @@ from fleetpings.models import (
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, permission_required
+from django.db.models import Q
 
 from . import __title__
 
@@ -33,15 +34,16 @@ def index(request):
     """
     fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
-    used_platform = "Discord"
+    platform_used = "Discord"
     if AA_FLEETPINGS_USE_SLACK is True:
-        used_platform = "Slack"
+        platform_used = "Slack"
 
     # get the webhooks for the used platform
     webhooks = (
         Webhook.objects.filter(
-            type=used_platform,
-            restricted_to_group__in=request.user.groups.all(),
+            Q(restricted_to_group__in=request.user.groups.all())
+            | Q(restricted_to_group__isnull=True),
+            type=platform_used,
             is_enabled=True,
         )
         .distinct()
@@ -53,7 +55,9 @@ def index(request):
     if AA_FLEETPINGS_USE_SLACK is False:
         additional_discord_ping_targets = (
             DiscordPingTargets.objects.filter(
-                restricted_to_group__in=request.user.groups.all(), is_enabled=True
+                Q(restricted_to_group__in=request.user.groups.all())
+                | Q(restricted_to_group__isnull=True),
+                is_enabled=True,
             )
             .distinct()
             .order_by("name")
@@ -79,7 +83,7 @@ def index(request):
         "site_url": get_site_url(),
         "timezones_installed": timezones_installed(),
         "mainCharacter": request.user.profile.main_character,
-        "useSlack": AA_FLEETPINGS_USE_SLACK,
+        "platformUsed": platform_used,
     }
 
     return render(request, "fleetpings/index.html", context)

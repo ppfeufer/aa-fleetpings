@@ -35,7 +35,24 @@ You find me there as Rounon Dax.
 please install it first before proceeding. 
 (see the official [AA installation guide](https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html) for details)
 
-### Step 1 - Install app
+### Step 0 - Migrating from AA Discord Ping Formatter
+
+If you have been using the old Discord Ping Formatter until now, it is pretty easy to migrate.
+
+First you have to remove the old app.
+
+```bash
+python manage.py migrate discordpingformatter zero
+```
+
+```bash
+pip uninstall aa-discord-ping-formatter
+```
+
+After this, just remove the `'discordpingformatter',` line from your `INSTALLED_APPS` in your `local.py`.
+Once done, feel free to install this app by following the steps above.
+
+### Step 1 - Install the app
 
 Make sure you are in the virtual environment (venv) of your Alliance Auth installation. 
 Then install the latest version:
@@ -65,11 +82,18 @@ python manage.py migrate
 
 Restart your supervisor services for AA
 
-### Step 4 - Setup permissions
+### Step 4 - Setup permission
 
 Now you can setup permissions in Alliance Auth for your users. 
 Add ``fleetpings | aa fleet pings | Can access this app`` to the states and/or 
 groups you would like to have access.
+
+### Step 5 - Setup the app
+
+In your admin backend you'll find a new section called `Fleet Pings`. 
+This is where you set all your stuff up, like the webhooks you want to ping and who can ping them, 
+fleet types, comms, formup locations and so on. It's pretty straight forward, 
+so you shouldn't have any issues. Go nuts!
 
 ## Updating
 
@@ -97,9 +121,15 @@ Finally restart your AA supervisor services.
 
 ![AA View](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/aa-view.jpg)
 
-### Discord Ping
+### Discord Ping Examples
 
-![Discord Ping Examples](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/ping-examples.jpg)
+#### Not embedded
+
+![Discord Ping No Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping.jpg)
+
+#### Embedded
+
+![Discord Ping Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping-embedded.jpg)
 
 _(Example for embedded ping (top) and non embedded ping (bottom))_
 
@@ -117,3 +147,7 @@ AA_FLEETPINGS_USE_SLACK = True
 
 Although you cannot use your Auth groups as targets for pings with Slack. Auth doesn't supprt Slack as of yet. 
 (Maybe if someone writes a service?)
+
+### Slack Ping Example
+
+![Slack Ping](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/slack-ping.jpg)

@@ -4,7 +4,7 @@
     <label class="col-md-3 control-label" for="pingTarget">{% trans "Ping Target" %}</label>
     <div class="col-md-9">
         <select id="pingTarget" name="pingTarget" class="form-control">
-            {% if useSlack %}
+            {% if platformUsed == 'Slack' %}
                 <option value="@here">@here</option>
                 <option value="@channel">@channel</option>
             {% else %}
@@ -12,7 +12,7 @@
                 <option value="@everyone">@everyone</option>
             {% endif %}
 
-            {% if additionalPingTargets|length > 0 and useSlack == False %}
+            {% if additionalPingTargets|length > 0 and platformUsed == 'Discord' %}
                 <option value="" disabled></option>
                 <optgroup label="{% trans 'Additionally configured ping targets' %}">
                     {% for pingTarget in additionalPingTargets %}

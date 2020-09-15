@@ -33,14 +33,14 @@ def index(request):
     """
     fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
-    used_platform = "Discord"
+    platform_used = "Discord"
     if AA_FLEETPINGS_USE_SLACK is True:
-        used_platform = "Slack"
+        platform_used = "Slack"
 
     # get the webhooks for the used platform
     webhooks = (
         Webhook.objects.filter(
-            type=used_platform,
+            type=platform_used,
             restricted_to_group__in=request.user.groups.all(),
             is_enabled=True,
         )
@@ -79,7 +79,8 @@ def index(request):
         "site_url": get_site_url(),
         "timezones_installed": timezones_installed(),
         "mainCharacter": request.user.profile.main_character,
-        "useSlack": AA_FLEETPINGS_USE_SLACK,
+        # "useSlack": AA_FLEETPINGS_USE_SLACK,
+        "platformUsed": platform_used,
     }
 
     return render(request, "fleetpings/index.html", context)

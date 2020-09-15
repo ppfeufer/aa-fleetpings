@@ -47,7 +47,7 @@
 
 <script type="application/javascript">
     var fleetpingsSettings = {
-        platformUsed: {% if useSlack %}'Slack'{% else %}'Discord'{% endif %},
+        platformUsed: {{ platformUsed }},
         timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
         siteUrl: '{{ site_url }}/',
         pingCreator: '{{ mainCharacter|safe|addslashes }}'

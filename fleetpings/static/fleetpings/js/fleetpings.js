@@ -147,7 +147,9 @@ jQuery(document).ready(function($) {
      * @param {string} formupTime
      */
     var getTimezonesUrl = (function(formupTime) {
-        var formupTimestamp = ((new Date(formupTime + ' UTC')).getTime()) / 1000;
+        var formupDateTime = new Date(formupTime)
+        var formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() *60 * 1000) / 1000;
+
         var timezonesUrl = fleetpingsSettings.siteUrl + 'timezones/?#' + formupTimestamp;
 
         return timezonesUrl;

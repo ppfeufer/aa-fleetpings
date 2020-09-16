@@ -274,6 +274,14 @@ class FleetType(models.Model):
         help_text=_("Hightlight color for the embed"),
     )
 
+    # restrictions
+    restricted_to_group = models.ManyToManyField(
+        Group,
+        blank=True,
+        related_name="fleettype_require_groups",
+        help_text=_("Restrict this fleet type to the following group(s) ..."),
+    )
+
     # fleet type notes
     notes = models.TextField(
         null=True,

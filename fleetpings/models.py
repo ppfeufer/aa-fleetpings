@@ -76,6 +76,14 @@ class FleetDoctrine(models.Model):
         blank=True,
     )
 
+    # restrictions
+    restricted_to_group = models.ManyToManyField(
+        Group,
+        blank=True,
+        related_name="fleetdoctrine_require_groups",
+        help_text=_("Restrict this doctrine to the following group(s) ..."),
+    )
+
     # doctrine notes
     notes = models.TextField(
         null=True,
@@ -272,6 +280,14 @@ class FleetType(models.Model):
         max_length=7,
         blank=True,
         help_text=_("Hightlight color for the embed"),
+    )
+
+    # restrictions
+    restricted_to_group = models.ManyToManyField(
+        Group,
+        blank=True,
+        related_name="fleettype_require_groups",
+        help_text=_("Restrict this fleet type to the following group(s) ..."),
     )
 
     # fleet type notes

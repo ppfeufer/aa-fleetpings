@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [2.1.0] - 2020-09-16
+
+### Added
+
+- Restrictions to fleet types
+- Restrictions to doctrines
+
+### Changed
+
+- Link label/name translated
+
 ## [2.0.0] - 2020-09-15
 
 This is the official re-brand of AA Discord Ping Formatter, since the original name didn't fit anymore with 

@@ -76,6 +76,14 @@ class FleetDoctrine(models.Model):
         blank=True,
     )
 
+    # restrictions
+    restricted_to_group = models.ManyToManyField(
+        Group,
+        blank=True,
+        related_name="fleetdoctrine_require_groups",
+        help_text=_("Restrict this doctrine to the following group(s) ..."),
+    )
+
     # doctrine notes
     notes = models.TextField(
         null=True,

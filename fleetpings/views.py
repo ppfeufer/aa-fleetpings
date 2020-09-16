@@ -75,7 +75,15 @@ def index(request):
     )
 
     # get doctrines
-    doctrines = FleetDoctrine.objects.filter(is_enabled=True).order_by("name")
+    doctrines = (
+        FleetDoctrine.objects.filter(
+            Q(restricted_to_group__in=request.user.groups.all())
+            | Q(restricted_to_group__isnull=True),
+            is_enabled=True,
+        )
+        .distinct()
+        .order_by("name")
+    )
 
     # get formup locations
     formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")

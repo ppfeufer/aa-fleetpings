@@ -70,6 +70,7 @@ class FleetTypeAdmin(admin.ModelAdmin):
 
     list_display = ("name", "embed_color", "notes", "is_enabled")
     list_filter = ("is_enabled",)
+    filter_horizontal = ("restricted_to_group",)
     ordering = ("name",)
 
 

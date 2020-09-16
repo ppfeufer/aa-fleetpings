@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 23:50+0200\n"
-"PO-Revision-Date: 2020-09-14 23:32+0200\n"
+"POT-Creation-Date: 2020-09-16 20:05+0200\n"
+"PO-Revision-Date: 2020-09-16 20:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -23,7 +23,7 @@ msgid "Short name to identify this comms"
 msgstr "Name der Flotten Comms"
 
 #: fleetpings/models.py:40 fleetpings/models.py:84 fleetpings/models.py:142
-#: fleetpings/models.py:203 fleetpings/models.py:281
+#: fleetpings/models.py:204 fleetpings/models.py:290
 msgid "You can add notes about this configuration here if you want"
 msgstr "Du kannst Notizen zu dieser Konfiguration hinzufügen wenn Du magst"
 
@@ -68,7 +68,7 @@ msgstr "Schiffe / Doktrinen"
 msgid "Short name to identify this formup location"
 msgstr "Name des Sammelpunktes. System - Station"
 
-#: fleetpings/models.py:149 fleetpings/models.py:210
+#: fleetpings/models.py:149 fleetpings/models.py:211
 msgid "Whether this formup location is enabled or not"
 msgstr "Sammelpunkt ist aktiv"
 
@@ -93,52 +93,56 @@ msgstr ""
 msgid "ID of the Discord role to ping"
 msgstr "ID der Rolle auf Discord"
 
-#: fleetpings/models.py:195 fleetpings/models.py:361
+#: fleetpings/models.py:196 fleetpings/models.py:371
 msgid "Restrict ping rights to the following group(s) ..."
-msgstr "Beschränke die Ping Rechte auf folgende Gruppe(n)"
+msgstr "Beschränke die Ping Rechte auf folgende Gruppe(n) ..."
 
-#: fleetpings/models.py:223
+#: fleetpings/models.py:224
 msgid "This group has not been synched to Discord yet."
 msgstr "Diese Gruppe wurde noch nicht zu Discord synchronisiert."
 
-#: fleetpings/models.py:253
+#: fleetpings/models.py:254
 msgid "Discord Ping Target"
 msgstr "Ping Ziel"
 
-#: fleetpings/models.py:254
+#: fleetpings/models.py:255
 msgid "Discord Ping Targets"
 msgstr "Ping Ziele"
 
-#: fleetpings/models.py:266
+#: fleetpings/models.py:267
 msgid "Short name to identify this fleet type"
 msgstr "Flotten Art"
 
-#: fleetpings/models.py:273
+#: fleetpings/models.py:274
 msgid "Hightlight color for the embed"
 msgstr "Hervorhebungsfarbe des Embed"
 
-#: fleetpings/models.py:288
+#: fleetpings/models.py:282
+msgid "Restrict this fleet type to the following group(s) ..."
+msgstr "Beschränke diese Flotten Art auf folgende Gruppe(n) ..."
+
+#: fleetpings/models.py:297
 msgid "Whether this fleet type is enabled or not"
 msgstr "Flotten Art ist aktiv oder nicht"
 
-#: fleetpings/models.py:300
+#: fleetpings/models.py:309
 #: fleetpings/templates/fleetpings/form/fleetType.html:4
 msgid "Fleet Type"
 msgstr "Flotten Art"
 
-#: fleetpings/models.py:301
+#: fleetpings/models.py:310
 msgid "Fleet Types"
 msgstr "Flotten Arten"
 
-#: fleetpings/models.py:322
+#: fleetpings/models.py:331
 msgid "Is this a Discord or Slack webhook?"
 msgstr "Ist dies ein Discord oder Slack Webhook?"
 
-#: fleetpings/models.py:329
+#: fleetpings/models.py:338
 msgid "Name of the channel this webhook posts to"
 msgstr "Name des Kanals an den der Webhook senden soll"
 
-#: fleetpings/models.py:338
+#: fleetpings/models.py:347
 msgid ""
 "URL of this webhook, e.g. https://discordapp.com/api/webhooks/123456/abcdef "
 "or https://hooks.slack.com/services/xxxx/xxxx"
@@ -146,7 +150,7 @@ msgstr ""
 "URL des Webhooks, zum Beispiel https://discordapp.com/api/webhooks/123456/"
 "abcdef oder https://hooks.slack.com/services/xxxx/xxxx"
 
-#: fleetpings/models.py:351
+#: fleetpings/models.py:360
 msgid ""
 "Whether this webhook's ping is embedded or not. (This setting only effects "
 "Discord webhooks.)"
@@ -154,19 +158,19 @@ msgstr ""
 "Soll der Ping als Embed gesendet werden? (Dies betrifft nur Discord "
 "Webhooks.)"
 
-#: fleetpings/models.py:369
+#: fleetpings/models.py:379
 msgid "You can add notes about this webhook here if you want"
 msgstr "Du kannst einige Notizen zu diesem Webhook hinzufügen, wenn Du magst"
 
-#: fleetpings/models.py:376
+#: fleetpings/models.py:386
 msgid "Whether this webhook is active or not"
 msgstr "Ist dieser Webhook aktiv oder nicht"
 
-#: fleetpings/models.py:397
+#: fleetpings/models.py:407
 msgid "Webhook"
 msgstr "Webhook"
 
-#: fleetpings/models.py:398
+#: fleetpings/models.py:408
 msgid "Webhooks"
 msgstr "Webhooks"
 
@@ -292,15 +296,15 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: fleetpings/templates/fleetpings/index.html:28
+#: fleetpings/templates/fleetpings/index.html:20
 #, python-format
 msgctxt ""
 "%(usedPlatform)s is a variable that holds the current used platform. It can "
 "be either Slack or Discord. Do not translate it, just use it as it is."
-msgid "Success! Your ping has been sent to your %(usedPlatform)s."
-msgstr "Erfolg! Dein Ping wurde an Dein %(usedPlatform)s gesendet."
+msgid "Success! Your ping has been sent to your %(platformUsed)s."
+msgstr "Erfolg! Dein Ping wurde an Dein %(platformUsed)s gesendet."
 
-#: fleetpings/templates/fleetpings/index.html:31
+#: fleetpings/templates/fleetpings/index.html:23
 msgid ""
 "Error! Your ping was not copied to your clipboard. Maybe your browser "
 "doesn&apos;t support this feature."
@@ -308,18 +312,18 @@ msgstr ""
 "Fehler! Der Ping wurde nicht in Deine Zwischenablage kopiert. Vielleicht "
 "unterstützt Dein Browser diese Funktion nicht."
 
-#: fleetpings/templates/fleetpings/index.html:32
+#: fleetpings/templates/fleetpings/index.html:24
 #, python-format
 msgctxt ""
 "%(usedPlatform)s is a variable that holds the current used platform. It can "
 "be either Slack or Discord. Do not translate it, just use it as it is."
 msgid ""
 "Success! Your ping text has been copied to your clipboard. Now be a good FC "
-"and throw it in your %(usedPlatform)s so you actually get some people in "
+"and throw it in your %(platformUsed)s so you actually get some people in "
 "fleet."
 msgstr ""
 "Erfolg! Der Ping Text wurde in Deine Zwischenablage kopiert. Nun sei ein "
-"braver FC und wirf diesen in Dein %(usedPlatform)s damit Du ein paar Leute "
+"braver FC und wirf diesen in Dein %(platformUsed)s damit Du ein paar Leute "
 "in die Flotte bekommst."
 
 #: fleetpings/templates/fleetpings/ping.html:5

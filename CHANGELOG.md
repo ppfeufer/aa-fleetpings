@@ -13,9 +13,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Restrictions to fleet types
 - Restrictions to doctrines
 
-### Changed
-
-- Link label/name translated
 
 ## [2.0.0] - 2020-09-15
 

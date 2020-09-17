@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.2.0] - 2020-09-16
+
+### Added
+
+- Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed 
+
+
 ## [2.1.0] - 2020-09-16
 
 ### Added

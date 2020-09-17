@@ -94,7 +94,7 @@ def index(request):
     # get doctrines
     if use_fleet_doctrines is True:
         groups = request.user.groups.all()
-        doctrines = _get_docs_qs(request, groups)
+        doctrines = _get_docs_qs(request, groups).order_by("name")
     else:
         doctrines = (
             FleetDoctrine.objects.filter(

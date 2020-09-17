@@ -131,7 +131,6 @@ Finally restart your AA supervisor services.
 
 ![Discord Ping Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping-embedded.jpg)
 
-_(Example for embedded ping (top) and non embedded ping (bottom))_
 
 ## Configuration
 
@@ -151,3 +150,16 @@ Although you cannot use your Auth groups as targets for pings with Slack. Auth d
 ### Slack Ping Example
 
 ![Slack Ping](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/slack-ping.jpg)
+
+### Use Doctrines from Fittings module
+
+If you have the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module installed and your doctrines configured there, 
+you don't have to re-build your doctrine list for this module. You can simply use the doctrines you 
+already have configured in the Fittings and Doctrines module.
+
+To do so, add the following to your `local.py`:
+
+```python
+## AA Fleet Pings
+AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = True
+```

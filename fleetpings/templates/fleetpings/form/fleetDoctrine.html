@@ -8,7 +8,11 @@
         {% if fleetDoctrines|length > 0 %}
             <datalist id="fleetDoctrineList">
                 {% for fleetDoctrine in fleetDoctrines %}
-                    <option value="{{ fleetDoctrine.name }}" data-doctrine-url="{{ fleetDoctrine.link }}">
+                    {% if useFleetDoctrines %}
+                        <option value="{{ fleetDoctrine.name }}" data-doctrine-url="{{ request.scheme }}://{{ request.get_host }}{% url 'fittings:view_doctrine' fleetDoctrine.pk %}">
+                    {% else %}
+                        <option value="{{ fleetDoctrine.name }}" data-doctrine-url="{{ fleetDoctrine.link }}">
+                    {% endif %}
                 {% endfor %}
             </datalist>
         {% endif %}

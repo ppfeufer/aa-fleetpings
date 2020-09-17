@@ -21,9 +21,17 @@ from . import __title__
 
 from .app_settings import (
     AA_FLEETPINGS_USE_SLACK,
+    AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     get_site_url,
     timezones_installed,
+    fittings_installed,
 )
+
+if (
+    fittings_installed() is True
+    and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+):
+    from fittings.views import _get_docs_qs
 
 
 @login_required
@@ -34,9 +42,18 @@ def index(request):
     """
     fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
+    # which platform for pings we are using?
     platform_used = "Discord"
     if AA_FLEETPINGS_USE_SLACK is True:
         platform_used = "Slack"
+
+    # do we use the doctrines from the fittings module, or our own defined?
+    use_fleet_doctrines = False
+    if (
+        fittings_installed() is True
+        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+    ):
+        use_fleet_doctrines = True
 
     # get the webhooks for the used platform
     webhooks = (
@@ -75,15 +92,19 @@ def index(request):
     )
 
     # get doctrines
-    doctrines = (
-        FleetDoctrine.objects.filter(
-            Q(restricted_to_group__in=request.user.groups.all())
-            | Q(restricted_to_group__isnull=True),
-            is_enabled=True,
+    if use_fleet_doctrines is True:
+        groups = request.user.groups.all()
+        doctrines = _get_docs_qs(request, groups)
+    else:
+        doctrines = (
+            FleetDoctrine.objects.filter(
+                Q(restricted_to_group__in=request.user.groups.all())
+                | Q(restricted_to_group__isnull=True),
+                is_enabled=True,
+            )
+            .distinct()
+            .order_by("name")
         )
-        .distinct()
-        .order_by("name")
-    )
 
     # get formup locations
     formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
@@ -98,8 +119,10 @@ def index(request):
         "fleetFormupLocations": formup_locations,
         "site_url": get_site_url(),
         "timezones_installed": timezones_installed(),
+        "fittings_installed": fittings_installed(),
         "mainCharacter": request.user.profile.main_character,
         "platformUsed": platform_used,
+        "useFleetDoctrines": use_fleet_doctrines,
     }
 
     return render(request, "fleetpings/index.html", context)

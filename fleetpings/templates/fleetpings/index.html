@@ -29,10 +29,10 @@
 {% endblock %}
 
 {% block extra_javascript %}
-    <script type="application/javascript" src="{% static 'fleetpings/js/copy-to-clipboard/copy-to-clipboard.min.js' %}"></script>
-    <script type="application/javascript" src="{% static 'fleetpings/js/fleetpings.min.js' %}"></script>
-
     {% include 'bundles/jquery-datetimepicker-js.html' %}
+    {% include 'fleetpings/bundles/clipboard-js.html' %}
+
+    <script type="application/javascript" src="{% static 'fleetpings/js/fleetpings.min.js' %}"></script>
 {% endblock %}
 
 {% block extra_css %}

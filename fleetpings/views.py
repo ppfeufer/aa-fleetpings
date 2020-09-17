@@ -25,6 +25,7 @@ from .app_settings import (
     get_site_url,
     timezones_installed,
     fittings_installed,
+    avoid_cdn,
 )
 
 if (
@@ -123,6 +124,7 @@ def index(request):
         "mainCharacter": request.user.profile.main_character,
         "platformUsed": platform_used,
         "useFleetDoctrines": use_fleet_doctrines,
+        "avoidCdn": avoid_cdn(),
     }
 
     return render(request, "fleetpings/index.html", context)

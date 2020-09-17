@@ -412,7 +412,7 @@ jQuery(document).ready(function($) {
          *
          * @type Clipboard
          */
-        var clipboardFleetPingData = new Clipboard('button#copyFleetPing');
+        var clipboardFleetPingData = new ClipboardJS('button#copyFleetPing');
 
         /**
          * copy success

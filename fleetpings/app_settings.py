@@ -12,6 +12,9 @@ from .utils import clean_setting
 
 # set default panels if none are set in local.py
 AA_FLEETPINGS_USE_SLACK = clean_setting("AA_FLEETPINGS_USE_SLACK", False)
+AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
+    "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
+)
 
 
 def get_site_url():  # regex sso url
@@ -35,3 +38,11 @@ def timezones_installed() -> bool:
     :return: bool
     """
     return "timezones" in settings.INSTALLED_APPS
+
+
+def fittings_installed() -> bool:
+    """
+    check if fittings is installed
+    :return: bool
+    """
+    return "fittings" in settings.INSTALLED_APPS

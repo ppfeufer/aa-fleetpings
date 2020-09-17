@@ -1,8 +1,10 @@
-name: Release to PyPI
+name: PyPI build test
 
 on:
-  branches:
-    - '**'
+  push:
+    branches:
+      - '**'
+
     tags-ignore:
       - v*
 

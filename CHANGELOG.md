@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [x.x.x] - xxxx.xx.xx
+
+### Checked
+
+- Compatibility with the upcoming changes in Alliance Auth v2.8.0 (Django 3)
+
+### Changed
+
+- Fleet type embed color is now a color picker in admin backend
+
+
 ## [2.2.0] - 2020-09-16
 
 ### Added

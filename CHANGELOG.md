@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.2.2] - 2020-09-23
+
+### Added
+
+- Django 3 stiff in setup.py, Should probably be in there as well ...
+
+
 ## [2.2.1] - 2020-09-23
 
 ### Checked

@@ -10,11 +10,11 @@ jQuery(document).ready(function($) {
      * @param {string} string
      * @param {bool} isXhtml
      */
-    var nl2br = (function(string, isXhtml) {
-        var breakTag = (isXhtml || typeof isXhtml === 'undefined') ? '<br />' : '<br>';
+    var nl2br = function(string, isXhtml) {
+        var breakTag = isXhtml || typeof isXhtml === 'undefined' ? '<br />' : '<br>';
 
         return (string + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
-    });
+    };
 
     /**
      * closing the message
@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
      * @param {string} element
      * @returns {void}
      */
-    var closeCopyMessageElement = (function(element) {
+    var closeCopyMessageElement = function(element) {
         /**
          * close after 10 seconds
          */
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
                 $(this).remove();
             });
         });
-    });
+    };
 
     /**
      * show message when copy action was successful
@@ -40,13 +40,13 @@ jQuery(document).ready(function($) {
      * @param {string} element
      * @returns {undefined}
      */
-    var showSuccess = (function(message, element) {
+    var showSuccess = function(message, element) {
         $(element).html('<div class="alert alert-success alert-dismissable alert-copy-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message + '</div>');
 
         closeCopyMessageElement('.alert-copy-success');
 
         return;
-    });
+    };
 
     /**
      * show message when copy action was not successful
@@ -55,13 +55,13 @@ jQuery(document).ready(function($) {
      * @param {string} element
      * @returns {undefined}
      */
-    var showError = (function(message, element) {
+    var showError = function(message, element) {
         $(element).html('<div class="alert alert-danger alert-dismissable alert-copy-error"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message + '</div>');
 
         closeCopyMessageElement('.alert-copy-error');
 
         return;
-    });
+    };
 
     /**
      * sanitize input string
@@ -69,22 +69,22 @@ jQuery(document).ready(function($) {
      * @param {string} element
      * @returns {undefined}
      */
-    var sanitizeInput = (function(input) {
+    var sanitizeInput = function(input) {
         if(input) {
             return input.replace(/<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g, '');
         } else {
             return input;
         }
-    });
+    };
 
     /**
      * send an embedded message to a Discord webhook
      *
      * @param {string} webhookUrl
      * @param {string} content
-     * @param {array} embeds
+     * @param {object} embeds
      */
-    var sendEmbeddedDiscordPing = (function(webhookUrl, content, embeds) {
+    var sendEmbeddedDiscordPing = function(webhookUrl, content, embeds) {
         var request = new XMLHttpRequest();
 
         request.open('POST', webhookUrl);
@@ -98,7 +98,7 @@ jQuery(document).ready(function($) {
         };
 
         request.send(JSON.stringify(params));
-    });
+    };
 
     /**
      * send a message to a Discord webhook
@@ -106,7 +106,7 @@ jQuery(document).ready(function($) {
      * @param {string} webhookUrl
      * @param {string} pingText
      */
-    var sendDiscordPing = (function(webhookUrl, pingText) {
+    var sendDiscordPing = function(webhookUrl, pingText) {
         var request = new XMLHttpRequest();
 
         request.open('POST', webhookUrl);
@@ -119,9 +119,15 @@ jQuery(document).ready(function($) {
         };
 
         request.send(JSON.stringify(params));
-    });
+    };
 
-    var sendSlackPing = (function(webhookUrl, payload) {
+    /**
+     * send a message to a Slack webhook
+     *
+     * @param {string} webhookUrl
+     * @param {object} payload
+     */
+    var sendSlackPing = function(webhookUrl, payload) {
         $.ajax({
             data: 'payload=' + JSON.stringify(payload),
             dataType: 'json',
@@ -129,16 +135,16 @@ jQuery(document).ready(function($) {
             type: 'POST',
             url: webhookUrl
         });
-    });
+    };
 
     /**
      * convert hex color code in something Discord can handle
      *
      * @param {string} hexValue
      */
-    var hexToDecimal = (function(hexValue) {
+    var hexToDecimal = function(hexValue) {
         return parseInt(hexValue.replace('#',''), 16);
-    });
+    };
 
     /**
      * convert the datepicker info into an URL that the
@@ -146,25 +152,28 @@ jQuery(document).ready(function($) {
      *
      * @param {string} formupTime
      */
-    var getTimezonesUrl = (function(formupTime) {
+    var getTimezonesUrl = function(formupTime) {
         var formupDateTime = new Date(formupTime)
         var formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() *60 * 1000) / 1000;
 
         var timezonesUrl = fleetpingsSettings.siteUrl + 'timezones/?#' + formupTimestamp;
 
         return timezonesUrl;
-    });
+    };
 
     /**
      * create the ping text
      */
-    var generateFleetPing = (function() {
+    var generateFleetPing = function() {
         var pingTarget = sanitizeInput($('select#pingTarget option:selected').val());
         var pingTargetText = sanitizeInput($('select#pingTarget option:selected').text());
-        var fleetType = sanitizeInput($('select#fleetType option:selected').val());
+
         var webhookType = sanitizeInput($('select#pingChannel option:selected').data('webhook-type'));
-        var webhookEmbedColor = sanitizeInput($('select#fleetType option:selected').data('embed-color'));
         var webhookEmbedPing = sanitizeInput($('select#pingChannel option:selected').data('webhook-embed'));
+
+        var fleetType = sanitizeInput($('select#fleetType option:selected').val());
+        var webhookEmbedColor = sanitizeInput($('select#fleetType option:selected').data('embed-color'));
+
         var fcName = sanitizeInput($('input#fcName').val());
         var fleetName = sanitizeInput($('input#fleetName').val());
         var formupLocation = sanitizeInput($('input#formupLocation').val());
@@ -341,7 +350,7 @@ jQuery(document).ready(function($) {
             }
 
             // default embed color
-            var embedColor = '#FAA61A';
+            var embedColor = '#faa61a';
 
             if(fleetType !== '' && embedColor !== '') {
                 embedColor = webhookEmbedColor;
@@ -357,7 +366,6 @@ jQuery(document).ready(function($) {
             // send the ping to Discord
             if(webhookType === 'Discord') {
                 if(undefined !== webhookEmbedPing && webhookEmbedPing === 'True') {
-
                     sendEmbeddedDiscordPing(
                         webhookUrl,
                         webhookPingTarget + ' :: **' + webhookPingTextHeader + '**' + "\n" + '** **',
@@ -379,6 +387,12 @@ jQuery(document).ready(function($) {
             // send the ping to Discord
             if(webhookType === 'Slack') {
                 var slackEmbedPingTarget = webhookPingTarget.replace('@', '!');
+
+                /**
+                 * payload to send to Slack
+                 *
+                 * @type {{attachments: [{color: string, footer: string, pretext: string, text: string, fallback: string}]}}
+                 */
                 var payload = {
                     'attachments': [
                         {
@@ -401,12 +415,12 @@ jQuery(document).ready(function($) {
                 '.aa-fleetpings-ping-copyresult'
             );
         }
-    });
+    };
 
     /**
      * copy the fleet ping to clipboard
      */
-    var CopyFleetPing = (function() {
+    var CopyFleetPing = function() {
         /**
          * copy text to clipboard
          *
@@ -440,7 +454,7 @@ jQuery(document).ready(function($) {
 
             clipboardFleetPingData.destroy();
         });
-    });
+    };
 
     /* Events
     ----------------------------------------------------------------------------------------------------------------- */

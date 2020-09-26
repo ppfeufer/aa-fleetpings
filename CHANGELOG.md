@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.2.3] - xxxx-xx-xx
+
+### Added
+
+- Filter to the admin backend
+
+
 ## [2.2.2] - 2020-09-23
 
 ### Added

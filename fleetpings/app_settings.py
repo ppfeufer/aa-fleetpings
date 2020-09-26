@@ -53,7 +53,15 @@ def fittings_installed() -> bool:
 
 def avoid_cdn() -> bool:
     """
-    check if we should avpiod CDN usage
+    check if we should aviod CDN usage
     :return: bool
     """
     return AVOID_CDN
+
+
+def discord_service_installed() -> bool:
+    """
+    check if the Discord service is installed
+    :return:
+    """
+    return "allianceauth.services.modules.discord" in settings.INSTALLED_APPS

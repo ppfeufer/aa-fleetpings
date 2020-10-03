@@ -17,8 +17,18 @@ from fleetpings.models import (
 from django.contrib import admin
 
 
-def custom_filter_title(title):
+def custom_filter(title):
+    """
+    custom filter for model properties
+    :param title:
+    :return:
+    """
+
     class Wrapper(admin.FieldListFilter):
+        """
+        custom_filter :: wrapper
+        """
+
         def __new__(cls, *args, **kwargs):
             instance = admin.FieldListFilter.create(*args, **kwargs)
             instance.title = title
@@ -38,7 +48,8 @@ class FleetCommAdmin(admin.ModelAdmin):
     ordering = ("name",)
     list_filter = ("is_enabled",)
 
-    def _name(self, obj):
+    @classmethod
+    def _name(cls, obj):
         return obj.name
 
     _name.short_description = "Fleet Comms"
@@ -56,23 +67,26 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter_title("active")),
-        ("restricted_to_group", custom_filter_title("restriction")),
+        ("is_enabled", custom_filter(title="active")),
+        ("restricted_to_group", custom_filter(title="restriction")),
     )
 
-    def _name(self, obj):
+    @classmethod
+    def _name(cls, obj):
         return obj.name
 
     _name.short_description = "Doctrine"
     _name.admin_order_field = "name"
 
-    def _link(self, obj):
+    @classmethod
+    def _link(cls, obj):
         return obj.name
 
     _link.short_description = "Doctrine Link"
     _link.admin_order_field = "link"
 
-    def _restricted_to_group(self, obj):
+    @classmethod
+    def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -114,18 +128,20 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter_title("active")),
-        ("name", custom_filter_title("target")),
-        ("restricted_to_group", custom_filter_title("restriction")),
+        ("is_enabled", custom_filter(title="active")),
+        ("name", custom_filter(title="target")),
+        ("restricted_to_group", custom_filter(title="restriction")),
     )
 
-    def _name(self, obj):
+    @classmethod
+    def _name(cls, obj):
         return obj.name
 
     _name.short_description = "Ping Target"
     _name.admin_order_field = "name"
 
-    def _restricted_to_group(self, obj):
+    @classmethod
+    def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -157,17 +173,19 @@ class FleetTypeAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter_title("active")),
-        ("restricted_to_group", custom_filter_title("restriction")),
+        ("is_enabled", custom_filter(title="active")),
+        ("restricted_to_group", custom_filter(title="restriction")),
     )
 
-    def _name(self, obj):
+    @classmethod
+    def _name(cls, obj):
         return obj.name
 
     _name.short_description = "Fleet Type"
     _name.admin_order_field = "name"
 
-    def _restricted_to_group(self, obj):
+    @classmethod
+    def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -200,31 +218,35 @@ class WebhookAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter_title("active")),
-        ("is_embedded", custom_filter_title("embedded")),
-        ("type", custom_filter_title("webhook type")),
-        ("restricted_to_group", custom_filter_title("restriction")),
+        ("is_enabled", custom_filter(title="active")),
+        ("is_embedded", custom_filter(title="embedded")),
+        ("type", custom_filter(title="webhook type")),
+        ("restricted_to_group", custom_filter(title="restriction")),
     )
 
-    def _name(self, obj):
+    @classmethod
+    def _name(cls, obj):
         return obj.name
 
     _name.short_description = "Channel Name"
     _name.admin_order_field = "name"
 
-    def _type(self, obj):
+    @classmethod
+    def _type(cls, obj):
         return obj.type
 
     _type.short_description = "Webhook Type"
     _type.admin_order_field = "type"
 
-    def _url(self, obj):
+    @classmethod
+    def _url(cls, obj):
         return obj.url
 
     _url.short_description = "Webhook URL"
     _url.admin_order_field = "url"
 
-    def _restricted_to_group(self, obj):
+    @classmethod
+    def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:

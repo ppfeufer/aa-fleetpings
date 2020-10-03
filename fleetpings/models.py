@@ -10,11 +10,11 @@ from django.core.validators import URLValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from allianceauth.services.modules.discord.models import DiscordUser
-
 from requests.exceptions import HTTPError
 
 from fleetpings.app_settings import discord_service_installed
+
+from allianceauth.services.modules.discord.models import DiscordUser
 
 
 class AaFleetpings(models.Model):
@@ -22,7 +22,7 @@ class AaFleetpings(models.Model):
     Meta model for app permissions
     """
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         AaFleetpings :: Meta
         """
@@ -60,7 +60,7 @@ class FleetComm(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         FleetComm :: Meta
         """
@@ -137,7 +137,7 @@ class FleetDoctrine(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         FleetDoctrine :: Meta
         """
@@ -180,7 +180,7 @@ class FormupLocation(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         FormupLocation :: Meta
         """
@@ -292,7 +292,7 @@ class DiscordPingTargets(models.Model):
             f") "
         )
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         DiscordPingTargets :: Meta
         """
@@ -350,7 +350,7 @@ class FleetType(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         FleetType :: Meta
         """
@@ -451,7 +451,7 @@ class Webhook(models.Model):
             f")"
         )
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
         """
         Webhook :: Meta
         """

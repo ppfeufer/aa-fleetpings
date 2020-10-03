@@ -56,7 +56,6 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        default=None,
                         help_text="You can add notes about this configuration here if you want",
                         null=True,
                     ),
@@ -100,7 +99,6 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        default=None,
                         help_text="You can add notes about this configuration here if you want",
                         null=True,
                     ),
@@ -152,7 +150,6 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        default=None,
                         help_text="You can add notes about this configuration here if you want",
                         null=True,
                     ),
@@ -196,7 +193,6 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        default=None,
                         help_text="You can add notes about this configuration here if you want",
                         null=True,
                     ),
@@ -265,7 +261,6 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        default=None,
                         help_text="You can add notes about this webhook here if you want",
                         null=True,
                     ),
@@ -318,7 +313,6 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        default=None,
                         help_text="You can add notes about this configuration here if you want",
                         null=True,
                     ),

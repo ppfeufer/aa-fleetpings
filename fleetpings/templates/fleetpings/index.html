@@ -1,7 +1,6 @@
 {% extends 'fleetpings/base.html' %}
 
 {% load i18n %}
-{% load humanize %}
 {% load static %}
 
 {% block details %}
@@ -30,7 +29,7 @@
 
 {% block extra_javascript %}
     {% include 'bundles/jquery-datetimepicker-js.html' %}
-    {% include 'fleetpings/bundles/clipboard-js.html' %}
+    {% include 'bundles/clipboard-js.html' %}
 
     <script type="application/javascript" src="{% static 'fleetpings/js/fleetpings.min.js' %}"></script>
 {% endblock %}

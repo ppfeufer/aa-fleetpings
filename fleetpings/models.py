@@ -10,15 +10,22 @@ from django.core.validators import URLValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from requests.exceptions import HTTPError
+
+from fleetpings.app_settings import discord_service_installed
 
 from allianceauth.services.modules.discord.models import DiscordUser
 
 
 class AaFleetpings(models.Model):
-    """Meta model for app permissions"""
+    """
+    Meta model for app permissions
+    """
 
-    class Meta:
-        """AaFleetpings :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        AaFleetpings :: Meta
+        """
 
         managed = False
         default_permissions = ()
@@ -27,7 +34,9 @@ class AaFleetpings(models.Model):
 
 # FleetComm Model
 class FleetComm(models.Model):
-    """Fleet Comms"""
+    """
+    Fleet Comms
+    """
 
     name = models.CharField(
         max_length=255, unique=True, help_text=_("Short name to identify this comms")
@@ -35,7 +44,6 @@ class FleetComm(models.Model):
 
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -52,8 +60,10 @@ class FleetComm(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
-        """FleetComm :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        FleetComm :: Meta
+        """
 
         verbose_name = _("Fleet Comm")
         verbose_name_plural = _("Fleet Comms")
@@ -62,7 +72,9 @@ class FleetComm(models.Model):
 
 # FleetDoctrine Model
 class FleetDoctrine(models.Model):
-    """Fleet Doctrine"""
+    """
+    Fleet Doctrine
+    """
 
     # doctrine name
     name = models.CharField(
@@ -87,7 +99,6 @@ class FleetDoctrine(models.Model):
     # doctrine notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -105,9 +116,12 @@ class FleetDoctrine(models.Model):
         :param args:
         :param kwargs:
         """
+
         doctrine_link = self.link
+
         if doctrine_link != "":
             validate = URLValidator()
+
             try:
                 validate(doctrine_link)
             except ValidationError as exception:
@@ -123,8 +137,10 @@ class FleetDoctrine(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
-        """FleetDoctrine :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        FleetDoctrine :: Meta
+        """
 
         verbose_name = _("Fleet Doctrine")
         verbose_name_plural = _("Fleet Doctrines")
@@ -133,7 +149,9 @@ class FleetDoctrine(models.Model):
 
 # FormupLocation Model
 class FormupLocation(models.Model):
-    """Formup Location"""
+    """
+    Formup Location
+    """
 
     # formup location name
     name = models.CharField(
@@ -145,7 +163,6 @@ class FormupLocation(models.Model):
     # formup location notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -163,8 +180,10 @@ class FormupLocation(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
-        """FormupLocation :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        FormupLocation :: Meta
+        """
 
         verbose_name = _("Formup Location")
         verbose_name_plural = _("Formup Locations")
@@ -173,7 +192,9 @@ class FormupLocation(models.Model):
 
 # DiscordPingTargets Model
 class DiscordPingTargets(models.Model):
-    """Discord Ping Targets"""
+    """
+    Discord Ping Targets
+    """
 
     # discord group to ping
     name = models.OneToOneField(
@@ -207,7 +228,6 @@ class DiscordPingTargets(models.Model):
     # notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -226,10 +246,25 @@ class DiscordPingTargets(models.Model):
         :param args:
         :param kwargs:
         """
-        discord_group_info = DiscordUser.objects.group_to_role(self.name)
 
-        if not discord_group_info:
-            raise ValidationError(_("This group has not been synched to Discord yet."))
+        # check if the Discord service is active
+        if not discord_service_installed():
+            raise ValidationError(
+                _("You might want to install the Discord service first ...")
+            )
+
+        # get the group id from Discord
+        try:
+            discord_group_info = DiscordUser.objects.group_to_role(self.name)
+        except HTTPError:
+            raise ValidationError(
+                _("Are you sure you have your Discord linked to your Alliance Auth?")
+            )
+        else:
+            if not discord_group_info:
+                raise ValidationError(
+                    _("This group has not been synched to Discord yet.")
+                )
 
         super().clean(*args, **kwargs)
 
@@ -239,6 +274,7 @@ class DiscordPingTargets(models.Model):
         :param args:
         :param kwargs:
         """
+
         discord_group_info = DiscordUser.objects.group_to_role(self.name)
         self.discord_id = discord_group_info["id"]
         super().save(*args, **kwargs)  # Call the "real" save() method.
@@ -256,8 +292,10 @@ class DiscordPingTargets(models.Model):
             f") "
         )
 
-    class Meta:
-        """DiscordPingTargets :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        DiscordPingTargets :: Meta
+        """
 
         verbose_name = _("Discord Ping Target")
         verbose_name_plural = _("Discord Ping Targets")
@@ -266,7 +304,9 @@ class DiscordPingTargets(models.Model):
 
 # FleetType Model
 class FleetType(models.Model):
-    """Fleet Types"""
+    """
+    Fleet Types
+    """
 
     # name of the fleet type
     name = models.CharField(
@@ -293,7 +333,6 @@ class FleetType(models.Model):
     # fleet type notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -311,8 +350,10 @@ class FleetType(models.Model):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
 
-    class Meta:
-        """FleetType :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        FleetType :: Meta
+        """
 
         verbose_name = _("Fleet Type")
         verbose_name_plural = _("Fleet Types")
@@ -321,7 +362,9 @@ class FleetType(models.Model):
 
 # Webhook Model
 class Webhook(models.Model):
-    """A Discord or Slack webhook"""
+    """
+    A Discord or Slack webhook
+    """
 
     # webhook type choices
     WEBHOOK_TYPE_DISCORD = "Discord"
@@ -382,7 +425,6 @@ class Webhook(models.Model):
     # webhook notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this webhook here if you want"),
     )
@@ -409,8 +451,10 @@ class Webhook(models.Model):
             f")"
         )
 
-    class Meta:
-        """Webhook :: Meta"""
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        Webhook :: Meta
+        """
 
         verbose_name = _("Webhook")
         verbose_name_plural = _("Webhooks")

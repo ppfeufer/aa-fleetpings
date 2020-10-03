@@ -12,7 +12,7 @@ from allianceauth import hooks
 from . import urls, __title__
 
 
-class AaFleetpingsMenuItem(MenuItemHook):
+class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-methods
     """ This class ensures only authorized users will see the menu entry """
 
     def __init__(self):

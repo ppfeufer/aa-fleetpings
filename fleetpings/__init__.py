@@ -6,5 +6,5 @@ a couple of variable to use throughout the app
 
 default_app_config: str = "fleetpings.apps.AaFleetpingsConfig"
 
-__version__ = "2.2.2"
+__version__ = "2.3.0a1"
 __title__ = "Fleet Pings"

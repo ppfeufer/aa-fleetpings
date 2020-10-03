@@ -6,18 +6,35 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [2.2.3] - xxxx-xx-xx
+## [2.3.0] - xxxx-xx-xx
+
+### Important!
+
+Before updating to this version, make sure you have your Alliance Auth updated to version 2.8.0 (or newer).
+This version of AA Fleetpings uses a JavaScript library that is introduced in Alliance Auth 2.8.0, 
+so have your Auth updated before installing this version.
+
+### Fixed
+
+- mySQL text fields can't have default values
 
 ### Added
 
 - Filter to the admin backend
+- More checks for Discord. Now checking if the Discord Service s actually activated and setup properly
+
+### Changed
+
+- Use clipboard.js bundled with Alliance Auth
+- Minimum required Alliance Auth version set to 2.8.0 due to us using clipboard.js bundled with Alliance Auth
+- Unused lib removed from templates
 
 
 ## [2.2.2] - 2020-09-23
 
 ### Added
 
-- Django 3 stiff in setup.py, Should probably be in there as well ...
+- Django 3 stuff in setup.py, Should probably be in there as well ...
 
 
 ## [2.2.1] - 2020-09-23

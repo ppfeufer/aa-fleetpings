@@ -44,7 +44,6 @@ class FleetComm(models.Model):
 
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -100,7 +99,6 @@ class FleetDoctrine(models.Model):
     # doctrine notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -165,7 +163,6 @@ class FormupLocation(models.Model):
     # formup location notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -231,7 +228,6 @@ class DiscordPingTargets(models.Model):
     # notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -337,7 +333,6 @@ class FleetType(models.Model):
     # fleet type notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
@@ -430,7 +425,6 @@ class Webhook(models.Model):
     # webhook notes
     notes = models.TextField(
         null=True,
-        default=None,
         blank=True,
         help_text=_("You can add notes about this webhook here if you want"),
     )

@@ -6,7 +6,7 @@ pages url config
 
 from django.urls import path
 
-from . import views
+from fleetpings import views
 
 
 app_name: str = "fleetpings"

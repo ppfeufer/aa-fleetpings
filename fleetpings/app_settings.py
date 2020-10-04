@@ -8,7 +8,7 @@ import re
 
 from django.conf import settings
 
-from .utils import clean_setting
+from fleetpings.utils import clean_setting
 
 # set default panels if none are set in local.py
 AA_FLEETPINGS_USE_SLACK = clean_setting("AA_FLEETPINGS_USE_SLACK", False)

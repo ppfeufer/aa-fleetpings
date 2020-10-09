@@ -17,6 +17,7 @@ so have your Auth updated before installing this version.
 ### Fixed
 
 - mySQL text fields can't have default values
+- Parameters differ from overridden method warning
 
 ### Added
 
@@ -27,7 +28,7 @@ so have your Auth updated before installing this version.
 
 - Use clipboard.js bundled with Alliance Auth
 - Minimum required Alliance Auth version set to 2.8.0 due to us using clipboard.js bundled with Alliance Auth
-- Unused lib removed from templates
+- Unused lib removed
 
 
 ## [2.2.2] - 2020-09-23

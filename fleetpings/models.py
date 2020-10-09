@@ -110,11 +110,9 @@ class FleetDoctrine(models.Model):
         help_text=_("Whether this doctrine is enabled or not"),
     )
 
-    def clean(self, *args, **kwargs):
+    def clean(self):
         """
         check if the doctrine link is an actual link to a website
-        :param args:
-        :param kwargs:
         """
 
         doctrine_link = self.link
@@ -129,7 +127,7 @@ class FleetDoctrine(models.Model):
                     _("Your doctrine URL is not valid.")
                 ) from exception
 
-        super().clean(*args, **kwargs)
+        super().clean()
 
     def __str__(self) -> str:
         return str(self.name)
@@ -239,12 +237,10 @@ class DiscordPingTargets(models.Model):
         help_text=_("Whether this formup location is enabled or not"),
     )
 
-    def clean(self, *args, **kwargs):
+    def clean(self):
         """
         check if the group has already been synched to Discord,
         if not, raise an error
-        :param args:
-        :param kwargs:
         """
 
         # check if the Discord service is active
@@ -266,18 +262,16 @@ class DiscordPingTargets(models.Model):
                     _("This group has not been synched to Discord yet.")
                 )
 
-        super().clean(*args, **kwargs)
+        super().clean()
 
-    def save(self, *args, **kwargs):
+    def save(self):
         """
         Add the Discord group ID and save the whole thing
-        :param args:
-        :param kwargs:
         """
 
         discord_group_info = DiscordUser.objects.group_to_role(self.name)
         self.discord_id = discord_group_info["id"]
-        super().save(*args, **kwargs)  # Call the "real" save() method.
+        super().save()  # Call the "real" save() method.
 
     def __str__(self) -> str:
         return str(self.name)

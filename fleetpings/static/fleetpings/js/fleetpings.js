@@ -214,6 +214,7 @@ jQuery(document).ready(function($) {
         var pingText = '';
 
         // determine pingTargetText
+        var discordPingTarget = '';
         if(pingTargetText.indexOf('@') > -1) {
             discordPingTarget = pingTargetText;
         } else {

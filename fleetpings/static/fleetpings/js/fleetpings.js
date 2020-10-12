@@ -191,7 +191,7 @@ jQuery(document).ready(function($) {
         // let's see if we can find a doctrine link
         var fleetDoctrineLink = null;
         if(fleetDoctrine !== '') {
-            selectedLink = $('#fleetDoctrineList [value="' + fleetDoctrine + '"]').data('doctrine-url');
+            var selectedLink = $('#fleetDoctrineList [value="' + fleetDoctrine + '"]').data('doctrine-url');
 
             if(undefined !== selectedLink && selectedLink !== '') {
                 // Houston, we have a link!

@@ -221,6 +221,7 @@ jQuery(document).ready(function($) {
         }
 
         // determine pingTarget
+        var webhookPingTarget = '';
         if(pingTarget.indexOf('@') > -1) {
             webhookPingTarget = pingTarget;
         } else {

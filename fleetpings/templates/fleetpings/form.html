@@ -49,6 +49,7 @@
     var fleetpingsSettings = {
         platformUsed: '{{ platformUsed }}',
         timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
+        useNewTimezoneLinks: {{ use_new_timezone_links|yesno:"true,false" }},
         siteUrl: '{{ site_url }}/',
         pingCreator: '{{ mainCharacter|safe|addslashes }}'
     };

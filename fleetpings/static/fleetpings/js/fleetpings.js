@@ -156,7 +156,11 @@ jQuery(document).ready(function($) {
         var formupDateTime = new Date(formupTime)
         var formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() *60 * 1000) / 1000;
 
-        var timezonesUrl = fleetpingsSettings.siteUrl + 'timezones/?#' + formupTimestamp;
+        if(fleetpingsSettings.useNewTimezoneLinks === true) {
+            var timezonesUrl = fleetpingsSettings.siteUrl + 'timezones/' + formupTimestamp + '/';
+        } else {
+            var timezonesUrl = fleetpingsSettings.siteUrl + 'timezones/?#' + formupTimestamp;
+        }
 
         return timezonesUrl;
     };

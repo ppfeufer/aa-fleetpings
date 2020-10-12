@@ -23,6 +23,8 @@ so have your Auth updated before installing this version.
 
 - Filter to the admin backend
 - More checks for Discord. Now checking if the Discord Service s actually activated and setup properly
+- Compatibility to AA Timezones (v1.2.1) new link style
+- Backwards compatibility to versions of AA Timezones before 1.2.1, so the old link style is still generated when using an older version
 
 ### Changed
 

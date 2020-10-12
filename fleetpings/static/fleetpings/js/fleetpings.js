@@ -257,34 +257,34 @@ jQuery(document).ready(function($) {
             webhookPingTextHeader += 'Fleet is up';
         }
 
-        pingText += '**' + "\n";
+        pingText += '**' + '\n';
 
         // check if FC name is available
         if(fcName !== '') {
-            pingText += "\n" + '**FC:** ' + fcName;
-            webhookPingTextContent += "\n" + '**FC:** ' + fcName;
+            pingText += '\n' + '**FC:** ' + fcName;
+            webhookPingTextContent += '\n' + '**FC:** ' + fcName;
         }
 
         // check if fleet name is available
         if(fleetName !== '') {
-            pingText += "\n" + '**Fleet Name:** ' + fleetName;
-            webhookPingTextContent += "\n" + '**Fleet Name:** ' + fleetName;
+            pingText += '\n' + '**Fleet Name:** ' + fleetName;
+            webhookPingTextContent += '\n' + '**Fleet Name:** ' + fleetName;
         }
 
         // check if form-up location is available
         if(formupLocation !== '') {
-            pingText += "\n" + '**Formup Location:** ' + formupLocation;
-            webhookPingTextContent += "\n" + '**Formup Location:** ' + formupLocation;
+            pingText += '\n' + '**Formup Location:** ' + formupLocation;
+            webhookPingTextContent += '\n' + '**Formup Location:** ' + formupLocation;
         }
 
         // check if form-up time is available
         if($('input#formupTimeNow').is(':checked')) {
-            pingText += "\n" + '**Formup Time:** NOW';
-            webhookPingTextContent += "\n" + '**Formup Time:** NOW';
+            pingText += '\n' + '**Formup Time:** NOW';
+            webhookPingTextContent += '\n' + '**Formup Time:** NOW';
         } else {
             if(formupTime !== '') {
-                pingText += "\n" + '**Formup Time:** ' + formupTime;
-                webhookPingTextContent += "\n" + '**Formup Time:** ' + formupTime;
+                pingText += '\n' + '**Formup Time:** ' + formupTime;
+                webhookPingTextContent += '\n' + '**Formup Time:** ' + formupTime;
 
                 // get the timestamp and build the link to the timezones module if it's installed
                 if(fleetpingsSettings.timezonesInstalled === true) {
@@ -305,14 +305,14 @@ jQuery(document).ready(function($) {
 
         // check if fleet comms is available
         if(fleetComms !== '') {
-            pingText += "\n" + '**Comms:** ' + fleetComms;
-            webhookPingTextContent += "\n" + '**Comms:** ' + fleetComms;
+            pingText += '\n' + '**Comms:** ' + fleetComms;
+            webhookPingTextContent += '\n' + '**Comms:** ' + fleetComms;
         }
 
         // check if doctrine is available
         if(fleetDoctrine !== '') {
-            pingText += "\n" + '**Ships / Doctrine:** ' + fleetDoctrine;
-            webhookPingTextContent += "\n" + '**Ships / Doctrine:** ' + fleetDoctrine;
+            pingText += '\n' + '**Ships / Doctrine:** ' + fleetDoctrine;
+            webhookPingTextContent += '\n' + '**Ships / Doctrine:** ' + fleetDoctrine;
 
             // grab the doctrine link if there is one
             if(fleetDoctrineLink !== null) {
@@ -330,14 +330,14 @@ jQuery(document).ready(function($) {
 
         // check if srp is available
         if(fleetSrp !== '') {
-            pingText += "\n" + '**SRP:** ' + fleetSrp;
-            webhookPingTextContent += "\n" + '**SRP:** ' + fleetSrp;
+            pingText += '\n' + '**SRP:** ' + fleetSrp;
+            webhookPingTextContent += '\n' + '**SRP:** ' + fleetSrp;
         }
 
         // check if additional information is available
         if(additionalInformation !== '') {
-            pingText += "\n\n" + '**Additional Information**:' + "\n" + additionalInformation;
-            webhookPingTextContent += "\n\n" + '**Additional Information**:' + "\n" + additionalInformation;
+            pingText += '\n\n' + '**Additional Information**:' + '\n' + additionalInformation;
+            webhookPingTextContent += '\n\n' + '**Additional Information**:' + '\n' + additionalInformation;
         }
 
         if(fleetpingsSettings.platformUsed === 'Discord') {
@@ -352,7 +352,7 @@ jQuery(document).ready(function($) {
         if(webhookUrl !== false && webhookUrl !== '') {
             // add ping creator at the end
             if(fleetpingsSettings.pingCreator !== '') {
-                pingText += "\n\n" + '*(Ping sent by: ' + fleetpingsSettings.pingCreator + ')*';
+                pingText += '\n\n' + '*(Ping sent by: ' + fleetpingsSettings.pingCreator + ')*';
                 webhookPingTextFooter = '(Ping sent by: ' + fleetpingsSettings.pingCreator + ')';
             }
 
@@ -375,7 +375,7 @@ jQuery(document).ready(function($) {
                 if(undefined !== webhookEmbedPing && webhookEmbedPing === 'True') {
                     sendEmbeddedDiscordPing(
                         webhookUrl,
-                        webhookPingTarget + ' :: **' + webhookPingTextHeader + '**' + "\n" + '** **',
+                        webhookPingTarget + ' :: **' + webhookPingTextHeader + '**' + '\n' + '** **',
                         // embedded content » https://discohook.org/ - https://leovoel.github.io/embed-visualizer/
                         {
                             'title': '**.: Fleet Details :.**',
@@ -406,7 +406,7 @@ jQuery(document).ready(function($) {
                             'fallback': pingText,
                             'color': embedColor,
                             'pretext': '<' + slackEmbedPingTarget + '>' + ' :: *' + webhookPingTextHeader + '*',
-                            'text': '*.: Fleet Details :.*' + "\n" + webhookPingTextContent.split('**').join('*'),
+                            'text': '*.: Fleet Details :.*' + '\n' + webhookPingTextContent.split('**').join('*'),
                             'footer': webhookPingTextFooter,
 //                            'footer_icon': 'https://platform.slack-edge.com/img/default_application_icon.png'
                         }

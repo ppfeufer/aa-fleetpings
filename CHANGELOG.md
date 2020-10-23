@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [2.3.0] - xxxx-xx-xx
+## [2.3.0] - 2020-10-14
 
 ### Important!
 
@@ -17,17 +17,20 @@ so have your Auth updated before installing this version.
 ### Fixed
 
 - mySQL text fields can't have default values
+- Parameters differ from overridden method warning
 
 ### Added
 
 - Filter to the admin backend
 - More checks for Discord. Now checking if the Discord Service s actually activated and setup properly
+- Compatibility to AA Timezones (v1.2.1) new link style
+- Backwards compatibility to versions of AA Timezones before 1.2.1, so the old link style is still generated when using an older version
 
 ### Changed
 
 - Use clipboard.js bundled with Alliance Auth
 - Minimum required Alliance Auth version set to 2.8.0 due to us using clipboard.js bundled with Alliance Auth
-- Unused lib removed from templates
+- Unused lib removed
 
 
 ## [2.2.2] - 2020-09-23

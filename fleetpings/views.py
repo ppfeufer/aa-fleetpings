@@ -17,13 +17,14 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, permission_required
 from django.db.models import Q
 
-from . import __title__
+from fleetpings import __title__
 
-from .app_settings import (
+from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_SLACK,
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     get_site_url,
     timezones_installed,
+    use_new_timezone_links,
     fittings_installed,
     avoid_cdn,
 )
@@ -120,6 +121,7 @@ def index(request):
         "fleetFormupLocations": formup_locations,
         "site_url": get_site_url(),
         "timezones_installed": timezones_installed(),
+        "use_new_timezone_links": use_new_timezone_links(),
         "fittings_installed": fittings_installed(),
         "mainCharacter": request.user.profile.main_character,
         "platformUsed": platform_used,

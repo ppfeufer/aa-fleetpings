@@ -6,10 +6,10 @@ hook into AA
 
 from django.utils.translation import ugettext_lazy as _
 
+from fleetpings import urls, __title__
+
 from allianceauth.services.hooks import MenuItemHook, UrlHook
 from allianceauth import hooks
-
-from . import urls, __title__
 
 
 class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-methods

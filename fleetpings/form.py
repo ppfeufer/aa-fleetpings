@@ -5,6 +5,7 @@ form declarations
 """
 
 from django.forms import ModelForm, TextInput
+
 from fleetpings.models import FleetType
 
 

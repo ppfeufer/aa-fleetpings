@@ -451,7 +451,7 @@ jQuery(document).ready(function($) {
                 showSuccess(
                     fleetpingsTranslations.optimer.created,
                     '.fleetpings-create-optimer-message'
-                )
+                );
             }
         }
     };

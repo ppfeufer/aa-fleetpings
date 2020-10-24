@@ -47,6 +47,15 @@ def timezones_installed() -> bool:
     return "timezones" in settings.INSTALLED_APPS
 
 
+def optimer_installed() -> bool:
+    """
+    check if optimer_installed is installed
+    :return: bool
+    """
+
+    return "allianceauth.optimer" in settings.INSTALLED_APPS
+
+
 def get_timzones_version():
     """
     get the version of aa-timezones, when installed

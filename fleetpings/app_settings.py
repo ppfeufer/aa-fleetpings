@@ -49,7 +49,7 @@ def timezones_installed() -> bool:
 
 def optimer_installed() -> bool:
     """
-    check if aa-timezones is installed
+    check if optimer_installed is installed
     :return: bool
     """
 

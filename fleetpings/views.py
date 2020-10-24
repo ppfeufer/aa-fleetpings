@@ -6,6 +6,7 @@ the views
 
 from django.contrib.auth.decorators import login_required, permission_required
 from django.db.models import Q
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
 
@@ -124,6 +125,7 @@ def index(request):
         "fleetFormupLocations": formup_locations,
         "site_url": get_site_url(),
         "timezones_installed": timezones_installed(),
+        "optimer_installed": optimer_installed(),
         "use_new_timezone_links": use_new_timezone_links(),
         "fittings_installed": fittings_installed(),
         "mainCharacter": request.user.profile.main_character,
@@ -145,14 +147,17 @@ def create_optimer_on_preping(request):
     """
 
     post_time = timezone.now()
+    character = request.user.profile.main_character
 
     optimer = OpTimer()
-    optimer.doctrine = request.fleetpings.doctrine
-    optimer.system = request.fleetpings.formup_location
-    optimer.start = request.fleetpings.formup_time
+    optimer.doctrine = request.POST["fleet_doctrine"]
+    optimer.system = request.POST["formup_location"]
+    optimer.start = request.POST["formup_time"]
     optimer.duration = "-"
-    optimer.operation_name = request.fleetpings.fleet_name
-    optimer.fc = request.fleetpings.fleet_commander
+    optimer.operation_name = request.POST["fleet_name"]
+    optimer.fc = request.POST["fleet_commander"]
     optimer.post_time = post_time
-    optimer.eve_character_id = request.user.profile.main_character
+    optimer.eve_character = character
     optimer.save()
+
+    return JsonResponse([True], safe=False)

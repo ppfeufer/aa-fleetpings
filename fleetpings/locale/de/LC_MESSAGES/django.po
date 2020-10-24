@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Rounon Dax <rounon.dax@terra-nanotech.de>, 2020
+# Peter Pfeufer <rounon.dax@terra-nanotech.de>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-03 16:54+0200\n"
+"POT-Creation-Date: 2020-10-25 01:09+0200\n"
 "PO-Revision-Date: 2020-10-03 14:49+0000\n"
-"Last-Translator: Rounon Dax <rounon.dax@terra-nanotech.de>, 2020\n"
+"Last-Translator: Peter Pfeufer <rounon.dax@terra-nanotech.de>, 2020\n"
 "Language-Team: German (https://www.transifex.com/ppfeufer/teams/113732/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,8 +25,8 @@ msgstr ""
 msgid "Short name to identify this comms"
 msgstr "Name der Flotten Comms"
 
-#: fleetpings/models.py:48 fleetpings/models.py:103 fleetpings/models.py:167
-#: fleetpings/models.py:232 fleetpings/models.py:337
+#: fleetpings/models.py:48 fleetpings/models.py:103 fleetpings/models.py:165
+#: fleetpings/models.py:230 fleetpings/models.py:331
 msgid "You can add notes about this configuration here if you want"
 msgstr "Du kannst Notizen zu dieser Konfiguration hinzufügen wenn Du magst"
 
@@ -59,36 +59,36 @@ msgstr "Beschränke diese Doktrin auf folgende Gruppe(n) ..."
 msgid "Whether this doctrine is enabled or not"
 msgstr "Ist diese Doktrin aktiv oder nicht"
 
-#: fleetpings/models.py:129
+#: fleetpings/models.py:127
 msgid "Your doctrine URL is not valid."
 msgstr "Der Link ist ungültig."
 
-#: fleetpings/models.py:145
+#: fleetpings/models.py:143
 msgid "Fleet Doctrine"
 msgstr "Schiffe / Doktrin"
 
-#: fleetpings/models.py:146
+#: fleetpings/models.py:144
 msgid "Fleet Doctrines"
 msgstr "Schiffe / Doktrinen"
 
-#: fleetpings/models.py:160
+#: fleetpings/models.py:158
 msgid "Short name to identify this formup location"
 msgstr "Name des Sammelpunktes. System - Station"
 
-#: fleetpings/models.py:174 fleetpings/models.py:239
+#: fleetpings/models.py:172 fleetpings/models.py:237
 msgid "Whether this formup location is enabled or not"
 msgstr "Sammelpunkt ist aktiv"
 
-#: fleetpings/models.py:188
+#: fleetpings/models.py:186
 #: fleetpings/templates/fleetpings/form/formupLocation.html:4
 msgid "Formup Location"
 msgstr "Sammelpunkt"
 
-#: fleetpings/models.py:189
+#: fleetpings/models.py:187
 msgid "Formup Locations"
 msgstr "Sammelpunkte"
 
-#: fleetpings/models.py:206
+#: fleetpings/models.py:204
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synched to Discord.)"
@@ -96,68 +96,68 @@ msgstr ""
 "Name der Discord Gruppe die gepingt werden soll. (Hinweis: Dies muss eine "
 "Auth Gruppe sein, welche zum Discord synchronisiert wurde.)"
 
-#: fleetpings/models.py:217
+#: fleetpings/models.py:215
 msgid "ID of the Discord role to ping"
 msgstr "ID der Rolle auf Discord"
 
-#: fleetpings/models.py:225 fleetpings/models.py:422
+#: fleetpings/models.py:223 fleetpings/models.py:416
 msgid "Restrict ping rights to the following group(s) ..."
 msgstr "Beschränke die Ping Rechte auf folgende Gruppe(n) ..."
 
-#: fleetpings/models.py:253
+#: fleetpings/models.py:249
 msgid "You might want to install the Discord service first ..."
 msgstr "Du solltest eventuell den Discord Service installieren ..."
 
-#: fleetpings/models.py:261
+#: fleetpings/models.py:257
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
 msgstr "Bist Du sicher das Du Dein Discord mit Alliance Auth verlinkt hast?"
 
-#: fleetpings/models.py:266
+#: fleetpings/models.py:262
 msgid "This group has not been synched to Discord yet."
 msgstr "Diese Gruppe wurde noch nicht zu Discord synchronisiert."
 
-#: fleetpings/models.py:300
+#: fleetpings/models.py:294
 msgid "Discord Ping Target"
 msgstr "Ping Ziel"
 
-#: fleetpings/models.py:301
+#: fleetpings/models.py:295
 msgid "Discord Ping Targets"
 msgstr "Ping Ziele"
 
-#: fleetpings/models.py:315
+#: fleetpings/models.py:309
 msgid "Short name to identify this fleet type"
 msgstr "Flotten Art"
 
-#: fleetpings/models.py:322
+#: fleetpings/models.py:316
 msgid "Hightlight color for the embed"
 msgstr "Hervorhebungsfarbe des Embed"
 
-#: fleetpings/models.py:330
+#: fleetpings/models.py:324
 msgid "Restrict this fleet type to the following group(s) ..."
 msgstr "Beschränke diese Flotten Art auf folgende Gruppe(n) ..."
 
-#: fleetpings/models.py:344
+#: fleetpings/models.py:338
 msgid "Whether this fleet type is enabled or not"
 msgstr "Flotten Art ist aktiv oder nicht"
 
-#: fleetpings/models.py:358
+#: fleetpings/models.py:352
 #: fleetpings/templates/fleetpings/form/fleetType.html:4
 msgid "Fleet Type"
 msgstr "Flotten Art"
 
-#: fleetpings/models.py:359
+#: fleetpings/models.py:353
 msgid "Fleet Types"
 msgstr "Flotten Arten"
 
-#: fleetpings/models.py:382
+#: fleetpings/models.py:376
 msgid "Is this a Discord or Slack webhook?"
 msgstr "Ist dies ein Discord oder Slack Webhook?"
 
-#: fleetpings/models.py:389
+#: fleetpings/models.py:383
 msgid "Name of the channel this webhook posts to"
 msgstr "Name des Kanals an den der Webhook senden soll"
 
-#: fleetpings/models.py:398
+#: fleetpings/models.py:392
 msgid ""
 "URL of this webhook, e.g. https://discordapp.com/api/webhooks/123456/abcdef "
 "or https://hooks.slack.com/services/xxxx/xxxx"
@@ -166,7 +166,7 @@ msgstr ""
 "https://discordapp.com/api/webhooks/123456/abcdef oder "
 "https://hooks.slack.com/services/xxxx/xxxx"
 
-#: fleetpings/models.py:411
+#: fleetpings/models.py:405
 msgid ""
 "Whether this webhook's ping is embedded or not. (This setting only effects "
 "Discord webhooks.)"
@@ -174,19 +174,19 @@ msgstr ""
 "Soll der Ping als Embed gesendet werden? (Dies betrifft nur Discord "
 "Webhooks.)"
 
-#: fleetpings/models.py:429
+#: fleetpings/models.py:423
 msgid "You can add notes about this webhook here if you want"
 msgstr "Du kannst einige Notizen zu diesem Webhook hinzufügen, wenn Du magst"
 
-#: fleetpings/models.py:436
+#: fleetpings/models.py:430
 msgid "Whether this webhook is active or not"
 msgstr "Ist dieser Webhook aktiv oder nicht"
 
-#: fleetpings/models.py:459
+#: fleetpings/models.py:453
 msgid "Webhook"
 msgstr "Webhook"
 
-#: fleetpings/models.py:460
+#: fleetpings/models.py:454
 msgid "Webhooks"
 msgstr "Webhooks"
 
@@ -195,13 +195,25 @@ msgstr "Webhooks"
 msgid "Fleet Ping Tool"
 msgstr "Flotten Ping Tool"
 
-#: fleetpings/templates/fleetpings/form.html:43
+#: fleetpings/templates/fleetpings/form.html:47
 msgid "Create Ping"
 msgstr "Ping erstellen"
 
 #: fleetpings/templates/fleetpings/form/additionalInformation.html:4
 msgid "Additional Information"
 msgstr "Zusätzliche Informationen"
+
+#: fleetpings/templates/fleetpings/form/createOptimer.html:9
+msgid "Create Optimer"
+msgstr "Flotten Timer erstellen"
+
+#: fleetpings/templates/fleetpings/form/createOptimer.html:10
+msgid ""
+"If this checkbox is active, a fleet operations timer for this pre-ping will "
+"be created."
+msgstr ""
+"Wenn diese Checkbox aktiv ist, wird automatisch ein Flotten Timer für diesen"
+" Pre-Ping erstellt."
 
 #: fleetpings/templates/fleetpings/form/fleetCommander.html:4
 msgid "FC Name"
@@ -322,6 +334,10 @@ msgid "Success! Your ping has been sent to your %(platformUsed)s."
 msgstr "Erfolg! Dein Ping wurde an Dein %(platformUsed)s gesendet."
 
 #: fleetpings/templates/fleetpings/index.html:22
+msgid "Fleet operations timer has been created ..."
+msgstr "Flotten Timer wurde erstellt ..."
+
+#: fleetpings/templates/fleetpings/index.html:25
 msgid ""
 "Error! Your ping was not copied to your clipboard. Maybe your browser "
 "doesn&apos;t support this feature."
@@ -329,7 +345,7 @@ msgstr ""
 "Fehler! Der Ping wurde nicht in Deine Zwischenablage kopiert. Vielleicht "
 "unterstützt Dein Browser diese Funktion nicht."
 
-#: fleetpings/templates/fleetpings/index.html:23
+#: fleetpings/templates/fleetpings/index.html:26
 #, python-format
 msgctxt ""
 "%(usedPlatform)s is a variable that holds the current used platform. It can "

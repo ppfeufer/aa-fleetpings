@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<div class="form-group clearfix">
+    <div class="col-md-3">&nbsp;</div>
+    <div class="col-md-9">
+        <div class="checkbox fleetpings-create-optimer" style="display: none;">
+            <label for="createOptimer">
+                <input type="checkbox" name="createOptimer" id="createOptimer" value="1">
+                {% trans "Create Optimer" %}<br>
+                <span class="small">{% trans "If this checkbox is active, a fleet operations timer for this pre-ping will be created." %}</span>
+            </label>
+        </div>
+
+        <div class="fleetpings-create-optimer-message"></div>
+    </div>
+</div>

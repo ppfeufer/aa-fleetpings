@@ -427,7 +427,7 @@ jQuery(document).ready(function($) {
         // create optimer if needed
         if(fleetpingsSettings.optimerInstalled === true) {
             if ($('input#prePing').is(':checked') && $('input#createOptimer').is(':checked') && formupTime !== '') {
-                var ajaxUrl = fleetpingsSettings.siteUrl + '/fleetpings/create_optimer/';
+                var ajaxUrl = fleetpingsSettings.siteUrl + 'fleetpings/create_optimer/';
 
                 $.ajax({
                     url: ajaxUrl,

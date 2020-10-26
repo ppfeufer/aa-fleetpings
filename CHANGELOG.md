@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.4.0] - 2020-10-26
+
+### Added
+
+- Checkbox to automatically create an fleet operations timer for a pre ping
+
+
 ## [2.3.0] - 2020-10-14
 
 ### Important!

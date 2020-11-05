@@ -2,25 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Peter Pfeufer <rounon.dax@terra-nanotech.de>, 2020
-#
+# 
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-25 01:09+0200\n"
-"PO-Revision-Date: 2020-10-26 15:17+0100\n"
+"POT-Creation-Date: 2020-11-05 22:51+0100\n"
+"PO-Revision-Date: 2020-10-03 14:49+0000\n"
 "Last-Translator: Peter Pfeufer <rounon.dax@terra-nanotech.de>, 2020\n"
-"Language-Team: German (https://www.transifex.com/ppfeufer/teams/113732/"
-"de/)\n"
+"Language-Team: German (https://www.transifex.com/ppfeufer/teams/113732/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
 
 #: fleetpings/models.py:42
 msgid "Short name to identify this comms"
@@ -163,8 +162,9 @@ msgid ""
 "URL of this webhook, e.g. https://discordapp.com/api/webhooks/123456/abcdef "
 "or https://hooks.slack.com/services/xxxx/xxxx"
 msgstr ""
-"URL des Webhooks, zum Beispiel https://discordapp.com/api/webhooks/123456/"
-"abcdef oder https://hooks.slack.com/services/xxxx/xxxx"
+"URL des Webhooks, zum Beispiel "
+"https://discordapp.com/api/webhooks/123456/abcdef oder "
+"https://hooks.slack.com/services/xxxx/xxxx"
 
 #: fleetpings/models.py:405
 msgid ""
@@ -212,8 +212,8 @@ msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
 msgstr ""
-"Wenn diese Checkbox aktiv ist, wird automatisch ein Flotten Timer für "
-"diesen Pre-Ping erstellt."
+"Wenn diese Checkbox aktiv ist, wird automatisch ein Flotten Timer für diesen"
+" Pre-Ping erstellt."
 
 #: fleetpings/templates/fleetpings/form/fleetCommander.html:4
 msgid "FC Name"
@@ -285,8 +285,9 @@ msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
 msgstr ""
-"Wenn diese Checkbox aktiv ist, wird die Startzeit der Flotte auf &quot;"
-"JETZT&quot; gesetzt und sämtliche Angaben im obigen Feld werden ignoriert."
+"Wenn diese Checkbox aktiv ist, wird die Startzeit der Flotte auf "
+"&quot;JETZT&quot; gesetzt und sämtliche Angaben im obigen Feld werden "
+"ignoriert."
 
 #: fleetpings/templates/fleetpings/form/pingChannel.html:5
 msgid "Ping Channel"
@@ -304,7 +305,11 @@ msgstr "Keinen, einfach nur formatieren"
 msgid "Ping Target"
 msgstr "Ping Ziel"
 
-#: fleetpings/templates/fleetpings/form/pingTargets.html:17
+#: fleetpings/templates/fleetpings/form/pingTargets.html:7
+msgid "Don't Ping"
+msgstr "Nicht pingen"
+
+#: fleetpings/templates/fleetpings/form/pingTargets.html:19
 msgid "Additionally configured ping targets"
 msgstr "Zusätzlich konfigurierte Ping Ziele"
 

@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.4.1] - 2020-11-05
+
+### Added
+
+- "Don't Ping" option to ping targets
+
+
 ## [2.4.0] - 2020-10-26
 
 ### Added

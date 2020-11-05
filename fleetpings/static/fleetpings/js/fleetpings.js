@@ -213,24 +213,28 @@ jQuery(document).ready(function($) {
         var webhookPingTextFooter = '';
         var pingText = '';
 
-        // determine pingTargetText
+        // determine pingTarget and pingTargetText
         var discordPingTarget = '';
-        if(pingTargetText.indexOf('@') > -1) {
-            discordPingTarget = pingTargetText;
-        } else {
-            discordPingTarget = '@' + pingTargetText;
-        }
-
-        // determine pingTarget
         var webhookPingTarget = '';
-        if(pingTarget.indexOf('@') > -1) {
-            webhookPingTarget = pingTarget;
-        } else {
-            webhookPingTarget = '<@&' + pingTarget + '>';
-        }
 
-        // separator
-        pingText += ' :: ';
+        if(pingTarget !== '') {
+            // pingTarget
+            if (pingTarget.indexOf('@') > -1) {
+                webhookPingTarget = pingTarget;
+            } else {
+                webhookPingTarget = '<@&' + pingTarget + '>';
+            }
+
+            // pingTargetText
+            if(pingTargetText.indexOf('@') > -1) {
+                discordPingTarget = pingTargetText;
+            } else {
+                discordPingTarget = '@' + pingTargetText;
+            }
+
+            // separator
+            pingText += ' :: ';
+        }
 
         // fleet announcement
         pingText += '**';
@@ -374,9 +378,13 @@ jQuery(document).ready(function($) {
             // send the ping to Discord
             if(webhookType === 'Discord') {
                 if(undefined !== webhookEmbedPing && webhookEmbedPing === 'True') {
+                    if(pingTarget !== '') {
+                        webhookPingTarget += ' :: ';
+                    }
+
                     sendEmbeddedDiscordPing(
                         webhookUrl,
-                        webhookPingTarget + ' :: **' + webhookPingTextHeader + '**' + '\n' + '** **',
+                        webhookPingTarget + '**' + webhookPingTextHeader + '**' + '\n' + '** **',
                         // embedded content » https://discohook.org/ - https://leovoel.github.io/embed-visualizer/
                         {
                             'title': '**.: Fleet Details :.**',
@@ -394,7 +402,11 @@ jQuery(document).ready(function($) {
 
             // send the ping to Discord
             if(webhookType === 'Slack') {
-                var slackEmbedPingTarget = webhookPingTarget.replace('@', '!');
+                var slackEmbedPingTarget = '';
+
+                if(pingTarget !== '') {
+                    slackEmbedPingTarget = '<' + webhookPingTarget.replace('@', '!') + '> :: ';
+                }
 
                 /**
                  * payload to send to Slack
@@ -406,7 +418,7 @@ jQuery(document).ready(function($) {
                         {
                             'fallback': pingText,
                             'color': embedColor,
-                            'pretext': '<' + slackEmbedPingTarget + '>' + ' :: *' + webhookPingTextHeader + '*',
+                            'pretext': slackEmbedPingTarget + '*' + webhookPingTextHeader + '*',
                             'text': '*.: Fleet Details :.*' + '\n' + webhookPingTextContent.split('**').join('*'),
                             'footer': webhookPingTextFooter,
 //                            'footer_icon': 'https://platform.slack-edge.com/img/default_application_icon.png'

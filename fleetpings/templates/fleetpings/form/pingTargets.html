@@ -4,6 +4,8 @@
     <label class="col-md-3 control-label" for="pingTarget">{% trans "Ping Target" %}</label>
     <div class="col-md-9">
         <select id="pingTarget" name="pingTarget" class="form-control">
+            <option value="">{% trans "Don't Ping" %}</option>
+
             {% if platformUsed == 'Slack' %}
                 <option value="@here">@here</option>
                 <option value="@channel">@channel</option>

@@ -523,14 +523,18 @@ jQuery(document).ready(function($) {
             // $('input#formupTimeNow').prop('disabled', true);
             $('input#formupTime').removeAttr('disabled');
 
-            $('.fleetpings-create-optimer').show();
+            if(fleetpingsSettings.optimerInstalled === true) {
+                $('.fleetpings-create-optimer').show();
+            }
         } else {
             $('input#formupTimeNow').prop('checked', true);
             $('input#formupTimeNow').removeAttr('disabled');
             $('input#formupTime').prop('disabled', true);
 
-            $('input#createOptimer').removeAttr('checked');
-            $('.fleetpings-create-optimer').hide();
+            if(fleetpingsSettings.optimerInstalled === true) {
+                $('input#createOptimer').removeAttr('checked');
+                $('.fleetpings-create-optimer').hide();
+            }
         }
     });
 
@@ -540,14 +544,18 @@ jQuery(document).ready(function($) {
             // $('input#prePing').prop('disabled', true);
             $('input#formupTime').prop('disabled', true);
 
-            $('input#createOptimer').removeAttr('checked');
-            $('.fleetpings-create-optimer').hide();
+            if(fleetpingsSettings.optimerInstalled === true) {
+                $('input#createOptimer').removeAttr('checked');
+                $('.fleetpings-create-optimer').hide();
+            }
         } else {
             $('input#prePing').prop('checked', true);
             $('input#prePing').removeAttr('disabled');
             $('input#formupTime').removeAttr('disabled');
 
-            $('.fleetpings-create-optimer').show();
+            if(fleetpingsSettings.optimerInstalled === true) {
+                $('.fleetpings-create-optimer').show();
+            }
         }
     });
 
@@ -556,6 +564,7 @@ jQuery(document).ready(function($) {
      */
     $('button#createPingText').on('click', function() {
         generateFleetPing();
+
         return false;
     });
 

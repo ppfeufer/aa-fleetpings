@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.4.2] - 2020-11-08
+
+### Fixed
+
+- Create optimer is visible even if optimer is not active (#35)
+
+
 ## [2.4.1] - 2020-11-05
 
 ### Added

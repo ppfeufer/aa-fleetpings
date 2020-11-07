@@ -39,7 +39,9 @@
     {% include 'fleetpings/form/additionalInformation.html' %}
 
     <!-- createOptimer.html -->
-    {% include 'fleetpings/form/createOptimer.html' %}
+    {% if optimer_installed %}
+        {% include 'fleetpings/form/createOptimer.html' %}
+    {% endif %}
 
     <div class="form-group clearfix">
         <label class="col-md-3 control-label" for="createPingText"></label>

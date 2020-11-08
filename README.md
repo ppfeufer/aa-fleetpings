@@ -153,7 +153,7 @@ Although you cannot use your Auth groups as targets for pings with Slack. Auth d
 
 ### Use Doctrines from Fittings module
 
-If you have the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module installed and your doctrines configured there, 
+If you have the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module installed and your doctrines configured there,
 you don't have to re-build your doctrine list for this module. You can simply use the doctrines you
 already have configured in the Fittings and Doctrines module.
 

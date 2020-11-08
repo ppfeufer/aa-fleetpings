@@ -9,7 +9,7 @@
 App for Alliance Auth that can format your fleet pings and also ping for you to Discord and Slack.
 
 Formerly known as [AA Discord Ping Formatter](https://github.com/ppfeufer/aa-discord-ping-formatter).
- 
+
 Since the original app evolved and with the now added support to ping Slack as well,
 I felt the name was no longer fitting, so I re-branded the app as "AA Fleet Pings". The old Discord ping
 formatter will be discontinued in favor of this one.

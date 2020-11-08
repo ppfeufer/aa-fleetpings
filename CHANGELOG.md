@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Important!
 
 Before updating to this version, make sure you have your Alliance Auth updated to version 2.8.0 (or newer).
-This version of AA Fleetpings uses a JavaScript library that is introduced in Alliance Auth 2.8.0, 
+This version of AA Fleetpings uses a JavaScript library that is introduced in Alliance Auth 2.8.0,
 so have your Auth updated before installing this version.
 
 ### Fixed
@@ -76,7 +76,7 @@ so have your Auth updated before installing this version.
 
 ### Added
 
-- Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed 
+- Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed
 
 
 ## [2.1.0] - 2020-09-16
@@ -89,11 +89,11 @@ so have your Auth updated before installing this version.
 
 ## [2.0.0] - 2020-09-15
 
-This is the official re-brand of AA Discord Ping Formatter, since the original name didn't fit anymore with 
+This is the official re-brand of AA Discord Ping Formatter, since the original name didn't fit anymore with
 the new features, like automatic pings and now the new Slack implementation.
 
-If you were testing one of the alpha versions of AA Discord Ping Formatter, make sure to migrate 
-discordpingformatter zero and deactivate the old app in your local.py before activating this one. 
+If you were testing one of the alpha versions of AA Discord Ping Formatter, make sure to migrate
+discordpingformatter zero and deactivate the old app in your local.py before activating this one.
 They will not run side by side.
 
 This is how you do it:
@@ -102,7 +102,7 @@ python manage.py migrate discordpingformatter zero
 ```
 Now remove the `'discordpingformatter',` line and add `'fleetpings',` instead.
 
-Once done, run collectstatic and migrations again. You now have to re-do your settings in the admin 
+Once done, run collectstatic and migrations again. You now have to re-do your settings in the admin
 backend, since we just nuked them from the old app.
 
 ### Added
@@ -111,13 +111,12 @@ backend, since we just nuked them from the old app.
 
 ### Changed
 
-- **!! breaking change !!** Settings are no longer in your `local.py`. You find them now in your admin backend. Which means. after installing this version, you _have_ to re-do you setting in the admin backend of Auth. But trust me, it's worth the effort. 
+- **!! breaking change !!** Settings are no longer in your `local.py`. You find them now in your admin backend. Which means. after installing this version, you _have_ to re-do you setting in the admin backend of Auth. But trust me, it's worth the effort.
 - Minimum AA version set to 2.7.4 since we use a feature that was introduced in this version. So make sure to update your Alliance Auth before testing this app.
 
 ### Fixed
 
 - Several logic errors in the JavaScript
-
 
 
 ## From the discontinued AA Discord Ping Formatter (to keep the history alive)
@@ -171,7 +170,7 @@ backend, since we just nuked them from the old app.
 - Set time selection steps to 15 minutes instead of 60 in te datepicker
 - Set Monday as the beginning of the week in the datepicker
 
-### Fixed 
+### Fixed
 
 - Our Australian time travelers and everyone else who lives in the future (UTC+x) is now able to pre-ping fleets that are coming up in 2 hours Eve time, which might still be in their past local time, depending on how far in the future they live. (#19)
 
@@ -256,7 +255,7 @@ backend, since we just nuked them from the old app.
 
 ### Fixed
 
-- sanitizing form field input 
+- sanitizing form field input
 
 
 ## [0.1.1] - 2020-06-13

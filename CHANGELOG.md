@@ -76,7 +76,7 @@ so have your Auth updated before installing this version.
 
 ### Added
 
-- Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed 
+- Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed
 
 
 ## [2.1.0] - 2020-09-16

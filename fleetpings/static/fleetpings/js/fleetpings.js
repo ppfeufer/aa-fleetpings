@@ -107,11 +107,12 @@ jQuery(document).ready(function($) {
                 );
             }
 
-            if(quotesToEntities === false)
+            if(quotesToEntities === false) {
                 returnValue = returnValue.replace(
                     /"/g,
                     '\\"'
                 );
+            }
 
             return returnValue;
         } else {

@@ -66,12 +66,54 @@ jQuery(document).ready(function($) {
     /**
      * sanitize input string
      *
-     * @param {string} element
-     * @returns {undefined}
+     * @param {string} input string to sanitize
+     * @returns {string} sanitized string
      */
     var sanitizeInput = function(input) {
         if(input) {
-            return input.replace(/<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g, '');
+            var returnValue = input
+                .replace(
+                    /<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g,
+                    ''
+                );
+
+            return returnValue;
+        } else {
+            return input;
+        }
+    };
+
+    /**
+     * escape input string
+     *
+     * @param {string} input string to escape
+     * @param {boolean} quotesToEntities transform quotes into entities
+     * @returns {string} escaped string
+     */
+    var escapeInput = function(input, quotesToEntities) {
+        quotesToEntities = quotesToEntities || false;
+
+        if(input) {
+            var returnValue = sanitizeInput(input)
+                .replace(
+                    /&/g,
+                    '&amp;'
+                );
+
+            if(quotesToEntities === true) {
+                returnValue = returnValue.replace(
+                    /"/g,
+                    '&quot;'
+                );
+            }
+
+            if(quotesToEntities === false)
+                returnValue = returnValue.replace(
+                    /"/g,
+                    '\\"'
+                );
+
+            return returnValue;
         } else {
             return input;
         }
@@ -154,7 +196,7 @@ jQuery(document).ready(function($) {
      */
     var getTimezonesUrl = function(formupTime) {
         var formupDateTime = new Date(formupTime);
-        var formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() *60 * 1000) / 1000;
+        var formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() * 60 * 1000) / 1000;
         var timezonesUrl = '';
 
         if(fleetpingsSettings.useNewTimezoneLinks === true) {
@@ -191,7 +233,7 @@ jQuery(document).ready(function($) {
         // let's see if we can find a doctrine link
         var fleetDoctrineLink = null;
         if(fleetDoctrine !== '') {
-            var selectedLink = $('#fleetDoctrineList [value="' + fleetDoctrine + '"]').data('doctrine-url');
+            var selectedLink = $('#fleetDoctrineList [value="' + escapeInput(fleetDoctrine, false) + '"]').data('doctrine-url');
 
             if(undefined !== selectedLink && selectedLink !== '') {
                 // Houston, we have a link!

@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.4.3] - 2020-12-10
+
+### Fixed
+
+- An issue with quotes in the doctrines field (#38)
+
+
 ## [2.4.2] - 2020-11-08
 
 ### Fixed

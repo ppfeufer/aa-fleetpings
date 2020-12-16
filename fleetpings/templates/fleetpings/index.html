@@ -6,11 +6,25 @@
 {% block details %}
     <div class="aa-fleetpings row">
         <div class="col-md-6">
-            {% include "fleetpings/form.html" %}
+            <div class="panel panel-default">
+                <div class="panel-heading aa-fleetpings-ping-header">
+                    <span class="panel-title">{% trans "Fleet Information" %}</span>
+                </div>
+                <div class="panel-body">
+                    {% include "fleetpings/form.html" %}
+                </div>
+            </div>
         </div>
 
-        <div class="col-md-6">
-            {% include 'fleetpings/ping.html' %}
+        <div class="col-md-6 aa-fleetpings-pingtext">
+            <div class="panel panel-default">
+                <div class="panel-heading aa-fleetpings-ping-header">
+                    <span class="panel-title">{% trans "Formatted Ping Text" %}</span>
+                </div>
+                <div class="panel-body">
+                    {% include 'fleetpings/ping.html' %}
+                </div>
+            </div>
         </div>
 
         <script type="application/javascript">
@@ -38,7 +52,7 @@
 {% endblock %}
 
 {% block extra_css %}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'fleetpings/css/fleetpings.min.css' %}">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'fleetpings/css/fleetpings.min.css' %}">
 
     {% include 'bundles/jquery-datetimepicker-css.html' %}
 {% endblock %}

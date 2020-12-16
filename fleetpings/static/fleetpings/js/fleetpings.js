@@ -249,6 +249,7 @@ jQuery(document).ready(function($) {
             webhookUrl = sanitizeInput($('select#pingChannel option:selected').val());
         }
 
+        $('.aa-fleetpings-no-ping').hide();
         $('.aa-fleetpings-ping').show();
 
         var webhookPingTextHeader = '';
@@ -290,10 +291,11 @@ jQuery(document).ready(function($) {
             if(fleetType !== '') {
                 pingText += ' / ' + fleetType + ' Fleet';
                 webhookPingTextHeader += ' / ' + fleetType + ' Fleet';
-            } else {
-                pingText += ' / Fleet';
-                webhookPingTextHeader += ' / Fleet';
             }
+            // else {
+            //     pingText += ' / Fleet';
+            //     webhookPingTextHeader += ' / Fleet';
+            // }
         } else {
             if(fleetType !== '') {
                 pingText += fleetType + ' ';

@@ -15,7 +15,9 @@ from fleetpings import __title__
 from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_SLACK,
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
+    srp_module_installed,
     get_site_url,
+    srp_module_is,
     timezones_installed,
     optimer_installed,
     use_new_timezone_links,
@@ -116,6 +118,18 @@ def index(request: WSGIRequest) -> HttpResponse:
     # get formup locations
     formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
 
+    srp_code = None
+    if srp_module_installed():
+        if srp_module_is("aasrp"):
+            from django.utils.crypto import get_random_string
+
+            srp_code = get_random_string(length=16)
+
+        if srp_module_is("allianceauth.srp"):
+            from allianceauth.srp.views import random_string
+
+            srp_code = random_string(8)
+
     context = {
         "title": __title__,
         "additionalPingTargets": additional_discord_ping_targets,
@@ -129,10 +143,12 @@ def index(request: WSGIRequest) -> HttpResponse:
         "optimer_installed": optimer_installed(),
         "use_new_timezone_links": use_new_timezone_links(),
         "fittings_installed": fittings_installed(),
-        "mainCharacter": request.user.profile.main_character,
-        "platformUsed": platform_used,
+        "main_character": request.user.profile.main_character,
+        "platform_used": platform_used,
         "useFleetDoctrines": use_fleet_doctrines,
         "avoidCdn": avoid_cdn(),
+        "srp_module_installed": srp_module_installed(),
+        "srp_code": srp_code,
     }
 
     return render(request, "fleetpings/index.html", context)
@@ -140,7 +156,7 @@ def index(request: WSGIRequest) -> HttpResponse:
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def ajax_create_optimer_on_preping(request: WSGIRequest) -> JsonResponse:
+def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
     """
     adding the planned fleet to the optimers
     :param request:
@@ -160,5 +176,50 @@ def ajax_create_optimer_on_preping(request: WSGIRequest) -> JsonResponse:
     optimer.post_time = post_time
     optimer.eve_character = character
     optimer.save()
+
+    return JsonResponse([True], safe=False)
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
+    """
+    create a SRP link on fleetping with formup === now and SRP === yes
+    :param request:
+    """
+
+    post_time = timezone.now()
+    creator = request.user.profile.main_character
+
+    # create allianceauth.srp link
+    # if "allianceauth.srp" in settings.INSTALLED_APPS:
+    if srp_module_is("allianceauth.srp"):
+        from allianceauth.srp.models import SrpFleetMain
+
+        # from allianceauth.srp.views import random_string
+
+        srp_fleet = SrpFleetMain()
+        srp_fleet.fleet_name = request.POST["fleet_name"]
+        srp_fleet.fleet_doctrine = request.POST["fleet_doctrine"]
+        srp_fleet.fleet_time = post_time
+        srp_fleet.fleet_srp_code = request.POST["srp_code"]
+        srp_fleet.fleet_commander = creator
+        srp_fleet.save()
+
+    # create aasrp link
+    # if "aasrp" in settings.INSTALLED_APPS:
+    if srp_module_is("aasrp"):
+        from aasrp.models import AaSrpLink
+
+        # from django.utils.crypto import get_random_string
+
+        srp_link = AaSrpLink()
+        srp_link.srp_name = request.POST["fleet_name"]
+        srp_link.fleet_time = post_time
+        srp_link.fleet_doctrine = request.POST["fleet_doctrine"]
+        srp_link.srp_code = request.POST["srp_code"]
+        srp_link.fleet_commander = creator
+        srp_link.creator = request.user
+        srp_link.save()
 
     return JsonResponse([True], safe=False)

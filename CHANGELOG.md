@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.4.5] - 2021-xx-xx
 
+### Added
+
+- Checkbox to create SRP link when SRP is active for a fleet and formup time is set
+  to "NOW". Supported SRP Modules:
+  - allianceauth.srp (that's the built-in module)
+  - [aasrp](https://github.com/ppfeufer/aa-srp)
+
 ### Changed
 
 - Giving the ajax call a proper name

@@ -43,6 +43,11 @@
         {% include 'fleetpings/form/createOptimer.html' %}
     {% endif %}
 
+    <!-- createSrpLink.html -->
+    {% if srp_module_installed %}
+        {% include 'fleetpings/form/createSrpLink.html' %}
+    {% endif %}
+
     <div class="form-group clearfix">
         <label class="col-md-3 control-label" for="createPingText"></label>
         <div class="col-md-4">
@@ -53,12 +58,19 @@
 
 <script type="application/javascript">
     var fleetpingsSettings = {
-        platformUsed: '{{ platformUsed }}',
+        platformUsed: '{{ platform_used }}',
         timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
         optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
+        srpModuleInstalled: {{ srp_module_installed|yesno:"true,false" }},
         useNewTimezoneLinks: {{ use_new_timezone_links|yesno:"true,false" }},
         siteUrl: '{{ site_url }}/',
-        pingCreator: '{{ mainCharacter|safe|addslashes }}',
-        optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}'
+        pingCreator: '{{ main_character|safe|addslashes }}',
+        {% if optimer_installed %}
+        optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}',
+        {% endif %}
+        {% if srp_module_installed %}
+        srpAjaxUrl: '{% url "fleetpings:ajax_create_srp_link" %}',
+        srpCode: '{{ srp_code }}'
+        {% endif %}
     };
 </script>

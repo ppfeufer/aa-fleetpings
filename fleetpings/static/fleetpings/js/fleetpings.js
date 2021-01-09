@@ -1,6 +1,8 @@
 /* global fleetpingsSettings, fleetpingsTranslations, ClipboardJS */
 
 jQuery(document).ready(function($) {
+    'use strict';
+
     /* Functions
     ----------------------------------------------------------------------------------------------------------------- */
 
@@ -41,7 +43,11 @@ jQuery(document).ready(function($) {
      * @returns {undefined}
      */
     var showSuccess = function(message, element) {
-        $(element).html('<div class="alert alert-success alert-dismissable alert-copy-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message + '</div>');
+        $(element).html(
+            '<div class="alert alert-success alert-dismissable alert-copy-success">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message +
+            '</div>'
+        );
 
         closeCopyMessageElement('.alert-copy-success');
 
@@ -56,7 +62,11 @@ jQuery(document).ready(function($) {
      * @returns {undefined}
      */
     var showError = function(message, element) {
-        $(element).html('<div class="alert alert-danger alert-dismissable alert-copy-error"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message + '</div>');
+        $(element).html(
+            '<div class="alert alert-danger alert-dismissable alert-copy-error">' +
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message +
+            '</div>'
+        );
 
         closeCopyMessageElement('.alert-copy-error');
 
@@ -482,12 +492,12 @@ jQuery(document).ready(function($) {
         }
 
         // create optimer if needed
-        if(fleetpingsSettings.optimerInstalled === true) {
+        if (fleetpingsSettings.optimerInstalled === true) {
             if ($('input#prePing').is(':checked') && $('input#createOptimer').is(':checked') && formupTime !== '') {
-                var ajaxUrl = fleetpingsSettings.optimerAjaxUrl;
+                var optimerAjaxUrl = fleetpingsSettings.optimerAjaxUrl;
 
                 $.ajax({
-                    url: ajaxUrl,
+                    url: optimerAjaxUrl,
                     type: 'post',
                     data: {
                         fleet_doctrine: fleetDoctrine,
@@ -508,6 +518,35 @@ jQuery(document).ready(function($) {
                 showSuccess(
                     fleetpingsTranslations.optimer.created,
                     '.fleetpings-create-optimer-message'
+                );
+            }
+        }
+
+        // create SRP link
+        if(fleetSrp === 'Yes' && fleetpingsSettings.srpModuleInstalled === true) {
+            if ($('input#formupTimeNow').is(':checked') && $('input#createSrpLink').is(':checked') && formupTime === '') {
+                var srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
+
+                $.ajax({
+                    url: srpAjaxUrl,
+                    type: 'post',
+                    data: {
+                        fleet_doctrine: fleetDoctrine,
+                        fleet_name: fleetName,
+                        srp_code: fleetpingsSettings.srpCode
+                    },
+                    headers: {
+                        'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
+                    }
+                });
+
+                // re-set checkbox
+                $('input#createSrpLink').removeAttr('checked');
+
+                // let the user know that an optimer has been created
+                showSuccess(
+                    fleetpingsTranslations.srp.created,
+                    '.fleetpings-create-srp-link-message'
                 );
             }
         }
@@ -555,36 +594,67 @@ jQuery(document).ready(function($) {
     /* Events
     ----------------------------------------------------------------------------------------------------------------- */
 
+    if(fleetpingsSettings.optimerInstalled === true) {
+        if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
+            $('.fleetpings-create-srp-link').show();
+        } else {
+            $('input#createSrpLink').removeAttr('checked');
+            $('.fleetpings-create-srp-link').hide();
+        }
+
+        $('select#fleetSrp').change(function() {
+            if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
+                $('.fleetpings-create-srp-link').show();
+            } else {
+                $('input#createSrpLink').removeAttr('checked');
+                $('.fleetpings-create-srp-link').hide();
+            }
+        });
+    }
+
     /**
      * toggle "Formup NOW" checkbox when "Pre-Ping" is toggled
      *
      * Behaviour:
-     *  Pre-Ping checked » Formup NOW unchecked, Create Optimer is unchecked and hidden
-     *  Pre-Ping unchecked » Formup NOW checked, Create Optimer is displayed
+     *  Pre-Ping checked
+     *      » Formup NOW unchecked
+     *      » Create Optimer is unchecked and hidden
+     *      » Create SRP Link is displayed
+     *  Pre-Ping unchecked
+     *      » Formup NOW checked
+     *      » Create Optimer is displayed
+     *      » Create SRP Link is hidden and unchecked
      */
     $('#prePing').on('change', function() {
         if($('input#prePing').is(':checked')) {
             $('input#formupTimeNow').removeAttr('checked');
-            // $('input#formupTimeNow').prop('disabled', true);
             $('input#formupTime').removeAttr('disabled');
 
             if(fleetpingsSettings.optimerInstalled === true) {
                 $('.fleetpings-create-optimer').show();
             }
+
+            if(fleetpingsSettings.srpModuleInstalled === true) {
+                $('input#createSrpLink').removeAttr('checked');
+                $('.fleetpings-create-srp-link').hide();
+            }
         } else {
-            $('input#formupTimeNow').prop('checked', true);
-            $('input#formupTimeNow').removeAttr('disabled');
+            $('input#formupTimeNow').prop('checked', true).removeAttr('disabled');
             $('input#formupTime').prop('disabled', true);
 
             if(fleetpingsSettings.optimerInstalled === true) {
                 $('input#createOptimer').removeAttr('checked');
                 $('.fleetpings-create-optimer').hide();
             }
+
+            if(fleetpingsSettings.srpModuleInstalled === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
+                $('.fleetpings-create-srp-link').show();
+            }
         }
     });
 
     $('input#formupTimeNow').on('change', function() {
-        if($('input#formupTimeNow').is(':checked')) {
+        if($(this).is(':checked')) {
             $('input#prePing').removeAttr('checked');
             // $('input#prePing').prop('disabled', true);
             $('input#formupTime').prop('disabled', true);
@@ -593,13 +663,21 @@ jQuery(document).ready(function($) {
                 $('input#createOptimer').removeAttr('checked');
                 $('.fleetpings-create-optimer').hide();
             }
+
+            if(fleetpingsSettings.srpModuleInstalled === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
+                $('.fleetpings-create-srp-link').show();
+            }
         } else {
-            $('input#prePing').prop('checked', true);
-            $('input#prePing').removeAttr('disabled');
+            $('input#prePing').prop('checked', true).removeAttr('disabled');
             $('input#formupTime').removeAttr('disabled');
 
             if(fleetpingsSettings.optimerInstalled === true) {
                 $('.fleetpings-create-optimer').show();
+            }
+
+            if(fleetpingsSettings.srpModuleInstalled === true) {
+                $('input#createSrpLink').removeAttr('checked');
+                $('.fleetpings-create-srp-link').hide();
             }
         }
     });

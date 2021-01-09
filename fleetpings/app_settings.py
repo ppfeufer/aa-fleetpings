@@ -112,3 +112,24 @@ def discord_service_installed() -> bool:
     """
 
     return "allianceauth.services.modules.discord" in settings.INSTALLED_APPS
+
+
+def srp_module_installed() -> bool:
+    return_value = False
+
+    if (
+        "allianceauth.srp" in settings.INSTALLED_APPS
+        or "aasrp" in settings.INSTALLED_APPS
+    ):
+        return_value = True
+
+    return return_value
+
+
+def srp_module_is(module_name: str) -> str:
+    """
+    check for a specific SRP module
+    :param module_name:
+    """
+
+    return module_name in settings.INSTALLED_APPS

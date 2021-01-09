@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.4.5] - 2021-xx-xx
+
+### Changed
+
+- Giving the ajax call a proper name
+
+
 ## [2.4.4] - 2020-12-16
 
 ### Fixed

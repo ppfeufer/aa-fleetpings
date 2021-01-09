@@ -5,8 +5,9 @@ the views
 """
 
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
 
@@ -42,7 +43,7 @@ if optimer_installed():
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def index(request):
+def index(request: WSGIRequest) -> HttpResponse:
     """
     Index view
     """
@@ -139,7 +140,7 @@ def index(request):
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def create_optimer_on_preping(request):
+def ajax_create_optimer_on_preping(request: WSGIRequest) -> JsonResponse:
     """
     adding the planned fleet to the optimers
     :param request:

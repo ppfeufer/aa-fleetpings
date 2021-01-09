@@ -58,6 +58,7 @@
         optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
         useNewTimezoneLinks: {{ use_new_timezone_links|yesno:"true,false" }},
         siteUrl: '{{ site_url }}/',
-        pingCreator: '{{ mainCharacter|safe|addslashes }}'
+        pingCreator: '{{ mainCharacter|safe|addslashes }}',
+        optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}'
     };
 </script>

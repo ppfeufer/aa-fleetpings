@@ -392,6 +392,11 @@ jQuery(document).ready(function($) {
         if(fleetSrp !== '') {
             pingText += '\n' + '**SRP:** ' + fleetSrp;
             webhookPingTextContent += '\n' + '**SRP:** ' + fleetSrp;
+
+            if(fleetSrp === 'Yes' && fleetpingsSettings.optimerInstalled === true && $('input#formupTimeNow').is(':checked') && $('input#createSrpLink').is(':checked') && formupTime === '') {
+                pingText += ' (SRP Code: ' + fleetpingsSettings.srpCode + ')';
+                webhookPingTextContent += ' (SRP Code: ' + fleetpingsSettings.srpCode + ')';
+            }
         }
 
         // check if additional information is available

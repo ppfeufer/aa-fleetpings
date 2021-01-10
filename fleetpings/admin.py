@@ -3,7 +3,7 @@
 """
 settings for the admin backend
 """
-
+from django.utils.safestring import mark_safe
 from fleetpings.form import FleetTypeAdminForm
 from fleetpings.models import (
     FleetComm,
@@ -163,7 +163,7 @@ class FleetTypeAdmin(admin.ModelAdmin):
 
     list_display = (
         "_name",
-        "embed_color",
+        "_embed_color",
         "_restricted_to_group",
         "notes",
         "is_enabled",
@@ -185,6 +185,20 @@ class FleetTypeAdmin(admin.ModelAdmin):
     _name.admin_order_field = "name"
 
     @classmethod
+    def _embed_color(cls, obj):
+        return_value = (
+            "<span "
+            'style="display: inline-block; width: 16px; background-color: {bg_color};">'
+            "&nbsp;&nbsp;"
+            "</span> {bg_color}".format(bg_color=obj.embed_color)
+        )
+
+        return mark_safe(return_value)
+
+    _embed_color.short_description = "Embed Color"
+    _embed_color.admin_order_field = "embed_color"
+
+    @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -204,7 +218,6 @@ class WebhookAdmin(admin.ModelAdmin):
     """
 
     list_display = (
-        # "id",
         "_name",
         "_type",
         "_url",

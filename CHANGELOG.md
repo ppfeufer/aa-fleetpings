@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   to "NOW". Supported SRP Modules:
   - allianceauth.srp (that's the built-in module)
   - [aasrp](https://github.com/ppfeufer/aa-srp)
+- Colored box in the admin fleet type overview to represent the embed color
 
 ### Changed
 

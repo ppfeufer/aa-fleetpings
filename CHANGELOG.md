@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.5.0] - 2021-01-12
+
+### Added
+
+- Checkbox to create SRP link when SRP is active for a fleet and formup time is set
+  to "NOW". Supported SRP Modules:
+  - allianceauth.srp (that's the built-in module)
+  - [aasrp](https://github.com/ppfeufer/aa-srp)
+- Colored box in the admin fleet type overview to represent the embed color
+
+### Changed
+
+- Giving the ajax call a proper name
+
+### Removed
+
+- Django 2 support
+
+
 ## [2.4.4] - 2020-12-16
 
 ### Fixed

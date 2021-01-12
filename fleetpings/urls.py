@@ -13,9 +13,15 @@ app_name: str = "fleetpings"
 
 urlpatterns = [
     url(r"^$", views.index, name="index"),
+    # ajax calls
     url(
-        r"^create_optimer/$",
-        views.create_optimer_on_preping,
-        name="create_optimer",
+        r"^call/create-optimer/$",
+        views.ajax_create_optimer,
+        name="ajax_create_optimer",
+    ),
+    url(
+        r"^call/create-srp-link/$",
+        views.ajax_create_srp_link,
+        name="ajax_create_srp_link",
     ),
 ]

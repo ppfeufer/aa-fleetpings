@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<div class="form-group fleetpings-create-srp-link clearfix" style="display: none;">
+    <div class="col-md-3">&nbsp;</div>
+    <div class="col-md-9">
+        <div class="checkbox">
+            <label for="createSrpLink">
+                <input type="checkbox" name="createSrpLink" id="createSrpLink" value="1">
+                {% translate "Create SRP Link" %}<br>
+                <span class="small">{% translate "If this checkbox is active, a SRP link specific for this fleet will be created.<br>Leave blank if unsure." %}</span>
+            </label>
+        </div>
+
+        <div class="fleetpings-create-srp-link-message"></div>
+    </div>
+</div>

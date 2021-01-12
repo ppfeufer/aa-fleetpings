@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [2.4.5] - 2021-xx-xx
+## [2.5.0] - 2021-01-12
 
 ### Added
 
@@ -19,6 +19,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Giving the ajax call a proper name
+
+### Removed
+
+- Django 2 support
 
 
 ## [2.4.4] - 2020-12-16

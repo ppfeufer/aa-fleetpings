@@ -2,10 +2,10 @@
 
 {% if additionalPingWebhooks|length > 0 %}
     <div class="form-group clearfix">
-        <label class="col-md-3 control-label" for="pingChannel">{% trans "Ping Channel" %}<br><span class="small">{% trans "Select a channel to ping it automatically" %}</span></label>
+        <label class="col-md-3 control-label" for="pingChannel">{% translate "Ping Channel" %}<br><span class="small">{% translate "Select a channel to ping it automatically" %}</span></label>
         <div class="col-md-9">
             <select id="pingChannel" name="pingChannel" class="form-control">
-                <option value="">{% trans "None, just format it for me" %}</option>
+                <option value="">{% translate "None, just format it for me" %}</option>
                 <option value="" disabled></option>
 
                 <optgroup label="Configured ping channels">

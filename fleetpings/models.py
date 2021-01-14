@@ -252,19 +252,21 @@ class DiscordPingTargets(models.Model):
         # get the group id from Discord
         try:
             discord_group_info = DiscordUser.objects.group_to_role(self.name)
-        except HTTPError:
+        except HTTPError as http_error:
             raise ValidationError(
                 _("Are you sure you have your Discord linked to your Alliance Auth?")
-            )
+            ) from http_error
         else:
             if not discord_group_info:
                 raise ValidationError(
-                    _("This group has not been synched to Discord yet.")
+                    _("This group has not been synced to Discord yet.")
                 )
 
         super().clean()
 
-    def save(self):
+    def save(
+        self, force_insert=False, force_update=False, using=None, update_fields=None
+    ):
         """
         Add the Discord group ID and save the whole thing
         """
@@ -390,7 +392,7 @@ class Webhook(models.Model):
         help_text=(
             _(
                 "URL of this webhook, e.g. "
-                "https://discordapp.com/api/webhooks/123456/abcdef "
+                "https://discord.com/api/webhooks/123456/abcdef "
                 "or https://hooks.slack.com/services/xxxx/xxxx"
             )
         ),

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.5.1] - 2021-xx-xx
+
+### Changed
+
+- Set input field for formup time to `autocomplete="off"` so you don't have to fiddle
+  around to use the datetime picker anymore
+
+
 ## [2.5.0] - 2021-01-12
 
 ### Added

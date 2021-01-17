@@ -1,6 +1,6 @@
 {% load i18n %}
 
-{% if additionalPingWebhooks|length > 0 %}
+{% if additional_ping_webhooks|length > 0 %}
     <div class="form-group clearfix">
         <label class="col-md-3 control-label" for="pingChannel">{% translate "Ping Channel" %}<br><span class="small">{% translate "Select a channel to ping it automatically" %}</span></label>
         <div class="col-md-9">
@@ -9,8 +9,8 @@
                 <option value="" disabled></option>
 
                 <optgroup label="Configured ping channels">
-                    {% for pingWebhook in additionalPingWebhooks %}
-                        <option value="{{ pingWebhook.url }}" data-webhook-type="{{ pingWebhook.type }}" data-webhook-embed="{{ pingWebhook.is_embedded }}">{{ pingWebhook.name }}</option>
+                    {% for ping_webhook in additional_ping_webhooks %}
+                        <option value="{{ ping_webhook.url }}" data-webhook-type="{{ ping_webhook.type }}" data-webhook-embed="{{ ping_webhook.is_embedded }}">{{ ping_webhook.name }}</option>
                     {% endfor %}
                 </optgroup>
             </select>

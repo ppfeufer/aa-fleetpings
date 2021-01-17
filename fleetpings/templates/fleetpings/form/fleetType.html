@@ -10,14 +10,14 @@
             <option value="StratOP" data-embed-color="#E67E22">{% translate "StratOP" %}</option>
             <option value="CTA" data-embed-color="#E91E63">{% translate "CTA" %}</option>
 
-            {% if additionalFleetTypes|length > 0 %}
+            {% if additional_fleet_types|length > 0 %}
                 <option value="" disabled></option>
                 <optgroup label="{% translate 'Additionally configured fleet types' %}">
-                    {% for fleetType in additionalFleetTypes %}
-                        {% if fleetType.embed_color %}
-                            <option value="{{ fleetType.name }}" data-embed-color="{{ fleetType.embed_color }}">{{ fleetType.name }}</option>
+                    {% for fleet_type in additional_fleet_types %}
+                        {% if fleet_type.embed_color %}
+                            <option value="{{ fleet_type.name }}" data-embed-color="{{ fleet_type.embed_color }}">{{ fleet_type.name }}</option>
                         {% else %}
-                            <option value="{{ fleetType.name }}" data-embed-color="#FAA61A">{{ fleetType.name }}</option>
+                            <option value="{{ fleet_type.name }}" data-embed-color="#FAA61A">{{ fleet_type.name }}</option>
                         {% endif %}
                     {% endfor %}
                 </optgroup>

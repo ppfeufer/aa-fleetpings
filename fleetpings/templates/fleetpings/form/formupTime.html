@@ -3,7 +3,7 @@
 <div class="form-group clearfix">
     <label class="col-md-3 control-label" for="formupTime">{% translate "Formup Time" %}<br><span class="small">{% translate "This is Eve Time" %}</span></label>
     <div class="col-md-9">
-        <input id="formupTime" name="formupTime" type="text" class="form-control input-md" disabled>
+        <input id="formupTime" name="formupTime" type="text" class="form-control input-md" disabled autocomplete="off">
         <span class="small">{% translate "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck &quot;Formup NOW&quot; (checkbox below)." %}</span>
         {% if timezones_installed %}
             <span class="small">{% translate "Timezones module is installed. Link to time zone conversion will be added automatically if you set a date and time here." %}</span>

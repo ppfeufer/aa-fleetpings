@@ -5,10 +5,10 @@
     <div class="col-md-9">
         <input id="fleetComms" name="fleetComms" type="text" class="form-control input-md" list="fleetCommsList">
 
-        {% if fleetComms|length > 0 %}
+        {% if fleet_comms|length > 0 %}
             <datalist id="fleetCommsList">
-                {% for fleetComm in fleetComms %}
-                    <option value="{{ fleetComm }}">
+                {% for fleet_comm in fleet_comms %}
+                    <option value="{{ fleet_comm }}">
                 {% endfor %}
             </datalist>
         {% endif %}

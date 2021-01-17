@@ -5,10 +5,10 @@
     <div class="col-md-9">
         <input id="formupLocation" name="formupLocation" type="text" class="form-control input-md" list="formupLocationList">
 
-        {% if fleetFormupLocations|length > 0 %}
+        {% if fleet_formup_locations|length > 0 %}
             <datalist id="formupLocationList">
-                {% for formupLocation in fleetFormupLocations %}
-                    <option value="{{ formupLocation }}">
+                {% for formup_location in fleet_formup_locations %}
+                    <option value="{{ formup_location }}">
                 {% endfor %}
             </datalist>
         {% endif %}

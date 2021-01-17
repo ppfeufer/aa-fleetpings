@@ -6,7 +6,7 @@
         <select id="pingTarget" name="pingTarget" class="form-control">
             <option value="">{% translate "Don't Ping" %}</option>
 
-            {% if platformUsed == 'Slack' %}
+            {% if platform_used == 'Slack' %}
                 <option value="@here">@here</option>
                 <option value="@channel">@channel</option>
             {% else %}
@@ -14,11 +14,11 @@
                 <option value="@everyone">@everyone</option>
             {% endif %}
 
-            {% if additionalPingTargets|length > 0 and platformUsed == 'Discord' %}
+            {% if additional_discord_ping_targets|length > 0 and platform_used == 'Discord' %}
                 <option value="" disabled></option>
                 <optgroup label="{% translate 'Additionally configured ping targets' %}">
-                    {% for pingTarget in additionalPingTargets %}
-                        <option value="{{ pingTarget.discord_id }}">@{{ pingTarget.name }}</option>
+                    {% for ping_target in additional_discord_ping_targets %}
+                        <option value="{{ ping_target.discord_id }}">@{{ ping_target.name }}</option>
                     {% endfor %}
                 </optgroup>
             {% endif %}

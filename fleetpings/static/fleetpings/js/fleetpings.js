@@ -260,7 +260,7 @@ jQuery(document).ready(function($) {
         }
 
         $('.aa-fleetpings-no-ping').hide('fast');
-        $('.aa-fleetpings-ping').show('fasz');
+        $('.aa-fleetpings-ping').show('fast');
 
         var webhookPingTextHeader = '';
         var webhookPingTextContent = '';

@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.5.2] - 2021-01-19
+
+### Added
+
+- Permission checks for "Create SRP Link" checkbox, so only FC's who have the
+  permission to actually add SRP links can use this feature (#46)
+
+### Fixed
+
+- Creating multiple SRP links with the same SRP code.
+
 
 ## [2.5.1] - 2021-01-17
 

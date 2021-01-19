@@ -44,7 +44,7 @@
     {% endif %}
 
     <!-- createSrpLink.html -->
-    {% if srp_module_installed %}
+    {% if srp_module_available_to_user %}
         {% include 'fleetpings/form/createSrpLink.html' %}
     {% endif %}
 
@@ -61,16 +61,16 @@
         platformUsed: '{{ platform_used }}',
         timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
         optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
-        srpModuleInstalled: {{ srp_module_installed|yesno:"true,false" }},
+        srpModuleAvailableToUser: {{ srp_module_available_to_user|yesno:"true,false" }},
         useNewTimezoneLinks: {{ use_new_timezone_links|yesno:"true,false" }},
         siteUrl: '{{ site_url }}/',
         pingCreator: '{{ main_character|safe|addslashes }}',
         {% if optimer_installed %}
         optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}',
         {% endif %}
-        {% if srp_module_installed %}
+        {% if srp_module_available_to_user %}
         srpAjaxUrl: '{% url "fleetpings:ajax_create_srp_link" %}',
-        srpCode: '{{ srp_code }}'
+        {#srpCode: '{{ srp_code }}'#}
         {% endif %}
     };
 </script>

@@ -7,6 +7,7 @@ our app setting
 import re
 
 from django.conf import settings
+from django.core.handlers.wsgi import WSGIRequest
 
 from fleetpings.utils import clean_setting
 
@@ -126,10 +127,34 @@ def srp_module_installed() -> bool:
     return return_value
 
 
-def srp_module_is(module_name: str) -> str:
+def srp_module_is(module_name: str) -> bool:
     """
     check for a specific SRP module
     :param module_name:
     """
 
     return module_name in settings.INSTALLED_APPS
+
+
+def can_add_srp_links(request: WSGIRequest, module_name: str) -> bool:
+    """
+    check if the current user has the rights to add SRP links for the module
+    :param request:
+    :param module_name:
+    """
+
+    return_value = False
+
+    if module_name == "aasrp" and (
+        request.user.has_perm("aasrp.manage_srp")
+        or request.user.has_perm("aasrp.create_srp")
+    ):
+        return_value = True
+
+    if module_name == "allianceauth.srp" and (
+        request.user.has_perm("auth.srp_management")
+        or request.user.has_perm("srp.add_srpfleetmain")
+    ):
+        return_value = True
+
+    return return_value

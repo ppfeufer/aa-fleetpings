@@ -259,8 +259,8 @@ jQuery(document).ready(function($) {
             webhookUrl = sanitizeInput($('select#pingChannel option:selected').val());
         }
 
-        $('.aa-fleetpings-no-ping').hide();
-        $('.aa-fleetpings-ping').show();
+        $('.aa-fleetpings-no-ping').hide('fast');
+        $('.aa-fleetpings-ping').show('fasz');
 
         var webhookPingTextHeader = '';
         var webhookPingTextContent = '';
@@ -601,18 +601,18 @@ jQuery(document).ready(function($) {
 
     if(fleetpingsSettings.optimerInstalled === true) {
         if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
-            $('.fleetpings-create-srp-link').show();
+            $('.fleetpings-create-srp-link').show('fast');
         } else {
             $('input#createSrpLink').removeAttr('checked');
-            $('.fleetpings-create-srp-link').hide();
+            $('.fleetpings-create-srp-link').hide('fast');
         }
 
         $('select#fleetSrp').change(function() {
             if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
-                $('.fleetpings-create-srp-link').show();
+                $('.fleetpings-create-srp-link').show('fast');
             } else {
                 $('input#createSrpLink').removeAttr('checked');
-                $('.fleetpings-create-srp-link').hide();
+                $('.fleetpings-create-srp-link').hide('fast');
             }
         });
     }
@@ -636,12 +636,12 @@ jQuery(document).ready(function($) {
             $('input#formupTime').removeAttr('disabled');
 
             if(fleetpingsSettings.optimerInstalled === true) {
-                $('.fleetpings-create-optimer').show();
+                $('.fleetpings-create-optimer').show('fast');
             }
 
             if(fleetpingsSettings.srpModuleInstalled === true) {
                 $('input#createSrpLink').removeAttr('checked');
-                $('.fleetpings-create-srp-link').hide();
+                $('.fleetpings-create-srp-link').hide('fast');
             }
         } else {
             $('input#formupTimeNow').prop('checked', true).removeAttr('disabled');
@@ -649,11 +649,11 @@ jQuery(document).ready(function($) {
 
             if(fleetpingsSettings.optimerInstalled === true) {
                 $('input#createOptimer').removeAttr('checked');
-                $('.fleetpings-create-optimer').hide();
+                $('.fleetpings-create-optimer').hide('fast');
             }
 
             if(fleetpingsSettings.srpModuleInstalled === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
-                $('.fleetpings-create-srp-link').show();
+                $('.fleetpings-create-srp-link').show('fast');
             }
         }
     });
@@ -666,23 +666,23 @@ jQuery(document).ready(function($) {
 
             if(fleetpingsSettings.optimerInstalled === true) {
                 $('input#createOptimer').removeAttr('checked');
-                $('.fleetpings-create-optimer').hide();
+                $('.fleetpings-create-optimer').hide('fast');
             }
 
             if(fleetpingsSettings.srpModuleInstalled === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
-                $('.fleetpings-create-srp-link').show();
+                $('.fleetpings-create-srp-link').show('fast');
             }
         } else {
             $('input#prePing').prop('checked', true).removeAttr('disabled');
             $('input#formupTime').removeAttr('disabled');
 
             if(fleetpingsSettings.optimerInstalled === true) {
-                $('.fleetpings-create-optimer').show();
+                $('.fleetpings-create-optimer').show('fast');
             }
 
             if(fleetpingsSettings.srpModuleInstalled === true) {
                 $('input#createSrpLink').removeAttr('checked');
-                $('.fleetpings-create-srp-link').hide();
+                $('.fleetpings-create-srp-link').hide('fast');
             }
         }
     });

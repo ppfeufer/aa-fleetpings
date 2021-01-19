@@ -15,6 +15,7 @@ from fleetpings import __title__
 from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_SLACK,
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
+    can_add_srp_links,
     srp_module_installed,
     get_site_url,
     srp_module_is,
@@ -119,13 +120,23 @@ def index(request: WSGIRequest) -> HttpResponse:
     formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
 
     srp_code = None
-    if srp_module_installed():
-        if srp_module_is("aasrp"):
+    srp_module_available_to_user = False
+    if srp_module_installed() and (
+        can_add_srp_links(request=request, module_name="aasrp")
+        or can_add_srp_links(request=request, module_name="allianceauth.srp")
+    ):
+        srp_module_available_to_user = True
+
+        if srp_module_is("aasrp") and can_add_srp_links(
+            request=request, module_name="aasrp"
+        ):
             from django.utils.crypto import get_random_string
 
             srp_code = get_random_string(length=16)
 
-        if srp_module_is("allianceauth.srp"):
+        if srp_module_is("allianceauth.srp") and can_add_srp_links(
+            request=request, module_name="allianceauth.srp"
+        ):
             from allianceauth.srp.views import random_string
 
             srp_code = random_string(8)
@@ -147,7 +158,7 @@ def index(request: WSGIRequest) -> HttpResponse:
         "platform_used": platform_used,
         "use_fleet_doctrines": use_fleet_doctrines,
         "avoid_cdn": avoid_cdn(),
-        "srp_module_installed": srp_module_installed(),
+        "srp_module_installed": srp_module_available_to_user,
         "srp_code": srp_code,
     }
 
@@ -193,7 +204,9 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
 
     # create allianceauth.srp link
     # if "allianceauth.srp" in settings.INSTALLED_APPS:
-    if srp_module_is("allianceauth.srp"):
+    if srp_module_is("allianceauth.srp") and can_add_srp_links(
+        request=request, module_name="allianceauth.srp"
+    ):
         from allianceauth.srp.models import SrpFleetMain
 
         # from allianceauth.srp.views import random_string
@@ -208,7 +221,9 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
 
     # create aasrp link
     # if "aasrp" in settings.INSTALLED_APPS:
-    if srp_module_is("aasrp"):
+    if srp_module_is("aasrp") and can_add_srp_links(
+        request=request, module_name="aasrp"
+    ):
         from aasrp.models import AaSrpLink
 
         # from django.utils.crypto import get_random_string

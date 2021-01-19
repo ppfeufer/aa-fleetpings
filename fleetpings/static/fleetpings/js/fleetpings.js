@@ -222,7 +222,7 @@ jQuery(document).ready(function($) {
     /**
      * create the ping text
      */
-    var generateFleetPing = function() {
+    var generateFleetPing = function(fleetSrpCode) {
         var pingTarget = sanitizeInput($('select#pingTarget option:selected').val());
         var pingTargetText = sanitizeInput($('select#pingTarget option:selected').text());
 
@@ -384,7 +384,6 @@ jQuery(document).ready(function($) {
                 if(webhookType === 'Slack') {
                     webhookPingTextContent += ' (<' + fleetDoctrineLink + '|Doctrine Link>)';
                 }
-
             }
         }
 
@@ -393,9 +392,9 @@ jQuery(document).ready(function($) {
             pingText += '\n' + '**SRP:** ' + fleetSrp;
             webhookPingTextContent += '\n' + '**SRP:** ' + fleetSrp;
 
-            if(fleetSrp === 'Yes' && fleetpingsSettings.optimerInstalled === true && $('input#formupTimeNow').is(':checked') && $('input#createSrpLink').is(':checked') && formupTime === '') {
-                pingText += ' (SRP Code: ' + fleetpingsSettings.srpCode + ')';
-                webhookPingTextContent += ' (SRP Code: ' + fleetpingsSettings.srpCode + ')';
+            if(fleetSrp === 'Yes' && fleetSrpCode !== '') {
+                pingText += ' (SRP Code: ' + fleetSrpCode + ')';
+                webhookPingTextContent += ' (SRP Code: ' + fleetSrpCode + ')';
             }
         }
 
@@ -406,11 +405,15 @@ jQuery(document).ready(function($) {
         }
 
         if(fleetpingsSettings.platformUsed === 'Discord') {
-            $('.aa-fleetpings-ping-text').html('<p>' + nl2br(discordPingTarget + pingText) + '</p>');
+            $('.aa-fleetpings-ping-text').html(
+                '<p>' + nl2br(discordPingTarget + pingText) + '</p>'
+            );
         }
 
         if(fleetpingsSettings.platformUsed === 'Slack') {
-            $('.aa-fleetpings-ping-text').html('<p>' + nl2br(discordPingTarget + pingText.split('**').join('*')) + '</p>');
+            $('.aa-fleetpings-ping-text').html(
+                '<p>' + nl2br(discordPingTarget + pingText.split('**').join('*')) + '</p>'
+            );
         }
 
         // ping it directly if a webhook is selected
@@ -526,35 +529,6 @@ jQuery(document).ready(function($) {
                 );
             }
         }
-
-        // create SRP link
-        if(fleetSrp === 'Yes' && fleetpingsSettings.srpModuleInstalled === true) {
-            if ($('input#formupTimeNow').is(':checked') && $('input#createSrpLink').is(':checked') && formupTime === '') {
-                var srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
-
-                $.ajax({
-                    url: srpAjaxUrl,
-                    type: 'post',
-                    data: {
-                        fleet_doctrine: fleetDoctrine,
-                        fleet_name: fleetName,
-                        srp_code: fleetpingsSettings.srpCode
-                    },
-                    headers: {
-                        'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
-                    }
-                });
-
-                // re-set checkbox
-                $('input#createSrpLink').removeAttr('checked');
-
-                // let the user know that an optimer has been created
-                showSuccess(
-                    fleetpingsTranslations.srp.created,
-                    '.fleetpings-create-srp-link-message'
-                );
-            }
-        }
     };
 
     /**
@@ -599,7 +573,7 @@ jQuery(document).ready(function($) {
     /* Events
     ----------------------------------------------------------------------------------------------------------------- */
 
-    if(fleetpingsSettings.optimerInstalled === true) {
+    if(fleetpingsSettings.srpModuleAvailableToUser === true) {
         if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
             $('.fleetpings-create-srp-link').show('fast');
         } else {
@@ -639,7 +613,7 @@ jQuery(document).ready(function($) {
                 $('.fleetpings-create-optimer').show('fast');
             }
 
-            if(fleetpingsSettings.srpModuleInstalled === true) {
+            if(fleetpingsSettings.srpModuleAvailableToUser === true) {
                 $('input#createSrpLink').removeAttr('checked');
                 $('.fleetpings-create-srp-link').hide('fast');
             }
@@ -652,7 +626,7 @@ jQuery(document).ready(function($) {
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if(fleetpingsSettings.srpModuleInstalled === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
+            if(fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         }
@@ -669,7 +643,7 @@ jQuery(document).ready(function($) {
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if(fleetpingsSettings.srpModuleInstalled === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
+            if(fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         } else {
@@ -680,7 +654,7 @@ jQuery(document).ready(function($) {
                 $('.fleetpings-create-optimer').show('fast');
             }
 
-            if(fleetpingsSettings.srpModuleInstalled === true) {
+            if(fleetpingsSettings.srpModuleAvailableToUser === true) {
                 $('input#createSrpLink').removeAttr('checked');
                 $('.fleetpings-create-srp-link').hide('fast');
             }
@@ -691,7 +665,44 @@ jQuery(document).ready(function($) {
      * generate ping text
      */
     $('button#createPingText').on('click', function() {
-        generateFleetPing();
+        var fleetSrp = sanitizeInput($('select#fleetSrp option:selected').val());
+        var fleetName = sanitizeInput($('input#fleetName').val());
+        var fleetDoctrine = sanitizeInput($('input#fleetDoctrine').val());
+
+        if ($('input#createSrpLink').is(':checked') && $('input#formupTimeNow').is(':checked')) {
+            // create SRP link
+            var srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
+            var srpCode = '';
+
+            $.ajax({
+                url: srpAjaxUrl,
+                type: 'post',
+                data: {
+                    fleet_doctrine: fleetDoctrine,
+                    fleet_name: fleetName
+                },
+                headers: {
+                    'X-CSRFToken': sanitizeInput(
+                        $('input[name="csrfmiddlewaretoken"]').val()
+                    )
+                }
+            }).done(function(result) {
+                srpCode = result.srp_code;
+
+                generateFleetPing(srpCode);
+
+                // let the user know that an optimer has been created
+                showSuccess(
+                    fleetpingsTranslations.srp.created,
+                    '.fleetpings-create-srp-link-message'
+                );
+            });
+
+            // re-set checkbox
+            $('input#createSrpLink').removeAttr('checked');
+        } else {
+            generateFleetPing('');
+        }
 
         return false;
     });

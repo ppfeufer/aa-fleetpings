@@ -6,7 +6,6 @@ from django.conf.urls import url
 
 from fleetpings import views
 
-
 app_name: str = "fleetpings"
 
 urlpatterns = [

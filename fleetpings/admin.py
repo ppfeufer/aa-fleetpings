@@ -1,18 +1,18 @@
 """
 settings for the admin backend
 """
+from django.contrib import admin
 from django.utils.safestring import mark_safe
+
 from fleetpings.form import FleetTypeAdminForm
 from fleetpings.models import (
-    FleetComm,
-    Webhook,
-    FleetDoctrine,
-    FormupLocation,
     DiscordPingTargets,
+    FleetComm,
+    FleetDoctrine,
     FleetType,
+    FormupLocation,
+    Webhook,
 )
-
-from django.contrib import admin
 
 
 def custom_filter(title):

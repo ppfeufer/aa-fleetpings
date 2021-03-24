@@ -11,25 +11,25 @@ from django.utils import timezone
 
 from fleetpings import __title__
 from fleetpings.app_settings import (
-    AA_FLEETPINGS_USE_SLACK,
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
+    AA_FLEETPINGS_USE_SLACK,
+    avoid_cdn,
     can_add_srp_links,
-    srp_module_installed,
+    fittings_installed,
     get_site_url,
+    optimer_installed,
+    srp_module_installed,
     srp_module_is,
     timezones_installed,
-    optimer_installed,
     use_new_timezone_links,
-    fittings_installed,
-    avoid_cdn,
 )
 from fleetpings.models import (
-    FleetComm,
     DiscordPingTargets,
-    FleetType,
-    Webhook,
+    FleetComm,
     FleetDoctrine,
+    FleetType,
     FormupLocation,
+    Webhook,
 )
 
 if (
@@ -209,7 +209,6 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
         request=request, module_name="allianceauth.srp"
     ):
         from allianceauth.srp.models import SrpFleetMain
-
         from allianceauth.srp.views import random_string
 
         srp_code = random_string(8)

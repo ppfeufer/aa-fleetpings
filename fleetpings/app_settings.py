@@ -4,12 +4,12 @@ our app setting
 
 import re
 
+from packaging import version
+
 from django.conf import settings
 from django.core.handlers.wsgi import WSGIRequest
 
 from fleetpings.utils import clean_setting
-
-from packaging import version
 
 # set default panels if none are set in local.py
 AA_FLEETPINGS_USE_SLACK = clean_setting("AA_FLEETPINGS_USE_SLACK", False)

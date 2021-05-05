@@ -6,6 +6,7 @@ import re
 
 from packaging import version
 
+from django.apps import apps
 from django.conf import settings
 from django.core.handlers.wsgi import WSGIRequest
 
@@ -43,7 +44,7 @@ def timezones_installed() -> bool:
     :return: bool
     """
 
-    return "timezones" in settings.INSTALLED_APPS
+    return apps.is_installed("timezones")
 
 
 def optimer_installed() -> bool:
@@ -52,7 +53,7 @@ def optimer_installed() -> bool:
     :return: bool
     """
 
-    return "allianceauth.optimer" in settings.INSTALLED_APPS
+    return apps.is_installed("allianceauth.optimer")
 
 
 def get_timzones_version():
@@ -92,7 +93,7 @@ def fittings_installed() -> bool:
     :return: bool
     """
 
-    return "fittings" in settings.INSTALLED_APPS
+    return apps.is_installed("fittings")
 
 
 def avoid_cdn() -> bool:
@@ -110,16 +111,13 @@ def discord_service_installed() -> bool:
     :return: bool
     """
 
-    return "allianceauth.services.modules.discord" in settings.INSTALLED_APPS
+    return apps.is_installed("allianceauth.services.modules.discord")
 
 
 def srp_module_installed() -> bool:
     return_value = False
 
-    if (
-        "allianceauth.srp" in settings.INSTALLED_APPS
-        or "aasrp" in settings.INSTALLED_APPS
-    ):
+    if apps.is_installed("allianceauth.srp") or apps.is_installed("aasrp"):
         return_value = True
 
     return return_value
@@ -131,7 +129,7 @@ def srp_module_is(module_name: str) -> bool:
     :param module_name:
     """
 
-    return module_name in settings.INSTALLED_APPS
+    return apps.is_installed(module_name)
 
 
 def can_add_srp_links(request: WSGIRequest, module_name: str) -> bool:

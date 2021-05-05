@@ -10,9 +10,11 @@ from django.core.validators import URLValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from allianceauth.services.modules.discord.models import DiscordUser
-
 from fleetpings.app_settings import discord_service_installed
+
+# check if the Discord service is active
+if discord_service_installed():
+    from allianceauth.services.modules.discord.models import DiscordUser
 
 
 class AaFleetpings(models.Model):
@@ -237,7 +239,7 @@ class DiscordPingTargets(models.Model):
 
     def clean(self):
         """
-        check if the group has already been synched to Discord,
+        check if the group has already been synced to Discord,
         if not, raise an error
         """
 
@@ -266,11 +268,14 @@ class DiscordPingTargets(models.Model):
         self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
         """
-        Add the Discord group ID and save the whole thing
+        Add the Discord group ID (if Discord service is active) and save the whole thing
         """
 
-        discord_group_info = DiscordUser.objects.group_to_role(self.name)
-        self.discord_id = discord_group_info["id"]
+        # check if the Discord service is active
+        if discord_service_installed():
+            discord_group_info = DiscordUser.objects.group_to_role(self.name)
+            self.discord_id = discord_group_info["id"]
+
         super().save()  # Call the "real" save() method.
 
     def __str__(self) -> str:

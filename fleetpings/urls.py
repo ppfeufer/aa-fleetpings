@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 pages url config
 """
@@ -7,7 +5,6 @@ pages url config
 from django.conf.urls import url
 
 from fleetpings import views
-
 
 app_name: str = "fleetpings"
 

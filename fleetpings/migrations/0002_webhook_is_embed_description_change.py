@@ -16,7 +16,10 @@ class Migration(migrations.Migration):
             field=models.BooleanField(
                 db_index=True,
                 default=True,
-                help_text="Whether this webhook's ping is embedded or not. (This setting only effects Discord webhooks.)",
+                help_text=(
+                    "Whether this webhook's ping is embedded or not. "
+                    "(This setting only effects Discord webhooks.)"
+                ),
             ),
         ),
     ]

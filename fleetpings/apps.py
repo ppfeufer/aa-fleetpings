@@ -14,4 +14,4 @@ class AaFleetpingsConfig(AppConfig):
 
     name = "fleetpings"
     label = "fleetpings"
-    verbose_name = "Fleet Pings v{}".format(__version__)
+    verbose_name = f"Fleet Pings v{__version__}"

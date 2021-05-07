@@ -56,7 +56,10 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        help_text="You can add notes about this configuration here if you want",
+                        help_text=(
+                            "You can add notes about this "
+                            "configuration here if you want"
+                        ),
                         null=True,
                     ),
                 ),
@@ -99,7 +102,10 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        help_text="You can add notes about this configuration here if you want",
+                        help_text=(
+                            "You can add notes about this "
+                            "configuration here if you want"
+                        ),
                         null=True,
                     ),
                 ),
@@ -150,7 +156,10 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        help_text="You can add notes about this configuration here if you want",
+                        help_text=(
+                            "You can add notes about this "
+                            "configuration here if you want"
+                        ),
                         null=True,
                     ),
                 ),
@@ -193,7 +202,10 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        help_text="You can add notes about this configuration here if you want",
+                        help_text=(
+                            "You can add notes about this "
+                            "configuration here if you want"
+                        ),
                         null=True,
                     ),
                 ),
@@ -244,7 +256,11 @@ class Migration(migrations.Migration):
                 (
                     "url",
                     models.CharField(
-                        help_text="URL of this webhook, e.g. https://discordapp.com/api/webhooks/123456/abcdef or https://hooks.slack.com/services/xxxx/xxxx",
+                        help_text=(
+                            "URL of this webhook, "
+                            "e.g. https://discordapp.com/api/webhooks/123456/abcdef "
+                            "or https://hooks.slack.com/services/xxxx/xxxx"
+                        ),
                         max_length=255,
                         unique=True,
                     ),
@@ -254,14 +270,19 @@ class Migration(migrations.Migration):
                     models.BooleanField(
                         db_index=True,
                         default=True,
-                        help_text="Whether this webhook's ping is embedded or not. This setting only effects Discord webhooks.",
+                        help_text=(
+                            "Whether this webhook's ping is embedded or not. "
+                            "This setting only effects Discord webhooks."
+                        ),
                     ),
                 ),
                 (
                     "notes",
                     models.TextField(
                         blank=True,
-                        help_text="You can add notes about this webhook here if you want",
+                        help_text=(
+                            "You can add notes about this webhook here if you want"
+                        ),
                         null=True,
                     ),
                 ),
@@ -313,7 +334,10 @@ class Migration(migrations.Migration):
                     "notes",
                     models.TextField(
                         blank=True,
-                        help_text="You can add notes about this configuration here if you want",
+                        help_text=(
+                            "You can add notes about this "
+                            "configuration here if you want"
+                        ),
                         null=True,
                     ),
                 ),
@@ -328,7 +352,11 @@ class Migration(migrations.Migration):
                 (
                     "name",
                     models.OneToOneField(
-                        help_text="Name of the Discord role to ping. (Note: This must be an Auth group that is synched to Discord.)",
+                        help_text=(
+                            "Name of the Discord role to ping. "
+                            "(Note: This must be an Auth group "
+                            "that is synched to Discord.)"
+                        ),
                         on_delete=django.db.models.deletion.CASCADE,
                         to="auth.Group",
                     ),

@@ -35,7 +35,7 @@ Rounon Dax.
 
 ## Installation
 
-### Important:
+### ⚠️ Important ⚠️
 
 This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already,
 please install it first before proceeding.
@@ -43,7 +43,8 @@ please install it first before proceeding.
 [AA installation guide](https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html)
 for details)
 
-You also want to make sure that you have the Discord service installed and activated.
+**⚠️ You also want to make sure that you have the Discord service installed,
+configured and activated before installing this app. ⚠️**
 
 ### Step 0 - Migrating from AA Discord Ping Formatter
 

@@ -96,12 +96,12 @@ def discord_service_installed() -> bool:
 
 
 def srp_module_installed() -> bool:
-    return_value = False
+    """
+    Check if any of the SRP modules is installed
+    :return:
+    """
 
-    if apps.is_installed("allianceauth.srp") or apps.is_installed("aasrp"):
-        return_value = True
-
-    return return_value
+    return apps.is_installed("allianceauth.srp") or apps.is_installed("aasrp")
 
 
 def srp_module_is(module_name: str) -> bool:

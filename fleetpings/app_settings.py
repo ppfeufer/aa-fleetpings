@@ -2,12 +2,9 @@
 our app setting
 """
 
-import re
-
 from packaging import version
 
 from django.apps import apps
-from django.conf import settings
 from django.core.handlers.wsgi import WSGIRequest
 
 from fleetpings.utils import clean_setting
@@ -20,22 +17,6 @@ AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
 
 # AA-GDPR
 AVOID_CDN = clean_setting("AVOID_CDN", False)
-
-
-def get_site_url():  # regex sso url
-    """
-    get the site url
-    :return: string
-    """
-
-    regex = r"^(.+)\/s.+"
-    matches = re.finditer(regex, settings.ESI_SSO_CALLBACK_URL, re.MULTILINE)
-    url = "http://"
-
-    for match in matches:
-        url = match.groups()[0]  # first match
-
-    return url
 
 
 def timezones_installed() -> bool:

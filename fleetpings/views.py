@@ -2,6 +2,8 @@
 the views
 """
 
+from app_utils.urls import site_absolute_url
+
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
@@ -16,7 +18,6 @@ from fleetpings.app_settings import (
     avoid_cdn,
     can_add_srp_links,
     fittings_installed,
-    get_site_url,
     optimer_installed,
     srp_module_installed,
     srp_module_is,
@@ -133,7 +134,7 @@ def index(request: WSGIRequest) -> HttpResponse:
         "fleet_comms": fleet_comms,
         "fleet_doctrines": doctrines,
         "fleet_formup_locations": formup_locations,
-        "site_url": get_site_url(),
+        "site_url": site_absolute_url(),
         "timezones_installed": timezones_installed(),
         "optimer_installed": optimer_installed(),
         "use_new_timezone_links": use_new_timezone_links(),

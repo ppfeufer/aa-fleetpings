@@ -9,5 +9,7 @@
 *.old
 __pycache__
 
-fleetpings/static/fleetpings/js/fleetpings.dev.js
-fleetpings/static/fleetpings/js/fleetpings.dev.min.js
+/.coverage
+/htmlcov/
+/.tox/
+/coverage.xml

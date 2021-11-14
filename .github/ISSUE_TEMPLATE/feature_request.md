@@ -1,9 +1,10 @@
 ---
 name: Feature Request
-about: Suggest an idea for AA Forum
-title: ''
+about: Suggest an idea for AA Fleet Pings
+title: "[Feature Request] "
 labels: ''
 assignees: ''
+
 ---
 
 ### Context

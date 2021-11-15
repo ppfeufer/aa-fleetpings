@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.6.0] - 2021-11-15
+
+### Added
+
+- Tests
+- `allianceauth-app-utils` to replace built-in functions
+
+### Changed
+
+- Minimum Python version set to 3.7
+- Minimum AA version set to 2.8.8
+
+
 ## [2.5.5] - 2021-07-08
 
 ### Added

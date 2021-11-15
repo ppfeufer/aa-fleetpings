@@ -2,7 +2,6 @@
 Test checks for installed modules we might use
 """
 
-from django.contrib.auth.models import Group
 from django.test import TestCase, modify_settings
 
 from fleetpings.app_settings import (
@@ -13,8 +12,6 @@ from fleetpings.app_settings import (
     timezones_installed,
 )
 
-from .utils import create_fake_user
-
 
 class TestModulesInstalled(TestCase):
     @classmethod
@@ -24,25 +21,6 @@ class TestModulesInstalled(TestCase):
         """
 
         super().setUpClass()
-        cls.group = Group.objects.create(name="Superhero")
-
-        # User cannot access bulletins
-        cls.user_1001 = create_fake_user(1001, "Peter Parker")
-
-        # User can access bulletins
-        cls.user_1002 = create_fake_user(
-            1002, "Bruce Wayne", permissions=["aa_bulletin_board.basic_access"]
-        )
-
-        # User can manage bulletins
-        cls.user_1003 = create_fake_user(
-            1003,
-            "Clark Kent",
-            permissions=[
-                "aa_bulletin_board.basic_access",
-                "aa_bulletin_board.manage_bulletins",
-            ],
-        )
 
     @modify_settings(INSTALLED_APPS={"remove": "timezones"})
     def test_for_timezones_installed_when_not_installed(self):

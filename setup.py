@@ -33,7 +33,7 @@ project_install_requirements = [
     "allianceauth>=2.8.8",
     "allianceauth-app-utils>=1.8.2",
 ]
-project_python_requires = "~=3.7"
+project_python_requires = "~=3.6"
 project_classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -44,6 +44,7 @@ project_classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",

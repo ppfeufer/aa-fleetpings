@@ -2,11 +2,13 @@
 Test checks for access to fleetpings
 """
 
+# Django
 from django.contrib.auth.models import Group
 from django.test import TestCase
 from django.urls import reverse
 
-from .utils import create_fake_user
+# AA Fleet Pings
+from fleetpings.tests.utils import create_fake_user
 
 
 class TestAccess(TestCase):

@@ -2,8 +2,10 @@
 app config
 """
 
+# Django
 from django.apps import AppConfig
 
+# AA Fleet Pings
 from fleetpings import __version__
 
 

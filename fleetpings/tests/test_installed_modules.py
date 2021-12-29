@@ -2,8 +2,10 @@
 Test checks for installed modules we might use
 """
 
+# Django
 from django.test import TestCase, modify_settings
 
+# AA Fleet Pings
 from fleetpings.app_settings import (
     discord_service_installed,
     optimer_installed,

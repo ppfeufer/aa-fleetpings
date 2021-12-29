@@ -2,11 +2,14 @@
 our app setting
 """
 
+# Third Party
 from packaging import version
 
+# Django
 from django.apps import apps
 from django.core.handlers.wsgi import WSGIRequest
 
+# AA Fleet Pings
 from fleetpings.utils import clean_setting
 
 # set default panels if none are set in local.py
@@ -44,6 +47,7 @@ def get_timzones_version():
     """
 
     if timezones_installed():
+        # Third Party
         from timezones import __version__ as timezones_version
 
         return timezones_version

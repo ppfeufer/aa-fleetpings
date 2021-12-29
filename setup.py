@@ -2,10 +2,13 @@
 setting up our app
 """
 
+# Standard Library
 import os
 
+# Third Party
 from setuptools import find_packages, setup
 
+# AA Fleet Pings
 from fleetpings import __version__
 
 # Read the contents of your README file

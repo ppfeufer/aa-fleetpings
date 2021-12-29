@@ -2,8 +2,10 @@
 form declarations
 """
 
+# Django
 from django.forms import ModelForm, TextInput
 
+# AA Fleet Pings
 from fleetpings.models import FleetType
 
 

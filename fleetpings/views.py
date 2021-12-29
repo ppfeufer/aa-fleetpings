@@ -2,8 +2,7 @@
 the views
 """
 
-from app_utils.urls import site_absolute_url
-
+# Django
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
@@ -11,6 +10,10 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
 
+# Alliance Auth (External Libs)
+from app_utils.urls import site_absolute_url
+
+# AA Fleet Pings
 from fleetpings import __title__
 from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
@@ -37,9 +40,11 @@ if (
     fittings_installed() is True
     and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
 ):
+    # Third Party
     from fittings.views import _get_docs_qs
 
 if optimer_installed():
+    # Alliance Auth
     from allianceauth.optimer.models import OpTimer
 
 
@@ -190,8 +195,10 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
     if srp_module_is("aasrp") and can_add_srp_links(
         request=request, module_name="aasrp"
     ):
+        # Third Party
         from aasrp.models import AaSrpLink
 
+        # Django
         from django.utils.crypto import get_random_string
 
         srp_code = get_random_string(length=16)
@@ -209,6 +216,7 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
     if srp_module_is("allianceauth.srp") and can_add_srp_links(
         request=request, module_name="allianceauth.srp"
     ):
+        # Alliance Auth
         from allianceauth.srp.models import SrpFleetMain
         from allianceauth.srp.views import random_string
 

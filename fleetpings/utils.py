@@ -2,8 +2,10 @@
 utilities
 """
 
+# Django
 from django.conf import settings
 
+# AA Fleet Pings
 from fleetpings.tasks import logger
 
 

@@ -2,8 +2,10 @@
 pages url config
 """
 
+# Django
 from django.conf.urls import url
 
+# AA Fleet Pings
 from fleetpings import views
 
 app_name: str = "fleetpings"

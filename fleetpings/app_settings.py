@@ -2,11 +2,14 @@
 our app setting
 """
 
+# Third Party
 from packaging import version
 
+# Django
 from django.apps import apps
 from django.core.handlers.wsgi import WSGIRequest
 
+# AA Fleet Pings
 from fleetpings.utils import clean_setting
 
 # set default panels if none are set in local.py
@@ -14,9 +17,6 @@ AA_FLEETPINGS_USE_SLACK = clean_setting("AA_FLEETPINGS_USE_SLACK", False)
 AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
     "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
 )
-
-# AA-GDPR
-AVOID_CDN = clean_setting("AVOID_CDN", False)
 
 
 def timezones_installed() -> bool:
@@ -44,6 +44,7 @@ def get_timzones_version():
     """
 
     if timezones_installed():
+        # Third Party
         from timezones import __version__ as timezones_version
 
         return timezones_version
@@ -75,15 +76,6 @@ def fittings_installed() -> bool:
     """
 
     return apps.is_installed("fittings")
-
-
-def avoid_cdn() -> bool:
-    """
-    check if we should aviod CDN usage
-    :return: bool
-    """
-
-    return AVOID_CDN
 
 
 def discord_service_installed() -> bool:

@@ -1,9 +1,12 @@
 """
 settings for the admin backend
 """
+
+# Django
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
+# AA Fleet Pings
 from fleetpings.form import FleetTypeAdminForm
 from fleetpings.models import (
     DiscordPingTargets,

@@ -18,7 +18,6 @@ from fleetpings import __title__
 from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     AA_FLEETPINGS_USE_SLACK,
-    avoid_cdn,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
@@ -147,7 +146,6 @@ def index(request: WSGIRequest) -> HttpResponse:
         "main_character": request.user.profile.main_character,
         "platform_used": platform_used,
         "use_fleet_doctrines": use_fleet_doctrines,
-        "avoid_cdn": avoid_cdn(),
         "srp_module_available_to_user": srp_module_available_to_user,
     }
 

@@ -18,9 +18,6 @@ AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
     "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
 )
 
-# AA-GDPR
-AVOID_CDN = clean_setting("AVOID_CDN", False)
-
 
 def timezones_installed() -> bool:
     """
@@ -79,15 +76,6 @@ def fittings_installed() -> bool:
     """
 
     return apps.is_installed("fittings")
-
-
-def avoid_cdn() -> bool:
-    """
-    check if we should aviod CDN usage
-    :return: bool
-    """
-
-    return AVOID_CDN
 
 
 def discord_service_installed() -> bool:

@@ -52,12 +52,6 @@
     {% include 'bundles/clipboard-js.html' %}
 
     <script type="application/javascript" src="{% fleetpings_static 'fleetpings/js/fleetpings.min.js' %}"></script>
-{% endblock %}
-
-{% block extra_css %}
-    <link rel="stylesheet" type="text/css" href="{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}">
-
-    {% include 'bundles/jquery-datetimepicker-css.html' %}
     <script type="application/javascript">
         $('#formupTime').datetimepicker({
             lang: '{{ LANGUAGE_CODE }}',
@@ -67,4 +61,10 @@
             step: 15
         });
     </script>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}">
+
+    {% include 'bundles/jquery-datetimepicker-css.html' %}
 {% endblock %}

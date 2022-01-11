@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.9.0] - 2022-01-11
+
+### Added
+
+- Versioned static files to prevent browser cache related errors on app updates
+
+### Fixed
+
+- An issue where the checkboxes haven't been cleared properly when switching between
+  "Pre-Ping" and "Formup NOW"
+
+
 ## [2.8.0] - 2022-01-02
 
 ### Added

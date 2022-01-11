@@ -1,7 +1,7 @@
 {% extends 'fleetpings/base.html' %}
 
 {% load i18n %}
-{% load static %}
+{% load fleetpings_versioned_static %}
 
 {% block details %}
     <div class="aa-fleetpings row">
@@ -28,7 +28,7 @@
         </div>
 
         <script type="application/javascript">
-            var fleetpingsTranslations = {
+            const fleetpingsTranslations = {
                 ping: {
                     success: '{% blocktrans context "%(platform_used)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping has been sent to your {{ platform_used }}.{% endblocktrans %}'
                 },
@@ -51,21 +51,20 @@
     {% include 'bundles/jquery-datetimepicker-js.html' %}
     {% include 'bundles/clipboard-js.html' %}
 
-    <script type="application/javascript" src="{% static 'fleetpings/js/fleetpings.min.js' %}"></script>
+    <script type="application/javascript" src="{% fleetpings_static 'fleetpings/js/fleetpings.min.js' %}"></script>
+    <script type="application/javascript">
+        $('#formupTime').datetimepicker({
+            lang: '{{ LANGUAGE_CODE }}',
+            maskInput: true,
+            format: 'Y-m-d H:i',
+            dayOfWeekStart: 1,
+            step: 15
+        });
+    </script>
 {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'fleetpings/css/fleetpings.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}">
 
     {% include 'bundles/jquery-datetimepicker-css.html' %}
 {% endblock %}
-
-{% block extra_script %}
-    $('#formupTime').datetimepicker({
-        lang: '{{ LANGUAGE_CODE }}',
-        maskInput: true,
-        format: 'Y-m-d H:i',
-        dayOfWeekStart: 1,
-        step: 15
-    });
-{% endblock extra_script %}

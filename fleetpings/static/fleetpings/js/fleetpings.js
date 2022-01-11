@@ -228,6 +228,10 @@ jQuery(document).ready(function ($) {
         const fleetSrp = sanitizeInput($('select#fleetSrp option:selected').val());
         const additionalInformation = sanitizeInput($('textarea#additionalInformation').val());
 
+        const checkboxPrePing = $('input#prePing');
+        const checkboxFormupTimeNow = $('input#formupTimeNow');
+        const checkboxCreateOptimer = $('input#createOptimer');
+
         // Let's see if we can find a doctrine link
         let fleetDoctrineLink = null;
         if (fleetDoctrine !== '') {
@@ -281,7 +285,7 @@ jQuery(document).ready(function ($) {
         pingText += '**';
 
         // Check if it's a pre-ping or not
-        if ($('input#prePing').is(':checked')) {
+        if (checkboxPrePing.is(':checked')) {
             pingText += '### PRE PING ###';
             webhookPingTextHeader += '### PRE PING ###';
 
@@ -324,7 +328,7 @@ jQuery(document).ready(function ($) {
         }
 
         // Check if form-up time is available
-        if ($('input#formupTimeNow').is(':checked')) {
+        if (checkboxFormupTimeNow.is(':checked')) {
             pingText += '\n' + '**Formup Time:** NOW';
             webhookPingTextContent += '\n' + '**Formup Time:** NOW';
         } else {
@@ -486,7 +490,7 @@ jQuery(document).ready(function ($) {
 
         // Create optimer if needed
         if (fleetpingsSettings.optimerInstalled === true) {
-            if ($('input#prePing').is(':checked') && $('input#createOptimer').is(':checked') && formupTime !== '') {
+            if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked') && formupTime !== '') {
                 const optimerAjaxUrl = fleetpingsSettings.optimerAjaxUrl;
 
                 $.ajax({
@@ -505,7 +509,7 @@ jQuery(document).ready(function ($) {
                 });
 
                 // Re-set checkbox
-                $('input#createOptimer').removeAttr('checked');
+                checkboxCreateOptimer.removeAttr('checked');
 
                 // Let the user know that an optimer has been created
                 showSuccess(
@@ -657,7 +661,7 @@ jQuery(document).ready(function ($) {
         const checkboxFormupTimeNow = $('input#formupTimeNow');
 
         if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
-            // create SRP link
+            // Create SRP link
             const srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
             let srpCode = '';
 
@@ -678,14 +682,14 @@ jQuery(document).ready(function ($) {
 
                 generateFleetPing(srpCode);
 
-                // let the user know that an optimer has been created
+                // Let the user know that an optimer has been created
                 showSuccess(
                     fleetpingsTranslations.srp.created,
                     '.fleetpings-create-srp-link-message'
                 );
             });
 
-            // re-set checkbox
+            // Re-set checkbox
             checkboxCreateSrpLink.removeAttr('checked');
         } else {
             generateFleetPing('');
@@ -695,7 +699,7 @@ jQuery(document).ready(function ($) {
     });
 
     /**
-     * copy ping text
+     * Copy ping text
      */
     $('button#copyFleetPing').on('click', function () {
         copyFleetPing();

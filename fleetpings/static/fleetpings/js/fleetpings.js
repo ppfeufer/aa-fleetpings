@@ -509,7 +509,7 @@ jQuery(document).ready(function ($) {
                 });
 
                 // Re-set checkbox
-                checkboxCreateOptimer.removeAttr('checked');
+                checkboxCreateOptimer.prop('checked', false);
 
                 // Let the user know that an optimer has been created
                 showSuccess(
@@ -690,7 +690,7 @@ jQuery(document).ready(function ($) {
             });
 
             // Re-set checkbox
-            checkboxCreateSrpLink.removeAttr('checked');
+            checkboxCreateSrpLink.prop('checked', false);
         } else {
             generateFleetPing('');
         }

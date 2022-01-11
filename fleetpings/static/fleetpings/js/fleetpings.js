@@ -3,18 +3,47 @@
 jQuery(document).ready(function ($) {
     'use strict';
 
+    /* Variables
+    --------------------------------------------------------------------------------- */
+    // Check boxes
+    const checkboxPrePing = $('input#prePing');
+    const checkboxFormupTimeNow = $('input#formupTimeNow');
+    const checkboxCreateSrpLink = $('input#createSrpLink');
+    const checkboxCreateOptimer = $('input#createOptimer');
+
+    // Selects
+    const selectPingTarget = $('select#pingTarget');
+    const selectPingChannel = $('select#pingChannel');
+    const selectFleetType = $('select#fleetType');
+    const selectFleetSrp = $('select#fleetSrp');
+
+    // Input fields
+    const inputFcName = $('input#fcName');
+    const inputFleetName = $('input#fleetName');
+    const inputFormupLocation = $('input#formupLocation');
+    const inputFormupTime = $('input#formupTime');
+    const inputFleetComms = $('input#fleetComms');
+    const inputFleetDoctrine = $('input#fleetDoctrine');
+    const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
+
+    // Text area
+    const textAdditionalInformation = $('textarea#additionalInformation');
+
     /* Functions
-    ----------------------------------------------------------------------------------------------------------------- */
+    --------------------------------------------------------------------------------- */
     /**
      * Convert line breaks into <br>
      *
      * @param {string} string
-     * @param {bool} isXhtml
+     * @param {boolean} isXhtml
      */
     const nl2br = function (string, isXhtml) {
         const breakTag = isXhtml || typeof isXhtml === 'undefined' ? '<br />' : '<br>';
 
-        return (string + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+        return (string + '').replace(
+            /([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,
+            '$1' + breakTag + '$2'
+        );
     };
 
     /**
@@ -73,11 +102,10 @@ jQuery(document).ready(function ($) {
      */
     const sanitizeInput = function (input) {
         if (input) {
-            return input
-                .replace(
-                    /<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g,
-                    ''
-                );
+            return input.replace(
+                /<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g,
+                ''
+            );
         } else {
             return input;
         }
@@ -94,11 +122,10 @@ jQuery(document).ready(function ($) {
         quotesToEntities = quotesToEntities || false;
 
         if (input) {
-            let returnValue = sanitizeInput(input)
-                .replace(
-                    /&/g,
-                    '&amp;'
-                );
+            let returnValue = sanitizeInput(input).replace(
+                /&/g,
+                '&amp;'
+            );
 
             if (quotesToEntities === true) {
                 returnValue = returnValue.replace(
@@ -207,30 +234,23 @@ jQuery(document).ready(function ($) {
      * @param {string} fleetSrpCode SRP code for the fleet, if available
      */
     const generateFleetPing = function (fleetSrpCode) {
-        const pingTargetSelected = $('select#pingTarget option:selected');
+        const pingTargetSelected = $('option:selected', selectPingTarget);
         const pingTarget = sanitizeInput(pingTargetSelected.val());
         const pingTargetText = sanitizeInput(pingTargetSelected.text());
-
-        const pingChannelSelected = $('select#pingChannel option:selected');
+        const pingChannelSelected = $('option:selected', selectPingChannel);
         const webhookType = sanitizeInput(pingChannelSelected.data('webhook-type'));
         const webhookEmbedPing = sanitizeInput(pingChannelSelected.data('webhook-embed'));
-
-        const fleetTypeSelected = $('select#fleetType option:selected');
+        const fleetTypeSelected = $('option:selected', selectFleetType);
         const fleetType = sanitizeInput(fleetTypeSelected.val());
         const webhookEmbedColor = sanitizeInput(fleetTypeSelected.data('embed-color'));
-
-        const fcName = sanitizeInput($('input#fcName').val());
-        const fleetName = sanitizeInput($('input#fleetName').val());
-        const formupLocation = sanitizeInput($('input#formupLocation').val());
-        const formupTime = sanitizeInput($('input#formupTime').val());
-        const fleetComms = sanitizeInput($('input#fleetComms').val());
-        const fleetDoctrine = sanitizeInput($('input#fleetDoctrine').val());
-        const fleetSrp = sanitizeInput($('select#fleetSrp option:selected').val());
-        const additionalInformation = sanitizeInput($('textarea#additionalInformation').val());
-
-        const checkboxPrePing = $('input#prePing');
-        const checkboxFormupTimeNow = $('input#formupTimeNow');
-        const checkboxCreateOptimer = $('input#createOptimer');
+        const fcName = sanitizeInput(inputFcName.val());
+        const fleetName = sanitizeInput(inputFleetName.val());
+        const formupLocation = sanitizeInput(inputFormupLocation.val());
+        const formupTime = sanitizeInput(inputFormupTime.val());
+        const fleetComms = sanitizeInput(inputFleetComms.val());
+        const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+        const fleetSrp = sanitizeInput($('option:selected', selectFleetSrp).val());
+        const additionalInformation = sanitizeInput(textAdditionalInformation.val());
 
         // Let's see if we can find a doctrine link
         let fleetDoctrineLink = null;
@@ -244,9 +264,9 @@ jQuery(document).ready(function ($) {
         }
 
         // Ping webhooks, if configured
-        let webhookUrl = false;
+        let webhookUrl = '';
 
-        if ($('select#pingChannel').length) {
+        if (selectPingChannel.length) {
             webhookUrl = sanitizeInput(pingChannelSelected.val());
         }
 
@@ -293,10 +313,6 @@ jQuery(document).ready(function ($) {
                 pingText += ' / ' + fleetType + ' Fleet';
                 webhookPingTextHeader += ' / ' + fleetType + ' Fleet';
             }
-            // else {
-            //     pingText += ' / Fleet';
-            //     webhookPingTextHeader += ' / Fleet';
-            // }
         } else {
             if (fleetType !== '') {
                 pingText += fleetType + ' ';
@@ -338,7 +354,7 @@ jQuery(document).ready(function ($) {
 
                 // Get the timestamp and build the link to the timezones module if it's installed
                 if (fleetpingsSettings.timezonesInstalled === true) {
-                    var timezonesUrl = getTimezonesUrl(formupTime);
+                    const timezonesUrl = getTimezonesUrl(formupTime);
 
                     pingText += ' - ' + timezonesUrl;
 
@@ -397,18 +413,18 @@ jQuery(document).ready(function ($) {
 
         if (fleetpingsSettings.platformUsed === 'Discord') {
             $('.aa-fleetpings-ping-text').html(
-                '<p>' + nl2br(discordPingTarget + pingText) + '</p>'
+                '<p>' + nl2br(discordPingTarget + pingText, false) + '</p>'
             );
         }
 
         if (fleetpingsSettings.platformUsed === 'Slack') {
             $('.aa-fleetpings-ping-text').html(
-                '<p>' + nl2br(discordPingTarget + pingText.split('**').join('*')) + '</p>'
+                '<p>' + nl2br(discordPingTarget + pingText.split('**').join('*'), false) + '</p>'
             );
         }
 
         // Ping it directly if a webhook is selected
-        if (webhookUrl !== false && webhookUrl !== '') {
+        if (webhookUrl !== '') {
             // add ping creator at the end
             if (fleetpingsSettings.pingCreator !== '') {
                 pingText += '\n\n' + '*(Ping sent by: ' + fleetpingsSettings.pingCreator + ')*';
@@ -437,7 +453,6 @@ jQuery(document).ready(function ($) {
                     sendEmbeddedDiscordPing(
                         webhookUrl,
                         webhookPingTarget + '**' + webhookPingTextHeader + '**' + '\n' + '** **',
-                        // Embedded content » https://discohook.org/ - https://leovoel.github.io/embed-visualizer/
                         {
                             'title': '**.: Fleet Details :.**',
                             'description': webhookPingTextContent,
@@ -465,7 +480,7 @@ jQuery(document).ready(function ($) {
                  *
                  * @type {{attachments: [{color: string, footer: string, pretext: string, text: string, fallback: string}]}}
                  */
-                var payload = {
+                const payload = {
                     'attachments': [
                         {
                             'fallback': pingText,
@@ -504,7 +519,7 @@ jQuery(document).ready(function ($) {
                         fleet_commander: fcName
                     },
                     headers: {
-                        'X-CSRFToken': $('input[name="csrfmiddlewaretoken"]').val()
+                        'X-CSRFToken': inputCsrfMiddlewareToken.val()
                     }
                 });
 
@@ -560,23 +575,23 @@ jQuery(document).ready(function ($) {
     };
 
     /* Events
-    ----------------------------------------------------------------------------------------------------------------- */
+    --------------------------------------------------------------------------------- */
     /**
      * Toggle "Create SRP Link" checkbox
      */
     if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-        if (sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
+        if (sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes' && checkboxFormupTimeNow.is(':checked')) {
             $('.fleetpings-create-srp-link').show('fast');
         } else {
-            $('input#createSrpLink').prop('checked', false);
+            checkboxCreateSrpLink.prop('checked', false);
             $('.fleetpings-create-srp-link').hide('fast');
         }
 
-        $('select#fleetSrp').change(function () {
-            if (sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
+        selectFleetSrp.change(function () {
+            if (sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes' && checkboxFormupTimeNow.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             } else {
-                $('input#createSrpLink').prop('checked', false);
+                checkboxCreateSrpLink.prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         });
@@ -595,57 +610,57 @@ jQuery(document).ready(function ($) {
      *      » Create Optimer is displayed
      *      » Create SRP Link is hidden and unchecked
      */
-    $('#prePing').on('change', function () {
-        if ($('input#prePing').is(':checked')) {
-            $('input#formupTimeNow').prop('checked', false);
-            $('input#formupTime').removeAttr('disabled');
+    checkboxPrePing.on('change', function () {
+        if (checkboxPrePing.is(':checked')) {
+            checkboxFormupTimeNow.prop('checked', false);
+            inputFormupTime.prop('disabled', false);
 
             if (fleetpingsSettings.optimerInstalled === true) {
                 $('.fleetpings-create-optimer').show('fast');
             }
 
             if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-                $('input#createSrpLink').prop('checked', false);
+                checkboxCreateSrpLink.prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         } else {
-            $('input#formupTimeNow').prop('checked', true);
-            $('input#formupTime').prop('disabled', true);
+            checkboxFormupTimeNow.prop('checked', true);
+            inputFormupTime.prop('disabled', true);
 
             if (fleetpingsSettings.optimerInstalled === true) {
-                $('input#createOptimer').prop('checked', false);
+                checkboxCreateOptimer.prop('checked', false);
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
+            if (fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes') {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         }
     });
 
-    $('input#formupTimeNow').on('change', function () {
-        if ($(this).is(':checked')) {
-            $('input#prePing').prop('checked', false);
-            $('input#formupTime').prop('disabled', true);
+    checkboxFormupTimeNow.on('change', function () {
+        if (checkboxFormupTimeNow.is(':checked')) {
+            checkboxPrePing.prop('checked', false);
+            inputFormupTime.prop('disabled', true);
 
             if (fleetpingsSettings.optimerInstalled === true) {
-                $('input#createOptimer').prop('checked', false);
+                checkboxCreateOptimer.prop('checked', false);
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes') {
+            if (fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes') {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         } else {
-            $('input#prePing').prop('checked', true);
-            $('input#formupTime').removeAttr('disabled');
+            checkboxPrePing.prop('checked', true);
+            inputFormupTime.prop('disabled', false);
 
             if (fleetpingsSettings.optimerInstalled === true) {
                 $('.fleetpings-create-optimer').show('fast');
             }
 
             if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-                $('input#createSrpLink').prop('checked', false);
+                checkboxCreateSrpLink.prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         }
@@ -655,10 +670,8 @@ jQuery(document).ready(function ($) {
      * Generate ping text
      */
     $('button#createPingText').on('click', function () {
-        const fleetName = sanitizeInput($('input#fleetName').val());
-        const fleetDoctrine = sanitizeInput($('input#fleetDoctrine').val());
-        const checkboxCreateSrpLink = $('input#createSrpLink');
-        const checkboxFormupTimeNow = $('input#formupTimeNow');
+        const fleetName = sanitizeInput(inputFleetName.val());
+        const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
 
         if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
             // Create SRP link
@@ -674,7 +687,7 @@ jQuery(document).ready(function ($) {
                 },
                 headers: {
                     'X-CSRFToken': sanitizeInput(
-                        $('input[name="csrfmiddlewaretoken"]').val()
+                        inputCsrfMiddlewareToken.val()
                     )
                 }
             }).done(function (result) {

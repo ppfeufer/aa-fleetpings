@@ -572,12 +572,14 @@ jQuery(document).ready(function($) {
 
     /* Events
     ----------------------------------------------------------------------------------------------------------------- */
-
+    /**
+     * Toggle "Create SRP Link" checkbox
+     */
     if(fleetpingsSettings.srpModuleAvailableToUser === true) {
         if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
             $('.fleetpings-create-srp-link').show('fast');
         } else {
-            $('input#createSrpLink').removeAttr('checked');
+            $('input#createSrpLink').prop('checked', false);
             $('.fleetpings-create-srp-link').hide('fast');
         }
 
@@ -585,14 +587,14 @@ jQuery(document).ready(function($) {
             if(sanitizeInput($('select#fleetSrp option:selected').val()) === 'Yes' && $('input#formupTimeNow').is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             } else {
-                $('input#createSrpLink').removeAttr('checked');
+                $('input#createSrpLink').prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         });
     }
 
     /**
-     * toggle "Formup NOW" checkbox when "Pre-Ping" is toggled
+     * Toggle "Formup NOW" checkbox when "Pre-Ping" is toggled
      *
      * Behaviour:
      *  Pre-Ping checked
@@ -606,7 +608,7 @@ jQuery(document).ready(function($) {
      */
     $('#prePing').on('change', function() {
         if($('input#prePing').is(':checked')) {
-            $('input#formupTimeNow').removeAttr('checked');
+            $('input#formupTimeNow').prop('checked', false);
             $('input#formupTime').removeAttr('disabled');
 
             if(fleetpingsSettings.optimerInstalled === true) {
@@ -614,15 +616,15 @@ jQuery(document).ready(function($) {
             }
 
             if(fleetpingsSettings.srpModuleAvailableToUser === true) {
-                $('input#createSrpLink').removeAttr('checked');
+                $('input#createSrpLink').prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         } else {
-            $('input#formupTimeNow').prop('checked', true).removeAttr('disabled');
+            $('input#formupTimeNow').prop('checked', true);
             $('input#formupTime').prop('disabled', true);
 
             if(fleetpingsSettings.optimerInstalled === true) {
-                $('input#createOptimer').removeAttr('checked');
+                $('input#createOptimer').prop('checked', false);
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
@@ -634,12 +636,11 @@ jQuery(document).ready(function($) {
 
     $('input#formupTimeNow').on('change', function() {
         if($(this).is(':checked')) {
-            $('input#prePing').removeAttr('checked');
-            // $('input#prePing').prop('disabled', true);
+            $('input#prePing').prop('checked', false);
             $('input#formupTime').prop('disabled', true);
 
             if(fleetpingsSettings.optimerInstalled === true) {
-                $('input#createOptimer').removeAttr('checked');
+                $('input#createOptimer').prop('checked', false);
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
@@ -647,7 +648,7 @@ jQuery(document).ready(function($) {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         } else {
-            $('input#prePing').prop('checked', true).removeAttr('disabled');
+            $('input#prePing').prop('checked', true);
             $('input#formupTime').removeAttr('disabled');
 
             if(fleetpingsSettings.optimerInstalled === true) {
@@ -655,7 +656,7 @@ jQuery(document).ready(function($) {
             }
 
             if(fleetpingsSettings.srpModuleAvailableToUser === true) {
-                $('input#createSrpLink').removeAttr('checked');
+                $('input#createSrpLink').prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         }

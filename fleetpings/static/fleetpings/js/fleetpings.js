@@ -257,7 +257,7 @@ jQuery(document).ready(function ($) {
         if (fleetDoctrine !== '') {
             const selectedLink = $('#fleetDoctrineList [value="' + escapeInput(fleetDoctrine, false) + '"]').data('doctrine-url');
 
-            if (undefined !== selectedLink && selectedLink !== '') {
+            if ('undefined' !== selectedLink && selectedLink !== '') {
                 // Houston, we have a link!
                 fleetDoctrineLink = selectedLink;
             }
@@ -446,7 +446,7 @@ jQuery(document).ready(function ($) {
 
             // Send the ping to Discord
             if (webhookType === 'Discord') {
-                if (undefined !== webhookEmbedPing && webhookEmbedPing === 'True') {
+                if ('undefined' !== webhookEmbedPing && webhookEmbedPing === 'True') {
                     if (pingTarget !== '') {
                         webhookPingTarget += ' :: ';
                     }

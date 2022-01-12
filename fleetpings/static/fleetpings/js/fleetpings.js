@@ -310,8 +310,8 @@ jQuery(document).ready(function ($) {
             webhookPingTextHeader += '### PRE PING ###';
 
             if (fleetType !== '') {
-                pingText += ' / ' + fleetType + ' Fleet';
-                webhookPingTextHeader += ' / ' + fleetType + ' Fleet';
+                pingText += ' / (Upcoming)  ' + fleetType + ' Fleet';
+                webhookPingTextHeader += ' / (Upcoming) ' + fleetType + ' Fleet';
             }
         } else {
             if (fleetType !== '') {
@@ -321,6 +321,12 @@ jQuery(document).ready(function ($) {
 
             pingText += 'Fleet is up';
             webhookPingTextHeader += 'Fleet is up';
+        }
+
+        // Add fcName if we have one
+        if (fcName !== '') {
+            pingText += ' under ' + fcName;
+            webhookPingTextHeader += ' under ' + fcName;
         }
 
         pingText += '**' + '\n';
@@ -436,11 +442,6 @@ jQuery(document).ready(function ($) {
 
             if (fleetType !== '' && embedColor !== '') {
                 embedColor = webhookEmbedColor;
-            }
-
-            // Add fcName if we have one
-            if (fcName !== '') {
-                webhookPingTextHeader += ' under ' + fcName;
             }
 
             // Send the ping to Discord

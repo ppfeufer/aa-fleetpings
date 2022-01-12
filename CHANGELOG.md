@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Added
+
+- `(Upcoming)` to the header text if pre-pinged fleets to ensure there is no
+  confusion between pre-pinged fleets and fleets that start now (#61)
+
 ### Changed
 
 - JS rewrite

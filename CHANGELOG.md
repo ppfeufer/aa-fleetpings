@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.10.0] - 2022-01-12
+
+### Added
+
+- `(Upcoming)` to the header text of pre-pinged fleets to ensure there is no
+  confusion between pre-pinged fleets and fleets that start now (#61)
+
+### Changed
+
+- JS rewrite
+
+
 ## [2.9.0] - 2022-01-11
 
 ### Added

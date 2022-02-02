@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [In Development] - Unreleased
+
+
+## [2.10.1] - 2022-02-02
+
+### Changed
+
+- Using `path` in URL config instead of soon-to-be removed `url`
+
+
 ## [2.10.0] - 2022-01-12
 
 ### Added

@@ -8,6 +8,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Added
+
+- Error message on missing information for Optimer and SRP
+  - Optimer (Mandatrory fields):
+    - » FC Name
+    - » Fleet Name
+    - » Formup Location
+    - » Formup Time
+    - » Ships / Doctrine
+  - SRP (Mandatrory fields):
+    - » Fleet Name
+    - » Ships / Doctrine
+
 ### Changed
 
 - JavaScript modernised

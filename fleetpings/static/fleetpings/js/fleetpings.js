@@ -50,12 +50,10 @@ $(document).ready(() => {
      * Closing the message
      *
      * @param {string} element
+     * @param {int} closeAfter Close Message after given time in seconds (Default: 10)
      */
-    const closeCopyMessageElement = (element) => {
-        /**
-         * Close after 10 seconds
-         */
-        $(element).fadeTo(10000, 500).slideUp(500, () => {
+    const closeMessageElement = (element, closeAfter = 10) => {
+        $(element).fadeTo(closeAfter * 1000, 500).slideUp(500, () => {
             $(this).slideUp(500, () => {
                 $(this).remove();
             });
@@ -70,12 +68,12 @@ $(document).ready(() => {
      */
     const showSuccess = (message, element) => {
         $(element).html(
-            '<div class="alert alert-success alert-dismissable alert-copy-success">' +
+            '<div class="alert alert-success alert-dismissable alert-message-success">' +
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message +
             '</div>'
         );
 
-        closeCopyMessageElement('.alert-copy-success');
+        closeMessageElement('.alert-message-success');
     };
 
     /**
@@ -86,12 +84,12 @@ $(document).ready(() => {
      */
     const showError = (message, element) => {
         $(element).html(
-            '<div class="alert alert-danger alert-dismissable alert-copy-error">' +
+            '<div class="alert alert-danger alert-dismissable alert-message-error">' +
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message +
             '</div>'
         );
 
-        closeCopyMessageElement('.alert-copy-error');
+        closeMessageElement('.alert-message-error', 9999);
     };
 
     /**
@@ -503,10 +501,77 @@ $(document).ready(() => {
                 '.aa-fleetpings-ping-copyresult'
             );
         }
+    };
 
-        // Create optimer if needed
+    /**
+     * Craete a fleet ping with SRP
+     *
+     * @param {string} fleetName
+     * @param {string} fleetDoctrine
+     * @returns {boolean}
+     */
+    const generateFleetPingWithSrp = (fleetName, fleetDoctrine) => {
+        // Check for mandatory fields
+        if (fleetpingsSettings.srpModuleAvailableToUser === true) {
+            if (fleetName !== '' && fleetDoctrine !== '') {
+                // Create SRP link
+                const srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
+                let srpCode = '';
+
+                $.ajax({
+                    url: srpAjaxUrl,
+                    type: 'post',
+                    data: {
+                        fleet_doctrine: fleetDoctrine,
+                        fleet_name: fleetName
+                    },
+                    headers: {
+                        'X-CSRFToken': sanitizeInput(
+                            inputCsrfMiddlewareToken.val()
+                        )
+                    }
+                }).done((result) => {
+                    srpCode = result.srp_code;
+
+                    // Create fleet ping
+                    generateFleetPing(srpCode);
+
+                    // Let the user know that an optimer has been created
+                    // and close potentially former error messages
+                    closeMessageElement('.alert-message-error', 0);
+                    showSuccess(
+                        fleetpingsTranslations.srp.created,
+                        '.fleetpings-create-srp-link-message'
+                    );
+                });
+
+                // Re-set checkbox
+                checkboxCreateSrpLink.prop('checked', false);
+            } else {
+                showError(
+                    fleetpingsTranslations.srp.error.missingFields,
+                    '.fleetpings-create-srp-link-message'
+                );
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     *
+     * @param {string} fleetName
+     * @param {string} fleetDoctrine
+     * @param {string} formupLocation
+     * @param {string} formupTime
+     * @param {string} fcName
+     * @returns {boolean}
+     */
+    const generateFleetPingWithOptimer = (fleetName, fleetDoctrine, formupLocation, formupTime, fcName) => {
         if (fleetpingsSettings.optimerInstalled === true) {
-            if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked') && formupTime !== '') {
+            if (fleetName !== '' && fleetDoctrine !== '' && formupLocation !== '' && formupTime !== '' && fcName !== '') {
                 const optimerAjaxUrl = fleetpingsSettings.optimerAjaxUrl;
 
                 $.ajax({
@@ -522,19 +587,33 @@ $(document).ready(() => {
                     headers: {
                         'X-CSRFToken': inputCsrfMiddlewareToken.val()
                     }
-                });
+                })
 
                 // Re-set checkbox
                 checkboxCreateOptimer.prop('checked', false);
 
+                // Create fleet ping
+                generateFleetPing('');
+
                 // Let the user know that an optimer has been created
+                // and close potentially former error messages
+                closeMessageElement('.alert-message-error', 0);
                 showSuccess(
                     fleetpingsTranslations.optimer.created,
                     '.fleetpings-create-optimer-message'
                 );
+            } else {
+                showError(
+                    fleetpingsTranslations.optimer.error.missingFields,
+                    '.fleetpings-create-optimer-message'
+                );
             }
+
+            return true;
+        } else {
+            return false;
         }
-    };
+    }
 
     /**
      * Copy the fleet ping to clipboard
@@ -673,43 +752,27 @@ $(document).ready(() => {
     $('button#createPingText').on('click', () => {
         const fleetName = sanitizeInput(inputFleetName.val());
         const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+        const formupTime = sanitizeInput(inputFormupTime.val());
+        const fcName = sanitizeInput(inputFcName.val());
+        const formupLocation = sanitizeInput(inputFormupLocation.val());
 
+        let pingCreated = false;
+
+        // Check if we should create an SRP link
         if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
-            // Create SRP link
-            const srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
-            let srpCode = '';
-
-            $.ajax({
-                url: srpAjaxUrl,
-                type: 'post',
-                data: {
-                    fleet_doctrine: fleetDoctrine,
-                    fleet_name: fleetName
-                },
-                headers: {
-                    'X-CSRFToken': sanitizeInput(
-                        inputCsrfMiddlewareToken.val()
-                    )
-                }
-            }).done((result) => {
-                srpCode = result.srp_code;
-
-                generateFleetPing(srpCode);
-
-                // Let the user know that an optimer has been created
-                showSuccess(
-                    fleetpingsTranslations.srp.created,
-                    '.fleetpings-create-srp-link-message'
-                );
-            });
-
-            // Re-set checkbox
-            checkboxCreateSrpLink.prop('checked', false);
-        } else {
-            generateFleetPing('');
+            pingCreated = generateFleetPingWithSrp(fleetName, fleetDoctrine);
         }
 
-        return false;
+        // Check if we should create an optimer
+        if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked')) {
+            pingCreated = generateFleetPingWithOptimer(
+                fleetName, fleetDoctrine, formupLocation, formupTime, fcName
+            );
+        }
+
+        if (pingCreated === false) {
+            generateFleetPing('');
+        }
     });
 
     /**

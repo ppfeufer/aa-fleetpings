@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Fixed
+
+- [Compatibility] AA 3.x / Django 4 :: ImportError: cannot import name
+  'ugettext_lazy' from 'django.utils.translation'
+
 ### Added
 
 - Error message on missing information for Optimer and SRP

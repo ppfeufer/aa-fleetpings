@@ -9,6 +9,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.11.0] - 2022-02-28
+
+### Fixed
+
+- [Compatibility] AA 3.x / Django 4 :: ImportError: cannot import name
+  'ugettext_lazy' from 'django.utils.translation'
+
+### Added
+
+- Error message on missing information for Optimer and SRP
+  - Optimer (Mandatrory fields):
+    - » FC Name
+    - » Fleet Name
+    - » Formup Location
+    - » Formup Time
+    - » Ships / Doctrine
+  - SRP (Mandatrory fields):
+    - » Fleet Name
+    - » Ships / Doctrine
+
+### Changed
+
+- JavaScript modernised
+
+
 ## [2.10.1] - 2022-02-02
 
 ### Changed

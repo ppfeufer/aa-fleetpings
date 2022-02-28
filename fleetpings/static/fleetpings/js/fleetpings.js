@@ -1,6 +1,6 @@
 /* global fleetpingsSettings, fleetpingsTranslations, ClipboardJS */
 
-jQuery(document).ready(function ($) {
+$(document).ready(() => {
     'use strict';
 
     /* Variables
@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
      * @param {string} string
      * @param {boolean} isXhtml
      */
-    const nl2br = function (string, isXhtml) {
+    const nl2br = (string, isXhtml) => {
         const breakTag = isXhtml || typeof isXhtml === 'undefined' ? '<br />' : '<br>';
 
         return (string + '').replace(
@@ -50,13 +50,11 @@ jQuery(document).ready(function ($) {
      * Closing the message
      *
      * @param {string} element
+     * @param {int} closeAfter Close Message after given time in seconds (Default: 10)
      */
-    const closeCopyMessageElement = function (element) {
-        /**
-         * Close after 10 seconds
-         */
-        $(element).fadeTo(10000, 500).slideUp(500, function () {
-            $(this).slideUp(500, function () {
+    const closeMessageElement = (element, closeAfter = 10) => {
+        $(element).fadeTo(closeAfter * 1000, 500).slideUp(500, () => {
+            $(this).slideUp(500, () => {
                 $(this).remove();
             });
         });
@@ -68,14 +66,14 @@ jQuery(document).ready(function ($) {
      * @param {string} message
      * @param {string} element
      */
-    const showSuccess = function (message, element) {
+    const showSuccess = (message, element) => {
         $(element).html(
-            '<div class="alert alert-success alert-dismissable alert-copy-success">' +
+            '<div class="alert alert-success alert-dismissable alert-message-success">' +
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message +
             '</div>'
         );
 
-        closeCopyMessageElement('.alert-copy-success');
+        closeMessageElement('.alert-message-success');
     };
 
     /**
@@ -84,14 +82,14 @@ jQuery(document).ready(function ($) {
      * @param {string} message
      * @param {string} element
      */
-    const showError = function (message, element) {
+    const showError = (message, element) => {
         $(element).html(
-            '<div class="alert alert-danger alert-dismissable alert-copy-error">' +
+            '<div class="alert alert-danger alert-dismissable alert-message-error">' +
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + message +
             '</div>'
         );
 
-        closeCopyMessageElement('.alert-copy-error');
+        closeMessageElement('.alert-message-error', 9999);
     };
 
     /**
@@ -100,7 +98,7 @@ jQuery(document).ready(function ($) {
      * @param {string} input String to sanitize
      * @returns {string} Sanitized string
      */
-    const sanitizeInput = function (input) {
+    const sanitizeInput = (input) => {
         if (input) {
             return input.replace(
                 /<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g,
@@ -118,7 +116,7 @@ jQuery(document).ready(function ($) {
      * @param {boolean} quotesToEntities Transform quotes into entities
      * @returns {string} Escaped string
      */
-    const escapeInput = function (input, quotesToEntities) {
+    const escapeInput = (input, quotesToEntities) => {
         quotesToEntities = quotesToEntities || false;
 
         if (input) {
@@ -154,7 +152,7 @@ jQuery(document).ready(function ($) {
      * @param {string} content Message to send to Discord
      * @param {object} embeds Embedded content » https://discohook.org/ - https://leovoel.github.io/embed-visualizer/
      */
-    const sendEmbeddedDiscordPing = function (webhookUrl, content, embeds) {
+    const sendEmbeddedDiscordPing = (webhookUrl, content, embeds) => {
         const request = new XMLHttpRequest();
 
         request.open('POST', webhookUrl);
@@ -176,7 +174,7 @@ jQuery(document).ready(function ($) {
      * @param {string} webhookUrl Discord webhook URL
      * @param {string} pingText Message to send to Discord
      */
-    const sendDiscordPing = function (webhookUrl, pingText) {
+    const sendDiscordPing = (webhookUrl, pingText) => {
         const request = new XMLHttpRequest();
 
         request.open('POST', webhookUrl);
@@ -197,7 +195,7 @@ jQuery(document).ready(function ($) {
      * @param {string} webhookUrl Slack webhook URL
      * @param {object} payload Message to send to Slack
      */
-    const sendSlackPing = function (webhookUrl, payload) {
+    const sendSlackPing = (webhookUrl, payload) => {
         $.ajax({
             data: 'payload=' + JSON.stringify(payload),
             dataType: 'json',
@@ -212,7 +210,7 @@ jQuery(document).ready(function ($) {
      *
      * @param {string} hexValue
      */
-    const hexToDecimal = function (hexValue) {
+    const hexToDecimal = (hexValue) => {
         return parseInt(hexValue.replace('#', ''), 16);
     };
 
@@ -221,7 +219,7 @@ jQuery(document).ready(function ($) {
      *
      * @param {string} formupTime
      */
-    const getTimezonesUrl = function (formupTime) {
+    const getTimezonesUrl = (formupTime) => {
         const formupDateTime = new Date(formupTime);
         const formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() * 60 * 1000) / 1000;
 
@@ -233,7 +231,7 @@ jQuery(document).ready(function ($) {
      *
      * @param {string} fleetSrpCode SRP code for the fleet, if available
      */
-    const generateFleetPing = function (fleetSrpCode) {
+    const generateFleetPing = (fleetSrpCode) => {
         const pingTargetSelected = $('option:selected', selectPingTarget);
         const pingTarget = sanitizeInput(pingTargetSelected.val());
         const pingTargetText = sanitizeInput(pingTargetSelected.text());
@@ -503,10 +501,77 @@ jQuery(document).ready(function ($) {
                 '.aa-fleetpings-ping-copyresult'
             );
         }
+    };
 
-        // Create optimer if needed
+    /**
+     * Craete a fleet ping with SRP
+     *
+     * @param {string} fleetName
+     * @param {string} fleetDoctrine
+     * @returns {boolean}
+     */
+    const generateFleetPingWithSrp = (fleetName, fleetDoctrine) => {
+        // Check for mandatory fields
+        if (fleetpingsSettings.srpModuleAvailableToUser === true) {
+            if (fleetName !== '' && fleetDoctrine !== '') {
+                // Create SRP link
+                const srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
+                let srpCode = '';
+
+                $.ajax({
+                    url: srpAjaxUrl,
+                    type: 'post',
+                    data: {
+                        fleet_doctrine: fleetDoctrine,
+                        fleet_name: fleetName
+                    },
+                    headers: {
+                        'X-CSRFToken': sanitizeInput(
+                            inputCsrfMiddlewareToken.val()
+                        )
+                    }
+                }).done((result) => {
+                    srpCode = result.srp_code;
+
+                    // Create fleet ping
+                    generateFleetPing(srpCode);
+
+                    // Let the user know that an optimer has been created
+                    // and close potentially former error messages
+                    closeMessageElement('.alert-message-error', 0);
+                    showSuccess(
+                        fleetpingsTranslations.srp.created,
+                        '.fleetpings-create-srp-link-message'
+                    );
+                });
+
+                // Re-set checkbox
+                checkboxCreateSrpLink.prop('checked', false);
+            } else {
+                showError(
+                    fleetpingsTranslations.srp.error.missingFields,
+                    '.fleetpings-create-srp-link-message'
+                );
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    /**
+     *
+     * @param {string} fleetName
+     * @param {string} fleetDoctrine
+     * @param {string} formupLocation
+     * @param {string} formupTime
+     * @param {string} fcName
+     * @returns {boolean}
+     */
+    const generateFleetPingWithOptimer = (fleetName, fleetDoctrine, formupLocation, formupTime, fcName) => {
         if (fleetpingsSettings.optimerInstalled === true) {
-            if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked') && formupTime !== '') {
+            if (fleetName !== '' && fleetDoctrine !== '' && formupLocation !== '' && formupTime !== '' && fcName !== '') {
                 const optimerAjaxUrl = fleetpingsSettings.optimerAjaxUrl;
 
                 $.ajax({
@@ -527,19 +592,33 @@ jQuery(document).ready(function ($) {
                 // Re-set checkbox
                 checkboxCreateOptimer.prop('checked', false);
 
+                // Create fleet ping
+                generateFleetPing('');
+
                 // Let the user know that an optimer has been created
+                // and close potentially former error messages
+                closeMessageElement('.alert-message-error', 0);
                 showSuccess(
                     fleetpingsTranslations.optimer.created,
                     '.fleetpings-create-optimer-message'
                 );
+            } else {
+                showError(
+                    fleetpingsTranslations.optimer.error.missingFields,
+                    '.fleetpings-create-optimer-message'
+                );
             }
+
+            return true;
+        } else {
+            return false;
         }
     };
 
     /**
      * Copy the fleet ping to clipboard
      */
-    const copyFleetPing = function () {
+    const copyFleetPing = () => {
         /**
          * Copy text to clipboard
          *
@@ -552,7 +631,7 @@ jQuery(document).ready(function ($) {
          *
          * @param {type} e
          */
-        clipboardFleetPingData.on('success', function (e) {
+        clipboardFleetPingData.on('success', (e) => {
             showSuccess(
                 fleetpingsTranslations.copyToClipboard.success,
                 '.aa-fleetpings-ping-copyresult'
@@ -565,7 +644,7 @@ jQuery(document).ready(function ($) {
         /**
          * Copy error
          */
-        clipboardFleetPingData.on('error', function () {
+        clipboardFleetPingData.on('error', () => {
             showError(
                 fleetpingsTranslations.copyToClipboard.error,
                 '.aa-fleetpings-ping-copyresult'
@@ -588,7 +667,7 @@ jQuery(document).ready(function ($) {
             $('.fleetpings-create-srp-link').hide('fast');
         }
 
-        selectFleetSrp.change(function () {
+        selectFleetSrp.change(() => {
             if (sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes' && checkboxFormupTimeNow.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             } else {
@@ -611,7 +690,7 @@ jQuery(document).ready(function ($) {
      *      » Create Optimer is displayed
      *      » Create SRP Link is hidden and unchecked
      */
-    checkboxPrePing.on('change', function () {
+    checkboxPrePing.on('change', () => {
         if (checkboxPrePing.is(':checked')) {
             checkboxFormupTimeNow.prop('checked', false);
             inputFormupTime.prop('disabled', false);
@@ -639,7 +718,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    checkboxFormupTimeNow.on('change', function () {
+    checkboxFormupTimeNow.on('change', () => {
         if (checkboxFormupTimeNow.is(':checked')) {
             checkboxPrePing.prop('checked', false);
             inputFormupTime.prop('disabled', true);
@@ -670,52 +749,36 @@ jQuery(document).ready(function ($) {
     /**
      * Generate ping text
      */
-    $('button#createPingText').on('click', function () {
+    $('button#createPingText').on('click', () => {
         const fleetName = sanitizeInput(inputFleetName.val());
         const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+        const formupTime = sanitizeInput(inputFormupTime.val());
+        const fcName = sanitizeInput(inputFcName.val());
+        const formupLocation = sanitizeInput(inputFormupLocation.val());
 
+        let pingCreated = false;
+
+        // Check if we should create an SRP link
         if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
-            // Create SRP link
-            const srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
-            let srpCode = '';
-
-            $.ajax({
-                url: srpAjaxUrl,
-                type: 'post',
-                data: {
-                    fleet_doctrine: fleetDoctrine,
-                    fleet_name: fleetName
-                },
-                headers: {
-                    'X-CSRFToken': sanitizeInput(
-                        inputCsrfMiddlewareToken.val()
-                    )
-                }
-            }).done(function (result) {
-                srpCode = result.srp_code;
-
-                generateFleetPing(srpCode);
-
-                // Let the user know that an optimer has been created
-                showSuccess(
-                    fleetpingsTranslations.srp.created,
-                    '.fleetpings-create-srp-link-message'
-                );
-            });
-
-            // Re-set checkbox
-            checkboxCreateSrpLink.prop('checked', false);
-        } else {
-            generateFleetPing('');
+            pingCreated = generateFleetPingWithSrp(fleetName, fleetDoctrine);
         }
 
-        return false;
+        // Check if we should create an optimer
+        if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked')) {
+            pingCreated = generateFleetPingWithOptimer(
+                fleetName, fleetDoctrine, formupLocation, formupTime, fcName
+            );
+        }
+
+        if (pingCreated === false) {
+            generateFleetPing('');
+        }
     });
 
     /**
      * Copy ping text
      */
-    $('button#copyFleetPing').on('click', function () {
+    $('button#copyFleetPing').on('click', () => {
         copyFleetPing();
     });
 });

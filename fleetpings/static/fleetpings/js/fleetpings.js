@@ -558,7 +558,7 @@ $(document).ready(() => {
         } else {
             return false;
         }
-    }
+    };
 
     /**
      *
@@ -587,7 +587,7 @@ $(document).ready(() => {
                     headers: {
                         'X-CSRFToken': inputCsrfMiddlewareToken.val()
                     }
-                })
+                });
 
                 // Re-set checkbox
                 checkboxCreateOptimer.prop('checked', false);

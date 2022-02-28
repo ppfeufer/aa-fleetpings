@@ -613,7 +613,7 @@ $(document).ready(() => {
         } else {
             return false;
         }
-    }
+    };
 
     /**
      * Copy the fleet ping to clipboard

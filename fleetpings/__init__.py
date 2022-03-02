@@ -2,7 +2,5 @@
 a couple of variable to use throughout the app
 """
 
-default_app_config: str = "fleetpings.apps.AaFleetpingsConfig"
-
-__version__ = "2.11.0"
+__version__ = "2.12.0"
 __title__ = "Fleet Pings"

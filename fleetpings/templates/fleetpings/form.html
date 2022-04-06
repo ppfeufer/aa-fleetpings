@@ -61,7 +61,6 @@
         timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
         optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
         srpModuleAvailableToUser: {{ srp_module_available_to_user|yesno:"true,false" }},
-        useNewTimezoneLinks: {{ use_new_timezone_links|yesno:"true,false" }},
         pingCreator: '{{ main_character|safe|addslashes }}',
         siteUrl: '{{ site_url }}/',
         {% if timezones_installed %}timezonesUrl: '{% url "timezones:index" %}',{% endif %}

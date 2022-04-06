@@ -2,9 +2,6 @@
 our app setting
 """
 
-# Third Party
-from packaging import version
-
 # Django
 from django.apps import apps
 from django.core.handlers.wsgi import WSGIRequest
@@ -49,23 +46,6 @@ def get_timzones_version():
         return timezones_version
 
     return None
-
-
-def use_new_timezone_links() -> bool:
-    """
-    determins whether to use then new link format from aa-timezones or not
-    the new link format has been introduced with aa-timezones v1.2.1
-    :return: bool
-    """
-
-    return_value = True
-
-    if get_timzones_version() and version.parse(get_timzones_version()) < version.parse(
-        "1.2.1"
-    ):
-        return_value = False
-
-    return return_value
 
 
 def fittings_installed() -> bool:

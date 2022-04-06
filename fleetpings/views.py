@@ -23,7 +23,6 @@ from fleetpings.app_settings import (
     srp_module_installed,
     srp_module_is,
     timezones_installed,
-    use_new_timezone_links,
 )
 from fleetpings.models import (
     DiscordPingTargets,
@@ -133,7 +132,6 @@ def index(request: WSGIRequest) -> HttpResponse:
         "site_url": site_absolute_url(),
         "timezones_installed": timezones_installed(),
         "optimer_installed": optimer_installed(),
-        "use_new_timezone_links": use_new_timezone_links(),
         "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,
         "use_fleet_doctrines": use_fleet_doctrines,

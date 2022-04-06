@@ -383,6 +383,9 @@ $(document).ready(() => {
                 }
 
                 const formupTimestamp = getFormupTimestamp(formupTime);
+
+                pingText += '\n' + '**Formup Local Time:** &lt;t:' + formupTimestamp + ':F&gt;';
+                webhookPingTextContent += '\n' + '**Formup Local Time:** <t:' + formupTimestamp + ':F>';
             }
         }
 

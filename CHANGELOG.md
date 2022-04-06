@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Added
+
+- Local time to formup time segment (#70)
+
 ### Changed
 
 - Get `timezones` app URL from Django instead of it being hard coded

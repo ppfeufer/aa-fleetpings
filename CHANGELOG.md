@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Changed
+
+- Minimum requirements
+  - Alliance Auth >= v2.11.2
+  - Alliance Auth App Utils >= 1.13.0
+
 ### Removed
 
 - Either/Or for Discord or Slack usage. Both is possible now at the same time

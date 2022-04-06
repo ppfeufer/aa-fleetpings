@@ -1,5 +1,5 @@
 """
-form declarations
+Form declarations
 """
 
 # Django
@@ -11,7 +11,7 @@ from fleetpings.models import FleetType
 
 class FleetTypeAdminForm(ModelForm):
     """
-    form definitions for the FleetType form in admin
+    Form definitions for the FleetType form in admin
     """
 
     class Meta:  # pylint: disable=too-few-public-methods

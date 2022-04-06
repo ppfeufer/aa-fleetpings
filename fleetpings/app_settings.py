@@ -1,5 +1,5 @@
 """
-our app setting
+App setting
 """
 
 # Django
@@ -17,7 +17,7 @@ AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
 
 def timezones_installed() -> bool:
     """
-    check if aa-timezones is installed
+    Check if aa-timezones is installed
     :return: bool
     """
 
@@ -26,7 +26,7 @@ def timezones_installed() -> bool:
 
 def optimer_installed() -> bool:
     """
-    check if optimer_installed is installed
+    Check if optimer_installed is installed
     :return: bool
     """
 
@@ -35,7 +35,7 @@ def optimer_installed() -> bool:
 
 def get_timzones_version():
     """
-    get the version of aa-timezones, when installed
+    Get the version of aa-timezones, when installed
     :return: string or None
     """
 
@@ -50,7 +50,7 @@ def get_timzones_version():
 
 def fittings_installed() -> bool:
     """
-    check if fittings is installed
+    Check if fittings is installed
     :return: bool
     """
 
@@ -59,7 +59,7 @@ def fittings_installed() -> bool:
 
 def discord_service_installed() -> bool:
     """
-    check if the Discord service is installed
+    Check if the Discord service is installed
     :return: bool
     """
 
@@ -77,7 +77,7 @@ def srp_module_installed() -> bool:
 
 def srp_module_is(module_name: str) -> bool:
     """
-    check for a specific SRP module
+    Check for a specific SRP module
     :param module_name:
     """
 
@@ -86,7 +86,7 @@ def srp_module_is(module_name: str) -> bool:
 
 def can_add_srp_links(request: WSGIRequest, module_name: str) -> bool:
     """
-    check if the current user has the rights to add SRP links for the module
+    Check if the current user has the rights to add SRP links for the module
     :param request:
     :param module_name:
     """

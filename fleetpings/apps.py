@@ -11,7 +11,7 @@ from fleetpings import __version__
 
 class AaFleetpingsConfig(AppConfig):
     """
-    application config
+    Application config
     """
 
     name = "fleetpings"

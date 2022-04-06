@@ -12,7 +12,6 @@ from app_utils.urls import reverse_absolute
 
 
 @register.simple_tag
-# def fleetpings_reverse_url(view: str, **kwargs) -> str:
 def fleetpings_reverse_url(view: str, *args) -> str:
     """
     Absolute URL

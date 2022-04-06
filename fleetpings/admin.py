@@ -1,5 +1,5 @@
 """
-settings for the admin backend
+Settings for the admin backend
 """
 
 # Django
@@ -20,14 +20,14 @@ from fleetpings.models import (
 
 def custom_filter(title):
     """
-    custom filter for model properties
+    Custom filter for model properties
     :param title:
     :return:
     """
 
     class Wrapper(admin.FieldListFilter):
         """
-        custom_filter :: wrapper
+        Custom_filter :: Wrapper
         """
 
         def __new__(cls, *args, **kwargs):

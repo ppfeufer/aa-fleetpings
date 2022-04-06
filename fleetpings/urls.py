@@ -1,5 +1,5 @@
 """
-pages url config
+Pages url config
 """
 
 # Django
@@ -12,7 +12,7 @@ app_name: str = "fleetpings"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    # ajax calls
+    # Ajax calls
     path("call/create-optimer/", views.ajax_create_optimer, name="ajax_create_optimer"),
     path(
         "call/create-srp-link/", views.ajax_create_srp_link, name="ajax_create_srp_link"

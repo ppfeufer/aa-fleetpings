@@ -1,5 +1,5 @@
 """
-our models
+Our models
 """
 
 # Third Party
@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 # AA Fleet Pings
 from fleetpings.app_settings import discord_service_installed
 
-# check if the Discord service is active
+# Check if the Discord service is active
 if discord_service_installed():
     # Alliance Auth
     from allianceauth.services.modules.discord.models import DiscordUser
@@ -77,19 +77,19 @@ class FleetDoctrine(models.Model):
     Fleet Doctrine
     """
 
-    # doctrine name
+    # Doctrine name
     name = models.CharField(
         max_length=255, unique=True, help_text=_("Short name to identify this doctrine")
     )
 
-    # link to your doctinre
+    # Link to your doctrine
     link = models.CharField(
         max_length=255,
         help_text=_("A link to a doctrine page for this doctrine if you have."),
         blank=True,
     )
 
-    # restrictions
+    # Restrictions
     restricted_to_group = models.ManyToManyField(
         Group,
         blank=True,
@@ -97,14 +97,14 @@ class FleetDoctrine(models.Model):
         help_text=_("Restrict this doctrine to the following group(s) ..."),
     )
 
-    # doctrine notes
+    # Doctrine notes
     notes = models.TextField(
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
 
-    # is doctrine active
+    # Is doctrine active
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
@@ -113,7 +113,7 @@ class FleetDoctrine(models.Model):
 
     def clean(self):
         """
-        check if the doctrine link is an actual link to a website
+        Check if the doctrine link is an actual link to a website
         """
 
         doctrine_link = self.link
@@ -156,14 +156,14 @@ class FormupLocation(models.Model):
         help_text=_("Short name to identify this formup location"),
     )
 
-    # formup location notes
+    # Formup location notes
     notes = models.TextField(
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
 
-    # is formup location active
+    # Is formup location active
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
@@ -189,7 +189,7 @@ class DiscordPingTargets(models.Model):
     Discord Ping Targets
     """
 
-    # discord group to ping
+    # Discord group to ping
     name = models.OneToOneField(
         Group,
         on_delete=models.CASCADE,
@@ -202,7 +202,7 @@ class DiscordPingTargets(models.Model):
         ),
     )
 
-    # discord group id
+    # Discord group id
     discord_id = models.CharField(
         max_length=255,
         unique=True,
@@ -210,7 +210,7 @@ class DiscordPingTargets(models.Model):
         help_text=_("ID of the Discord role to ping"),
     )
 
-    # restrictions
+    # Restrictions
     restricted_to_group = models.ManyToManyField(
         Group,
         blank=True,
@@ -218,14 +218,14 @@ class DiscordPingTargets(models.Model):
         help_text=_("Restrict ping rights to the following group(s) ..."),
     )
 
-    # notes
+    # Notes
     notes = models.TextField(
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
 
-    # is this group active
+    # Is this group active
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
@@ -234,17 +234,17 @@ class DiscordPingTargets(models.Model):
 
     def clean(self):
         """
-        check if the group has already been synced to Discord,
+        Check if the group has already been synced to Discord,
         if not, raise an error
         """
 
-        # check if the Discord service is active
+        # Check if the Discord service is active
         if not discord_service_installed():
             raise ValidationError(
                 _("You might want to install the Discord service first ...")
             )
 
-        # get the group id from Discord
+        # Get the group id from Discord
         try:
             discord_group_info = DiscordUser.objects.group_to_role(self.name)
         except HTTPError as http_error:
@@ -266,7 +266,7 @@ class DiscordPingTargets(models.Model):
         Add the Discord group ID (if Discord service is active) and save the whole thing
         """
 
-        # check if the Discord service is active
+        # Check if the Discord service is active
         if discord_service_installed():
             discord_group_info = DiscordUser.objects.group_to_role(self.name)
             self.discord_id = discord_group_info["id"]
@@ -292,21 +292,21 @@ class FleetType(models.Model):
     Fleet Types
     """
 
-    # name of the fleet type
+    # Name of the fleet type
     name = models.CharField(
         max_length=255,
         unique=True,
         help_text=_("Short name to identify this fleet type"),
     )
 
-    # embed color
+    # Embed color
     embed_color = models.CharField(
         max_length=7,
         blank=True,
         help_text=_("Hightlight color for the embed"),
     )
 
-    # restrictions
+    # Restrictions
     restricted_to_group = models.ManyToManyField(
         Group,
         blank=True,
@@ -314,14 +314,14 @@ class FleetType(models.Model):
         help_text=_("Restrict this fleet type to the following group(s) ..."),
     )
 
-    # fleet type notes
+    # Fleet type notes
     notes = models.TextField(
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
     )
 
-    # is this fleet type enabled
+    # Is this fleet type enabled
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
@@ -347,7 +347,7 @@ class Webhook(models.Model):
     A Discord or Slack webhook
     """
 
-    # webhook type choices
+    # Webhook type choices
     WEBHOOK_TYPE_DISCORD = "Discord"
     WEBHOOK_TYPE_SLACK = "Slack"
     WEBHOOK_TYPE_CHOICES = (
@@ -355,7 +355,7 @@ class Webhook(models.Model):
         (WEBHOOK_TYPE_SLACK, "Slack"),
     )
 
-    # webhook type
+    # Webhook type
     type = models.CharField(
         max_length=7,
         choices=WEBHOOK_TYPE_CHOICES,
@@ -363,14 +363,14 @@ class Webhook(models.Model):
         help_text=_("Is this a Discord or Slack webhook?"),
     )
 
-    # channel name
+    # Channel name
     name = models.CharField(
         max_length=255,
         unique=True,
         help_text=_("Name of the channel this webhook posts to"),
     )
 
-    # wehbook url
+    # Wehbook url
     url = models.CharField(
         max_length=255,
         unique=True,
@@ -383,7 +383,7 @@ class Webhook(models.Model):
         ),
     )
 
-    # embedded ping (only for discord wenhooks)
+    # Embedded ping (only for discord wenhooks)
     is_embedded = models.BooleanField(
         default=True,
         db_index=True,
@@ -395,7 +395,7 @@ class Webhook(models.Model):
         ),
     )
 
-    # restrictions
+    # Restrictions
     restricted_to_group = models.ManyToManyField(
         Group,
         blank=True,
@@ -403,14 +403,14 @@ class Webhook(models.Model):
         help_text=_("Restrict ping rights to the following group(s) ..."),
     )
 
-    # webhook notes
+    # Webhook notes
     notes = models.TextField(
         null=True,
         blank=True,
         help_text=_("You can add notes about this webhook here if you want"),
     )
 
-    # is it enabled
+    # Is it enabled
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,

@@ -1,5 +1,5 @@
 """
-the views
+The views
 """
 
 # Django
@@ -54,7 +54,7 @@ def index(request: WSGIRequest) -> HttpResponse:
 
     fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
-    # do we use the doctrines from the fittings module, or our own defined?
+    # Do we use the doctrines from the fittings module, or our own defined?
     use_fleet_doctrines = False
     if (
         fittings_installed() is True
@@ -62,7 +62,7 @@ def index(request: WSGIRequest) -> HttpResponse:
     ):
         use_fleet_doctrines = True
 
-    # get the webhooks for the used platform
+    # Get the webhooks
     webhooks = (
         Webhook.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
@@ -73,7 +73,7 @@ def index(request: WSGIRequest) -> HttpResponse:
         .order_by("type", "name")
     )
 
-    # get additional ping targets for discord
+    # Get additional ping targets for discord
     additional_discord_ping_targets = (
         DiscordPingTargets.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
@@ -84,7 +84,7 @@ def index(request: WSGIRequest) -> HttpResponse:
         .order_by("name")
     )
 
-    # get fleet types
+    # Get fleet types
     fleet_types = (
         FleetType.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
@@ -95,7 +95,7 @@ def index(request: WSGIRequest) -> HttpResponse:
         .order_by("name")
     )
 
-    # get doctrines
+    # Get doctrines
     if use_fleet_doctrines is True:
         groups = request.user.groups.all()
         doctrines = _get_docs_qs(request, groups).order_by("name")
@@ -110,10 +110,9 @@ def index(request: WSGIRequest) -> HttpResponse:
             .order_by("name")
         )
 
-    # get formup locations
+    # Get formup locations
     formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
 
-    # srp_code = None
     srp_module_available_to_user = False
     if srp_module_installed() and (
         can_add_srp_links(request=request, module_name="aasrp")
@@ -145,7 +144,7 @@ def index(request: WSGIRequest) -> HttpResponse:
 @permission_required("fleetpings.basic_access")
 def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
     """
-    adding the planned fleet to the optimers
+    Adding the planned fleet to the optimers
     :param request:
     :return:
     """
@@ -171,14 +170,14 @@ def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
 @permission_required("fleetpings.basic_access")
 def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
     """
-    create a SRP link on fleetping with formup === now and SRP === yes
+    Create an SRP link on fleetping with formup === now and SRP === yes
     :param request:
     """
 
     post_time = timezone.now()
     creator = request.user.profile.main_character
 
-    # create aasrp link
+    # Create aasrp link
     if srp_module_is("aasrp") and can_add_srp_links(
         request=request, module_name="aasrp"
     ):
@@ -199,7 +198,7 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
         srp_link.creator = request.user
         srp_link.save()
 
-    # create allianceauth.srp link
+    # Create allianceauth.srp link
     if srp_module_is("allianceauth.srp") and can_add_srp_links(
         request=request, module_name="allianceauth.srp"
     ):

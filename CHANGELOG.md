@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.13.0-beta.1] - 2022-04-06
+
 ### Added
 
 - Local time to formup time segment (#70)

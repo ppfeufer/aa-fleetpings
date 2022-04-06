@@ -61,9 +61,6 @@ class FleetComm(models.Model):
     def __str__(self) -> str:
         return str(self.name)
 
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
-
     class Meta:  # pylint: disable=too-few-public-methods
         """
         FleetComm :: Meta
@@ -136,9 +133,6 @@ class FleetDoctrine(models.Model):
     def __str__(self) -> str:
         return str(self.name)
 
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
-
     class Meta:  # pylint: disable=too-few-public-methods
         """
         FleetDoctrine :: Meta
@@ -178,9 +172,6 @@ class FormupLocation(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -285,15 +276,6 @@ class DiscordPingTargets(models.Model):
     def __str__(self) -> str:
         return str(self.name)
 
-    def __repr__(self) -> str:
-        return (
-            f"{self.__class__.__name__}("
-            f"id={self.pk}, "
-            f"discord_id='{self.discord_id}', "
-            f"name='{self.name}'"
-            f") "
-        )
-
     class Meta:  # pylint: disable=too-few-public-methods
         """
         DiscordPingTargets :: Meta
@@ -348,9 +330,6 @@ class FleetType(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -440,17 +419,6 @@ class Webhook(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
-
-    def __repr__(self) -> str:
-        return (
-            f"{self.__class__.__name__}("
-            f"id={self.pk}, "
-            f"type='{self.type}', "
-            f"url='{self.url}', "
-            f"name='{self.name}', "
-            f"is_embedded='{self.is_embedded}'"
-            f")"
-        )
 
     class Meta:  # pylint: disable=too-few-public-methods
         """

@@ -5,8 +5,16 @@ Utilities
 # Django
 from django.conf import settings
 
+# Alliance Auth
+from allianceauth.services.hooks import get_extension_logger
+
+# Alliance Auth (External Libs)
+from app_utils.logging import LoggerAddTag
+
 # AA Fleet Pings
-from fleetpings.tasks import logger
+from fleetpings import __title__
+
+logger = LoggerAddTag(get_extension_logger(__name__), __title__)
 
 
 def clean_setting(

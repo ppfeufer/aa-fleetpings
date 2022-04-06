@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Minimum requirements
   - Alliance Auth >= v2.11.2
   - Alliance Auth App Utils >= 1.13.0
+- Switched to Alliance Auth App Utils for logging
 
 ### Removed
 

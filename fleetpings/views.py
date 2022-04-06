@@ -10,7 +10,11 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
 
+# Alliance Auth
+from allianceauth.services.hooks import get_extension_logger
+
 # Alliance Auth (External Libs)
+from app_utils.logging import LoggerAddTag
 from app_utils.urls import site_absolute_url
 
 # AA Fleet Pings
@@ -44,6 +48,8 @@ if optimer_installed():
     # Alliance Auth
     from allianceauth.optimer.models import OpTimer
 
+logger = LoggerAddTag(get_extension_logger(__name__), __title__)
+
 
 @login_required
 @permission_required("fleetpings.basic_access")
@@ -51,6 +57,8 @@ def index(request: WSGIRequest) -> HttpResponse:
     """
     Index view
     """
+
+    logger.info(f"Fleet pings view called by user {request.user}")
 
     fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
@@ -163,6 +171,8 @@ def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
     optimer.eve_character = character
     optimer.save()
 
+    logger.info(f"Optimer created by user {request.user}")
+
     return JsonResponse([True], safe=False)
 
 
@@ -215,5 +225,7 @@ def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
         srp_fleet.fleet_srp_code = srp_code
         srp_fleet.fleet_commander = creator
         srp_fleet.save()
+
+    logger.info(f"SRP Linki created by user {request.user}")
 
     return JsonResponse({"success": True, "srp_code": srp_code}, safe=False)

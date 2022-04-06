@@ -62,7 +62,7 @@ class FleetComm(models.Model):
         return str(self.name)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
+        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -137,7 +137,7 @@ class FleetDoctrine(models.Model):
         return str(self.name)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
+        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -180,7 +180,7 @@ class FormupLocation(models.Model):
         return str(self.name)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
+        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -288,9 +288,8 @@ class DiscordPingTargets(models.Model):
     def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__}("
-            f"id={self.id}, "
+            f"id={self.pk}, "
             f"discord_id='{self.discord_id}', "
-            f"restricted_to_group='{self.restricted_to_group.all()}', "
             f"name='{self.name}'"
             f") "
         )
@@ -351,7 +350,7 @@ class FleetType(models.Model):
         return str(self.name)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(id={self.id}, name='{self.name}')"
+        return f"{self.__class__.__name__}(id={self.pk}, name='{self.name}')"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -445,10 +444,9 @@ class Webhook(models.Model):
     def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__}("
-            f"id={self.id}, "
+            f"id={self.pk}, "
             f"type='{self.type}', "
             f"url='{self.url}', "
-            f"restricted_to_group='{self.restricted_to_group.all()}', "
             f"name='{self.name}', "
             f"is_embedded='{self.is_embedded}'"
             f")"

@@ -17,7 +17,6 @@ from app_utils.urls import site_absolute_url
 from fleetpings import __title__
 from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
-    AA_FLEETPINGS_USE_SLACK,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
@@ -53,12 +52,8 @@ def index(request: WSGIRequest) -> HttpResponse:
     """
     Index view
     """
-    fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
-    # which platform for pings we are using?
-    platform_used = "Discord"
-    if AA_FLEETPINGS_USE_SLACK is True:
-        platform_used = "Slack"
+    fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
     # do we use the doctrines from the fittings module, or our own defined?
     use_fleet_doctrines = False
@@ -73,25 +68,22 @@ def index(request: WSGIRequest) -> HttpResponse:
         Webhook.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
             | Q(restricted_to_group__isnull=True),
-            type=platform_used,
+            is_enabled=True,
+        )
+        .distinct()
+        .order_by("type", "name")
+    )
+
+    # get additional ping targets for discord
+    additional_discord_ping_targets = (
+        DiscordPingTargets.objects.filter(
+            Q(restricted_to_group__in=request.user.groups.all())
+            | Q(restricted_to_group__isnull=True),
             is_enabled=True,
         )
         .distinct()
         .order_by("name")
     )
-
-    # get additional ping targets for discord
-    additional_discord_ping_targets = {}
-    if AA_FLEETPINGS_USE_SLACK is False:
-        additional_discord_ping_targets = (
-            DiscordPingTargets.objects.filter(
-                Q(restricted_to_group__in=request.user.groups.all())
-                | Q(restricted_to_group__isnull=True),
-                is_enabled=True,
-            )
-            .distinct()
-            .order_by("name")
-        )
 
     # get fleet types
     fleet_types = (
@@ -144,7 +136,6 @@ def index(request: WSGIRequest) -> HttpResponse:
         "use_new_timezone_links": use_new_timezone_links(),
         "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,
-        "platform_used": platform_used,
         "use_fleet_doctrines": use_fleet_doctrines,
         "srp_module_available_to_user": srp_module_available_to_user,
     }

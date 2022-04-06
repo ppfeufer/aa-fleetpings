@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Removed
+
+- Either or for Discord or Slack usage. Both is possible now at the same time
+
 
 ## [2.13.0-beta.1] - 2022-04-06
 
@@ -17,7 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Get `timezones` app URL from Django instead of it being hard coded
+- Get `timezones` app URL from Django instead of it being hardcoded
 
 
 ## [2.12.0] - 2022-03-02

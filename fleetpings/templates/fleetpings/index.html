@@ -30,7 +30,7 @@
         <script type="application/javascript">
             const fleetpingsTranslations = {
                 ping: {
-                    success: '{% blocktrans with platform_used=platform_used context="%(platform_used)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping has been sent to your {{ platform_used }}.{% endblocktrans %}'
+                    success: '{% translate "Success! Your ping has been sent"'
                 },
                 optimer: {
                     created: '{% translate "Fleet operations timer has been created ..." %}',
@@ -46,7 +46,7 @@
                 },
                 copyToClipboard: {
                     error: '{% translate "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature." %}',
-                    success: '{% blocktrans with platform_used=platform_used context="%(platform_used)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your {{ platform_used }} so you actually get some people in fleet.{% endblocktrans %}'
+                    success: '{% translate "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."'
                 }
             };
         </script>

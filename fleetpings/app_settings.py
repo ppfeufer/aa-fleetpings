@@ -12,8 +12,7 @@ from django.core.handlers.wsgi import WSGIRequest
 # AA Fleet Pings
 from fleetpings.utils import clean_setting
 
-# set default panels if none are set in local.py
-AA_FLEETPINGS_USE_SLACK = clean_setting("AA_FLEETPINGS_USE_SLACK", False)
+# Set default panels if none are set in local.py
 AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
     "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
 )

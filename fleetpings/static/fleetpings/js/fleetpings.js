@@ -295,15 +295,16 @@ $(document).ready(() => {
             // pingTarget
             if (pingTarget.indexOf('@') > -1) {
                 webhookPingTarget = pingTarget;
+                discordPingTarget = pingTarget;
             } else {
                 webhookPingTarget = '<@&' + pingTarget + '>';
-            }
 
-            // pingTargetText
-            if (pingTargetText.indexOf('@') > -1) {
-                discordPingTarget = pingTargetText;
-            } else {
-                discordPingTarget = '@' + pingTargetText;
+                // pingTargetText
+                if (pingTargetText.indexOf('@') > -1) {
+                    discordPingTarget = pingTargetText;
+                } else {
+                    discordPingTarget = '@' + pingTargetText;
+                }
             }
 
             // Separator
@@ -431,13 +432,13 @@ $(document).ready(() => {
             webhookPingTextContent += '\n\n' + '**Additional Information**:' + '\n' + additionalInformation;
         }
 
-        if (fleetpingsSettings.platformUsed === 'Discord') {
+        if (webhookType === 'Discord') {
             $('.aa-fleetpings-ping-text').html(
                 '<p>' + nl2br(discordPingTarget + pingText, false) + '</p>'
             );
         }
 
-        if (fleetpingsSettings.platformUsed === 'Slack') {
+        if (webhookType === 'Slack') {
             $('.aa-fleetpings-ping-text').html(
                 '<p>' + nl2br(discordPingTarget + pingText.split('**').join('*'), false) + '</p>'
             );
@@ -487,7 +488,7 @@ $(document).ready(() => {
                 let slackEmbedPingTarget = '';
 
                 if (pingTarget !== '') {
-                    slackEmbedPingTarget = '<' + webhookPingTarget.replace('@', '!') + '> :: ';
+                    slackEmbedPingTarget = '<' + webhookPingTarget.replace('@everyone', '!channel').replace('@', '!') + '> :: ';
                 }
 
                 /**

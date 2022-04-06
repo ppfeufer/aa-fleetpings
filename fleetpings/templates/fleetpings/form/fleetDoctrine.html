@@ -1,3 +1,4 @@
+{% load fleetpings_urls %}
 {% load i18n %}
 
 <div class="form-group clearfix">
@@ -9,7 +10,7 @@
             <datalist id="fleetDoctrineList">
                 {% for fleet_doctrine in fleet_doctrines %}
                     {% if use_fleet_doctrines %}
-                        <option value="{{ fleet_doctrine.name }}" data-doctrine-url="{{ request.scheme }}://{{ request.get_host }}{% url 'fittings:view_doctrine' fleet_doctrine.pk %}">
+                        <option value="{{ fleet_doctrine.name }}" data-doctrine-url="{% fleetpings_reverse_url 'fittings:view_doctrine' fleet_doctrine.pk %}">
                     {% else %}
                         <option value="{{ fleet_doctrine.name }}" data-doctrine-url="{{ fleet_doctrine.link }}">
                     {% endif %}

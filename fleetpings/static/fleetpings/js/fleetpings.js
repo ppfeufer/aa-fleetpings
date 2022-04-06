@@ -215,15 +215,26 @@ $(document).ready(() => {
     };
 
     /**
+     * Get the timestamp for the formup time
+     *
+     * @param {string} formupTime
+     * @returns {number}
+     */
+    const getFormupTimestamp = (formupTime) => {
+        const formupDateTime = new Date(formupTime);
+
+        return (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() * 60 * 1000) / 1000;
+    };
+
+    /**
      * Convert the datepicker info into an URL that the aa-timezones module understands
      *
      * @param {string} formupTime
      */
     const getTimezonesUrl = (formupTime) => {
-        const formupDateTime = new Date(formupTime);
-        const formupTimestamp = (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() * 60 * 1000) / 1000;
+        const formupTimestamp = getFormupTimestamp(formupTime);
 
-        return fleetpingsSettings.siteUrl + 'timezones/' + formupTimestamp + '/';
+        return fleetpingsSettings.siteUrl + fleetpingsSettings.timezonesUrl + formupTimestamp + '/';
     };
 
     /**
@@ -353,8 +364,8 @@ $(document).ready(() => {
             webhookPingTextContent += '\n' + '**Formup Time:** NOW';
         } else {
             if (formupTime !== '') {
-                pingText += '\n' + '**Formup Time:** ' + formupTime;
-                webhookPingTextContent += '\n' + '**Formup Time:** ' + formupTime;
+                pingText += '\n' + '**Formup EVE Time:** ' + formupTime;
+                webhookPingTextContent += '\n' + '**Formup EVE Time:** ' + formupTime;
 
                 // Get the timestamp and build the link to the timezones module if it's installed
                 if (fleetpingsSettings.timezonesInstalled === true) {
@@ -370,6 +381,8 @@ $(document).ready(() => {
                         webhookPingTextContent += ' (<' + timezonesUrl + '|Time Zone Conversion>)';
                     }
                 }
+
+                const formupTimestamp = getFormupTimestamp(formupTime);
             }
         }
 

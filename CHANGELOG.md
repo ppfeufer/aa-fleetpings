@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Changed
+
+- Get `timezones` app URL from Django instead of it being hard coded
+
 
 ## [2.12.0] - 2022-03-02
 

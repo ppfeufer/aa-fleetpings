@@ -364,8 +364,8 @@ $(document).ready(() => {
             webhookPingTextContent += '\n' + '**Formup Time:** NOW';
         } else {
             if (formupTime !== '') {
-                pingText += '\n' + '**Formup EVE Time:** ' + formupTime;
-                webhookPingTextContent += '\n' + '**Formup EVE Time:** ' + formupTime;
+                pingText += '\n' + '**Formup (EVE Time):** ' + formupTime;
+                webhookPingTextContent += '\n' + '**Formup (EVE Time):** ' + formupTime;
 
                 // Get the timestamp and build the link to the timezones module if it's installed
                 if (fleetpingsSettings.timezonesInstalled === true) {
@@ -384,8 +384,8 @@ $(document).ready(() => {
 
                 const formupTimestamp = getFormupTimestamp(formupTime);
 
-                pingText += '\n' + '**Formup Local Time:** &lt;t:' + formupTimestamp + ':F&gt;';
-                webhookPingTextContent += '\n' + '**Formup Local Time:** <t:' + formupTimestamp + ':F>';
+                pingText += '\n' + '**Formup (Local Time):** &lt;t:' + formupTimestamp + ':F&gt;';
+                webhookPingTextContent += '\n' + '**Formup (Local Time):** <t:' + formupTimestamp + ':F>';
             }
         }
 

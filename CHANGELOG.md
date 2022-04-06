@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
-- Either or for Discord or Slack usage. Both is possible now at the same time
+- Either/Or for Discord or Slack usage. Both is possible now at the same time
 
 
 ## [2.13.0-beta.1] - 2022-04-06

@@ -13,8 +13,13 @@ app_name: str = "fleetpings"
 urlpatterns = [
     path("", views.index, name="index"),
     # Ajax calls
-    path("call/create-optimer/", views.ajax_create_optimer, name="ajax_create_optimer"),
     path(
-        "call/create-srp-link/", views.ajax_create_srp_link, name="ajax_create_srp_link"
+        "ajax/create-fleet-ping/",
+        views.ajax_create_fleet_ping,
+        name="ajax_create_fleet_ping",
+    ),
+    path("ajax/create-optimer/", views.ajax_create_optimer, name="ajax_create_optimer"),
+    path(
+        "ajax/create-srp-link/", views.ajax_create_srp_link, name="ajax_create_srp_link"
     ),
 ]

@@ -234,7 +234,7 @@ $(document).ready(() => {
     const getTimezonesUrl = (formupTime) => {
         const formupTimestamp = getFormupTimestamp(formupTime);
 
-        return fleetpingsSettings.siteUrl + fleetpingsSettings.timezonesUrl + formupTimestamp + '/';
+        return fleetpingsSettings.url.siteUrl + fleetpingsSettings.url.timezonesUrl + formupTimestamp + '/';
     };
 
     /**
@@ -532,7 +532,7 @@ $(document).ready(() => {
         if (fleetpingsSettings.srpModuleAvailableToUser === true) {
             if (fleetName !== '' && fleetDoctrine !== '') {
                 // Create SRP link
-                const srpAjaxUrl = fleetpingsSettings.srpAjaxUrl;
+                const srpAjaxUrl = fleetpingsSettings.url.srpAjaxUrl;
                 let srpCode = '';
 
                 $.ajax({
@@ -589,7 +589,7 @@ $(document).ready(() => {
     const generateFleetPingWithOptimer = (fleetName, fleetDoctrine, formupLocation, formupTime, fcName) => {
         if (fleetpingsSettings.optimerInstalled === true) {
             if (fleetName !== '' && fleetDoctrine !== '' && formupLocation !== '' && formupTime !== '' && fcName !== '') {
-                const optimerAjaxUrl = fleetpingsSettings.optimerAjaxUrl;
+                const optimerAjaxUrl = fleetpingsSettings.url.optimerAjaxUrl;
 
                 $.ajax({
                     url: optimerAjaxUrl,
@@ -766,30 +766,71 @@ $(document).ready(() => {
     /**
      * Generate ping text
      */
-    $('button#createPingText').on('click', () => {
-        const fleetName = sanitizeInput(inputFleetName.val());
-        const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
-        const formupTime = sanitizeInput(inputFormupTime.val());
-        const fcName = sanitizeInput(inputFcName.val());
-        const formupLocation = sanitizeInput(inputFormupLocation.val());
+    $("form").submit(( event ) => {
+    // $('button#createPingText').on('click', () => {
+        // const fleetName = sanitizeInput(inputFleetName.val());
+        // const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+        // const formupTime = sanitizeInput(inputFormupTime.val());
+        // const fcName = sanitizeInput(inputFcName.val());
+        // const formupLocation = sanitizeInput(inputFormupLocation.val());
 
-        let pingCreated = false;
+        // let pingCreated = false;
 
         // Check if we should create an SRP link
-        if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
-            pingCreated = generateFleetPingWithSrp(fleetName, fleetDoctrine);
-        }
+        // if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
+        //     pingCreated = generateFleetPingWithSrp(fleetName, fleetDoctrine);
+        // }
 
         // Check if we should create an optimer
-        if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked')) {
-            pingCreated = generateFleetPingWithOptimer(
-                fleetName, fleetDoctrine, formupLocation, formupTime, fcName
-            );
-        }
+        // if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked')) {
+        //     pingCreated = generateFleetPingWithOptimer(
+        //         fleetName, fleetDoctrine, formupLocation, formupTime, fcName
+        //     );
+        // }
 
-        if (pingCreated === false) {
-            generateFleetPing('');
-        }
+        // if (pingCreated === false) {
+        //     generateFleetPing('');
+        // }
+
+
+        // Stop the browser from sending the form, we take care of it
+        event.preventDefault();
+
+        const pingTargetSelected = $('option:selected', selectPingTarget);
+        const pingTarget = sanitizeInput(pingTargetSelected.val());
+        const pingTargetText = sanitizeInput(pingTargetSelected.text());
+        const pingChannelSelected = $('option:selected', selectPingChannel);
+        const webhookType = sanitizeInput(pingChannelSelected.data('webhook-type'));
+        const webhookEmbedPing = sanitizeInput(pingChannelSelected.data('webhook-embed'));
+        const fcName = sanitizeInput(inputFcName.val());
+        const fleetName = sanitizeInput(inputFleetName.val());
+        const formupLocation = sanitizeInput(inputFormupLocation.val());
+        const formupTime = sanitizeInput(inputFormupTime.val());
+        const fleetComms = sanitizeInput(inputFleetComms.val());
+
+        // Get the form data
+        let formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
+            obj[item.name] = item.value;
+
+            return obj;
+        }, {});
+
+        // Add some additional info
+        // fleetDoctrineUrl
+        const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+        const fleetDoctrineUrl = $('#fleetDoctrineList [value="' + escapeInput(fleetDoctrine, false) + '"]').data('doctrine-url');
+        formData.fleetDoctrineUrl = fleetDoctrineUrl || '';
+
+        console.table(formData);
+
+        $.ajax({
+            url: fleetpingsSettings.url.fleetPingUrl,
+            type: 'post',
+            data: formData,
+            headers: {
+                'X-CSRFToken': inputCsrfMiddlewareToken.val()
+            }
+        });
     });
 
     /**

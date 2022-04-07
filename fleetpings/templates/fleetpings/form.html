@@ -1,60 +1,62 @@
 {% load i18n %}
 
-{% csrf_token %}
-<fieldset class="aa-fleetpings-form">
-    <!-- pingTarget.html -->
-    {% include 'fleetpings/form/pingTargets.html' %}
+<form id="aa-fleetping-form">
+    {% csrf_token %}
+    <fieldset class="aa-fleetpings-form">
+        <!-- pingTarget.html -->
+        {% include 'fleetpings/form/pingTargets.html' %}
 
-    <!-- prePing.html -->
-    {% include 'fleetpings/form/prePing.html' %}
+        <!-- prePing.html -->
+        {% include 'fleetpings/form/prePing.html' %}
 
-    <!-- pingChannel.html -->
-    {% include 'fleetpings/form/pingChannel.html' %}
+        <!-- pingChannel.html -->
+        {% include 'fleetpings/form/pingChannel.html' %}
 
-    <!-- fleetType.html -->
-    {% include 'fleetpings/form/fleetType.html' %}
+        <!-- fleetType.html -->
+        {% include 'fleetpings/form/fleetType.html' %}
 
-    <!-- fleetCommander.html -->
-    {% include 'fleetpings/form/fleetCommander.html' %}
+        <!-- fleetCommander.html -->
+        {% include 'fleetpings/form/fleetCommander.html' %}
 
-    <!-- fleetName.html -->
-    {% include 'fleetpings/form/fleetName.html' %}
+        <!-- fleetName.html -->
+        {% include 'fleetpings/form/fleetName.html' %}
 
-    <!-- formupLocation.html -->
-    {% include 'fleetpings/form/formupLocation.html' %}
+        <!-- formupLocation.html -->
+        {% include 'fleetpings/form/formupLocation.html' %}
 
-    <!-- formupTime.html -->
-    {% include 'fleetpings/form/formupTime.html' %}
+        <!-- formupTime.html -->
+        {% include 'fleetpings/form/formupTime.html' %}
 
-    <!-- fleetComms.html -->
-    {% include 'fleetpings/form/fleetComms.html' %}
+        <!-- fleetComms.html -->
+        {% include 'fleetpings/form/fleetComms.html' %}
 
-    <!-- fleetDoctrine.html -->
-    {% include 'fleetpings/form/fleetDoctrine.html' %}
+        <!-- fleetDoctrine.html -->
+        {% include 'fleetpings/form/fleetDoctrine.html' %}
 
-    <!-- srp.html -->
-    {% include 'fleetpings/form/srp.html' %}
+        <!-- srp.html -->
+        {% include 'fleetpings/form/srp.html' %}
 
-    <!-- additionalInformation.html -->
-    {% include 'fleetpings/form/additionalInformation.html' %}
+        <!-- additionalInformation.html -->
+        {% include 'fleetpings/form/additionalInformation.html' %}
 
-    <!-- createOptimer.html -->
-    {% if optimer_installed %}
-        {% include 'fleetpings/form/createOptimer.html' %}
-    {% endif %}
+        <!-- createOptimer.html -->
+        {% if optimer_installed %}
+            {% include 'fleetpings/form/createOptimer.html' %}
+        {% endif %}
 
-    <!-- createSrpLink.html -->
-    {% if srp_module_available_to_user %}
-        {% include 'fleetpings/form/createSrpLink.html' %}
-    {% endif %}
+        <!-- createSrpLink.html -->
+        {% if srp_module_available_to_user %}
+            {% include 'fleetpings/form/createSrpLink.html' %}
+        {% endif %}
 
-    <div class="form-group clearfix">
-        <label class="col-md-3 control-label" for="createPingText"></label>
-        <div class="col-md-4">
-            <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>
+        <div class="form-group clearfix">
+            <label class="col-md-3 control-label" for="createPingText"></label>
+            <div class="col-md-4">
+                <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>
+            </div>
         </div>
-    </div>
-</fieldset>
+    </fieldset>
+</form>
 
 <script type="application/javascript">
     const fleetpingsSettings = {
@@ -62,9 +64,12 @@
         optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
         srpModuleAvailableToUser: {{ srp_module_available_to_user|yesno:"true,false" }},
         pingCreator: '{{ main_character|safe|addslashes }}',
-        siteUrl: '{{ site_url }}/',
-        {% if timezones_installed %}timezonesUrl: '{% url "timezones:index" %}',{% endif %}
-        {% if optimer_installed %}optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}',{% endif %}
-        {% if srp_module_available_to_user %}srpAjaxUrl: '{% url "fleetpings:ajax_create_srp_link" %}',{% endif %}
+        url: {
+            siteUrl: '{{ site_url }}/',
+            fleetPingUrl: '{% url "fleetpings:ajax_create_fleet_ping" %}',
+            {% if timezones_installed %}timezonesUrl: '{% url "timezones:index" %}',{% endif %}
+            {% if optimer_installed %}optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}',{% endif %}
+            {% if srp_module_available_to_user %}srpAjaxUrl: '{% url "fleetpings:ajax_create_srp_link" %}',{% endif %}
+        }
     };
 </script>

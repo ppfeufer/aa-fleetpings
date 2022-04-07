@@ -28,6 +28,7 @@ from fleetpings.app_settings import (
     srp_module_is,
     timezones_installed,
 )
+from fleetpings.form import FleetPingForm
 from fleetpings.models import (
     DiscordPingTargets,
     FleetComm,
@@ -143,6 +144,7 @@ def index(request: WSGIRequest) -> HttpResponse:
         "main_character": request.user.profile.main_character,
         "use_fleet_doctrines": use_fleet_doctrines,
         "srp_module_available_to_user": srp_module_available_to_user,
+        "form": FleetPingForm,
     }
 
     return render(request, "fleetpings/index.html", context)

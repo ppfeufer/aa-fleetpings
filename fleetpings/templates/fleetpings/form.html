@@ -1,62 +1,66 @@
+{% load bootstrap %}
 {% load i18n %}
 
-<form id="aa-fleetping-form">
+<form id="aa-fleetping-form" class="form-horizontal">
     {% csrf_token %}
     <fieldset class="aa-fleetpings-form">
-{#        <!-- pingTarget.html -->#}
-{#        {% include 'fleetpings/form/pingTargets.html' %}#}
-{##}
-{#        <!-- prePing.html -->#}
-{#        {% include 'fleetpings/form/prePing.html' %}#}
-{##}
-{#        <!-- pingChannel.html -->#}
-{#        {% include 'fleetpings/form/pingChannel.html' %}#}
-{##}
-{#        <!-- fleetType.html -->#}
-{#        {% include 'fleetpings/form/fleetType.html' %}#}
-{##}
-{#        <!-- fleetCommander.html -->#}
-{#        {% include 'fleetpings/form/fleetCommander.html' %}#}
-{##}
-{#        <!-- fleetName.html -->#}
-{#        {% include 'fleetpings/form/fleetName.html' %}#}
-{##}
-{#        <!-- formupLocation.html -->#}
-{#        {% include 'fleetpings/form/formupLocation.html' %}#}
-{##}
-{#        <!-- formupTime.html -->#}
-{#        {% include 'fleetpings/form/formupTime.html' %}#}
-{##}
-{#        <!-- fleetComms.html -->#}
-{#        {% include 'fleetpings/form/fleetComms.html' %}#}
-{##}
-{#        <!-- fleetDoctrine.html -->#}
-{#        {% include 'fleetpings/form/fleetDoctrine.html' %}#}
-{##}
-{#        <!-- srp.html -->#}
-{#        {% include 'fleetpings/form/srp.html' %}#}
-{##}
-{#        <!-- additionalInformation.html -->#}
-{#        {% include 'fleetpings/form/additionalInformation.html' %}#}
-{##}
-{#        <!-- createOptimer.html -->#}
-{#        {% if optimer_installed %}#}
-{#            {% include 'fleetpings/form/createOptimer.html' %}#}
-{#        {% endif %}#}
-{##}
-{#        <!-- createSrpLink.html -->#}
-{#        {% if srp_module_available_to_user %}#}
-{#            {% include 'fleetpings/form/createSrpLink.html' %}#}
-{#        {% endif %}#}
-{##}
-{#        <div class="form-group clearfix">#}
-{#            <label class="col-md-3 control-label" for="createPingText"></label>#}
-{#            <div class="col-md-4">#}
-{#                <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>#}
-{#            </div>#}
-{#        </div>#}
+        <!-- ping_target -->
+        {{ form.ping_target|bootstrap_horizontal }}
 
-        {{ form }}
+        <!-- ping_channel -->
+        {{ form.ping_channel|bootstrap_horizontal }}
+
+        <!-- fleet_type -->
+        {{ form.fleet_type|bootstrap_horizontal }}
+
+        <!-- fleet_commander -->
+        {{ form.fleet_commander|bootstrap_horizontal }}
+
+        <!-- fleet_name -->
+        {{ form.fleet_name|bootstrap_horizontal }}
+
+        <!-- formup_location -->
+        {{ form.formup_location|bootstrap_horizontal }}
+
+        <!-- pre_ping -->
+        {{ form.pre_ping|bootstrap_horizontal }}
+
+        <!-- formup_time -->
+        {{ form.formup_time|bootstrap_horizontal }}
+
+        <!-- optimer -->
+        {% if optimer_installed %}
+            <div class="fleetpings-create-optimer clearfix" style="display: none;">
+                {{ form.optimer|bootstrap_horizontal }}
+            </div>
+        {% endif %}
+
+        {{ form.formup_now|bootstrap_horizontal }}
+
+        <!-- fleet_comms -->
+        {{ form.fleet_comms|bootstrap_horizontal }}
+
+        <!-- fleet_doctrine -->
+        {{ form.fleet_doctrine|bootstrap_horizontal }}
+
+        <!-- srp -->
+        {{ form.srp|bootstrap_horizontal }}
+
+        <!-- srp_link -->
+        {% if srp_module_available_to_user %}
+            <div class="fleetpings-create-srp-link clearfix" style="display: none;">
+                {{ form.srp_link|bootstrap_horizontal }}
+            </div>
+        {% endif %}
+
+        <!-- additional_information -->
+        {{ form.additional_information|bootstrap_horizontal }}
+
+        <div class="form-group clearfix">
+            <div class=" col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
+                <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>
+            </div>
+        </div>
     </fieldset>
 </form>
 

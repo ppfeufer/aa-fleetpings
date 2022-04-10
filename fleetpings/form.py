@@ -90,10 +90,7 @@ class FleetPingForm(forms.Form):
         help_text=_("Select a channel to ping automatically"),
     )
     fleet_type = forms.CharField(
-        required=False,
-        label=_("Fleet Type"),
-        widget=forms.Select(choices={}),
-        help_text=_("Select a fleet type"),
+        required=False, label=_("Fleet Type"), widget=forms.Select(choices={})
     )
     fleet_commander = forms.CharField(
         required=False,

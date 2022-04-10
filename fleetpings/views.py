@@ -247,21 +247,6 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> JsonResponse:
     if request.method == "POST":
         logger.info("Fleet ping information received")
 
-        # Get the ping information
-        # ping_target = request.POST["pingTarget"]
-        # pre_ping = bool(request.POST["prePing"])
-        # ping_channel = int(request.POST["pingChannel"])  # Webhook.pk (Discord or Slack)
-        # fleet_type = request.POST["fleetType"]
-        # fc_name = request.POST["fcName"]
-        # formup_location = request.POST["formupLocation"]
-        # formupTime = request.POST["formupTime"]
-        # fleet_comms = request.POST["fleetComms"]
-        # fleet_doctrine = request.POST["fleetDoctrine"]
-        # fleet_doctrine_url = request.POST["fleetDoctrineUrl"]
-        # fleet_srp = bool(request.POST["fleetSrp"])
-        # additional_information = request.POST["additionalInformation"]
-        # create_optimer = bool(request.POST["createOptimer"])
-
     logger.info(f"Fleet ping created by user {request.user}")
 
     return JsonResponse({"success": True, "ping_text": ""}, safe=False)

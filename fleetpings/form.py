@@ -10,9 +10,6 @@ from django.utils.translation import gettext_lazy as _
 from fleetpings.app_settings import timezones_installed
 from fleetpings.models import FleetType
 
-# from django.core.handlers.wsgi import WSGIRequest
-# from django.db.models import Q
-
 
 def _get_timezones_module_hint_text() -> str:
     if timezones_installed():
@@ -22,34 +19,6 @@ def _get_timezones_module_hint_text() -> str:
         )
 
     return ""
-
-
-# def _get_ping_targets(request: WSGIRequest):
-#     def rectree(toplevel):
-#         children_list_of_tuples = list()
-#
-#         if toplevel.children.active():
-#             for child in toplevel.children.active():
-#                 children_list_of_tuples.append(tuple((child.id, child.name)))
-#
-#         return children_list_of_tuples
-#
-#     data = list()
-#     additional_discord_ping_targets = (
-#         DiscordPingTargets.objects.filter(
-#             Q(restricted_to_group__in=request.user.groups.all())
-#             | Q(restricted_to_group__isnull=True),
-#             is_enabled=True,
-#         )
-#         .distinct()
-#         .order_by("name")
-#     )
-#
-#     for toplevel in additional_discord_ping_targets:
-#         childrens = rectree(toplevel)
-#         data.append(tuple((toplevel.name, tuple(childrens))))
-#
-#     return tuple(data)
 
 
 class FleetTypeAdminForm(forms.ModelForm):

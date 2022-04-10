@@ -168,7 +168,7 @@ class FleetPingForm(forms.Form):
     optimer = forms.BooleanField(
         initial=False,
         required=False,
-        label=_("Create Optime"),
+        label=_("Create Optimer"),
         help_text=_(
             "If this checkbox is active, a fleet operations timer for this pre-ping "
             "will be created."

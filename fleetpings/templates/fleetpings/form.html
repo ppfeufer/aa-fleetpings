@@ -66,6 +66,7 @@
 
 <script type="application/javascript">
     const fleetpingsSettings = {
+        dateTimeLocale: '{{ LANGUAGE_CODE }}',
         timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
         optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
         srpModuleAvailableToUser: {{ srp_module_available_to_user|yesno:"true,false" }},

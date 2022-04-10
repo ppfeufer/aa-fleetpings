@@ -58,15 +58,6 @@
     {% include 'bundles/clipboard-js.html' %}
 
     <script type="application/javascript" src="{% fleetpings_static 'fleetpings/js/fleetpings.min.js' %}"></script>
-    <script type="application/javascript">
-        $('#formupTime').datetimepicker({
-            lang: '{{ LANGUAGE_CODE }}',
-            maskInput: true,
-            format: 'Y-m-d H:i',
-            dayOfWeekStart: 1,
-            step: 15
-        });
-    </script>
 {% endblock %}
 
 {% block extra_css %}

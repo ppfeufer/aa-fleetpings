@@ -16,19 +16,27 @@ $(document).ready(() => {
     const selectPingTarget = $('select#id_ping_target');
     const selectPingChannel = $('select#id_ping_channel');
     const selectFleetType = $('select#id_fleet_type');
-    const selectFleetSrp = $('select#fleetSrp');
 
     // Input fields
+    const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
+    const inputFormupTime = $('input#id_formup_time');
+
     const inputFcName = $('input#fcName');
     const inputFleetName = $('input#fleetName');
     const inputFormupLocation = $('input#formupLocation');
-    const inputFormupTime = $('input#formupTime');
     const inputFleetComms = $('input#fleetComms');
     const inputFleetDoctrine = $('input#fleetDoctrine');
-    const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
 
     // Text area
     const textAdditionalInformation = $('textarea#additionalInformation');
+
+    inputFormupTime.datetimepicker({
+        lang: fleetpingsSettings.dateTimeLocale,
+        maskInput: true,
+        format: 'Y-m-d H:i',
+        dayOfWeekStart: 1,
+        step: 15
+    });
 
     /* Functions
     --------------------------------------------------------------------------------- */
@@ -730,7 +738,7 @@ $(document).ready(() => {
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes') {
+            if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxFleetSrp.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         }
@@ -746,7 +754,7 @@ $(document).ready(() => {
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes') {
+            if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxFleetSrp.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         } else {

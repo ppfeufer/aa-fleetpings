@@ -75,7 +75,7 @@ class FleetPingForm(forms.Form):
     """
 
     ping_target = forms.CharField(
-        label=_("Ping Target"), widget=forms.Select(choices={})
+        required=False, label=_("Ping Target"), widget=forms.Select(choices={})
     )
     pre_ping = forms.BooleanField(
         initial=False,
@@ -84,23 +84,25 @@ class FleetPingForm(forms.Form):
         help_text=_("Mark this checkbox if this should be a pre-ping."),
     )
     ping_channel = forms.CharField(
+        required=False,
         label=_("Ping To"),
         widget=forms.Select(choices={}),
         help_text=_("Select a channel to ping automatically"),
     )
     fleet_type = forms.CharField(
+        required=False,
         label=_("Fleet Type"),
         widget=forms.Select(choices={}),
         help_text=_("Select a fleet type"),
     )
     fleet_commander = forms.CharField(
-        required=True,
+        required=False,
         label=_("FC Name"),
         max_length=254,
         widget=forms.TextInput(attrs={"placeholder": _("Who is the FC?")}),
     )
     fleet_name = forms.CharField(
-        required=True,
+        required=False,
         label=_("Fleet Name"),
         max_length=254,
         widget=forms.TextInput(
@@ -108,10 +110,10 @@ class FleetPingForm(forms.Form):
         ),
     )
     formup_location = forms.CharField(
-        label=_("Formup Location"), widget=forms.Select(choices={})
+        required=False, label=_("Formup Location"), widget=forms.Select(choices={})
     )
     formup_time = forms.CharField(
-        required=True,
+        required=False,
         label=_("Formup Time"),
         max_length=254,
         widget=forms.TextInput(attrs={"disabled": "disabled", "autocomplete": "off"}),
@@ -131,10 +133,10 @@ class FleetPingForm(forms.Form):
         ),
     )
     fleet_comms = forms.CharField(
-        label=_("Fleet Comms"), widget=forms.Select(choices={})
+        required=False, label=_("Fleet Comms"), widget=forms.Select(choices={})
     )
     fleet_doctrine = forms.CharField(
-        label=_("Doctrine"), widget=forms.Select(choices={})
+        required=False, label=_("Doctrine"), widget=forms.Select(choices={})
     )
     srp = forms.BooleanField(
         initial=False,

@@ -33,21 +33,6 @@ def optimer_installed() -> bool:
     return apps.is_installed("allianceauth.optimer")
 
 
-def get_timzones_version():
-    """
-    Get the version of aa-timezones, when installed
-    :return: string or None
-    """
-
-    if timezones_installed():
-        # Third Party
-        from timezones import __version__ as timezones_version
-
-        return timezones_version
-
-    return None
-
-
 def fittings_installed() -> bool:
     """
     Check if fittings is installed

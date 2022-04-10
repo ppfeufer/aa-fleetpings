@@ -6,15 +6,16 @@ $(document).ready(() => {
     /* Variables
     --------------------------------------------------------------------------------- */
     // Check boxes
-    const checkboxPrePing = $('input#prePing');
-    const checkboxFormupTimeNow = $('input#formupTimeNow');
-    const checkboxCreateSrpLink = $('input#createSrpLink');
-    const checkboxCreateOptimer = $('input#createOptimer');
+    const checkboxPrePing = $('input#id_pre_ping');
+    const checkboxFormupTimeNow = $('input#id_formup_now');
+    const checkboxCreateSrpLink = $('input#id_srp_link');
+    const checkboxCreateOptimer = $('input#id_optimer');
+    const checkboxFleetSrp = $('input#id_srp');
 
     // Selects
-    const selectPingTarget = $('select#pingTarget');
-    const selectPingChannel = $('select#pingChannel');
-    const selectFleetType = $('select#fleetType');
+    const selectPingTarget = $('select#id_ping_target');
+    const selectPingChannel = $('select#id_ping_channel');
+    const selectFleetType = $('select#id_fleet_type');
     const selectFleetSrp = $('select#fleetSrp');
 
     // Input fields
@@ -677,15 +678,15 @@ $(document).ready(() => {
      * Toggle "Create SRP Link" checkbox
      */
     if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-        if (sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes' && checkboxFormupTimeNow.is(':checked')) {
+        if (checkboxFleetSrp.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
             $('.fleetpings-create-srp-link').show('fast');
         } else {
             checkboxCreateSrpLink.prop('checked', false);
             $('.fleetpings-create-srp-link').hide('fast');
         }
 
-        selectFleetSrp.change(() => {
-            if (sanitizeInput($('option:selected', selectFleetSrp).val()) === 'Yes' && checkboxFormupTimeNow.is(':checked')) {
+        checkboxFleetSrp.change(() => {
+            if (checkboxFleetSrp.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             } else {
                 checkboxCreateSrpLink.prop('checked', false);
@@ -766,7 +767,7 @@ $(document).ready(() => {
     /**
      * Generate ping text
      */
-    $("form").submit(( event ) => {
+    $("form").submit((event) => {
     // $('button#createPingText').on('click', () => {
         // const fleetName = sanitizeInput(inputFleetName.val());
         // const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());

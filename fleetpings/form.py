@@ -33,9 +33,7 @@ class FleetTypeAdminForm(forms.ModelForm):
 
         model = FleetType
         fields = "__all__"
-        widgets = {
-            "embed_color": forms.TextInput(attrs={"type": "color"}),
-        }
+        widgets = {"embed_color": forms.TextInput(attrs={"type": "color"})}
 
 
 class FleetPingForm(forms.Form):

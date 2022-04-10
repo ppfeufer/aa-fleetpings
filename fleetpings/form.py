@@ -75,7 +75,10 @@ class FleetPingForm(forms.Form):
     """
 
     ping_target = forms.CharField(
-        required=False, label=_("Ping Target"), widget=forms.Select(choices={})
+        required=False,
+        label=_("Ping Target"),
+        widget=forms.Select(choices={}),
+        help_text=_("Who do you want to ping?"),
     )
     pre_ping = forms.BooleanField(
         initial=False,

@@ -164,3 +164,69 @@ class TestAccess(TestCase):
         self.assertEqual(response.context["optimer_installed"], False)
         self.assertEqual(response.context["fittings_installed"], False)
         self.assertEqual(response.context["srp_module_available_to_user"], True)
+
+    @modify_settings(
+        INSTALLED_APPS={
+            "remove": [
+                "allianceauth.srp",
+                "aasrp",
+                "timezones",
+                "allianceauth.optimer",
+                "fittings",
+            ],
+            "append": "timezones",
+        }
+    )
+    def test_has_access_with_timezones(self):
+        """
+        Test that a user with access get to see it
+        :return:
+        """
+
+        # given
+        self.client.force_login(self.user_1003)
+
+        # when
+        response = self.client.get(reverse("fleetpings:index"))
+
+        # then
+        self.assertEqual(response.status_code, 200)
+
+        # context data
+        self.assertEqual(response.context["timezones_installed"], True)
+        self.assertEqual(response.context["optimer_installed"], False)
+        self.assertEqual(response.context["fittings_installed"], False)
+        self.assertEqual(response.context["srp_module_available_to_user"], False)
+
+        @modify_settings(
+            INSTALLED_APPS={
+                "remove": [
+                    "allianceauth.srp",
+                    "aasrp",
+                    "timezones",
+                    "allianceauth.optimer",
+                    "fittings",
+                ],
+                "append": "allianceauth.optimer",
+            }
+        )
+        def test_has_access_with_allianceauth_optimer(self):
+            """
+            Test that a user with access get to see it
+            :return:
+            """
+
+            # given
+            self.client.force_login(self.user_1003)
+
+            # when
+            response = self.client.get(reverse("fleetpings:index"))
+
+            # then
+            self.assertEqual(response.status_code, 200)
+
+            # context data
+            self.assertEqual(response.context["timezones_installed"], False)
+            self.assertEqual(response.context["optimer_installed"], True)
+            self.assertEqual(response.context["fittings_installed"], False)
+            self.assertEqual(response.context["srp_module_available_to_user"], False)

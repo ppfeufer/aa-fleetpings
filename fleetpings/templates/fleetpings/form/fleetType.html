@@ -1,27 +1,20 @@
 {% load i18n %}
 
-{#<div class="form-group clearfix">#}
-{#    <label class="col-md-3 control-label" for="fleetType">{% translate "Fleet Type" %}</label>#}
-{#    <div class="col-md-9">#}
-{#        <select id="fleetType" name="fleetType" class="form-control">#}
-            <option value="">{% translate "Please select" %}</option>
-            <option value="Roaming" data-embed-color="#81FD2D">{% translate "Roaming Fleet" %}</option>
-            <option value="Home Defense" data-embed-color="#F1C40F">{% translate "Home Defense" %}</option>
-            <option value="StratOP" data-embed-color="#E67E22">{% translate "StratOP" %}</option>
-            <option value="CTA" data-embed-color="#E91E63">{% translate "CTA" %}</option>
+<option value="">{% translate "Please select" %}</option>
+<option value="Roaming" data-embed-color="#81FD2D">{% translate "Roaming Fleet" %}</option>
+<option value="Home Defense" data-embed-color="#F1C40F">{% translate "Home Defense" %}</option>
+<option value="StratOP" data-embed-color="#E67E22">{% translate "StratOP" %}</option>
+<option value="CTA" data-embed-color="#E91E63">{% translate "CTA" %}</option>
 
-            {% if fleet_types|length > 0 %}
-                <option value="" disabled></option>
-                <optgroup label="{% translate 'Additionally configured fleet types' %}">
-                    {% for fleet_type in fleet_types %}
-                        {% if fleet_type.embed_color %}
-                            <option value="{{ fleet_type.name }}" data-embed-color="{{ fleet_type.embed_color }}">{{ fleet_type.name }}</option>
-                        {% else %}
-                            <option value="{{ fleet_type.name }}" data-embed-color="#FAA61A">{{ fleet_type.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </optgroup>
+{% if fleet_types|length > 0 %}
+    <option value="" disabled></option>
+    <optgroup label="{% translate 'Additionally configured fleet types' %}">
+        {% for fleet_type in fleet_types %}
+            {% if fleet_type.embed_color %}
+                <option value="{{ fleet_type.name }}" data-embed-color="{{ fleet_type.embed_color }}">{{ fleet_type.name }}</option>
+            {% else %}
+                <option value="{{ fleet_type.name }}" data-embed-color="#FAA61A">{{ fleet_type.name }}</option>
             {% endif %}
-{#        </select>#}
-{#    </div>#}
-{#</div>#}
+        {% endfor %}
+    </optgroup>
+{% endif %}

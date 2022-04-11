@@ -8,7 +8,6 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from django.utils import timezone
 
 # Alliance Auth
 from allianceauth.services.hooks import get_extension_logger
@@ -19,13 +18,12 @@ from app_utils.urls import site_absolute_url
 
 # AA Fleet Pings
 from fleetpings import __title__
-from fleetpings.app_settings import (
+from fleetpings.app_settings import (  # srp_module_is,
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
     srp_module_installed,
-    srp_module_is,
     timezones_installed,
 )
 from fleetpings.form import FleetPingForm
@@ -38,6 +36,9 @@ from fleetpings.models import (
     Webhook,
 )
 
+# from django.utils import timezone
+
+
 if (
     fittings_installed() is True
     and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
@@ -45,9 +46,9 @@ if (
     # Third Party
     from fittings.views import _get_docs_qs
 
-if optimer_installed():
-    # Alliance Auth
-    from allianceauth.optimer.models import OpTimer
+# if optimer_installed():
+#     # Alliance Auth
+#     from allianceauth.optimer.models import OpTimer
 
 logger = LoggerAddTag(get_extension_logger(__name__), __title__)
 
@@ -251,87 +252,87 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     )
 
 
-@login_required
-@permission_required("fleetpings.basic_access")
-def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
-    """
-    Adding the planned fleet to the optimers
-    :param request:
-    :return:
-    """
+# @login_required
+# @permission_required("fleetpings.basic_access")
+# def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
+#     """
+#     Adding the planned fleet to the optimers
+#     :param request:
+#     :return:
+#     """
+#
+#     post_time = timezone.now()
+#     character = request.user.profile.main_character
+#
+#     optimer = OpTimer()
+#     optimer.doctrine = request.POST["fleet_doctrine"]
+#     optimer.system = request.POST["formup_location"]
+#     optimer.start = request.POST["formup_time"]
+#     optimer.duration = "-"
+#     optimer.operation_name = request.POST["fleet_name"]
+#     optimer.fc = request.POST["fleet_commander"]
+#     optimer.post_time = post_time
+#     optimer.eve_character = character
+#     optimer.save()
+#
+#     logger.info(f"Optimer created by user {request.user}")
+#
+#     return JsonResponse([True], safe=False)
 
-    post_time = timezone.now()
-    character = request.user.profile.main_character
 
-    optimer = OpTimer()
-    optimer.doctrine = request.POST["fleet_doctrine"]
-    optimer.system = request.POST["formup_location"]
-    optimer.start = request.POST["formup_time"]
-    optimer.duration = "-"
-    optimer.operation_name = request.POST["fleet_name"]
-    optimer.fc = request.POST["fleet_commander"]
-    optimer.post_time = post_time
-    optimer.eve_character = character
-    optimer.save()
-
-    logger.info(f"Optimer created by user {request.user}")
-
-    return JsonResponse([True], safe=False)
-
-
-@login_required
-@permission_required("fleetpings.basic_access")
-def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
-    """
-    Create an SRP link on fleetping with formup === now and SRP === yes
-    :param request:
-    """
-
-    post_time = timezone.now()
-    creator = request.user.profile.main_character
-
-    # Create aasrp link
-    if srp_module_is("aasrp") and can_add_srp_links(
-        request=request, module_name="aasrp"
-    ):
-        # Third Party
-        from aasrp.models import AaSrpLink
-
-        # Django
-        from django.utils.crypto import get_random_string
-
-        srp_code = get_random_string(length=16)
-
-        srp_link = AaSrpLink()
-        srp_link.srp_name = request.POST["fleet_name"]
-        srp_link.fleet_time = post_time
-        srp_link.fleet_doctrine = request.POST["fleet_doctrine"]
-        srp_link.srp_code = srp_code
-        srp_link.fleet_commander = creator
-        srp_link.creator = request.user
-        srp_link.save()
-
-    # Create allianceauth.srp link
-    if srp_module_is("allianceauth.srp") and can_add_srp_links(
-        request=request, module_name="allianceauth.srp"
-    ):
-        # Alliance Auth
-        from allianceauth.srp.models import SrpFleetMain
-        from allianceauth.srp.views import random_string
-
-        srp_code = random_string(8)
-
-        srp_fleet = SrpFleetMain()
-        srp_fleet.fleet_name = request.POST["fleet_name"]
-        srp_fleet.fleet_doctrine = request.POST["fleet_doctrine"]
-        srp_fleet.fleet_time = post_time
-        srp_fleet.fleet_srp_code = srp_code
-        srp_fleet.fleet_commander = creator
-        srp_fleet.save()
-
-    logger.info(f"SRP Link created by user {request.user}")
-
-    return JsonResponse({"success": True, "srp_code": srp_code}, safe=False)
+# @login_required
+# @permission_required("fleetpings.basic_access")
+# def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
+#     """
+#     Create an SRP link on fleetping with formup === now and SRP === yes
+#     :param request:
+#     """
+#
+#     post_time = timezone.now()
+#     creator = request.user.profile.main_character
+#
+#     # Create aasrp link
+#     if srp_module_is("aasrp") and can_add_srp_links(
+#         request=request, module_name="aasrp"
+#     ):
+#         # Third Party
+#         from aasrp.models import AaSrpLink
+#
+#         # Django
+#         from django.utils.crypto import get_random_string
+#
+#         srp_code = get_random_string(length=16)
+#
+#         srp_link = AaSrpLink()
+#         srp_link.srp_name = request.POST["fleet_name"]
+#         srp_link.fleet_time = post_time
+#         srp_link.fleet_doctrine = request.POST["fleet_doctrine"]
+#         srp_link.srp_code = srp_code
+#         srp_link.fleet_commander = creator
+#         srp_link.creator = request.user
+#         srp_link.save()
+#
+#     # Create allianceauth.srp link
+#     if srp_module_is("allianceauth.srp") and can_add_srp_links(
+#         request=request, module_name="allianceauth.srp"
+#     ):
+#         # Alliance Auth
+#         from allianceauth.srp.models import SrpFleetMain
+#         from allianceauth.srp.views import random_string
+#
+#         srp_code = random_string(8)
+#
+#         srp_fleet = SrpFleetMain()
+#         srp_fleet.fleet_name = request.POST["fleet_name"]
+#         srp_fleet.fleet_doctrine = request.POST["fleet_doctrine"]
+#         srp_fleet.fleet_time = post_time
+#         srp_fleet.fleet_srp_code = srp_code
+#         srp_fleet.fleet_commander = creator
+#         srp_fleet.save()
+#
+#     logger.info(f"SRP Link created by user {request.user}")
+#
+#     return JsonResponse({"success": True, "srp_code": srp_code}, safe=False)
 
 
 @login_required

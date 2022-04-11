@@ -116,6 +116,11 @@ class FleetPingForm(forms.Form):
         label=_("Doctrine"),
         widget=forms.TextInput(attrs={"list": "fleetDoctrineList"}),
     )
+    fleet_doctrine_url = forms.CharField(
+        required=False,
+        label=_("Doctrine URL"),
+        widget=forms.TextInput(attrs={"hidden": "hidden"}),
+    )
     srp = forms.BooleanField(
         initial=False,
         required=False,

@@ -21,12 +21,13 @@ $(document).ready(() => {
     const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
     const inputFormupTime = $('input#id_formup_time');
     const inputFormupTimestamp = $('input#id_formup_timestamp');
+    const inputFleetDoctrine = $('input#id_fleet_doctrine');
+    const inputFleetDoctrineUrl = $('input#id_fleet_doctrine_url');
 
     // const inputFcName = $('input#fcName');
     // const inputFleetName = $('input#fleetName');
     // const inputFormupLocation = $('input#formupLocation');
     // const inputFleetComms = $('input#fleetComms');
-    // const inputFleetDoctrine = $('input#fleetDoctrine');
 
     // Text area
     // const textAdditionalInformation = $('textarea#additionalInformation');
@@ -199,34 +200,34 @@ $(document).ready(() => {
      * @param {boolean} quotesToEntities Transform quotes into entities
      * @returns {string} Escaped string
      */
-    // const escapeInput = (input, quotesToEntities) => {
-    //     quotesToEntities = quotesToEntities || false;
-    //
-    //     if (input) {
-    //         let returnValue = sanitizeInput(input).replace(
-    //             /&/g,
-    //             '&amp;'
-    //         );
-    //
-    //         if (quotesToEntities === true) {
-    //             returnValue = returnValue.replace(
-    //                 /"/g,
-    //                 '&quot;'
-    //             );
-    //         }
-    //
-    //         if (quotesToEntities === false) {
-    //             returnValue = returnValue.replace(
-    //                 /"/g,
-    //                 '\\"'
-    //             );
-    //         }
-    //
-    //         return returnValue;
-    //     } else {
-    //         return input;
-    //     }
-    // };
+    const escapeInput = (input, quotesToEntities) => {
+        quotesToEntities = quotesToEntities || false;
+
+        if (input) {
+            let returnValue = sanitizeInput(input).replace(
+                /&/g,
+                '&amp;'
+            );
+
+            if (quotesToEntities === true) {
+                returnValue = returnValue.replace(
+                    /"/g,
+                    '&quot;'
+                );
+            }
+
+            if (quotesToEntities === false) {
+                returnValue = returnValue.replace(
+                    /"/g,
+                    '\\"'
+                );
+            }
+
+            return returnValue;
+        } else {
+            return input;
+        }
+    };
 
     /**
      * Send an embedded message to a Discord webhook
@@ -765,6 +766,27 @@ $(document).ready(() => {
         );
 
         $(inputFormupTimestamp).val(formupTimestamp);
+    });
+
+    /**
+     * Set the fleet doctrine URL if we have one
+     */
+    $(inputFleetDoctrine).change(() => {
+        const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+        let fleetDoctrineLink = null;
+
+        if (fleetDoctrine !== '') {
+            const selectedLink = $(
+                '#fleetDoctrineList [value="' + escapeInput(fleetDoctrine, false) + '"]'
+            ).data('doctrine-url');
+
+            if ('undefined' !== selectedLink && selectedLink !== '') {
+                // Houston, we have a link!
+                fleetDoctrineLink = selectedLink;
+            }
+        }
+
+        $(inputFleetDoctrineUrl).val(fleetDoctrineLink);
     });
 
     /**

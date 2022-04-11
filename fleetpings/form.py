@@ -92,6 +92,11 @@ class FleetPingForm(forms.Form):
         )
         + _get_timezones_module_hint_text(),
     )
+    formup_timestamp = forms.CharField(
+        required=False,
+        label=_("Formup Timestamp"),
+        widget=forms.TextInput(attrs={"hidden": "hidden"}),
+    )
     formup_now = forms.BooleanField(
         initial=True,
         required=False,

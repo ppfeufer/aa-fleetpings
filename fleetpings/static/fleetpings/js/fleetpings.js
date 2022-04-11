@@ -308,7 +308,7 @@ $(document).ready(() => {
     };
 
     /**
-     * Convert the datepicker info into an URL that the aa-timezones module understands
+     * Convert the datepicker info into a URL that the aa-timezones module understands
      *
      * @param {string} formupTime
      */
@@ -905,7 +905,7 @@ $(document).ready(() => {
         console.table(formData);
 
         $.ajax({
-            url: fleetpingsSettings.url.fleetPingUrl,
+            url: fleetpingsSettings.url.fleetPing,
             type: 'post',
             data: formData,
             headers: {

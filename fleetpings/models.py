@@ -2,6 +2,9 @@
 Our models
 """
 
+# Standard Library
+import re
+
 # Third Party
 from requests.exceptions import HTTPError
 
@@ -16,6 +19,8 @@ from django.utils.translation import gettext_lazy as _
 from fleetpings.app_settings import discord_service_installed
 
 # Check if the Discord service is active
+from fleetpings.constants import DISCORD_WEBHOOK_REGEX, SLACK_WEBHOOK_REGEX
+
 if discord_service_installed():
     # Alliance Auth
     from allianceauth.services.modules.discord.models import DiscordUser
@@ -428,3 +433,27 @@ class Webhook(models.Model):
         verbose_name = _("Webhook")
         verbose_name_plural = _("Webhooks")
         default_permissions = ()
+
+    def clean(self):
+        """
+        Check if the webhook URL is valid
+        :return:
+        """
+
+        # Check if it's an actual kill mail
+        if not any(
+            re.match(regex, self.url)
+            for regex in [
+                DISCORD_WEBHOOK_REGEX,
+                SLACK_WEBHOOK_REGEX,
+            ]
+        ):
+            raise ValidationError(
+                _(
+                    "Invalid webhook URL. The webhook URL you entered does not match "
+                    "any known format for either a Discord or a Slack webhook. Please "
+                    "check the webhook URL."
+                )
+            )
+
+        super().clean()

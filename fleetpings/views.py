@@ -19,12 +19,14 @@ from app_utils.urls import site_absolute_url
 
 # AA Fleet Pings
 from fleetpings import __title__
-from fleetpings.app_settings import (  # srp_module_installed,
+from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
+    srp_module_installed,
     srp_module_is,
+    timezones_installed,
 )
 from fleetpings.form import FleetPingForm
 from fleetpings.models import (
@@ -59,12 +61,12 @@ def index(request: WSGIRequest) -> HttpResponse:
 
     logger.info(f"Fleet pings view called by user {request.user}")
 
-    # srp_module_available_to_user = False
-    # if srp_module_installed() and (
-    #     can_add_srp_links(request=request, module_name="aasrp")
-    #     or can_add_srp_links(request=request, module_name="allianceauth.srp")
-    # ):
-    #     srp_module_available_to_user = True
+    srp_module_available_to_user = False
+    if srp_module_installed() and (
+        can_add_srp_links(request=request, module_name="aasrp")
+        or can_add_srp_links(request=request, module_name="allianceauth.srp")
+    ):
+        srp_module_available_to_user = True
 
     context = {
         "title": __title__,
@@ -74,11 +76,11 @@ def index(request: WSGIRequest) -> HttpResponse:
             is_enabled=True,
         ).exists(),
         "site_url": site_absolute_url(),
-        # "timezones_installed": timezones_installed(),
-        # "optimer_installed": optimer_installed(),
-        # "fittings_installed": fittings_installed(),
+        "timezones_installed": timezones_installed(),
+        "optimer_installed": optimer_installed(),
+        "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,
-        # "srp_module_available_to_user": srp_module_available_to_user,
+        "srp_module_available_to_user": srp_module_available_to_user,
         "form": FleetPingForm,
     }
 

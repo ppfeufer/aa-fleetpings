@@ -347,19 +347,19 @@ class Webhook(models.Model):
     A Discord or Slack webhook
     """
 
-    # Webhook type choices
-    WEBHOOK_TYPE_DISCORD = "Discord"
-    WEBHOOK_TYPE_SLACK = "Slack"
-    WEBHOOK_TYPE_CHOICES = (
-        (WEBHOOK_TYPE_DISCORD, "Discord"),
-        (WEBHOOK_TYPE_SLACK, "Slack"),
-    )
+    class Types(models.TextChoices):
+        """
+        Choices for webhook types
+        """
+
+        DISCORD = "Discord", _("Discord")
+        SLACK = "Slack", _("Slack")
 
     # Webhook type
     type = models.CharField(
         max_length=7,
-        choices=WEBHOOK_TYPE_CHOICES,
-        default=WEBHOOK_TYPE_DISCORD,
+        choices=Types.choices,
+        default=Types.DISCORD,
         help_text=_("Is this a Discord or Slack webhook?"),
     )
 

@@ -1,5 +1,5 @@
 """
-Test ajax calls
+Test models
 """
 
 # Django

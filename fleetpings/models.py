@@ -451,8 +451,8 @@ class Webhook(models.Model):
             raise ValidationError(
                 _(
                     "Invalid webhook URL. The webhook URL you entered does not match "
-                    "any known format for either a Discord or a Slack webhook. Please "
-                    "check the webhook URL."
+                    f"any known format for a {self.type} webhook. Please check the "
+                    "webhook URL."
                 )
             )
 

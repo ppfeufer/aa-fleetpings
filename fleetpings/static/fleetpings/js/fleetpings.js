@@ -41,6 +41,78 @@ $(document).ready(() => {
     /* Functions
     --------------------------------------------------------------------------------- */
     /**
+     * Get the additional Discord ping targets for the current user
+     */
+    const getPingTargetsForCurrentUser = () => {
+        $.ajax({
+            url: fleetpingsSettings.url.pingTargets,
+            success: (data) => {
+                $("#id_ping_target").html(data);
+            }
+        });
+    };
+
+    /**
+     * Get webhooks for current user
+     */
+    const getWebhooksForCurrentUser = () => {
+        $.ajax({
+            url: fleetpingsSettings.url.pingWebhooks,
+            success: (data) => {
+                $("#id_ping_channel").html(data);
+            }
+        });
+    };
+
+    /**
+     * Get fleet types for current user
+     */
+    const getFleetTypesForCurrentUser = () => {
+        $.ajax({
+            url: fleetpingsSettings.url.fleetTypes,
+            success: (data) => {
+                $("#id_fleet_type").html(data);
+            }
+        });
+    };
+
+    /**
+     * Get formup locations
+     */
+    const getFormupLocations = () => {
+        $.ajax({
+            url: fleetpingsSettings.url.formupLocations,
+            success: (data) => {
+                $("#id_formup_location").after(data);
+            }
+        });
+    };
+
+    /**
+     * Get fleet comms
+     */
+    const getFleetComms = () => {
+        $.ajax({
+            url: fleetpingsSettings.url.fleetComms,
+            success: (data) => {
+                $("#id_fleet_comms").after(data);
+            }
+        });
+    };
+
+    /**
+     * Get fleet doctrines for the current user
+     */
+    const getFleetDoctrines = () => {
+        $.ajax({
+            url: fleetpingsSettings.url.fleetDoctrines,
+            success: (data) => {
+                $("#id_fleet_doctrine").after(data);
+            }
+        });
+    };
+
+    /**
      * Convert line breaks into <br>
      *
      * @param {string} string
@@ -848,4 +920,16 @@ $(document).ready(() => {
     $('button#copyFleetPing').on('click', () => {
         copyFleetPing();
     });
+
+    /**
+     * Initialize functions that need to start on load
+     */
+    (() => {
+        getPingTargetsForCurrentUser();
+        getWebhooksForCurrentUser();
+        getFleetTypesForCurrentUser();
+        getFormupLocations();
+        getFleetComms();
+        getFleetDoctrines();
+    })();
 });

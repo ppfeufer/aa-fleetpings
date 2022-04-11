@@ -19,14 +19,12 @@ from app_utils.urls import site_absolute_url
 
 # AA Fleet Pings
 from fleetpings import __title__
-from fleetpings.app_settings import (
+from fleetpings.app_settings import (  # srp_module_installed,
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
-    srp_module_installed,
     srp_module_is,
-    timezones_installed,
 )
 from fleetpings.form import FleetPingForm
 from fleetpings.models import (
@@ -61,28 +59,43 @@ def index(request: WSGIRequest) -> HttpResponse:
 
     logger.info(f"Fleet pings view called by user {request.user}")
 
-    fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
+    # srp_module_available_to_user = False
+    # if srp_module_installed() and (
+    #     can_add_srp_links(request=request, module_name="aasrp")
+    #     or can_add_srp_links(request=request, module_name="allianceauth.srp")
+    # ):
+    #     srp_module_available_to_user = True
 
-    # Do we use the doctrines from the fittings module, or our own defined?
-    use_fleet_doctrines = False
-    if (
-        fittings_installed() is True
-        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
-    ):
-        use_fleet_doctrines = True
-
-    # Get the webhooks
-    webhooks = (
-        Webhook.objects.filter(
+    context = {
+        "title": __title__,
+        "webhooks_configured": Webhook.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
             | Q(restricted_to_group__isnull=True),
             is_enabled=True,
-        )
-        .distinct()
-        .order_by("type", "name")
-    )
+        ).exists(),
+        "site_url": site_absolute_url(),
+        # "timezones_installed": timezones_installed(),
+        # "optimer_installed": optimer_installed(),
+        # "fittings_installed": fittings_installed(),
+        "main_character": request.user.profile.main_character,
+        # "srp_module_available_to_user": srp_module_available_to_user,
+        "form": FleetPingForm,
+    }
 
-    # Get additional ping targets for discord
+    return render(request, "fleetpings/index.html", context)
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
+    """
+    Get ping targets for the current user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting ping targets for user {request.user}")
+
     additional_discord_ping_targets = (
         DiscordPingTargets.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
@@ -93,7 +106,52 @@ def index(request: WSGIRequest) -> HttpResponse:
         .order_by("name")
     )
 
-    # Get fleet types
+    return render(
+        request,
+        "fleetpings/form/pingTargets.html",
+        {"ping_targets": additional_discord_ping_targets},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
+    """
+    Get webhooks for ccurrent user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting webhooks for user {request.user}")
+
+    webhooks = (
+        Webhook.objects.filter(
+            Q(restricted_to_group__in=request.user.groups.all())
+            | Q(restricted_to_group__isnull=True),
+            is_enabled=True,
+        )
+        .distinct()
+        .order_by("type", "name")
+    )
+
+    return render(
+        request,
+        "fleetpings/form/pingChannel.html",
+        {"webhooks": webhooks},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
+    """
+    Get fleet types for current user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting fleet types for user {request.user}")
+
     fleet_types = (
         FleetType.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
@@ -103,6 +161,71 @@ def index(request: WSGIRequest) -> HttpResponse:
         .distinct()
         .order_by("name")
     )
+
+    return render(
+        request,
+        "fleetpings/form/fleetType.html",
+        {"fleet_types": fleet_types},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_formup_locations(request: WSGIRequest) -> HttpResponse:
+    """
+    Get formup locations
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting formup locations for user {request.user}")
+
+    formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
+
+    return render(
+        request,
+        "fleetpings/form/formupLocation.html",
+        {"formup_locations": formup_locations},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_fleet_comms(request: WSGIRequest) -> HttpResponse:
+    """
+    Get fleet comms
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting formup locations for user {request.user}")
+
+    fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
+
+    return render(
+        request,
+        "fleetpings/form/fleetComms.html",
+        {"fleet_comms": fleet_comms},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
+    """
+    Get fleet doctrines for the current user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting ffleet doctrines for user {request.user}")
+
+    use_fleet_doctrines = False
+    if (
+        fittings_installed() is True
+        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+    ):
+        use_fleet_doctrines = True
 
     # Get doctrines
     if use_fleet_doctrines is True:
@@ -119,35 +242,11 @@ def index(request: WSGIRequest) -> HttpResponse:
             .order_by("name")
         )
 
-    # Get formup locations
-    formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
-
-    srp_module_available_to_user = False
-    if srp_module_installed() and (
-        can_add_srp_links(request=request, module_name="aasrp")
-        or can_add_srp_links(request=request, module_name="allianceauth.srp")
-    ):
-        srp_module_available_to_user = True
-
-    context = {
-        "title": __title__,
-        "additional_discord_ping_targets": additional_discord_ping_targets,
-        "additional_fleet_types": fleet_types,
-        "additional_ping_webhooks": webhooks,
-        "fleet_comms": fleet_comms,
-        "fleet_doctrines": doctrines,
-        "fleet_formup_locations": formup_locations,
-        "site_url": site_absolute_url(),
-        "timezones_installed": timezones_installed(),
-        "optimer_installed": optimer_installed(),
-        "fittings_installed": fittings_installed(),
-        "main_character": request.user.profile.main_character,
-        "use_fleet_doctrines": use_fleet_doctrines,
-        "srp_module_available_to_user": srp_module_available_to_user,
-        "form": FleetPingForm,
-    }
-
-    return render(request, "fleetpings/index.html", context)
+    return render(
+        request,
+        "fleetpings/form/fleetDoctrine.html",
+        {"doctrines": doctrines, "use_fleet_doctrines": use_fleet_doctrines},
+    )
 
 
 @login_required

@@ -77,7 +77,9 @@ class FleetPingForm(forms.Form):
         ),
     )
     formup_location = forms.CharField(
-        required=False, label=_("Formup Location"), widget=forms.Select(choices={})
+        required=False,
+        label=_("Formup Location"),
+        widget=forms.TextInput(attrs={"list": "formupLocationList"}),
     )
     formup_time = forms.CharField(
         required=False,
@@ -100,10 +102,14 @@ class FleetPingForm(forms.Form):
         ),
     )
     fleet_comms = forms.CharField(
-        required=False, label=_("Fleet Comms"), widget=forms.Select(choices={})
+        required=False,
+        label=_("Fleet Comms"),
+        widget=forms.TextInput(attrs={"list": "fleetCommsList"}),
     )
     fleet_doctrine = forms.CharField(
-        required=False, label=_("Doctrine"), widget=forms.Select(choices={})
+        required=False,
+        label=_("Doctrine"),
+        widget=forms.TextInput(attrs={"list": "fleetDoctrineList"}),
     )
     srp = forms.BooleanField(
         initial=False,

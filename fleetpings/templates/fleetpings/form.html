@@ -8,7 +8,9 @@
         {{ form.ping_target|bootstrap_horizontal }}
 
         <!-- ping_channel -->
-        {{ form.ping_channel|bootstrap_horizontal }}
+        {% if webhooks_configured %}
+            {{ form.ping_channel|bootstrap_horizontal }}
+        {% endif %}
 
         <!-- fleet_type -->
         {{ form.fleet_type|bootstrap_horizontal }}
@@ -74,9 +76,12 @@
         url: {
             siteUrl: '{{ site_url }}/',
             fleetPingUrl: '{% url "fleetpings:ajax_create_fleet_ping" %}',
-            {% if timezones_installed %}timezonesUrl: '{% url "timezones:index" %}',{% endif %}
-            {% if optimer_installed %}optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}',{% endif %}
-            {% if srp_module_available_to_user %}srpAjaxUrl: '{% url "fleetpings:ajax_create_srp_link" %}',{% endif %}
+            pingTargets: '{% url "fleetpings:ajax_get_ping_targets" %}',
+            pingWebhooks: '{% url "fleetpings:ajax_get_webhooks" %}',
+            fleetTypes: '{% url "fleetpings:ajax_get_fleet_types" %}',
+            formupLocations: '{% url "fleetpings:ajax_get_formup_locations" %}',
+            fleetComms: '{% url "fleetpings:ajax_get_fleet_comms" %}',
+            fleetDoctrines: '{% url "fleetpings:ajax_get_fleet_doctrines" %}'
         }
     };
 </script>

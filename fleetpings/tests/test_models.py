@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 # AA Fleet Pings
-from fleetpings.models import DiscordPingTargets, FleetDoctrine, Webhook
+from fleetpings.models import FleetDoctrine, Webhook
 
 
 class TestModels(TestCase):
@@ -102,21 +102,21 @@ class TestModels(TestCase):
         ):
             doctrine.clean()
 
-    def test_discord_ping_target_should_throw_not_synced_yet_exception(self):
-        """
-        Test if we get a ValidationError for a doctrine link
-        :return:
-        """
-
-        # given
-        ping_target = DiscordPingTargets(name=self.group)
-
-        # when
-        with self.assertRaises(ValidationError):
-            ping_target.clean()
-
-        with self.assertRaisesMessage(
-            ValidationError,
-            expected_message=("This group has not been synced to Discord yet."),
-        ):
-            ping_target.clean()
+    # def test_discord_ping_target_should_throw_not_synced_yet_exception(self):
+    #     """
+    #     Test if we get a ValidationError for a doctrine link
+    #     :return:
+    #     """
+    #
+    #     # given
+    #     ping_target = DiscordPingTargets(name=self.group)
+    #
+    #     # when
+    #     with self.assertRaises(ValidationError):
+    #         ping_target.clean()
+    #
+    #     with self.assertRaisesMessage(
+    #         ValidationError,
+    #         expected_message=("This group has not been synced to Discord yet."),
+    #     ):
+    #         ping_target.clean()

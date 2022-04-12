@@ -375,6 +375,7 @@ def _get_ping_context_from_form_data(form_data: dict) -> dict:
 
     ping_target_group_id = None
     ping_target_group_name = None
+    ping_target_at_mention = None
 
     if form_data["ping_target"]:
         try:
@@ -384,8 +385,13 @@ def _get_ping_context_from_form_data(form_data: dict) -> dict:
         except DiscordPingTargets.DoesNotExist:
             pass
         else:
-            ping_target_group_id = ping_target.discord_id
-            ping_target_group_name = ping_target.name
+            ping_target_group_id = int(ping_target.discord_id)
+            ping_target_group_name = str(ping_target.name)
+            ping_target_at_mention = (
+                str(ping_target.name)
+                if str(ping_target.name).startswith("@")
+                else "@" + str(ping_target.name)
+            )
 
     # Check for webhooks
     ping_channel_type = None
@@ -404,6 +410,7 @@ def _get_ping_context_from_form_data(form_data: dict) -> dict:
         "ping_target": {
             "group_id": int(ping_target_group_id),
             "group_name": str(ping_target_group_name),
+            "at_mention": ping_target_at_mention,
         },
         "ping_channel": {
             "type": str(ping_channel_type),
@@ -442,6 +449,11 @@ def _get_ping_text(context: dict) -> str:
     :return:
     """
 
+    # webhookPingTextHeader = ""
+    # webhookPingTextContent = ""
+    # webhookPingTextFooter = ""
+    # pingText = ""
+
     return ""
 
 
@@ -468,6 +480,9 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> JsonResponse:
 
             # Get ping text
             context["ping_text"] = _get_ping_text(context=ping_context)
+
+            # Just for Debug for the time being ...
+            context["ping_context"] = ping_context
 
             # Create optimer is requested
             if optimer_installed() and ping_context["create_optimer"]:

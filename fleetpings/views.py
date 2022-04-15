@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 # Alliance Auth
 from allianceauth.services.hooks import get_extension_logger
@@ -250,11 +251,11 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def _create_optimer(request: WSGIRequest, optimer_data: dict):
+def _create_optimer(request: WSGIRequest, ping_context: dict):
     """
     Adding the planned fleet to the optimers
     :param request:
-    :param optimer_data:
+    :param ping_context:
     :return:
     """
 
@@ -265,12 +266,12 @@ def _create_optimer(request: WSGIRequest, optimer_data: dict):
     character = request.user.profile.main_character
 
     OpTimer(
-        doctrine=optimer_data["fleet_doctrine"],
-        system=optimer_data["formup_location"],
-        start=optimer_data["formup_time"],
+        doctrine=ping_context["doctrine"]["name"],
+        system=ping_context["formup_location"],
+        start=ping_context["formup_time"]["datetime_string"],
         duration="N/A",
-        operation_name=optimer_data["fleet_name"],
-        fc=optimer_data["fleet_commander"],
+        operation_name=ping_context["fleet_name"],
+        fc=ping_context["fleet_commander"],
         post_time=post_time,
         eve_character=character,
     ).save()
@@ -280,7 +281,7 @@ def _create_optimer(request: WSGIRequest, optimer_data: dict):
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def _create_aasrp_link(request: WSGIRequest, srp_data: dict) -> dict:
+def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
     Create an SRP link in AA-SRP
     :param request:
@@ -299,9 +300,9 @@ def _create_aasrp_link(request: WSGIRequest, srp_data: dict) -> dict:
     srp_code = get_random_string(length=16)
 
     AaSrpLink(
-        srp_name=srp_data["fleet_name"],
+        srp_name=ping_context["fleet_name"],
         fleet_time=post_time,
-        fleet_doctrine=srp_data["fleet_doctrine"],
+        fleet_doctrine=ping_context["doctrine"]["name"],
         srp_code=srp_code,
         fleet_commander=creator,
         creator=request.user,
@@ -309,16 +310,20 @@ def _create_aasrp_link(request: WSGIRequest, srp_data: dict) -> dict:
 
     logger.info(f"SRP Link created by user {request.user}")
 
-    return {"code": srp_code, "link": reverse_absolute("aasrp:request_srp", [srp_code])}
+    return {
+        "success": True,
+        "code": srp_code,
+        "link": reverse_absolute("aasrp:request_srp", [srp_code]),
+    }
 
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def _create_allianceauth_srp_link(request: WSGIRequest, srp_data: dict) -> dict:
+def _create_allianceauth_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
     Create an SRP link in Alliance Auth SRP
     :param request:
-    :param srp_data:
+    :param ping_context:
     :return:
     """
 
@@ -331,8 +336,8 @@ def _create_allianceauth_srp_link(request: WSGIRequest, srp_data: dict) -> dict:
     srp_code = random_string(8)
 
     SrpFleetMain(
-        fleet_name=srp_data["fleet_name"],
-        fleet_doctrine=srp_data["fleet_doctrine"],
+        fleet_name=ping_context["fleet_name"],
+        fleet_doctrine=ping_context["doctrine"]["name"],
         fleet_time=post_time,
         fleet_srp_code=srp_code,
         fleet_commander=creator,
@@ -340,30 +345,46 @@ def _create_allianceauth_srp_link(request: WSGIRequest, srp_data: dict) -> dict:
 
     logger.info(f"SRP Link created by user {request.user}")
 
-    return {"code": srp_code, "link": reverse_absolute("srp:request", [srp_code])}
+    return {
+        "success": True,
+        "code": srp_code,
+        "link": reverse_absolute("srp:request", [srp_code]),
+    }
 
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def _create_srp_link(request: WSGIRequest, srp_data: dict):
+def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
     Create an SRP link on fleetping with formup === now and SRP === yes
     :param request:
-    :param srp_data:
+    :param ping_context:
     :return:
     """
 
-    # Create aasrp link (prioritized app)
-    if srp_module_is("aasrp") and can_add_srp_links(
-        request=request, module_name="aasrp"
-    ):
-        return _create_aasrp_link(request=request, srp_data=srp_data)
+    if ping_context["fleet_name"] and ping_context["doctrine"]["name"]:
+        # Create aasrp link (prioritized app)
+        if srp_module_is("aasrp") and can_add_srp_links(
+            request=request, module_name="aasrp"
+        ):
+            aasrp_info = _create_aasrp_link(request=request, ping_context=ping_context)
 
-    # Create allianceauth.srp link
-    if srp_module_is("allianceauth.srp") and can_add_srp_links(
-        request=request, module_name="allianceauth.srp"
-    ):
-        return _create_allianceauth_srp_link(request=request, srp_data=srp_data)
+            return aasrp_info
+
+        # Create allianceauth.srp link
+        if srp_module_is("allianceauth.srp") and can_add_srp_links(
+            request=request, module_name="allianceauth.srp"
+        ):
+            allianceauth_srp_info = _create_allianceauth_srp_link(
+                request=request, ping_context=ping_context
+            )
+
+            return allianceauth_srp_info
+
+    return {
+        "success": False,
+        "message": _("Not all mandatory information available to create an SRP link."),
+    }
 
 
 def _get_ping_context_from_form_data(form_data: dict) -> dict:
@@ -488,23 +509,14 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> JsonResponse:
             if optimer_installed() and ping_context["create_optimer"]:
                 _create_optimer(
                     request=request,
-                    optimer_data={
-                        "fleet_doctrine": ping_context["doctrine"]["name"],
-                        "formup_location": ping_context["formup_location"],
-                        "formup_time": ping_context["formup_time"]["datetime_string"],
-                        "fleet_name": ping_context["fleet_name"],
-                        "fleet_commander": ping_context["fleet_commander"],
-                    },
+                    ping_context=ping_context,
                 )
 
             # Create SRP link if requested
             if srp_module_installed() and ping_context["srp"]["create_srp_link"]:
                 context["srp"] = _create_srp_link(
                     request=request,
-                    srp_data={
-                        "fleet_name": ping_context["fleet_name"],
-                        "fleet_doctrine": ping_context["doctrine"]["name"],
-                    },
+                    ping_context=ping_context,
                 )
 
             logger.info(f"Fleet ping created by user {request.user}")

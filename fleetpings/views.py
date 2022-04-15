@@ -387,6 +387,18 @@ def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
     }
 
 
+def _get_at_mention_from_ping_target(ping_target: str) -> str:
+    """
+    Returning the @-mention for a ping target
+    :param ping_target:
+    :return:
+    """
+
+    return (
+        str(ping_target) if str(ping_target).startswith("@") else "@" + str(ping_target)
+    )
+
+
 def _get_ping_context_from_form_data(form_data: dict) -> dict:
     """
     Getting ping context from form data
@@ -399,20 +411,28 @@ def _get_ping_context_from_form_data(form_data: dict) -> dict:
     ping_target_at_mention = None
 
     if form_data["ping_target"]:
-        try:
-            ping_target = DiscordPingTargets.objects.get(
-                discord_id=form_data["ping_target"]
+        if (
+            form_data["ping_target"] == "@here"
+            or form_data["ping_target"] == "@everyone"
+        ):
+            ping_target_at_mention = _get_at_mention_from_ping_target(
+                form_data["ping_target"]
             )
-        except DiscordPingTargets.DoesNotExist:
-            pass
         else:
-            ping_target_group_id = int(ping_target.discord_id)
-            ping_target_group_name = str(ping_target.name)
-            ping_target_at_mention = (
-                str(ping_target.name)
-                if str(ping_target.name).startswith("@")
-                else "@" + str(ping_target.name)
-            )
+            try:
+                # Check if we deal with a custom ping target
+                ping_target = DiscordPingTargets.objects.get(
+                    discord_id=form_data["ping_target"]
+                )
+            except DiscordPingTargets.DoesNotExist:
+                pass
+            else:
+                # We deal with a custom ping target, gather the information we need
+                ping_target_group_id = int(ping_target.discord_id)
+                ping_target_group_name = str(ping_target.name)
+                ping_target_at_mention = _get_at_mention_from_ping_target(
+                    ping_target.name
+                )
 
     # Check for webhooks
     ping_channel_type = None
@@ -429,7 +449,7 @@ def _get_ping_context_from_form_data(form_data: dict) -> dict:
 
     ping_context = {
         "ping_target": {
-            "group_id": int(ping_target_group_id),
+            "group_id": int(ping_target_group_id) if ping_target_group_id else None,
             "group_name": str(ping_target_group_name),
             "at_mention": ping_target_at_mention,
         },
@@ -463,19 +483,151 @@ def _get_ping_context_from_form_data(form_data: dict) -> dict:
     return ping_context
 
 
-def _get_ping_text(context: dict) -> str:
+def _get_ping_text(context: dict) -> dict:
     """
     Getting the ping text
     :param context:
     :return:
     """
 
-    # webhookPingTextHeader = ""
-    # webhookPingTextContent = ""
-    # webhookPingTextFooter = ""
-    # pingText = ""
+    webhook_ping_text_header = ""
+    webhook_ping_text_content = ""
+    webhook_ping_text_footer = ""
+    webhook_ping_target = ""
+    discord_ping_target = ""
+    ping_text = ""
 
-    return ""
+    # Ping target
+    if context["ping_target"]["at_mention"]:
+        ping_text = " :: "
+        webhook_ping_target = context["ping_target"]["at_mention"]
+        discord_ping_target = context["ping_target"]["at_mention"]
+
+    # Fleet Announcement
+    ping_text += "**"
+
+    # Check if it's a pre-ping or not
+    if context["is_pre_ping"]:
+        ping_text += "### PRE PING ###"
+        webhook_ping_text_header += "### PRE PING ###"
+
+        if context["fleet_type"]:
+            ping_text += f' / (Upcoming) {context["fleet_type"]} Fleet'
+            webhook_ping_text_header += f' / (Upcoming) {context["fleet_type"]} Fleet'
+    else:
+        if context["fleet_type"]:
+            ping_text += f'{context["fleet_type"]} '
+            webhook_ping_text_header += f'{context["fleet_type"]} '
+
+        ping_text += "Fleet is up"
+        webhook_ping_text_header += "Fleet is up"
+
+        # Add fcName if we have one
+        if context["fleet_commander"]:
+            ping_text += f' under {context["fleet_commander"]}'
+            webhook_ping_text_header += f' under {context["fleet_commander"]}'
+
+    ping_text += "**\n"
+
+    # Add FC name if we have one
+    if context["fleet_commander"]:
+        ping_text += f'\n**FC:** {context["fleet_commander"]}'
+        webhook_ping_text_content += f'\n**FC:** {context["fleet_commander"]}'
+
+    # Check if fleet name is available
+    if context["fleet_name"]:
+        ping_text += f'\n**Fleet Name:** {context["fleet_name"]}'
+        webhook_ping_text_content += f'\n**Fleet Name:** {context["fleet_name"]}'
+
+    # Check if form-up location is available
+    if context["formup_location"]:
+        ping_text += f'\n**Formup Location:** {context["formup_location"]}'
+        webhook_ping_text_content += (
+            f'\n**Formup Location:** {context["formup_location"]}'
+        )
+
+    # Check if form-up time is available
+    if context["is_formup_now"]:
+        ping_text += "\n**Formup Time:** NOW"
+        webhook_ping_text_content += "\n**Formup Time:** NOW"
+    else:
+        if context["formup_time"]["datetime_string"]:
+            ping_text += (
+                f'\n**Formup (EVE Time):** {context["formup_time"]["datetime_string"]}'
+            )
+            webhook_ping_text_content += (
+                f'\n**Formup (EVE Time):** {context["formup_time"]["datetime_string"]}'
+            )
+
+        if context["formup_time"]["timestamp"]:
+            if timezones_installed():
+                # Add timezones conversion to ping text
+                timezones_url = reverse_absolute(
+                    "timezones:index",
+                    args=[context["formup_time"]["timestamp"]],
+                )
+                ping_text += f" - {timezones_url}"
+                webhook_ping_text_content += (
+                    f" ([Time Zone Conversion]({timezones_url}))"
+                )
+
+            # Add local time
+            ping_text += (
+                "\n**Formup (Local Time):** "
+                f'&lt;t:{context["formup_time"]["timestamp"]}:F&gt;'
+            )
+            webhook_ping_text_content += (
+                "\n**Formup (Local Time):** "
+                f'<t:{context["formup_time"]["timestamp"]}:F>'
+            )
+    # Check if fleet comms is available
+    if context["fleet_comms"]:
+        ping_text += f'\n**Comms:** {context["fleet_comms"]}'
+        webhook_ping_text_content += f'\n**Comms:** {context["fleet_comms"]}'
+
+    # Check if doctrine is available
+    if context["doctrine"]["name"]:
+        ping_text += f'\n**Ships / Doctrine:** {context["doctrine"]["name"]}'
+        webhook_ping_text_content += (
+            f'\n**Ships / Doctrine:** {context["doctrine"]["name"]}'
+        )
+
+        # Grab the doctrine link if there is one
+        if context["doctrine"]["link"]:
+            ping_text += f' - {context["doctrine"]["link"]}'
+            webhook_ping_text_content += (
+                f' ([Doctrine Link]({context["doctrine"]["link"]}))'
+            )
+
+    # Check if srp is available
+    if context["srp"]["has_srp"]:
+        ping_text += "\n**SRP:** Yes"
+        webhook_ping_text_content += "\n**SRP:** Yes"
+
+        # Check if we have an SRP link
+        # if context["srp"]["link"]:
+        #     ping_text += f' (SRP Link: {context["srp"]["link"]})'
+        #     webhook_ping_text_content += f' (SRP Link: {context["srp"]["link"]})'
+
+    # Check if additional information is available
+    if context["additional_information"]:
+        ping_text += (
+            f'\n\n**Additional Information**:\n{context["additional_information"]}'
+        )
+        webhook_ping_text_content += (
+            f'\n\n**Additional Information**:\n{context["additional_information"]}'
+        )
+
+    return {
+        "ping_text": ping_text,
+        "ping_target": discord_ping_target,
+        "webhook": {
+            "target": webhook_ping_target,
+            "header": webhook_ping_text_header,
+            "content": webhook_ping_text_content,
+            "footer": webhook_ping_text_footer,
+        },
+    }
 
 
 @login_required
@@ -523,4 +675,6 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> JsonResponse:
 
             success = True
 
-    return JsonResponse({"success": success, "context": context}, safe=False)
+    return JsonResponse(
+        {"success": success, "context": context["ping_text"]}, safe=False
+    )

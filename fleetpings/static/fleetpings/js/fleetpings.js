@@ -121,14 +121,14 @@ $(document).ready(() => {
      * @param {string} string
      * @param {boolean} isXhtml
      */
-    // const nl2br = (string, isXhtml) => {
-    //     const breakTag = isXhtml || typeof isXhtml === 'undefined' ? '<br />' : '<br>';
-    //
-    //     return (string + '').replace(
-    //         /([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,
-    //         '$1' + breakTag + '$2'
-    //     );
-    // };
+    const nl2br = (string, isXhtml) => {
+        const breakTag = isXhtml || typeof isXhtml === 'undefined' ? '<br />' : '<br>';
+
+        return (string + '').replace(
+            /([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,
+            '$1' + breakTag + '$2'
+        );
+    };
 
     /**
      * Closing the message
@@ -947,6 +947,16 @@ $(document).ready(() => {
             data: formData,
             headers: {
                 'X-CSRFToken': inputCsrfMiddlewareToken.val()
+            },
+            success: (data) => {
+                console.log(data);
+
+                $('.aa-fleetpings-no-ping').hide('fast');
+                $('.aa-fleetpings-ping').show('fast');
+
+                $('.aa-fleetpings-ping-text').html(
+                    '<p>' + nl2br(data.context.ping_target + data.context.ping_text, false) + '</p>'
+                );
             }
         });
     });

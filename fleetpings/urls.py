@@ -48,8 +48,4 @@ urlpatterns = [
         views.ajax_get_fleet_doctrines,
         name="ajax_get_fleet_doctrines",
     ),
-    # path("ajax/create-optimer/", views.ajax_create_optimer, name="ajax_create_optimer"),
-    # path(
-    #     "ajax/create-srp-link/", views.ajax_create_srp_link, name="ajax_create_srp_link"
-    # ),
 ]

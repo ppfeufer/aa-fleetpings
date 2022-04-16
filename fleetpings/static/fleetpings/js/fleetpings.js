@@ -13,12 +13,18 @@ $(document).ready(() => {
     const checkboxFleetSrp = $('input#id_srp');
 
     // Selects
+    const selectPingTarget = $('select#id_ping_target');
+    const selectPingChannel = $('select#id_ping_channel');
     const selectFleetType = $('select#id_fleet_type');
 
     // Input fields
     const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
+    const inputFleetCommander = $('input#id_fleet_commander');
+    const inputFleetName = $('input#id_fleet_name');
+    const inputFleetComms = $('input#id_fleet_comms');
     const inputFormupTime = $('input#id_formup_time');
     const inputFormupTimestamp = $('input#id_formup_timestamp');
+    const inputFormupLocation = $('input#id_formup_location');
     const inputFleetDoctrine = $('input#id_fleet_doctrine');
     const inputFleetDoctrineUrl = $('input#id_fleet_doctrine_url');
     const inputWebhookEmbedColor = $('input#id_webhook_embed_color');
@@ -41,7 +47,7 @@ $(document).ready(() => {
         $.ajax({
             url: fleetpingsSettings.url.pingTargets,
             success: (data) => {
-                $('#id_ping_target').html(data);
+                $(selectPingTarget).html(data);
             }
         });
     };
@@ -53,7 +59,7 @@ $(document).ready(() => {
         $.ajax({
             url: fleetpingsSettings.url.pingWebhooks,
             success: (data) => {
-                $('#id_ping_channel').html(data);
+                $(selectPingChannel).html(data);
             }
         });
     };
@@ -77,7 +83,7 @@ $(document).ready(() => {
         $.ajax({
             url: fleetpingsSettings.url.formupLocations,
             success: (data) => {
-                $('#id_formup_location').after(data);
+                $(inputFormupLocation).after(data);
             }
         });
     };
@@ -89,7 +95,7 @@ $(document).ready(() => {
         $.ajax({
             url: fleetpingsSettings.url.fleetComms,
             success: (data) => {
-                $('#id_fleet_comms').after(data);
+                $(inputFleetComms).after(data);
             }
         });
     };
@@ -101,7 +107,7 @@ $(document).ready(() => {
         $.ajax({
             url: fleetpingsSettings.url.fleetDoctrines,
             success: (data) => {
-                $('#id_fleet_doctrine').after(data);
+                $(inputFleetDoctrine).after(data);
             }
         });
     };
@@ -401,8 +407,35 @@ $(document).ready(() => {
         // Stop the browser from sending the form, we take care of it
         event.preventDefault();
 
+
+        if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxCreateSrpLink.is(':checked')) {
+            // Check if all required fields for SRP links are filled
+            if (inputFleetName.val() === '' || inputFleetDoctrine.val() === '') {
+                showError(
+                    fleetpingsTranslations.srp.error.missingFields,
+                    '.fleetpings-form-message'
+                );
+
+                return false;
+            }
+        }
+
+        if (fleetpingsSettings.optimerInstalled === true && checkboxCreateOptimer.is(':checked')) {
+            if (inputFleetName.val() === '' || inputFleetDoctrine.val() === '' || inputFormupLocation.val() === '' || inputFormupTime.val() === '' || inputFleetCommander.val() === '') {
+                showError(
+                    fleetpingsTranslations.optimer.error.missingFields,
+                    '.fleetpings-form-message'
+                );
+
+                return false;
+            }
+        }
+
+        // Close all possible messages
+        closeMessageElement('.fleetpings-form-message', 0);
+
         // Get the form data
-        let formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
+        const formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
             obj[item.name] = item.value;
 
             return obj;

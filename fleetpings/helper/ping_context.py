@@ -59,7 +59,6 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
                 )
 
     # Check for webhooks
-    ping_channel_type = None
     ping_channel_webhook = None
     ping_channel_webhook_embed_color = DEFAULT_EMBED_COLOR
 
@@ -69,7 +68,6 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
         except Webhook.DoesNotExist:
             pass
         else:
-            ping_channel_type = ping_channel.type
             ping_channel_webhook = ping_channel.url
 
     if form_data["webhook_embed_color"]:
@@ -82,7 +80,6 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
             "at_mention": str(ping_target_at_mention) if ping_target_at_mention else "",
         },
         "ping_channel": {
-            "type": str(ping_channel_type),
             "webhook": ping_channel_webhook,
             "embed_color": ping_channel_webhook_embed_color,
         },

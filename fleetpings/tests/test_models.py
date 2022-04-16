@@ -30,7 +30,6 @@ class TestModels(TestCase):
 
         # given
         webhook = Webhook(
-            type=Webhook.Types.DISCORD,
             url=(
                 "https://discord.com/api/webhooks/754343402302911920F/x-BfFCdEG"
                 "-qGg_39_mFwDU_vHdFUqRSLozaAxZdgKO2dm6Oa8vxNdAyesVpy-Bzf8pm-"
@@ -45,36 +44,7 @@ class TestModels(TestCase):
             ValidationError,
             expected_message=(
                 "Invalid webhook URL. The webhook URL you entered does not match any "
-                f"known format for a {Webhook.Types.DISCORD} webhook. Please check the "
-                "webhook URL."
-            ),
-        ):
-            webhook.clean()
-
-    def test_slack_webhook_should_throw_exception(self):
-        """
-        Test if we get a ValidationError for a Slack webhook
-        :return:
-        """
-
-        # given
-        webhook = Webhook(
-            type=Webhook.Types.SLACK,
-            url=(
-                "https://hooks.slack.com/service/T01A1CJUGFR/B01B61BPWRE"
-                "/HQfhsBXrM2K2mtRETSOsRfas"
-            ),
-        )
-
-        # when
-        with self.assertRaises(ValidationError):
-            webhook.clean()
-
-        with self.assertRaisesMessage(
-            ValidationError,
-            expected_message=(
-                "Invalid webhook URL. The webhook URL you entered does not match any "
-                f"known format for a {Webhook.Types.SLACK} webhook. Please check the "
+                "known format for a Discord webhook. Please check the "
                 "webhook URL."
             ),
         ):

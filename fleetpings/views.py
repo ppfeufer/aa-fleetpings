@@ -131,9 +131,8 @@ def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
             Q(restricted_to_group__in=request.user.groups.all())
             | Q(restricted_to_group__isnull=True),
             is_enabled=True,
-        )
-        .distinct()
-        .order_by("type", "name")
+        ).distinct()
+        # .order_by("type", "name")
     )
 
     return render(

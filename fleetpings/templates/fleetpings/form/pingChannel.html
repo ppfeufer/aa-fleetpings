@@ -5,7 +5,6 @@
 
 <optgroup label="Configured ping channels">
     {% for webhook in webhooks %}
-{#        <option value="{{ webhook.url }}" data-webhook-type="{{ webhook.type }}" data-webhook-embed="{{ webhook.is_embedded }}">({{ webhook.type }}) {{ webhook.name }}</option>#}
-        <option value="{{ webhook.pk }}" data-webhook-type="{{ webhook.type }}" data-webhook-embed="{{ webhook.is_embedded }}">({{ webhook.type }}) {{ webhook.name }}</option>
+        <option value="{{ webhook.pk }}" data-webhook-embed="{{ webhook.is_embedded }}">{{ webhook.name }}</option>
     {% endfor %}
 </optgroup>

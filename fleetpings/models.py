@@ -19,7 +19,7 @@ from django.utils.translation import gettext_lazy as _
 from fleetpings.app_settings import discord_service_installed
 
 # Check if the Discord service is active
-from fleetpings.constants import DISCORD_WEBHOOK_REGEX, SLACK_WEBHOOK_REGEX
+from fleetpings.constants import DISCORD_WEBHOOK_REGEX
 
 if discord_service_installed():
     # Alliance Auth
@@ -349,24 +349,8 @@ class FleetType(models.Model):
 # Webhook Model
 class Webhook(models.Model):
     """
-    A Discord or Slack webhook
+    A Discord webhook
     """
-
-    class Types(models.TextChoices):
-        """
-        Choices for webhook types
-        """
-
-        DISCORD = "Discord", _("Discord")
-        SLACK = "Slack", _("Slack")
-
-    # Webhook type
-    type = models.CharField(
-        max_length=7,
-        choices=Types.choices,
-        default=Types.DISCORD,
-        help_text=_("Is this a Discord or Slack webhook?"),
-    )
 
     # Channel name
     name = models.CharField(
@@ -382,8 +366,7 @@ class Webhook(models.Model):
         help_text=(
             _(
                 "URL of this webhook, e.g. "
-                "https://discord.com/api/webhooks/123456/abcdef "
-                "or https://hooks.slack.com/services/xxxx/xxxx"
+                "https://discord.com/api/webhooks/123456/abcdef"
             )
         ),
     )
@@ -441,17 +424,11 @@ class Webhook(models.Model):
         """
 
         # Check if it's an actual kill mail
-        if not any(
-            re.match(regex, self.url)
-            for regex in [
-                DISCORD_WEBHOOK_REGEX,
-                SLACK_WEBHOOK_REGEX,
-            ]
-        ):
+        if not re.match(DISCORD_WEBHOOK_REGEX, self.url):
             raise ValidationError(
                 _(
                     "Invalid webhook URL. The webhook URL you entered does not match "
-                    f"any known format for a {self.type} webhook. Please check the "
+                    "any known format for a Discord webhook. Please check the "
                     "webhook URL."
                 )
             )

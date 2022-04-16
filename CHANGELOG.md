@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.13.0] - 2022-04-17
+
+### Added
+
+- Local time to formup time segment (#70)
+
 ### Changed
 
 - Minimum requirements
@@ -17,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - JavaScript cleaned up
 - Logic for ping text moved from JavaScript to Python/Django code
 - Discord pings are now always embedded
+- Get `timezones` app URL from Django instead of it being hardcoded
 
 ### Removed
 

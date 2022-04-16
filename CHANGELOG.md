@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.13.1] - 2022-04-17
+
+### Added
+
+- Missing `helper` directory
+
+
 ## [2.13.0] - 2022-04-17
 
 ### Added

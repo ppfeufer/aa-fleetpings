@@ -14,10 +14,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Alliance Auth >= v2.11.2
   - Alliance Auth App Utils >= 1.13.0
 - Switched to Alliance Auth App Utils for logging
+- JavaScript cleaned up
+- Logic for ping text moved from JavaScript to Python/Django code
+- Discord pings are now always embedded
 
 ### Removed
 
-- Either/Or for Discord or Slack usage. Both is possible now at the same time
+- Support for Slack Webhooks. Slack is not supported by Alliance Auth, so it has
+  been dropped from this app as well.
 
 
 ## [2.13.0-beta.1] - 2022-04-06

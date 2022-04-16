@@ -92,8 +92,8 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
 
         if names:
             return ", ".join(names)
-        else:
-            return None
+
+        return None
 
     _restricted_to_group.short_description = "Restricted to"
     _restricted_to_group.admin_order_field = "restricted_to_group__name"
@@ -147,8 +147,8 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
 
         if names:
             return ", ".join(names)
-        else:
-            return None
+
+        return None
 
     _restricted_to_group.short_description = "Restricted to"
     _restricted_to_group.admin_order_field = "restricted_to_group__name"
@@ -205,8 +205,8 @@ class FleetTypeAdmin(admin.ModelAdmin):
 
         if names:
             return ", ".join(names)
-        else:
-            return None
+
+        return None
 
     _restricted_to_group.short_description = "Restricted to"
     _restricted_to_group.admin_order_field = "restricted_to_group__name"
@@ -220,11 +220,9 @@ class WebhookAdmin(admin.ModelAdmin):
 
     list_display = (
         "_name",
-        "_type",
         "_url",
         "_restricted_to_group",
         "notes",
-        "is_embedded",
         "is_enabled",
     )
 
@@ -233,8 +231,6 @@ class WebhookAdmin(admin.ModelAdmin):
 
     list_filter = (
         ("is_enabled", custom_filter(title="active")),
-        ("is_embedded", custom_filter(title="embedded")),
-        ("type", custom_filter(title="webhook type")),
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
@@ -244,13 +240,6 @@ class WebhookAdmin(admin.ModelAdmin):
 
     _name.short_description = "Channel Name"
     _name.admin_order_field = "name"
-
-    @classmethod
-    def _type(cls, obj):
-        return obj.type
-
-    _type.short_description = "Webhook Type"
-    _type.admin_order_field = "type"
 
     @classmethod
     def _url(cls, obj):
@@ -265,8 +254,8 @@ class WebhookAdmin(admin.ModelAdmin):
 
         if names:
             return ", ".join(names)
-        else:
-            return None
+
+        return None
 
     _restricted_to_group.short_description = "Restricted to"
     _restricted_to_group.admin_order_field = "restricted_to_group__name"

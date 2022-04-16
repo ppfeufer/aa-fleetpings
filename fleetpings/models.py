@@ -2,6 +2,9 @@
 Our models
 """
 
+# Standard Library
+import re
+
 # Third Party
 from requests.exceptions import HTTPError
 
@@ -16,6 +19,8 @@ from django.utils.translation import gettext_lazy as _
 from fleetpings.app_settings import discord_service_installed
 
 # Check if the Discord service is active
+from fleetpings.constants import DISCORD_WEBHOOK_REGEX
+
 if discord_service_installed():
     # Alliance Auth
     from allianceauth.services.modules.discord.models import DiscordUser
@@ -344,24 +349,8 @@ class FleetType(models.Model):
 # Webhook Model
 class Webhook(models.Model):
     """
-    A Discord or Slack webhook
+    A Discord webhook
     """
-
-    # Webhook type choices
-    WEBHOOK_TYPE_DISCORD = "Discord"
-    WEBHOOK_TYPE_SLACK = "Slack"
-    WEBHOOK_TYPE_CHOICES = (
-        (WEBHOOK_TYPE_DISCORD, "Discord"),
-        (WEBHOOK_TYPE_SLACK, "Slack"),
-    )
-
-    # Webhook type
-    type = models.CharField(
-        max_length=7,
-        choices=WEBHOOK_TYPE_CHOICES,
-        default=WEBHOOK_TYPE_DISCORD,
-        help_text=_("Is this a Discord or Slack webhook?"),
-    )
 
     # Channel name
     name = models.CharField(
@@ -377,20 +366,7 @@ class Webhook(models.Model):
         help_text=(
             _(
                 "URL of this webhook, e.g. "
-                "https://discord.com/api/webhooks/123456/abcdef "
-                "or https://hooks.slack.com/services/xxxx/xxxx"
-            )
-        ),
-    )
-
-    # Embedded ping (only for discord wenhooks)
-    is_embedded = models.BooleanField(
-        default=True,
-        db_index=True,
-        help_text=(
-            _(
-                "Whether this webhook's ping is embedded or not. "
-                "(This setting only effects Discord webhooks.)"
+                "https://discord.com/api/webhooks/123456/abcdef"
             )
         ),
     )
@@ -428,3 +404,21 @@ class Webhook(models.Model):
         verbose_name = _("Webhook")
         verbose_name_plural = _("Webhooks")
         default_permissions = ()
+
+    def clean(self):
+        """
+        Check if the webhook URL is valid
+        :return:
+        """
+
+        # Check if it's an actual kill mail
+        if not re.match(DISCORD_WEBHOOK_REGEX, self.url):
+            raise ValidationError(
+                _(
+                    "Invalid webhook URL. The webhook URL you entered does not match "
+                    "any known format for a Discord webhook. Please check the "
+                    "webhook URL."
+                )
+            )
+
+        super().clean()

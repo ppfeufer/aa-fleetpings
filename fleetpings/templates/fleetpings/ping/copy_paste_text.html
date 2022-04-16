@@ -1,0 +1,101 @@
+<p>
+    {% if ping_target.at_mention %}
+        {{ ping_target.at_mention }} ::
+    {% endif %}
+
+    {#Headline#}
+    **
+
+    {% if is_pre_ping %}
+        ### PRE PING ###
+
+        {% if fleet_type %}
+            / (Upcoming) {{ fleet_type }} Fleet
+        {% endif %}
+    {% else %}
+        {{ fleet_type }} Fleet is up
+
+        {% if fleet_commander %}
+            under {{ fleet_commander }}
+        {% endif %}
+    {% endif %}
+
+    **
+
+    <br>
+
+    {#Add FC name if we have one#}
+    {% if fleet_commander %}
+        <br>
+        **FC:** {{ fleet_commander }}
+    {% endif %}
+
+    {#Check if fleet name is available#}
+    {% if fleet_name %}
+        <br>
+        **Fleet Name:** {{ fleet_name }}
+    {% endif %}
+
+    {#Check for formup location#}
+    {% if formup_location %}
+        <br>
+        **Formup Location:** {{ formup_location }}
+    {% endif %}
+
+    {#Check if form-up time is available#}
+    {% if is_formup_now %}
+        <br>
+        **Formup Time:** NOW
+    {% else %}
+        <br>
+        {% if formup_time.datetime_string %}
+            **Formup (EVE Time):** {{ formup_time.datetime_string }}
+        {% endif %}
+
+        {% if formup_time.timestamp %}
+            {#Check if aa-timezones is available#}
+            {% if timezones_installed %}
+                - {{ request.scheme }}://{{ request.get_host }}{% url "timezones:index" formup_time.timestamp %}
+            {% endif %}
+
+            {#Add local time#}
+            <br>
+            **Formup (Local Time):** &lt;t:{{ formup_time.timestamp }}:F&gt;
+        {% endif %}
+    {% endif %}
+
+    {#Check if fleet comms is available#}
+    {% if fleet_comms %}
+        <br>
+        **Comms:** {{ fleet_comms }}
+    {% endif %}
+
+    {#Check if doctrine is available#}
+    {% if doctrine.name %}
+        <br>
+        **Ships / Doctrine:** {{ doctrine.name }}
+
+        {#Check for doctrine link#}
+        {% if doctrine.link %}
+            - {{ doctrine.link }}
+        {% endif %}
+    {% endif %}
+
+    {#Check if srp is available#}
+    {% if srp.has_srp %}
+        <br>
+        **SRP:** Yes
+
+        {#Check if we have an SRP link#}
+        {% if srp.link.link %}
+            (SRP Link: {{ srp.link.link }})
+        {% endif %}
+    {% endif %}
+
+    {#Check if additional information is available#}
+    {% if additional_information %}
+        <br><br>
+        **Additional Information:**<br>
+        {{ additional_information|linebreaksbr }}
+    {% endif %}
+</p>

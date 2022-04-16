@@ -2,12 +2,16 @@
 The views
 """
 
+# Standard Library
+import json
+
 # Django
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -27,7 +31,6 @@ from fleetpings.app_settings import (
     optimer_installed,
     srp_module_installed,
     srp_module_is,
-    timezones_installed,
 )
 from fleetpings.form import FleetPingForm
 from fleetpings.helper.discord_webhook import ping_discord_webhook
@@ -76,7 +79,7 @@ def index(request: WSGIRequest) -> HttpResponse:
             is_enabled=True,
         ).exists(),
         "site_url": site_absolute_url(),
-        "timezones_installed": timezones_installed(),
+        # "timezones_installed": timezones_installed(),
         "optimer_installed": optimer_installed(),
         "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,
@@ -397,7 +400,9 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     :return:
     """
 
+    context = {}
     ping_context = {}
+    success = False
 
     if request.method == "POST":
         form = FleetPingForm(request.POST)
@@ -415,6 +420,10 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
                     ping_context=ping_context,
                 )
 
+                context["message"] = str(
+                    _("Fleet operations timer has been created ...")
+                )
+
             # Create SRP link if requested
             if srp_module_installed() and ping_context["srp"]["create_srp_link"]:
                 ping_context["srp"]["link"] = _create_srp_link(
@@ -422,14 +431,25 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
                     ping_context=ping_context,
                 )
 
+                context["message"] = str(_("SRP link has been created ..."))
+
             # If we have a Discord webhook, ping it
             if ping_context["ping_channel"]["webhook"]:
                 ping_discord_webhook(ping_context=ping_context, user=request.user)
 
             logger.info(f"Fleet ping created by user {request.user}")
 
-    return render(
-        request,
-        "fleetpings/ping/copy_paste_text.html",
-        ping_context,
-    )
+            ping_context["request"] = request
+
+            context["ping_context"] = render_to_string(
+                "fleetpings/ping/copy_paste_text.html", ping_context
+            )
+            success = True
+        else:
+            context["message"] = str(_("Form invalid. Please check your input."))
+    else:
+        context["message"] = str(_("No form data submitted."))
+
+    context["success"] = success
+
+    return HttpResponse(json.dumps(context), content_type="application/json")

@@ -407,6 +407,8 @@ $(document).ready(() => {
         // Stop the browser from sending the form, we take care of it
         event.preventDefault();
 
+        // Close all possible form messages
+        $('.fleetpings-form-message div').remove();
 
         if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxCreateSrpLink.is(':checked')) {
             // Check if all required fields for SRP links are filled
@@ -431,9 +433,6 @@ $(document).ready(() => {
             }
         }
 
-        // Close all possible messages
-        closeMessageElement('.fleetpings-form-message', 0);
-
         // Get the form data
         const formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
             obj[item.name] = item.value;
@@ -449,10 +448,31 @@ $(document).ready(() => {
                 'X-CSRFToken': inputCsrfMiddlewareToken.val()
             },
             success: (data) => {
-                $('.aa-fleetpings-no-ping').hide('fast');
-                $('.aa-fleetpings-ping').show('fast');
+                if (data.success === true) {
+                    $('.aa-fleetpings-no-ping').hide('fast');
+                    $('.aa-fleetpings-ping').show('fast');
 
-                $('.aa-fleetpings-ping-text').html(data);
+                    $('.aa-fleetpings-ping-text').html(data.ping_context);
+
+                    if (data.message) {
+                        showSuccess(
+                            data.message,
+                            '.fleetpings-form-message'
+                        );
+                    }
+                } else {
+                    if (data.message) {
+                        showError(
+                            data.message,
+                            '.fleetpings-form-message'
+                        );
+                    } else {
+                        showError(
+                            'Something went wrong, no details given.',
+                            '.fleetpings-form-message'
+                        );
+                    }
+                }
             }
         });
     });

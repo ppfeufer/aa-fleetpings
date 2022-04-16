@@ -94,7 +94,6 @@ class TestAccess(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # context data
-        self.assertEqual(response.context["timezones_installed"], False)
         self.assertEqual(response.context["optimer_installed"], False)
         self.assertEqual(response.context["fittings_installed"], False)
         self.assertEqual(response.context["srp_module_available_to_user"], False)
@@ -127,7 +126,6 @@ class TestAccess(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # context data
-        self.assertEqual(response.context["timezones_installed"], False)
         self.assertEqual(response.context["optimer_installed"], False)
         self.assertEqual(response.context["fittings_installed"], False)
         self.assertEqual(response.context["srp_module_available_to_user"], True)
@@ -160,7 +158,6 @@ class TestAccess(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # context data
-        self.assertEqual(response.context["timezones_installed"], False)
         self.assertEqual(response.context["optimer_installed"], False)
         self.assertEqual(response.context["fittings_installed"], False)
         self.assertEqual(response.context["srp_module_available_to_user"], True)
@@ -193,7 +190,6 @@ class TestAccess(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # context data
-        self.assertEqual(response.context["timezones_installed"], True)
         self.assertEqual(response.context["optimer_installed"], False)
         self.assertEqual(response.context["fittings_installed"], False)
         self.assertEqual(response.context["srp_module_available_to_user"], False)
@@ -226,7 +222,6 @@ class TestAccess(TestCase):
             self.assertEqual(response.status_code, 200)
 
             # context data
-            self.assertEqual(response.context["timezones_installed"], False)
             self.assertEqual(response.context["optimer_installed"], True)
             self.assertEqual(response.context["fittings_installed"], False)
             self.assertEqual(response.context["srp_module_available_to_user"], False)

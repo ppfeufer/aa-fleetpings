@@ -7,6 +7,109 @@ from app_utils.urls import reverse_absolute
 
 # AA Fleet Pings
 from fleetpings.app_settings import timezones_installed
+from fleetpings.constants import DEFAULT_EMBED_COLOR
+from fleetpings.models import DiscordPingTargets, Webhook
+
+
+def _get_at_mention_from_ping_target(ping_target: str) -> str:
+    """
+    Returning the @-mention for a ping target
+    :param ping_target:
+    :return:
+    """
+
+    return (
+        str(ping_target) if str(ping_target).startswith("@") else "@" + str(ping_target)
+    )
+
+
+def get_ping_context_from_form_data(form_data: dict) -> dict:
+    """
+    Getting ping context from form data
+    :param form_data:
+    :return:
+    """
+
+    ping_target_group_id = None
+    ping_target_group_name = None
+    ping_target_at_mention = None
+
+    if form_data["ping_target"]:
+        if (
+            form_data["ping_target"] == "@here"
+            or form_data["ping_target"] == "@everyone"
+        ):
+            ping_target_at_mention = _get_at_mention_from_ping_target(
+                form_data["ping_target"]
+            )
+        else:
+            try:
+                # Check if we deal with a custom ping target
+                ping_target = DiscordPingTargets.objects.get(
+                    discord_id=form_data["ping_target"]
+                )
+            except DiscordPingTargets.DoesNotExist:
+                pass
+            else:
+                # We deal with a custom ping target, gather the information we need
+                ping_target_group_id = int(ping_target.discord_id)
+                ping_target_group_name = str(ping_target.name)
+                ping_target_at_mention = _get_at_mention_from_ping_target(
+                    ping_target.name
+                )
+
+    # Check for webhooks
+    ping_channel_type = None
+    ping_channel_webhook = None
+    ping_channel_webhook_embed_color = DEFAULT_EMBED_COLOR
+
+    if form_data["ping_channel"]:
+        try:
+            ping_channel = Webhook.objects.get(pk=form_data["ping_channel"])
+        except Webhook.DoesNotExist:
+            pass
+        else:
+            ping_channel_type = ping_channel.type
+            ping_channel_webhook = ping_channel.url
+
+    if form_data["webhook_embed_color"]:
+        ping_channel_webhook_embed_color = form_data["webhook_embed_color"]
+
+    ping_context = {
+        "ping_target": {
+            "group_id": int(ping_target_group_id) if ping_target_group_id else None,
+            "group_name": str(ping_target_group_name),
+            "at_mention": str(ping_target_at_mention) if ping_target_at_mention else "",
+        },
+        "ping_channel": {
+            "type": str(ping_channel_type),
+            "webhook": ping_channel_webhook,
+            "embed_color": ping_channel_webhook_embed_color,
+        },
+        "fleet_type": str(form_data["fleet_type"]),
+        "fleet_commander": str(form_data["fleet_commander"]),
+        "fleet_name": str(form_data["fleet_name"]),
+        "formup_location": str(form_data["formup_location"]),
+        "is_pre_ping": bool(form_data["pre_ping"]),
+        "is_formup_now": bool(form_data["formup_now"]),
+        "formup_time": {
+            "datetime_string": str(form_data["formup_time"]),
+            "timestamp": str(form_data["formup_timestamp"]),
+        },
+        "fleet_comms": str(form_data["fleet_comms"]),
+        "doctrine": {
+            "name": str(form_data["fleet_doctrine"]),
+            "link": str(form_data["fleet_doctrine_url"]),
+        },
+        "srp": {
+            "has_srp": bool(form_data["srp"]),
+            "create_srp_link": bool(form_data["srp_link"]),
+        },
+        "create_optimer": bool(form_data["optimer"]),
+        "additional_information": str(form_data["additional_information"]),
+    }
+
+    return ping_context
 
 
 def _get_webhook_ping_context(ping_context: dict) -> dict:

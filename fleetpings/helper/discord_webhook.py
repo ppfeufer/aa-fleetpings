@@ -14,7 +14,7 @@ from fleetpings.helper.eve_images import get_character_portrait_from_evecharacte
 from fleetpings.helper.ping_context import _get_webhook_ping_context
 
 
-def _ping_discord_webhook(ping_context: dict, user: User):
+def ping_discord_webhook(ping_context: dict, user: User):
     """
     Ping a Discord webhook
     :param ping_context:

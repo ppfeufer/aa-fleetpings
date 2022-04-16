@@ -292,3 +292,12 @@ class TestAccess(TestCase):
 
         # then
         self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertTemplateUsed(response, "fleetpings/ping/copy_paste_text.html")
+        self.assertContains(response, "@here")
+        self.assertContains(response, "**FC:** Jean Luc Picard")
+        self.assertContains(response, "**Fleet Name:** Starfleet")
+        self.assertContains(response, "**Formup Location:** Utopia Planitia")
+        self.assertContains(response, "**Comms:** Mumble")
+        self.assertContains(response, "**Ships / Doctrine:** Federation Ships")
+        self.assertContains(response, "**SRP:** Yes")
+        self.assertContains(response, "Borg to slaughter!")

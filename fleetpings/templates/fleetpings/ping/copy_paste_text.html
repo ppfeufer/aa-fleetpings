@@ -36,6 +36,12 @@
         **Fleet Name:** {{ fleet_name }}
     {% endif %}
 
+    {#Check for formup location#}
+    {% if formup_location %}
+        <br>
+        **Formup Location:** {{ formup_location }}
+    {% endif %}
+
     {#Check if form-up time is available#}
     {% if is_formup_now %}
         <br>
@@ -49,7 +55,7 @@
         {% if formup_time.timestamp %}
             {#Check if aa-timezones is available#}
             {% if timezones_installed %}
-                - {% url "timezones:index" formup_time.timestamp %}
+                - {{ request.scheme }}://{{ request.get_host }}{% url "timezones:index" formup_time.timestamp %}
             {% endif %}
 
             {#Add local time#}

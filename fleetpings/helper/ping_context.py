@@ -6,7 +6,11 @@ Handling ping context data
 from app_utils.urls import reverse_absolute
 
 # AA Fleet Pings
-from fleetpings.app_settings import timezones_installed
+from fleetpings.app_settings import (
+    fittings_installed,
+    optimer_installed,
+    timezones_installed,
+)
 from fleetpings.constants import DEFAULT_EMBED_COLOR
 from fleetpings.models import DiscordPingTargets, Webhook
 
@@ -104,6 +108,9 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
         },
         "create_optimer": bool(form_data["optimer"]),
         "additional_information": str(form_data["additional_information"]),
+        "timezones_installed": timezones_installed(),
+        "optimer_installed": optimer_installed(),
+        "fittings_installed": fittings_installed(),
     }
 
     return ping_context

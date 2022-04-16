@@ -260,6 +260,7 @@ DEBUG = False
 # Add any additional apps to this list.
 INSTALLED_APPS += [
     "allianceauth.services.modules.discord",
+    "allianceauth.srp",
     "eveuniverse",
     "fleetpings",
     "aasrp",

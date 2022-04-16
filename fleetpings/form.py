@@ -121,6 +121,11 @@ class FleetPingForm(forms.Form):
         label=_("Doctrine URL"),
         widget=forms.TextInput(attrs={"hidden": "hidden"}),
     )
+    webhook_embed_color = forms.CharField(
+        required=False,
+        label=_("Webhook Embed Color"),
+        widget=forms.TextInput(attrs={"hidden": "hidden"}),
+    )
     srp = forms.BooleanField(
         initial=False,
         required=False,

@@ -13,9 +13,7 @@ $(document).ready(() => {
     const checkboxFleetSrp = $('input#id_srp');
 
     // Selects
-    // const selectPingTarget = $('select#id_ping_target');
-    // const selectPingChannel = $('select#id_ping_channel');
-    // const selectFleetType = $('select#id_fleet_type');
+    const selectFleetType = $('select#id_fleet_type');
 
     // Input fields
     const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
@@ -23,14 +21,7 @@ $(document).ready(() => {
     const inputFormupTimestamp = $('input#id_formup_timestamp');
     const inputFleetDoctrine = $('input#id_fleet_doctrine');
     const inputFleetDoctrineUrl = $('input#id_fleet_doctrine_url');
-
-    // const inputFcName = $('input#fcName');
-    // const inputFleetName = $('input#fleetName');
-    // const inputFormupLocation = $('input#formupLocation');
-    // const inputFleetComms = $('input#fleetComms');
-
-    // Text area
-    // const textAdditionalInformation = $('textarea#additionalInformation');
+    const inputWebhookEmbedColor = $('input#id_webhook_embed_color');
 
     // Initialize the datetime picker
     inputFormupTime.datetimepicker({
@@ -74,7 +65,7 @@ $(document).ready(() => {
         $.ajax({
             url: fleetpingsSettings.url.fleetTypes,
             success: (data) => {
-                $("#id_fleet_type").html(data);
+                $(selectFleetType).html(data);
             }
         });
     };
@@ -271,22 +262,6 @@ $(document).ready(() => {
     //     };
     //
     //     request.send(JSON.stringify(params));
-    // };
-
-    /**
-     * Send a message to a Slack webhook
-     *
-     * @param {string} webhookUrl Slack webhook URL
-     * @param {object} payload Message to send to Slack
-     */
-    // const sendSlackPing = (webhookUrl, payload) => {
-    //     $.ajax({
-    //         data: 'payload=' + JSON.stringify(payload),
-    //         dataType: 'json',
-    //         processData: false,
-    //         type: 'POST',
-    //         url: webhookUrl
-    //     });
     // };
 
     /**
@@ -605,118 +580,6 @@ $(document).ready(() => {
 //     };
 
     /**
-     * Craete a fleet ping with SRP
-     *
-     * @param {string} fleetName
-     * @param {string} fleetDoctrine
-     * @returns {boolean}
-     */
-    // const generateFleetPingWithSrp = (fleetName, fleetDoctrine) => {
-    //     // Check for mandatory fields
-    //     if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-    //         if (fleetName !== '' && fleetDoctrine !== '') {
-    //             // Create SRP link
-    //             const srpAjaxUrl = fleetpingsSettings.url.srpAjaxUrl;
-    //             let srpCode = '';
-    //
-    //             $.ajax({
-    //                 url: srpAjaxUrl,
-    //                 type: 'post',
-    //                 data: {
-    //                     fleet_doctrine: fleetDoctrine,
-    //                     fleet_name: fleetName
-    //                 },
-    //                 headers: {
-    //                     'X-CSRFToken': sanitizeInput(
-    //                         inputCsrfMiddlewareToken.val()
-    //                     )
-    //                 }
-    //             }).done((result) => {
-    //                 srpCode = result.srp_code;
-    //
-    //                 // Create fleet ping
-    //                 generateFleetPing(srpCode);
-    //
-    //                 // Let the user know that an optimer has been created
-    //                 // and close potentially former error messages
-    //                 closeMessageElement('.alert-message-error', 0);
-    //                 showSuccess(
-    //                     fleetpingsTranslations.srp.created,
-    //                     '.fleetpings-create-srp-link-message'
-    //                 );
-    //             });
-    //
-    //             // Re-set checkbox
-    //             checkboxCreateSrpLink.prop('checked', false);
-    //         } else {
-    //             showError(
-    //                 fleetpingsTranslations.srp.error.missingFields,
-    //                 '.fleetpings-create-srp-link-message'
-    //             );
-    //         }
-    //
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // };
-
-    /**
-     *
-     * @param {string} fleetName
-     * @param {string} fleetDoctrine
-     * @param {string} formupLocation
-     * @param {string} formupTime
-     * @param {string} fcName
-     * @returns {boolean}
-     */
-    // const generateFleetPingWithOptimer = (fleetName, fleetDoctrine, formupLocation, formupTime, fcName) => {
-    //     if (fleetpingsSettings.optimerInstalled === true) {
-    //         if (fleetName !== '' && fleetDoctrine !== '' && formupLocation !== '' && formupTime !== '' && fcName !== '') {
-    //             const optimerAjaxUrl = fleetpingsSettings.url.optimerAjaxUrl;
-    //
-    //             $.ajax({
-    //                 url: optimerAjaxUrl,
-    //                 type: 'post',
-    //                 data: {
-    //                     fleet_doctrine: fleetDoctrine,
-    //                     formup_location: formupLocation,
-    //                     formup_time: formupTime,
-    //                     fleet_name: fleetName,
-    //                     fleet_commander: fcName
-    //                 },
-    //                 headers: {
-    //                     'X-CSRFToken': inputCsrfMiddlewareToken.val()
-    //                 }
-    //             });
-    //
-    //             // Re-set checkbox
-    //             checkboxCreateOptimer.prop('checked', false);
-    //
-    //             // Create fleet ping
-    //             generateFleetPing('');
-    //
-    //             // Let the user know that an optimer has been created
-    //             // and close potentially former error messages
-    //             closeMessageElement('.alert-message-error', 0);
-    //             showSuccess(
-    //                 fleetpingsTranslations.optimer.created,
-    //                 '.fleetpings-create-optimer-message'
-    //             );
-    //         } else {
-    //             showError(
-    //                 fleetpingsTranslations.optimer.error.missingFields,
-    //                 '.fleetpings-create-optimer-message'
-    //             );
-    //         }
-    //
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // };
-
-    /**
      * Copy the fleet ping to clipboard
      */
     const copyFleetPing = () => {
@@ -787,6 +650,17 @@ $(document).ready(() => {
         }
 
         $(inputFleetDoctrineUrl).val(fleetDoctrineLink);
+    });
+
+    $(selectFleetType).change(() => {
+        const fleetTypeSelected = $('option:selected', selectFleetType);
+        let webhookEmbedColor = null;
+
+        if (fleetTypeSelected !== '') {
+            webhookEmbedColor = sanitizeInput(fleetTypeSelected.data('embed-color'));
+        }
+
+        $(inputWebhookEmbedColor).val(webhookEmbedColor);
     });
 
     /**
@@ -883,46 +757,8 @@ $(document).ready(() => {
      * Generate ping text
      */
     $("form").submit((event) => {
-    // $('button#createPingText').on('click', () => {
-        // const fleetName = sanitizeInput(inputFleetName.val());
-        // const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
-        // const formupTime = sanitizeInput(inputFormupTime.val());
-        // const fcName = sanitizeInput(inputFcName.val());
-        // const formupLocation = sanitizeInput(inputFormupLocation.val());
-
-        // let pingCreated = false;
-
-        // Check if we should create an SRP link
-        // if (checkboxCreateSrpLink.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
-        //     pingCreated = generateFleetPingWithSrp(fleetName, fleetDoctrine);
-        // }
-
-        // Check if we should create an optimer
-        // if (checkboxPrePing.is(':checked') && checkboxCreateOptimer.is(':checked')) {
-        //     pingCreated = generateFleetPingWithOptimer(
-        //         fleetName, fleetDoctrine, formupLocation, formupTime, fcName
-        //     );
-        // }
-
-        // if (pingCreated === false) {
-        //     generateFleetPing('');
-        // }
-
-
         // Stop the browser from sending the form, we take care of it
         event.preventDefault();
-
-        // const pingTargetSelected = $('option:selected', selectPingTarget);
-        // const pingTarget = sanitizeInput(pingTargetSelected.val());
-        // const pingTargetText = sanitizeInput(pingTargetSelected.text());
-        // const pingChannelSelected = $('option:selected', selectPingChannel);
-        // const webhookType = sanitizeInput(pingChannelSelected.data('webhook-type'));
-        // const webhookEmbedPing = sanitizeInput(pingChannelSelected.data('webhook-embed'));
-        // const fcName = sanitizeInput(inputFcName.val());
-        // const fleetName = sanitizeInput(inputFleetName.val());
-        // const formupLocation = sanitizeInput(inputFormupLocation.val());
-        // const formupTime = sanitizeInput(inputFormupTime.val());
-        // const fleetComms = sanitizeInput(inputFleetComms.val());
 
         // Get the form data
         let formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
@@ -930,14 +766,6 @@ $(document).ready(() => {
 
             return obj;
         }, {});
-
-        // Add some additional info
-        // fleetDoctrineUrl
-        // const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
-        // const fleetDoctrineUrl = $(
-        //     '#fleetDoctrineList [value="' + escapeInput(fleetDoctrine, false) + '"]'
-        // ).data('doctrine-url');
-        // formData.fleetDoctrineUrl = fleetDoctrineUrl || '';
 
         console.table(formData);
 
@@ -949,20 +777,10 @@ $(document).ready(() => {
                 'X-CSRFToken': inputCsrfMiddlewareToken.val()
             },
             success: (data) => {
-                console.log(data);
+                $('.aa-fleetpings-no-ping').hide('fast');
+                $('.aa-fleetpings-ping').show('fast');
 
-                if (data.success === true) {
-                    $('.aa-fleetpings-no-ping').hide('fast');
-                    $('.aa-fleetpings-ping').show('fast');
-
-                    $('.aa-fleetpings-ping-text').html(
-                        '<p>' + nl2br(data.context.ping_target + data.context.ping_text, false) + '</p>'
-                    );
-                } else {
-                    showError(
-                        nl2br(data.context.message, false),
-                        '.fleetpings-form-message');
-                }
+                $('.aa-fleetpings-ping-text').html(data);
             }
         });
     });

@@ -7,7 +7,7 @@ from http import HTTPStatus
 
 # Django
 from django.contrib.auth.models import Group
-from django.test import TestCase
+from django.test import TestCase, modify_settings
 from django.urls import reverse
 
 # AA Fleet Pings
@@ -37,7 +37,11 @@ class TestAccess(TestCase):
         cls.user_1003 = create_fake_user(
             1003,
             "Clark Kent",
-            permissions=["fleetpings.basic_access", "aasrp.create_srp"],
+            permissions=[
+                "fleetpings.basic_access",
+                "aasrp.create_srp",
+                "srp.add_srpfleetmain",
+            ],
         )
 
     def test_ajax_get_ping_targets_no_access(self):
@@ -301,3 +305,81 @@ class TestAccess(TestCase):
         self.assertContains(response, "**Ships / Doctrine:** Federation Ships")
         self.assertContains(response, "**SRP:** Yes")
         self.assertContains(response, "Borg to slaughter!")
+
+    @modify_settings(
+        INSTALLED_APPS={
+            "remove": ["allianceauth.srp", "aasrp"],  # Remove all SRP modules
+            "append": "aasrp",  # Add allianceauth.srp
+        }
+    )
+    def test_aasrp_link_creation(self):
+        # given
+        self.client.force_login(self.user_1003)
+        form_data = {
+            "ping_target": "@here",
+            "pre_ping": 0,
+            "ping_channel": "",
+            "fleet_type": "CTA",
+            "fleet_commander": "Jean Luc Picard",
+            "fleet_name": "Starfleet",
+            "formup_location": "Utopia Planitia",
+            "formup_time": "",
+            "formup_timestamp": "",
+            "formup_now": 1,
+            "fleet_comms": "Mumble",
+            "fleet_doctrine": "Federation Ships",
+            "fleet_doctrine_url": "",
+            "webhook_embed_color": "",
+            "srp": 1,
+            "srp_link": 1,
+            "additional_information": "Borg to slaughter!",
+        }
+
+        # when
+        response = self.client.post(
+            reverse("fleetpings:ajax_create_fleet_ping"), data=form_data
+        )
+
+        # then
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertContains(response, "*SRP:** Yes")
+        self.assertContains(response, "SRP Link:")
+
+    @modify_settings(
+        INSTALLED_APPS={
+            "remove": ["allianceauth.srp", "aasrp"],  # Remove all SRP modules
+            "append": "allianceauth.srp",  # Add allianceauth.srp
+        }
+    )
+    def test_allianceauth_srp_link_creation(self):
+        # given
+        self.client.force_login(self.user_1003)
+        form_data = {
+            "ping_target": "@here",
+            "pre_ping": 0,
+            "ping_channel": "",
+            "fleet_type": "CTA",
+            "fleet_commander": "Jean Luc Picard",
+            "fleet_name": "Starfleet",
+            "formup_location": "Utopia Planitia",
+            "formup_time": "",
+            "formup_timestamp": "",
+            "formup_now": 1,
+            "fleet_comms": "Mumble",
+            "fleet_doctrine": "Federation Ships",
+            "fleet_doctrine_url": "",
+            "webhook_embed_color": "",
+            "srp": 1,
+            "srp_link": 1,
+            "additional_information": "Borg to slaughter!",
+        }
+
+        # when
+        response = self.client.post(
+            reverse("fleetpings:ajax_create_fleet_ping"), data=form_data
+        )
+
+        # then
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertContains(response, "*SRP:** Yes")
+        self.assertContains(response, "SRP Link:")

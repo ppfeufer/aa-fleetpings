@@ -9,6 +9,40 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.13.0] - 2022-04-17
+
+### Added
+
+- Local time to formup time segment (#70)
+
+### Changed
+
+- Minimum requirements
+  - Alliance Auth >= v2.11.2
+  - Alliance Auth App Utils >= 1.13.0
+- Switched to Alliance Auth App Utils for logging
+- JavaScript cleaned up
+- Logic for ping text moved from JavaScript to Python/Django code
+- Discord pings are now always embedded
+- Get `timezones` app URL from Django instead of it being hardcoded
+
+### Removed
+
+- Support for Slack Webhooks. Slack is not supported by Alliance Auth, so it has
+  been dropped from this app as well.
+
+
+## [2.13.0-beta.1] - 2022-04-06
+
+### Added
+
+- Local time to formup time segment (#70)
+
+### Changed
+
+- Get `timezones` app URL from Django instead of it being hardcoded
+
+
 ## [2.12.0] - 2022-03-02
 
 ### Added

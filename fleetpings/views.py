@@ -1,31 +1,40 @@
 """
-the views
+The views
 """
+
+# Standard Library
+import json
 
 # Django
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
+# Alliance Auth
+from allianceauth.services.hooks import get_extension_logger
 
 # Alliance Auth (External Libs)
-from app_utils.urls import site_absolute_url
+from app_utils.logging import LoggerAddTag
+from app_utils.urls import reverse_absolute, site_absolute_url
 
 # AA Fleet Pings
 from fleetpings import __title__
 from fleetpings.app_settings import (
     AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
-    AA_FLEETPINGS_USE_SLACK,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
     srp_module_installed,
     srp_module_is,
-    timezones_installed,
-    use_new_timezone_links,
 )
+from fleetpings.form import FleetPingForm
+from fleetpings.helper.discord_webhook import ping_discord_webhook
+from fleetpings.helper.ping_context import get_ping_context_from_form_data
 from fleetpings.models import (
     DiscordPingTargets,
     FleetComm,
@@ -42,9 +51,8 @@ if (
     # Third Party
     from fittings.views import _get_docs_qs
 
-if optimer_installed():
-    # Alliance Auth
-    from allianceauth.optimer.models import OpTimer
+
+logger = LoggerAddTag(get_extension_logger(__name__), __title__)
 
 
 @login_required
@@ -53,47 +61,101 @@ def index(request: WSGIRequest) -> HttpResponse:
     """
     Index view
     """
-    fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
-    # which platform for pings we are using?
-    platform_used = "Discord"
-    if AA_FLEETPINGS_USE_SLACK is True:
-        platform_used = "Slack"
+    logger.info(f"Fleet pings view called by user {request.user}")
 
-    # do we use the doctrines from the fittings module, or our own defined?
-    use_fleet_doctrines = False
-    if (
-        fittings_installed() is True
-        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+    srp_module_available_to_user = False
+    if srp_module_installed() and (
+        can_add_srp_links(request=request, module_name="aasrp")
+        or can_add_srp_links(request=request, module_name="allianceauth.srp")
     ):
-        use_fleet_doctrines = True
+        srp_module_available_to_user = True
 
-    # get the webhooks for the used platform
-    webhooks = (
-        Webhook.objects.filter(
+    context = {
+        "title": __title__,
+        "webhooks_configured": Webhook.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
             | Q(restricted_to_group__isnull=True),
-            type=platform_used,
+            is_enabled=True,
+        ).exists(),
+        "site_url": site_absolute_url(),
+        # "timezones_installed": timezones_installed(),
+        "optimer_installed": optimer_installed(),
+        "fittings_installed": fittings_installed(),
+        "main_character": request.user.profile.main_character,
+        "srp_module_available_to_user": srp_module_available_to_user,
+        "form": FleetPingForm,
+    }
+
+    return render(request, "fleetpings/index.html", context)
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
+    """
+    Get ping targets for the current user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting ping targets for user {request.user}")
+
+    additional_discord_ping_targets = (
+        DiscordPingTargets.objects.filter(
+            Q(restricted_to_group__in=request.user.groups.all())
+            | Q(restricted_to_group__isnull=True),
             is_enabled=True,
         )
         .distinct()
         .order_by("name")
     )
 
-    # get additional ping targets for discord
-    additional_discord_ping_targets = {}
-    if AA_FLEETPINGS_USE_SLACK is False:
-        additional_discord_ping_targets = (
-            DiscordPingTargets.objects.filter(
-                Q(restricted_to_group__in=request.user.groups.all())
-                | Q(restricted_to_group__isnull=True),
-                is_enabled=True,
-            )
-            .distinct()
-            .order_by("name")
-        )
+    return render(
+        request,
+        "fleetpings/form/pingTargets.html",
+        {"ping_targets": additional_discord_ping_targets},
+    )
 
-    # get fleet types
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
+    """
+    Get webhooks for ccurrent user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting webhooks for user {request.user}")
+
+    webhooks = (
+        Webhook.objects.filter(
+            Q(restricted_to_group__in=request.user.groups.all())
+            | Q(restricted_to_group__isnull=True),
+            is_enabled=True,
+        ).distinct()
+        # .order_by("type", "name")
+    )
+
+    return render(
+        request,
+        "fleetpings/form/pingChannel.html",
+        {"webhooks": webhooks},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
+    """
+    Get fleet types for current user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting fleet types for user {request.user}")
+
     fleet_types = (
         FleetType.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
@@ -104,7 +166,72 @@ def index(request: WSGIRequest) -> HttpResponse:
         .order_by("name")
     )
 
-    # get doctrines
+    return render(
+        request,
+        "fleetpings/form/fleetType.html",
+        {"fleet_types": fleet_types},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_formup_locations(request: WSGIRequest) -> HttpResponse:
+    """
+    Get formup locations
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting formup locations for user {request.user}")
+
+    formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
+
+    return render(
+        request,
+        "fleetpings/form/formupLocation.html",
+        {"formup_locations": formup_locations},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_fleet_comms(request: WSGIRequest) -> HttpResponse:
+    """
+    Get fleet comms
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting formup locations for user {request.user}")
+
+    fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
+
+    return render(
+        request,
+        "fleetpings/form/fleetComms.html",
+        {"fleet_comms": fleet_comms},
+    )
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
+    """
+    Get fleet doctrines for the current user
+    :param request:
+    :return:
+    """
+
+    logger.info(f"Getting ffleet doctrines for user {request.user}")
+
+    use_fleet_doctrines = False
+    if (
+        fittings_installed() is True
+        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+    ):
+        use_fleet_doctrines = True
+
+    # Get doctrines
     if use_fleet_doctrines is True:
         groups = request.user.groups.all()
         doctrines = _get_docs_qs(request, groups).order_by("name")
@@ -119,113 +246,210 @@ def index(request: WSGIRequest) -> HttpResponse:
             .order_by("name")
         )
 
-    # get formup locations
-    formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
-
-    # srp_code = None
-    srp_module_available_to_user = False
-    if srp_module_installed() and (
-        can_add_srp_links(request=request, module_name="aasrp")
-        or can_add_srp_links(request=request, module_name="allianceauth.srp")
-    ):
-        srp_module_available_to_user = True
-
-    context = {
-        "title": __title__,
-        "additional_discord_ping_targets": additional_discord_ping_targets,
-        "additional_fleet_types": fleet_types,
-        "additional_ping_webhooks": webhooks,
-        "fleet_comms": fleet_comms,
-        "fleet_doctrines": doctrines,
-        "fleet_formup_locations": formup_locations,
-        "site_url": site_absolute_url(),
-        "timezones_installed": timezones_installed(),
-        "optimer_installed": optimer_installed(),
-        "use_new_timezone_links": use_new_timezone_links(),
-        "fittings_installed": fittings_installed(),
-        "main_character": request.user.profile.main_character,
-        "platform_used": platform_used,
-        "use_fleet_doctrines": use_fleet_doctrines,
-        "srp_module_available_to_user": srp_module_available_to_user,
-    }
-
-    return render(request, "fleetpings/index.html", context)
+    return render(
+        request,
+        "fleetpings/form/fleetDoctrine.html",
+        {"doctrines": doctrines, "use_fleet_doctrines": use_fleet_doctrines},
+    )
 
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def ajax_create_optimer(request: WSGIRequest) -> JsonResponse:
+def _create_optimer(request: WSGIRequest, ping_context: dict):
     """
-    adding the planned fleet to the optimers
+    Adding the planned fleet to the optimers
     :param request:
+    :param ping_context:
     :return:
     """
+
+    # Alliance Auth
+    from allianceauth.optimer.models import OpTimer
 
     post_time = timezone.now()
     character = request.user.profile.main_character
 
-    optimer = OpTimer()
-    optimer.doctrine = request.POST["fleet_doctrine"]
-    optimer.system = request.POST["formup_location"]
-    optimer.start = request.POST["formup_time"]
-    optimer.duration = "-"
-    optimer.operation_name = request.POST["fleet_name"]
-    optimer.fc = request.POST["fleet_commander"]
-    optimer.post_time = post_time
-    optimer.eve_character = character
-    optimer.save()
+    OpTimer(
+        doctrine=ping_context["doctrine"]["name"],
+        system=ping_context["formup_location"],
+        start=ping_context["formup_time"]["datetime_string"],
+        duration="N/A",
+        operation_name=ping_context["fleet_name"],
+        fc=ping_context["fleet_commander"],
+        post_time=post_time,
+        eve_character=character,
+    ).save()
 
-    return JsonResponse([True], safe=False)
+    logger.info(f"Optimer created by user {request.user}")
 
 
 @login_required
 @permission_required("fleetpings.basic_access")
-def ajax_create_srp_link(request: WSGIRequest) -> JsonResponse:
+def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
-    create a SRP link on fleetping with formup === now and SRP === yes
+    Create an SRP link in AA-SRP
     :param request:
+    :param srp_data:
+    :return:
     """
+
+    # Third Party
+    from aasrp.models import AaSrpLink
+
+    # Django
+    from django.utils.crypto import get_random_string
 
     post_time = timezone.now()
     creator = request.user.profile.main_character
+    srp_code = get_random_string(length=16)
 
-    # create aasrp link
-    if srp_module_is("aasrp") and can_add_srp_links(
-        request=request, module_name="aasrp"
-    ):
-        # Third Party
-        from aasrp.models import AaSrpLink
+    AaSrpLink(
+        srp_name=ping_context["fleet_name"],
+        fleet_time=post_time,
+        fleet_doctrine=ping_context["doctrine"]["name"],
+        srp_code=srp_code,
+        fleet_commander=creator,
+        creator=request.user,
+    ).save()
 
-        # Django
-        from django.utils.crypto import get_random_string
+    logger.info(f"SRP Link created by user {request.user}")
 
-        srp_code = get_random_string(length=16)
+    return {
+        "success": True,
+        "code": srp_code,
+        "link": reverse_absolute("aasrp:request_srp", [srp_code]),
+    }
 
-        srp_link = AaSrpLink()
-        srp_link.srp_name = request.POST["fleet_name"]
-        srp_link.fleet_time = post_time
-        srp_link.fleet_doctrine = request.POST["fleet_doctrine"]
-        srp_link.srp_code = srp_code
-        srp_link.fleet_commander = creator
-        srp_link.creator = request.user
-        srp_link.save()
 
-    # create allianceauth.srp link
-    if srp_module_is("allianceauth.srp") and can_add_srp_links(
-        request=request, module_name="allianceauth.srp"
-    ):
-        # Alliance Auth
-        from allianceauth.srp.models import SrpFleetMain
-        from allianceauth.srp.views import random_string
+@login_required
+@permission_required("fleetpings.basic_access")
+def _create_allianceauth_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
+    """
+    Create an SRP link in Alliance Auth SRP
+    :param request:
+    :param ping_context:
+    :return:
+    """
 
-        srp_code = random_string(8)
+    # Alliance Auth
+    from allianceauth.srp.models import SrpFleetMain
+    from allianceauth.srp.views import random_string
 
-        srp_fleet = SrpFleetMain()
-        srp_fleet.fleet_name = request.POST["fleet_name"]
-        srp_fleet.fleet_doctrine = request.POST["fleet_doctrine"]
-        srp_fleet.fleet_time = post_time
-        srp_fleet.fleet_srp_code = srp_code
-        srp_fleet.fleet_commander = creator
-        srp_fleet.save()
+    post_time = timezone.now()
+    creator = request.user.profile.main_character
+    srp_code = random_string(8)
 
-    return JsonResponse({"success": True, "srp_code": srp_code}, safe=False)
+    SrpFleetMain(
+        fleet_name=ping_context["fleet_name"],
+        fleet_doctrine=ping_context["doctrine"]["name"],
+        fleet_time=post_time,
+        fleet_srp_code=srp_code,
+        fleet_commander=creator,
+    ).save()
+
+    logger.info(f"SRP Link created by user {request.user}")
+
+    return {
+        "success": True,
+        "code": srp_code,
+        "link": reverse_absolute("srp:request", [srp_code]),
+    }
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
+    """
+    Create an SRP link on fleetping with formup === now and SRP === yes
+    :param request:
+    :param ping_context:
+    :return:
+    """
+
+    if ping_context["fleet_name"] and ping_context["doctrine"]["name"]:
+        # Create aasrp link (prioritized app)
+        if srp_module_is("aasrp") and can_add_srp_links(
+            request=request, module_name="aasrp"
+        ):
+            aasrp_info = _create_aasrp_link(request=request, ping_context=ping_context)
+
+            return aasrp_info
+
+        # Create allianceauth.srp link
+        if srp_module_is("allianceauth.srp") and can_add_srp_links(
+            request=request, module_name="allianceauth.srp"
+        ):
+            allianceauth_srp_info = _create_allianceauth_srp_link(
+                request=request, ping_context=ping_context
+            )
+
+            return allianceauth_srp_info
+
+    return {
+        "success": False,
+        "message": _("Not all mandatory information available to create an SRP link."),
+    }
+
+
+@login_required
+@permission_required("fleetpings.basic_access")
+def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
+    """
+    Create the fleet ping
+    :param request:
+    :return:
+    """
+
+    context = {}
+    ping_context = {}
+    success = False
+
+    if request.method == "POST":
+        form = FleetPingForm(request.POST)
+
+        if form.is_valid():
+            logger.info("Fleet ping information received")
+
+            # Get ping context
+            ping_context = get_ping_context_from_form_data(form_data=form.cleaned_data)
+
+            # Create optimer is requested
+            if optimer_installed() and ping_context["create_optimer"]:
+                _create_optimer(
+                    request=request,
+                    ping_context=ping_context,
+                )
+
+                context["message"] = str(
+                    _("Fleet operations timer has been created ...")
+                )
+
+            # Create SRP link if requested
+            if srp_module_installed() and ping_context["srp"]["create_srp_link"]:
+                ping_context["srp"]["link"] = _create_srp_link(
+                    request=request,
+                    ping_context=ping_context,
+                )
+
+                context["message"] = str(_("SRP link has been created ..."))
+
+            # If we have a Discord webhook, ping it
+            if ping_context["ping_channel"]["webhook"]:
+                ping_discord_webhook(ping_context=ping_context, user=request.user)
+
+            logger.info(f"Fleet ping created by user {request.user}")
+
+            ping_context["request"] = request
+
+            context["ping_context"] = render_to_string(
+                "fleetpings/ping/copy_paste_text.html", ping_context
+            )
+            success = True
+        else:
+            context["message"] = str(_("Form invalid. Please check your input."))
+    else:
+        context["message"] = str(_("No form data submitted."))
+
+    context["success"] = success
+
+    return HttpResponse(json.dumps(context), content_type="application/json")

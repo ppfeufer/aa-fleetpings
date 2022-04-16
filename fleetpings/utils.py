@@ -1,12 +1,20 @@
 """
-utilities
+Utilities
 """
 
 # Django
 from django.conf import settings
 
+# Alliance Auth
+from allianceauth.services.hooks import get_extension_logger
+
+# Alliance Auth (External Libs)
+from app_utils.logging import LoggerAddTag
+
 # AA Fleet Pings
-from fleetpings.tasks import logger
+from fleetpings import __title__
+
+logger = LoggerAddTag(get_extension_logger(__name__), __title__)
 
 
 def clean_setting(
@@ -16,7 +24,8 @@ def clean_setting(
     max_value: int = None,
     required_type: type = None,
 ):
-    """cleans the input for a custom setting
+    """
+    Cleans the input for a custom setting
 
     Will use `default_value` if settings does not exit or has the wrong type
     or is outside define boundaries (for int only)
@@ -27,6 +36,7 @@ def clean_setting(
 
     Returns cleaned value for setting
     """
+
     if default_value is None and not required_type:
         raise ValueError("You must specify a required_type for None defaults")
 
@@ -47,8 +57,8 @@ def clean_setting(
             cleaned_value = getattr(settings, name)
         else:
             logger.warning(
-                "You setting for {name} is not valid. Please correct it. "
-                "Using default for now: {value}".format(name=name, value=default_value)
+                f"You setting for {name} is not valid. Please correct it. "
+                f"Using default for now: {default_value}"
             )
             cleaned_value = default_value
 

@@ -1,6 +1,6 @@
 """
-a couple of variable to use throughout the app
+A couple of variables to use throughout the app
 """
 
-__version__ = "2.12.0"
+__version__ = "2.13.0"
 __title__ = "Fleet Pings"

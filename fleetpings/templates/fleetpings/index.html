@@ -28,25 +28,35 @@
         </div>
 
         <script type="application/javascript">
+            const fleetpingsSettings = {
+                dateTimeLocale: '{{ LANGUAGE_CODE }}',
+                optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
+                srpModuleAvailableToUser: {{ srp_module_available_to_user|yesno:"true,false" }},
+                url: {
+                    fleetPing: '{% url "fleetpings:ajax_create_fleet_ping" %}',
+                    pingTargets: '{% url "fleetpings:ajax_get_ping_targets" %}',
+                    pingWebhooks: '{% url "fleetpings:ajax_get_webhooks" %}',
+                    fleetTypes: '{% url "fleetpings:ajax_get_fleet_types" %}',
+                    formupLocations: '{% url "fleetpings:ajax_get_formup_locations" %}',
+                    fleetComms: '{% url "fleetpings:ajax_get_fleet_comms" %}',
+                    fleetDoctrines: '{% url "fleetpings:ajax_get_fleet_doctrines" %}'
+                }
+            };
+
             const fleetpingsTranslations = {
-                ping: {
-                    success: '{% blocktrans with platform_used=platform_used context="%(platform_used)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping has been sent to your {{ platform_used }}.{% endblocktrans %}'
-                },
                 optimer: {
-                    created: '{% translate "Fleet operations timer has been created ..." %}',
                     error: {
                         missingFields: '{% translate "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC Name<br>» Fleet Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine" %}'
                     }
                 },
                 srp: {
-                    created: '{% translate 'SRP link has been created ...' %}',
                     error: {
                         missingFields: '{% translate "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet Name<br>» Ships / Doctrine" %}'
                     }
                 },
                 copyToClipboard: {
                     error: '{% translate "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature." %}',
-                    success: '{% blocktrans with platform_used=platform_used context="%(platform_used)s is a variable that holds the current used platform. It can be either Slack or Discord. Do not translate it, just use it as it is." %}Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your {{ platform_used }} so you actually get some people in fleet.{% endblocktrans %}'
+                    success: '{% translate "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet." %}'
                 }
             };
         </script>
@@ -58,15 +68,6 @@
     {% include 'bundles/clipboard-js.html' %}
 
     <script type="application/javascript" src="{% fleetpings_static 'fleetpings/js/fleetpings.min.js' %}"></script>
-    <script type="application/javascript">
-        $('#formupTime').datetimepicker({
-            lang: '{{ LANGUAGE_CODE }}',
-            maskInput: true,
-            format: 'Y-m-d H:i',
-            dayOfWeekStart: 1,
-            step: 15
-        });
-    </script>
 {% endblock %}
 
 {% block extra_css %}

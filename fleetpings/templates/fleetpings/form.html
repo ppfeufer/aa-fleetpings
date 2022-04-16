@@ -1,76 +1,71 @@
+{% load bootstrap %}
 {% load i18n %}
 
-{% csrf_token %}
-<fieldset class="aa-fleetpings-form">
-    <!-- pingTarget.html -->
-    {% include 'fleetpings/form/pingTargets.html' %}
+<form id="aa-fleetping-form" class="form-horizontal">
+    {% csrf_token %}
+    <fieldset class="aa-fleetpings-form">
+        <!-- ping_target -->
+        {{ form.ping_target|bootstrap_horizontal }}
 
-    <!-- prePing.html -->
-    {% include 'fleetpings/form/prePing.html' %}
+        <!-- ping_channel -->
+        {% if webhooks_configured %}
+            {{ form.ping_channel|bootstrap_horizontal }}
+        {% endif %}
 
-    <!-- pingChannel.html -->
-    {% include 'fleetpings/form/pingChannel.html' %}
+        <!-- fleet_type -->
+        {{ form.fleet_type|bootstrap_horizontal }}
+        {{ form.webhook_embed_color }}
 
-    <!-- fleetType.html -->
-    {% include 'fleetpings/form/fleetType.html' %}
+        <!-- fleet_commander -->
+        {{ form.fleet_commander|bootstrap_horizontal }}
 
-    <!-- fleetCommander.html -->
-    {% include 'fleetpings/form/fleetCommander.html' %}
+        <!-- fleet_name -->
+        {{ form.fleet_name|bootstrap_horizontal }}
 
-    <!-- fleetName.html -->
-    {% include 'fleetpings/form/fleetName.html' %}
+        <!-- formup_location -->
+        {{ form.formup_location|bootstrap_horizontal }}
 
-    <!-- formupLocation.html -->
-    {% include 'fleetpings/form/formupLocation.html' %}
+        <!-- pre_ping -->
+        {{ form.pre_ping|bootstrap_horizontal }}
 
-    <!-- formupTime.html -->
-    {% include 'fleetpings/form/formupTime.html' %}
+        <!-- formup_time -->
+        {{ form.formup_time|bootstrap_horizontal }}
+        {{ form.formup_timestamp }}
 
-    <!-- fleetComms.html -->
-    {% include 'fleetpings/form/fleetComms.html' %}
-
-    <!-- fleetDoctrine.html -->
-    {% include 'fleetpings/form/fleetDoctrine.html' %}
-
-    <!-- srp.html -->
-    {% include 'fleetpings/form/srp.html' %}
-
-    <!-- additionalInformation.html -->
-    {% include 'fleetpings/form/additionalInformation.html' %}
-
-    <!-- createOptimer.html -->
-    {% if optimer_installed %}
-        {% include 'fleetpings/form/createOptimer.html' %}
-    {% endif %}
-
-    <!-- createSrpLink.html -->
-    {% if srp_module_available_to_user %}
-        {% include 'fleetpings/form/createSrpLink.html' %}
-    {% endif %}
-
-    <div class="form-group clearfix">
-        <label class="col-md-3 control-label" for="createPingText"></label>
-        <div class="col-md-4">
-            <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>
-        </div>
-    </div>
-</fieldset>
-
-<script type="application/javascript">
-    const fleetpingsSettings = {
-        platformUsed: '{{ platform_used }}',
-        timezonesInstalled: {{ timezones_installed|yesno:"true,false" }},
-        optimerInstalled: {{ optimer_installed|yesno:"true,false" }},
-        srpModuleAvailableToUser: {{ srp_module_available_to_user|yesno:"true,false" }},
-        useNewTimezoneLinks: {{ use_new_timezone_links|yesno:"true,false" }},
-        siteUrl: '{{ site_url }}/',
-        pingCreator: '{{ main_character|safe|addslashes }}',
+        <!-- optimer -->
         {% if optimer_installed %}
-        optimerAjaxUrl: '{% url "fleetpings:ajax_create_optimer" %}',
+            <div class="fleetpings-create-optimer clearfix" style="display: none;">
+                {{ form.optimer|bootstrap_horizontal }}
+            </div>
         {% endif %}
+
+        {{ form.formup_now|bootstrap_horizontal }}
+
+        <!-- fleet_comms -->
+        {{ form.fleet_comms|bootstrap_horizontal }}
+
+        <!-- fleet_doctrine -->
+        {{ form.fleet_doctrine|bootstrap_horizontal }}
+        {{ form.fleet_doctrine_url }}
+
+        <!-- srp -->
+        {{ form.srp|bootstrap_horizontal }}
+
+        <!-- srp_link -->
         {% if srp_module_available_to_user %}
-        srpAjaxUrl: '{% url "fleetpings:ajax_create_srp_link" %}',
-        {#srpCode: '{{ srp_code }}'#}
+            <div class="fleetpings-create-srp-link clearfix" style="display: none;">
+                {{ form.srp_link|bootstrap_horizontal }}
+            </div>
         {% endif %}
-    };
-</script>
+
+        <!-- additional_information -->
+        {{ form.additional_information|bootstrap_horizontal }}
+
+        <div class="form-group clearfix">
+            <div class=" col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
+                <div class="fleetpings-form-message"></div>
+                <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

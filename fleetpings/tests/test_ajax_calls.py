@@ -2,6 +2,9 @@
 Test ajax calls
 """
 
+# Standard Library
+from http import HTTPStatus
+
 # Django
 from django.contrib.auth.models import Group
 from django.test import TestCase
@@ -51,7 +54,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_ping_targets"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_get_ping_targets_general(self):
         """
@@ -66,7 +69,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_ping_targets"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     def test_ajax_get_webhooks_no_access(self):
         """
@@ -82,7 +85,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_webhooks"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_get_webhooks_general(self):
         """
@@ -97,7 +100,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_webhooks"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     def test_ajax_get_fleet_types_no_access(self):
         """
@@ -113,7 +116,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_fleet_types"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_get_fleet_types_general(self):
         """
@@ -128,7 +131,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_fleet_types"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     def test_ajax_get_formup_locations_no_access(self):
         """
@@ -144,7 +147,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_formup_locations"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_get_formup_locations_general(self):
         """
@@ -159,7 +162,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_formup_locations"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     def test_ajax_get_fleet_comms_no_access(self):
         """
@@ -175,7 +178,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_fleet_comms"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_get_fleet_comms_general(self):
         """
@@ -190,7 +193,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_fleet_comms"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     def test_ajax_get_fleet_doctrines_no_access(self):
         """
@@ -206,7 +209,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_fleet_doctrines"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_get_fleet_doctrines_general(self):
         """
@@ -221,7 +224,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_get_fleet_doctrines"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     def test_ajax_create_fleet_ping_no_access(self):
         """
@@ -237,7 +240,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_create_fleet_ping"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_ajax_create_fleet_ping_general(self):
         """
@@ -252,4 +255,40 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:ajax_create_fleet_ping"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
+
+    def test_ajax_create_fleet_ping_general_with_form_data(self):
+        """
+        Test ajax call to create fleet pings for the current user with form data
+        :return:
+        """
+
+        # given
+        self.client.force_login(self.user_1002)
+        form_data = {
+            "ping_target": "@here",
+            "pre_ping": 0,
+            "ping_channel": "",
+            "fleet_type": "CTA",
+            "fleet_commander": "Jean Luc Picard",
+            "fleet_name": "Starfleet",
+            "formup_location": "Utopia Planitia",
+            "formup_time": "",
+            "formup_timestamp": "",
+            "formup_now": 1,
+            "fleet_comms": "Mumble",
+            "fleet_doctrine": "Federation Ships",
+            "fleet_doctrine_url": "",
+            "webhook_embed_color": "",
+            "srp": 1,
+            "srp_link": 1,
+            "additional_information": "Borg to slaughter!",
+        }
+
+        # when
+        response = self.client.post(
+            reverse("fleetpings:ajax_create_fleet_ping"), data=form_data
+        )
+
+        # then
+        self.assertEqual(response.status_code, HTTPStatus.OK)

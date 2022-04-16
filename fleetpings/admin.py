@@ -223,7 +223,6 @@ class WebhookAdmin(admin.ModelAdmin):
         "_url",
         "_restricted_to_group",
         "notes",
-        "is_embedded",
         "is_enabled",
     )
 
@@ -232,7 +231,6 @@ class WebhookAdmin(admin.ModelAdmin):
 
     list_filter = (
         ("is_enabled", custom_filter(title="active")),
-        ("is_embedded", custom_filter(title="embedded")),
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 

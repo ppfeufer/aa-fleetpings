@@ -371,18 +371,6 @@ class Webhook(models.Model):
         ),
     )
 
-    # Embedded ping (only for discord wenhooks)
-    is_embedded = models.BooleanField(
-        default=True,
-        db_index=True,
-        help_text=(
-            _(
-                "Whether this webhook's ping is embedded or not. "
-                "(This setting only effects Discord webhooks.)"
-            )
-        ),
-    )
-
     # Restrictions
     restricted_to_group = models.ManyToManyField(
         Group,

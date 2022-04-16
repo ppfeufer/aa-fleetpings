@@ -127,15 +127,9 @@ Finally restart your AA supervisor services.
 
 ![AA View](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/aa-view.jpg)
 
-### Discord Ping Examples
+### Discord Ping Example
 
-#### Not embedded
-
-![Discord Ping No Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping.jpg)
-
-#### Embedded
-
-![Discord Ping Embed](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping-embedded.jpg)
+![Discord Ping](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping.jpg)
 
 
 ## Configuration

@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Switched to Alliance Auth App Utils for logging
 - JavaScript cleaned up
 - Logic for ping text moved from JavaScript to Python/Django code
+- Discord pings are now always embedded
 
 ### Removed
 

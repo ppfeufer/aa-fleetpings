@@ -951,12 +951,18 @@ $(document).ready(() => {
             success: (data) => {
                 console.log(data);
 
-                $('.aa-fleetpings-no-ping').hide('fast');
-                $('.aa-fleetpings-ping').show('fast');
+                if (data.success === true) {
+                    $('.aa-fleetpings-no-ping').hide('fast');
+                    $('.aa-fleetpings-ping').show('fast');
 
-                $('.aa-fleetpings-ping-text').html(
-                    '<p>' + nl2br(data.context.ping_target + data.context.ping_text, false) + '</p>'
-                );
+                    $('.aa-fleetpings-ping-text').html(
+                        '<p>' + nl2br(data.context.ping_target + data.context.ping_text, false) + '</p>'
+                    );
+                } else {
+                    showError(
+                        nl2br(data.context.message, false),
+                        '.fleetpings-form-message');
+                }
             }
         });
     });

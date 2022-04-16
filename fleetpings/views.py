@@ -675,6 +675,18 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> JsonResponse:
 
             success = True
 
+            return JsonResponse(
+                {"success": success, "context": context["ping_text"]}, safe=False
+            )
+
+        return JsonResponse(
+            {
+                "success": success,
+                "context": {"message": _("Form not valid. Please check.")},
+            },
+            safe=False,
+        )
+
     return JsonResponse(
-        {"success": success, "context": context["ping_text"]}, safe=False
+        {"success": success, "context": {"message": _("No form submitted")}}, safe=False
     )

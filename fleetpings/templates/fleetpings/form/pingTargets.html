@@ -6,7 +6,7 @@
 
 {% if ping_targets %}
     <option value="" disabled></option>
-    <optgroup label="{% translate 'Additionally configured ping targets (Discord only)' %}">
+    <optgroup label="{% translate 'Additionally configured ping targets' %}">
         {% for ping_target in ping_targets %}
             <option value="{{ ping_target.discord_id }}">@{{ ping_target.name }}</option>
         {% endfor %}

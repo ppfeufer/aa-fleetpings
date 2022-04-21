@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Fixed
+
+- Issue: Custom ping targets not auto-linking in Discord properly. #74
+
 
 ## [2.13.1] - 2022-04-17
 

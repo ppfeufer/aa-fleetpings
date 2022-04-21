@@ -27,6 +27,16 @@ def _get_at_mention_from_ping_target(ping_target: str) -> str:
     )
 
 
+def _get_webhook_at_mention_from_ping_target(ping_target: int) -> str:
+    """
+    Returning the @-mention for a ping target
+    :param ping_target:
+    :return:
+    """
+
+    return str(f"<@&{ping_target}>")
+
+
 def get_ping_context_from_form_data(form_data: dict) -> dict:
     """
     Getting ping context from form data
@@ -43,9 +53,7 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
             form_data["ping_target"] == "@here"
             or form_data["ping_target"] == "@everyone"
         ):
-            ping_target_at_mention = _get_at_mention_from_ping_target(
-                form_data["ping_target"]
-            )
+            ping_target_at_mention = str(form_data["ping_target"])
         else:
             try:
                 # Check if we deal with a custom ping target
@@ -130,7 +138,9 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
 
     # Ping target
     if ping_context["ping_target"]["at_mention"]:
-        webhook_ping_text_header += ping_context["ping_target"]["at_mention"]
+        webhook_ping_text_header += _get_webhook_at_mention_from_ping_target(
+            ping_context["ping_target"]["group_id"]
+        )
         webhook_ping_text_header += " :: "
 
     webhook_ping_text_header += "**"

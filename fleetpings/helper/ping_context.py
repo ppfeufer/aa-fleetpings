@@ -137,11 +137,15 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
     webhook_ping_target = ""
 
     # Ping target
-    if ping_context["ping_target"]["at_mention"]:
-        webhook_ping_text_header += _get_webhook_at_mention_from_ping_target(
+    if ping_context["ping_target"]["group_id"]:
+        ping_target_at_mention = _get_webhook_at_mention_from_ping_target(
             ping_context["ping_target"]["group_id"]
         )
-        webhook_ping_text_header += " :: "
+    else:
+        ping_target_at_mention = str(ping_context["ping_target"]["at_mention"])
+
+    webhook_ping_text_header += ping_target_at_mention
+    webhook_ping_text_header += " :: "
 
     webhook_ping_text_header += "**"
 

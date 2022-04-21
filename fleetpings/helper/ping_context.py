@@ -15,28 +15,6 @@ from fleetpings.constants import DEFAULT_EMBED_COLOR
 from fleetpings.models import DiscordPingTargets, Webhook
 
 
-def _get_at_mention_from_ping_target(ping_target: str) -> str:
-    """
-    Returning the @-mention for a ping target
-    :param ping_target:
-    :return:
-    """
-
-    return (
-        str(ping_target) if str(ping_target).startswith("@") else "@" + str(ping_target)
-    )
-
-
-def _get_webhook_at_mention_from_ping_target(ping_target: int) -> str:
-    """
-    Returning the @-mention for a ping target
-    :param ping_target:
-    :return:
-    """
-
-    return str(f"<@&{ping_target}>")
-
-
 def get_ping_context_from_form_data(form_data: dict) -> dict:
     """
     Getting ping context from form data
@@ -66,8 +44,10 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
                 # We deal with a custom ping target, gather the information we need
                 ping_target_group_id = int(ping_target.discord_id)
                 ping_target_group_name = str(ping_target.name)
-                ping_target_at_mention = _get_at_mention_from_ping_target(
-                    ping_target.name
+                ping_target_at_mention = (
+                    str(ping_target.name)
+                    if str(ping_target.name).startswith("@")
+                    else f"@{ping_target.name}"
                 )
 
     # Check for webhooks
@@ -138,9 +118,7 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
 
     # Ping target
     if ping_context["ping_target"]["group_id"]:
-        ping_target_at_mention = _get_webhook_at_mention_from_ping_target(
-            ping_context["ping_target"]["group_id"]
-        )
+        ping_target_at_mention = f'<@&{ping_context["ping_target"]["group_id"]}>'
     else:
         ping_target_at_mention = str(ping_context["ping_target"]["at_mention"])
 

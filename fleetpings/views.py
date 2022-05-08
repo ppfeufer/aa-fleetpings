@@ -222,7 +222,7 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     :return:
     """
 
-    logger.info(f"Getting ffleet doctrines for user {request.user}")
+    logger.info(f"Getting fleet doctrines for user {request.user}")
 
     use_fleet_doctrines = False
     if (

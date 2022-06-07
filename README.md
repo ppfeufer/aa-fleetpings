@@ -25,6 +25,7 @@ Discord.
 - [Configuration](#configuration)
 - [Change Log](CHANGELOG.md)
 
+
 ## Installation
 
 ### ⚠️ Important ⚠️
@@ -35,8 +36,9 @@ please install it first before proceeding.
 [AA installation guide](https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html)
 for details)
 
-**⚠️ You also want to make sure that you have the Discord service installed,
-configured and activated before installing this app. ⚠️**
+**⚠️ You also want to make sure that you have the
+[Discord service](https://allianceauth.readthedocs.io/en/latest/features/services/discord.html)
+installed, configured and activated before installing this app. ⚠️**
 
 ### Step 1 - Install the app
 
@@ -78,6 +80,7 @@ This is where you set all your stuff up, like the webhooks you want to ping and 
 can ping them, fleet types, comms, formup locations and so on. It's pretty straight
 forward, so you shouldn't have any issues. Go nuts!
 
+
 ## Updating
 
 To update your existing installation of AA Discord Ping Formatter first enable your
@@ -94,6 +97,7 @@ python manage.py migrate
 ```
 
 Finally restart your AA supervisor services.
+
 
 ## Screenshots
 

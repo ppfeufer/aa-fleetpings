@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Some typos
 
+### Changed
+
+- Templates cleaned up and re-organised
+
 
 ## [2.13.2] - 2022-04-21
 

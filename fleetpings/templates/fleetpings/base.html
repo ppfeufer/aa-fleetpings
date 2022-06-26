@@ -5,7 +5,8 @@
 {% block page_title %}{% translate "Fleet Ping Tool" %}{% endblock %}
 
 {% block content %}
-    <h1 class="page-header text-center">{% translate "Fleet Ping Tool" %}</h1>
+    {% translate "Fleet Ping Tool" as translated_header %}
+    {% include "fleetpings/partials/header/page-header.html" with header_text=translated_header %}
 
     {% block details %}{% endblock %}
 {% endblock %}

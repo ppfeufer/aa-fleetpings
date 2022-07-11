@@ -1,4 +1,8 @@
 @media all {
+    .aa-fleetpings-header-addition {
+        display: block;
+    }
+
     .aa-fleetpings-pingtext {
         position: sticky;
         top: 1rem;

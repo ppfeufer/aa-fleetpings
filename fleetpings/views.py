@@ -113,7 +113,7 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
 
     return render(
         request,
-        "fleetpings/form/pingTargets.html",
+        "fleetpings/partials/form/segments/ping-targets.html",
         {"ping_targets": additional_discord_ping_targets},
     )
 
@@ -140,7 +140,7 @@ def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
 
     return render(
         request,
-        "fleetpings/form/pingChannel.html",
+        "fleetpings/partials/form/segments/ping-channel.html",
         {"webhooks": webhooks},
     )
 
@@ -168,7 +168,7 @@ def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
 
     return render(
         request,
-        "fleetpings/form/fleetType.html",
+        "fleetpings/partials/form/segments/fleet-type.html",
         {"fleet_types": fleet_types},
     )
 
@@ -188,7 +188,7 @@ def ajax_get_formup_locations(request: WSGIRequest) -> HttpResponse:
 
     return render(
         request,
-        "fleetpings/form/formupLocation.html",
+        "fleetpings/partials/form/segments/fleet-formup-location.html",
         {"formup_locations": formup_locations},
     )
 
@@ -208,7 +208,7 @@ def ajax_get_fleet_comms(request: WSGIRequest) -> HttpResponse:
 
     return render(
         request,
-        "fleetpings/form/fleetComms.html",
+        "fleetpings/partials/form/segments/fleet-comms.html",
         {"fleet_comms": fleet_comms},
     )
 
@@ -248,7 +248,7 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
 
     return render(
         request,
-        "fleetpings/form/fleetDoctrine.html",
+        "fleetpings/partials/form/segments/fleet-doctrine.html",
         {"doctrines": doctrines, "use_fleet_doctrines": use_fleet_doctrines},
     )
 
@@ -442,7 +442,7 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
             ping_context["request"] = request
 
             context["ping_context"] = render_to_string(
-                "fleetpings/ping/copy_paste_text.html", ping_context
+                "fleetpings/partials/ping/copy-paste-text.html", ping_context
             )
             success = True
         else:

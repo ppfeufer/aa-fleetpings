@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Templates cleaned up and re-organised
+- Minimum Requirement:
+  - Alliance Auth >= 2.14.0
 
 
 ## [2.13.2] - 2022-04-21

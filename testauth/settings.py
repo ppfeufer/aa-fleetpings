@@ -268,6 +268,8 @@ INSTALLED_APPS += [
     "timezones",
 ]
 
+DISCORD_BOT_TOKEN = "MYDUMMYTOKEN"
+
 # Register an application at https://developers.eveonline.com for Authentication
 # & API Access and fill out these settings. Be sure to set the callback URL
 # to https://example.com/sso/callback substituting your domain for example.com

@@ -411,8 +411,13 @@ $(document).ready(() => {
         $('.fleetpings-form-message div').remove();
 
         if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxCreateSrpLink.is(':checked')) {
+            const srpMandatoryFields = [
+                inputFleetName.val(),
+                inputFleetDoctrine.val()
+            ];
+
             // Check if all required fields for SRP links are filled
-            if (inputFleetName.val() === '' || inputFleetDoctrine.val() === '') {
+            if (srpMandatoryFields.includes('')) {
                 showError(
                     fleetpingsTranslations.srp.error.missingFields,
                     '.fleetpings-form-message'
@@ -423,7 +428,15 @@ $(document).ready(() => {
         }
 
         if (fleetpingsSettings.optimerInstalled === true && checkboxCreateOptimer.is(':checked')) {
-            if (inputFleetName.val() === '' || inputFleetDoctrine.val() === '' || inputFormupLocation.val() === '' || inputFormupTime.val() === '' || inputFleetCommander.val() === '') {
+            const optimerMandatoryFields = [
+                inputFleetName.val(),
+                inputFleetDoctrine.val(),
+                inputFormupLocation.val(),
+                inputFormupTime.val(),
+                inputFleetCommander.val()
+            ];
+
+            if (optimerMandatoryFields.includes('')) {
                 showError(
                     fleetpingsTranslations.optimer.error.missingFields,
                     '.fleetpings-form-message'

@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.14.1] - 2022-08-05
+
 ### Fixed
 
 - Don't show `::` in front of the ping text headline when no ping target is selected

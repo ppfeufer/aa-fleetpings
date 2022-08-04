@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Fixed
+
+- Don't show `::` in front of the ping text headline when no ping target is selected
+
+### Changed
+
+- Simplified checks for mandatory fields in JS (If you are still using Internet
+  Explorer 11 or older, you should feel bad and update to a modern browser)
+
 
 ## [2.14.0] - 2022-07-11
 

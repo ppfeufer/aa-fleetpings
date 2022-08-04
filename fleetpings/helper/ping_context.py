@@ -122,8 +122,9 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
     else:
         ping_target_at_mention = str(ping_context["ping_target"]["at_mention"])
 
-    webhook_ping_text_header += ping_target_at_mention
-    webhook_ping_text_header += " :: "
+    if ping_target_at_mention != "":
+        webhook_ping_text_header += ping_target_at_mention
+        webhook_ping_text_header += " :: "
 
     webhook_ping_text_header += "**"
 

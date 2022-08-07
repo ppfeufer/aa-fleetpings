@@ -23,7 +23,9 @@ Discord.
 - [Updating](#updating)
 - [Screenshots](#screenshots)
 - [Configuration](#configuration)
-- [Change Log](CHANGELOG.md)
+- [Change Log](https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md)
+- [Code of Conduct](https://github.com/ppfeufer/aa-fleetpings/blob/master/CODE_OF_CONDUCT.md)
+- [Contribute](https://github.com/ppfeufer/aa-fleetpings/blob/master/CONTRIBUTING.md)
 
 
 ## Installation

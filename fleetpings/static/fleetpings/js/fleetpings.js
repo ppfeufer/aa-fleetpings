@@ -265,6 +265,17 @@ $(document).ready(() => {
     /* Events
     --------------------------------------------------------------------------------- */
     /**
+     * Show hint about ping spam for `@everyone`
+     */
+    $(selectPingTarget).change(() => {
+        if (selectPingTarget.val() === '@everyone') {
+            $('.hint-ping-everyone').show('fast');
+        } else {
+            $('.hint-ping-everyone').hide('fast');
+        }
+    });
+
+    /**
      * Set the formup timestamp when formup time is changed
      */
     $(inputFormupTime).change(() => {

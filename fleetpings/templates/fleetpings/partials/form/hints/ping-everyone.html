@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div class="form-group aa-fleetpings-hint hint-ping-everyone clearfix" style="display: none;">
+    <div class="col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
+        <div class="alert alert-danger alert-message-error">
+            <p>
+                {% translate "Please think twice if you really need to ping <code>@everyone</code>." %}
+            </p>
+
+            <p>
+                {% blocktranslate %}
+                    <code>@everyone</code>
+                    includes also all the people in this channel who are offline and
+                    possibly asleep at the moment and might be waking up when their
+                    mobile devices ping. Or they wake up hours later to irrelevant
+                    pings by the time they open Discord.
+                {% endblocktranslate %}
+            </p>
+
+            <p>
+                {% translate "Notification spam is a real thing and might entice people to mute channels." %}
+            </p>
+
+            <p>
+                {% translate "<code>@here</code> usually does the trick just fine." %}
+            </p>
+        </div>
+    </div>
+</div>

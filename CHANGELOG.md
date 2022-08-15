@@ -8,10 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.15.0] - 2022-08-15
+
 ### Added
 
 - Warning about ping spam when `@everyone` is selected as target. Hopefully this
-  will fight ping spam a little bit.
+  will fight ping spam a little.
 
 
 ## [2.14.1] - 2022-08-05

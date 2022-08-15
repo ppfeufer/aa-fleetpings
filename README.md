@@ -105,11 +105,11 @@ Finally restart your AA supervisor services.
 
 ### View in Alliance Auth
 
-![AA View](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/aa-view.jpg)
+![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/images/aa-view.jpg "View in Alliance Auth")
 
 ### Discord Ping Example
 
-![Discord Ping](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/discord-ping.jpg)
+![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/images/discord-ping.jpg "Discord Ping Example")
 
 
 ## Configuration

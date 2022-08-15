@@ -6,6 +6,7 @@
     <fieldset class="aa-fleetpings-form">
         <!-- ping_target -->
         {{ form.ping_target|bootstrap_horizontal }}
+        {% include "fleetpings/partials/form/hints/ping-everyone.html" %}
 
         <!-- ping_channel -->
         {% if webhooks_configured %}
@@ -62,7 +63,7 @@
         {{ form.additional_information|bootstrap_horizontal }}
 
         <div class="form-group clearfix">
-            <div class=" col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
+            <div class="col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
                 <div class="fleetpings-form-message"></div>
                 <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create Ping" %}</button>
             </div>

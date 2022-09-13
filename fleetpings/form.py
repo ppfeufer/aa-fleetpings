@@ -12,6 +12,11 @@ from fleetpings.models import FleetType
 
 
 def _get_timezones_module_hint_text() -> str:
+    """
+    Get the additional help text when the `timezones` module is installed
+    :return:
+    """
+
     if timezones_installed():
         return _(
             " Timezones module is installed. Link to time zone conversion will be "
@@ -19,6 +24,27 @@ def _get_timezones_module_hint_text() -> str:
         )
 
     return ""
+
+
+def _get_discord_markdown_hin_text() -> str:
+    """
+    Get the formatted help text for any field that allows Discord Markdown
+    :return:
+    """
+
+    discord_helpdesk_url = (
+        "https://support.discord.com/hc/en-us/articles/210298617"
+        "-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline- "
+    )
+
+    discord_markdown_link_text = _("Discord Markdown")
+
+    discord_markdown_link = (
+        f'<a href="{discord_helpdesk_url}" target="_blank" rel="noopener noreferer">'
+        f"{discord_markdown_link_text}</a>"
+    )
+
+    return _(f"Hint: You can use {discord_markdown_link} to format the text.")
 
 
 class FleetTypeAdminForm(forms.ModelForm):
@@ -57,7 +83,7 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Ping To"),
         widget=forms.Select(choices={}),
-        help_text=_("Select a channel to ping automatically"),
+        help_text=_("Select a channel to ping automatically."),
     )
     fleet_type = forms.CharField(
         required=False, label=_("Fleet Type"), widget=forms.Select(choices={})
@@ -150,10 +176,11 @@ class FleetPingForm(forms.Form):
                 "cols": 20,
                 "input_type": "textarea",
                 "placeholder": _(
-                    "Feel free to add some more information about the fleet ..."
+                    "Feel free to add some more information about the fleet…"
                 ),
             }
         ),
+        help_text=_get_discord_markdown_hin_text(),
     )
     optimer = forms.BooleanField(
         initial=False,

@@ -1,5 +1,5 @@
 """
-hook into AA
+Hook into AA
 """
 
 # Django
@@ -19,7 +19,7 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
     """
 
     def __init__(self):
-        # setup menu entry for sidebar
+        # Setup menu entry for sidebar
         MenuItemHook.__init__(
             self,
             _(__title__),
@@ -54,7 +54,7 @@ def register_menu():
 @hooks.register("url_hook")
 def register_urls():
     """
-    Register our basu url
+    Register our base url
     :return:
     """
 

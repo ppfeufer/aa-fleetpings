@@ -3,7 +3,7 @@ Pages url config
 """
 
 # Django
-from django.urls import path
+from django.urls import include, path
 
 # AA Fleet Pings
 from fleetpings import views
@@ -11,41 +11,48 @@ from fleetpings import views
 app_name: str = "fleetpings"
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path(route="", view=views.index, name="index"),
     # Ajax calls
     path(
-        "ajax/create-fleet-ping/",
-        views.ajax_create_fleet_ping,
-        name="ajax_create_fleet_ping",
-    ),
-    path(
-        "ajax/get-ping-targets-for-user/",
-        views.ajax_get_ping_targets,
-        name="ajax_get_ping_targets",
-    ),
-    path(
-        "ajax/get-webhooks-for-user/",
-        views.ajax_get_webhooks,
-        name="ajax_get_webhooks",
-    ),
-    path(
-        "ajax/get-fleet-types-for-user/",
-        views.ajax_get_fleet_types,
-        name="ajax_get_fleet_types",
-    ),
-    path(
-        "ajax/get-formup-locations/",
-        views.ajax_get_formup_locations,
-        name="ajax_get_formup_locations",
-    ),
-    path(
-        "ajax/get-fleet-comms/",
-        views.ajax_get_fleet_comms,
-        name="ajax_get_fleet_comms",
-    ),
-    path(
-        "ajax/get-fleet-doctrines-for-user/",
-        views.ajax_get_fleet_doctrines,
-        name="ajax_get_fleet_doctrines",
+        route="ajax/",
+        view=include(
+            [
+                path(
+                    route="create-fleet-ping/",
+                    view=views.ajax_create_fleet_ping,
+                    name="ajax_create_fleet_ping",
+                ),
+                path(
+                    route="get-ping-targets-for-user/",
+                    view=views.ajax_get_ping_targets,
+                    name="ajax_get_ping_targets",
+                ),
+                path(
+                    route="get-webhooks-for-user/",
+                    view=views.ajax_get_webhooks,
+                    name="ajax_get_webhooks",
+                ),
+                path(
+                    route="get-fleet-types-for-user/",
+                    view=views.ajax_get_fleet_types,
+                    name="ajax_get_fleet_types",
+                ),
+                path(
+                    route="get-formup-locations/",
+                    view=views.ajax_get_formup_locations,
+                    name="ajax_get_formup_locations",
+                ),
+                path(
+                    route="get-fleet-comms/",
+                    view=views.ajax_get_fleet_comms,
+                    name="ajax_get_fleet_comms",
+                ),
+                path(
+                    route="get-fleet-doctrines-for-user/",
+                    view=views.ajax_get_fleet_doctrines,
+                    name="ajax_get_fleet_doctrines",
+                ),
+            ]
+        ),
     ),
 ]

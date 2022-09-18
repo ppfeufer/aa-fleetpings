@@ -104,6 +104,7 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
     return ping_context
 
 
+# pylint: disable=too-many-statements too-many-branches
 def _get_webhook_ping_context(ping_context: dict) -> dict:
     """
     Getting the webhook ping context
@@ -167,7 +168,10 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
         webhook_ping_text_content += "\n**Formup Time:** NOW"
     else:
         if ping_context["formup_time"]["datetime_string"]:
-            webhook_ping_text_content += f'\n**Formup (EVE Time):** {ping_context["formup_time"]["datetime_string"]}'
+            webhook_ping_text_content += (
+                "\n**Formup (EVE Time):** "
+                f'{ping_context["formup_time"]["datetime_string"]}'
+            )
 
         if ping_context["formup_time"]["timestamp"]:
             if timezones_installed():

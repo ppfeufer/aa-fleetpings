@@ -26,6 +26,33 @@ if discord_service_installed():
     from allianceauth.services.modules.discord.models import DiscordUser
 
 
+def _get_discord_group_info(ping_target: Group) -> dict:
+    """
+    Get Discord group info or raise an error
+    :param ping_target:
+    :type ping_target:
+    :return:
+    :rtype:
+    """
+
+    if not discord_service_installed():
+        raise ValidationError(
+            _("You might want to install the Discord service first ...")
+        )
+
+    try:
+        discord_group_info = DiscordUser.objects.group_to_role(group=ping_target)
+    except HTTPError as http_error:
+        raise ValidationError(
+            _("Are you sure you have your Discord linked to your Alliance Auth?")
+        ) from http_error
+    else:
+        if not discord_group_info:
+            raise ValidationError(_("This group has not been synced to Discord yet."))
+
+        return discord_group_info
+
+
 class AaFleetpings(models.Model):
     """
     Meta model for app permissions
@@ -243,24 +270,7 @@ class DiscordPingTargets(models.Model):
         if not, raise an error
         """
 
-        # Check if the Discord service is active
-        if not discord_service_installed():
-            raise ValidationError(
-                _("You might want to install the Discord service first ...")
-            )
-
-        # Get the group id from Discord
-        try:
-            discord_group_info = DiscordUser.objects.group_to_role(self.name)
-        except HTTPError as http_error:
-            raise ValidationError(
-                _("Are you sure you have your Discord linked to your Alliance Auth?")
-            ) from http_error
-        else:
-            if not discord_group_info:
-                raise ValidationError(
-                    _("This group has not been synced to Discord yet.")
-                )
+        _get_discord_group_info(self.name)
 
         super().clean()
 
@@ -273,7 +283,7 @@ class DiscordPingTargets(models.Model):
 
         # Check if the Discord service is active
         if discord_service_installed():
-            discord_group_info = DiscordUser.objects.group_to_role(self.name)
+            discord_group_info = _get_discord_group_info(self.name)
             self.discord_id = discord_group_info["id"]
 
         super().save()  # Call the "real" save() method.

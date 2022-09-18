@@ -55,7 +55,7 @@
         {% if formup_time.timestamp %}
             {#Check if aa-timezones is available#}
             {% if timezones_installed %}
-                - {{ request.scheme }}://{{ request.get_host }}{% url "timezones:index" formup_time.timestamp %}
+                - {{ SITE_URL }}{% url "timezones:index" formup_time.timestamp %}
             {% endif %}
 
             {#Add local time#}

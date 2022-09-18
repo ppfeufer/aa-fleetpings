@@ -30,6 +30,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   Explorer 11 or older, you should feel bad and update to a modern browser)
 
 
+## [2.16.0] - 2022-09-18
+
+### Added
+
+- Hint text to the "Announcement Text" field with a link to Discord Markdown
+
+### Changed
+- Some code/internal improvements
+- Minimum Requirement:
+  - Alliance Auth >= 3.2.0
+
+
 ## [2.15.0] - 2022-08-15
 
 ### Added

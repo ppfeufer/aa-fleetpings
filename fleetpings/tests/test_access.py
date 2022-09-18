@@ -2,6 +2,9 @@
 Test checks for access to fleetpings
 """
 
+# Standard Library
+from http import HTTPStatus
+
 # Django
 from django.contrib.auth.models import Group
 from django.test import TestCase, modify_settings
@@ -50,7 +53,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(res.status_code, 302)
+        self.assertEqual(res.status_code, HTTPStatus.FOUND)
 
     def test_has_access(self):
         """
@@ -65,7 +68,7 @@ class TestAccess(TestCase):
         res = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, HTTPStatus.OK)
 
     @modify_settings(
         INSTALLED_APPS={
@@ -91,7 +94,7 @@ class TestAccess(TestCase):
         response = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
         # context data
         self.assertEqual(response.context["optimer_installed"], False)
@@ -123,7 +126,7 @@ class TestAccess(TestCase):
         response = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
         # context data
         self.assertEqual(response.context["optimer_installed"], False)
@@ -155,7 +158,7 @@ class TestAccess(TestCase):
         response = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
         # context data
         self.assertEqual(response.context["optimer_installed"], False)
@@ -187,7 +190,7 @@ class TestAccess(TestCase):
         response = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
         # context data
         self.assertEqual(response.context["optimer_installed"], False)
@@ -219,7 +222,7 @@ class TestAccess(TestCase):
         response = self.client.get(reverse("fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
         # context data
         self.assertEqual(response.context["optimer_installed"], True)

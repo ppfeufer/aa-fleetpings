@@ -40,7 +40,5 @@ def ping_discord_webhook(ping_context: dict, user: User):
     )
 
     discord_webhook.execute(
-        webhook_ping_context["header"],
-        embeds=[embed],
-        wait_for_response=True,
+        webhook_ping_context["header"], embeds=[embed], wait_for_response=True
     )

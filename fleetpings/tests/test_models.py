@@ -8,10 +8,21 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 # AA Fleet Pings
-from fleetpings.models import FleetDoctrine, Webhook
+from fleetpings.models import (
+    DiscordPingTargets,
+    FleetComm,
+    FleetDoctrine,
+    FleetType,
+    FormupLocation,
+    Webhook,
+)
 
 
 class TestModels(TestCase):
+    """
+    Test the models
+    """
+
     @classmethod
     def setUpClass(cls) -> None:
         """
@@ -90,3 +101,85 @@ class TestModels(TestCase):
     #         expected_message=("This group has not been synced to Discord yet."),
     #     ):
     #         ping_target.clean()
+
+    def test_should_return_fleetcomm_model_string_name(self):
+        """
+        Test should return the FleetComm model string name
+        :return:
+        :rtype:
+        """
+
+        test_object = FleetComm(name="Alliance Mumble")
+
+        test_object.save()
+
+        self.assertEqual(str(test_object), "Alliance Mumble")
+
+    def test_should_return_fleetdoctrine_model_string_name(self):
+        """
+        Test should return the FleetDoctrine model string name
+        :return:
+        :rtype:
+        """
+
+        test_object = FleetDoctrine(name="Awesome Ships")
+
+        test_object.save()
+
+        self.assertEqual(str(test_object), "Awesome Ships")
+
+    def test_should_return_formuplocation_model_string_name(self):
+        """
+        Test should return the FormupLocation model string name
+        :return:
+        :rtype:
+        """
+
+        test_object = FormupLocation(name="Alliance HQ")
+
+        test_object.save()
+
+        self.assertEqual(str(test_object), "Alliance HQ")
+
+    def test_should_return_pingtarget_model_string_name(self):
+        """
+        Test should return the DiscordPingTargets model string name
+        :return:
+        :rtype:
+        """
+
+        test_object = DiscordPingTargets(name=self.group)
+
+        self.assertEqual(str(test_object), self.group.name)
+
+    def test_should_return_fleettype_model_string_name(self):
+        """
+        Test should return the FleetType model string name
+        :return:
+        :rtype:
+        """
+
+        test_object = FleetType(name="Fun Fleet")
+
+        test_object.save()
+
+        self.assertEqual(str(test_object), "Fun Fleet")
+
+    def test_should_return_webhook_model_string_name(self):
+        """
+        Test should return the Webhook model string name
+        :return:
+        :rtype:
+        """
+
+        test_object = Webhook(
+            name="Test Webhook",
+            url=(
+                "https://discord.com/api/webhooks/754119343402302920F/x-BfFCdEG"
+                "-qGg_39_mFUqRSLoz2dm6Oa8vxNdaAxZdgKOAyesVpy-Bzf8wDU_vHdFpm-"
+            ),
+        )
+
+        test_object.save()
+
+        self.assertEqual(str(test_object), "Test Webhook")

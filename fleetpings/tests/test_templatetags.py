@@ -7,9 +7,13 @@ from fleetpings import __version__
 
 
 class TestVersionedStatic(TestCase):
+    """
+    Test fleetpings_versioned_static template tage
+    """
+
     def test_versioned_static(self):
         """
-        Test versioned static template tag
+        Test should return versioned static
         :return:
         """
 

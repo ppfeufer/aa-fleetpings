@@ -10,7 +10,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Hint text to "Additional Information" field with link to Discord Markdown
+- Hint text to the "Announcement Text" field with a link to Discord Markdown
+
+### Changed
+- Some code/internal improvements
+- Minimum Requirement:
+  - Alliance Auth >= 3.2.0
 
 
 ## [2.15.0] - 2022-08-15

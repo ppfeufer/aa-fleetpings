@@ -1,3 +1,7 @@
+"""
+Test Auth settings
+"""
+
 # flake8: noqa
 
 # Standard Library

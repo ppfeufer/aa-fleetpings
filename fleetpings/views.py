@@ -442,7 +442,9 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
             ping_context["request"] = request
 
             context["ping_context"] = render_to_string(
-                "fleetpings/partials/ping/copy-paste-text.html", ping_context
+                template_name="fleetpings/partials/ping/copy-paste-text.html",
+                context=ping_context,
+                request=request,
             )
             success = True
         else:

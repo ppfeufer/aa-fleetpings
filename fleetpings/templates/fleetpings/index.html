@@ -1,4 +1,4 @@
-{% extends 'fleetpings/base.html' %}
+{% extends "fleetpings/base.html" %}
 
 {% load i18n %}
 {% load fleetpings_versioned_static %}
@@ -22,7 +22,7 @@
                     <span class="panel-title">{% translate "Formatted Ping Text" %}</span>
                 </div>
                 <div class="panel-body">
-                    {% include 'fleetpings/partials/ping/ping.html' %}
+                    {% include "fleetpings/partials/ping/ping.html" %}
                 </div>
             </div>
         </div>
@@ -64,14 +64,12 @@
 {% endblock %}
 
 {% block extra_javascript %}
-    {% include 'bundles/jquery-datetimepicker-js.html' %}
-    {% include 'bundles/clipboard-js.html' %}
-
-    <script type="application/javascript" src="{% fleetpings_static 'fleetpings/js/fleetpings.min.js' %}"></script>
+    {% include "bundles/jquery-datetimepicker-js.html" %}
+    {% include "bundles/clipboard-js.html" %}
+    {% include "fleetpings/bundles/fleetpings-js.html" %}
 {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/css" href="{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}">
-
-    {% include 'bundles/jquery-datetimepicker-css.html' %}
+    {% include "bundles/jquery-datetimepicker-css.html" %}
+    {% include "fleetpings/bundles/fleetpings-css.html" %}
 {% endblock %}

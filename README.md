@@ -33,14 +33,11 @@ Discord.
 ### ⚠️ Important ⚠️
 
 This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already,
-please install it first before proceeding.
-(see the official
-[AA installation guide](https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html)
+please install it first before proceeding. (see the official [AA installation guide]
 for details)
 
-**⚠️ You also want to make sure that you have the
-[Discord service](https://allianceauth.readthedocs.io/en/latest/features/services/discord.html)
-installed, configured and activated before installing this app. ⚠️**
+**⚠️ You also want to make sure that you have the [Discord service] installed,
+configured and activated before installing this app. ⚠️**
 
 ### Step 1 - Install the App
 
@@ -98,7 +95,7 @@ python manage.py collectstatic
 python manage.py migrate
 ```
 
-Finally restart your AA supervisor services.
+Finally, restart your AA supervisor services.
 
 
 ## Screenshots
@@ -114,12 +111,20 @@ Finally restart your AA supervisor services.
 
 ## Configuration
 
+The following settings can be made in your `local.py`:
+
+| Setting                                            | Description                                                                              | Default |
+|:---------------------------------------------------|:-----------------------------------------------------------------------------------------|:--------|
+| `AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE` | Enables integration with the [Fittings and Doctrines] module for doctrine suggestion.      | `False` |
+| `AA_FLEETPINGS_WEBHOOK_VERIFICATION`               | Enables or disables verification of webhook URLs to see if it's a valid Discord webhook  | `True`  |
+
+
 ### Use Doctrines From Fittings Module
 
-If you have the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings)
-module installed, and your doctrines configured there, you don't have to re-build
-your doctrine list for this module. You can simply use the doctrines you already
-have configured in the Fittings and Doctrines module.
+If you have the [Fittings and Doctrines] module installed, and your doctrines
+configured there, you don't have to re-build your doctrine list for this module. You
+can simply use the doctrines you already have configured in the Fittings and
+Doctrines module.
 
 To do so, add the following to your `local.py`:
 
@@ -140,3 +145,8 @@ AA_FLEETPINGS_WEBHOOK_VERIFICATION = False
 
 When disabling webhook verification and using non Discord webhooks, it is up to you
 to make sure your webhook understands a payload that is formatted for Discord webhooks.
+
+<!-- URLs -->
+[Fittings and Doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
+[Discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
+[AA installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"

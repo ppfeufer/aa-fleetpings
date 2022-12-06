@@ -424,7 +424,7 @@ class Webhook(models.Model):
         :return:
         """
 
-        # Check if it's an actual kill mail
+        # Check if it's an actual webhook url if the verification setting is set.
         if (
             not re.match(DISCORD_WEBHOOK_REGEX, self.url)
             and AA_FLEETPINGS_WEBHOOK_VERIFICATION

@@ -127,3 +127,13 @@ To do so, add the following to your `local.py`:
 ## AA Fleet Pings
 AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = True
 ```
+
+### Allow Non Discord Webhooks
+
+If you require your pings to be sent to a webhook that is not a standard discord
+webhook, add the following to your `local.py`:
+
+```python
+## AA Fleet Pings
+AA_FLEETPINGS_WEBHOOK_VERIFICATION = False
+```

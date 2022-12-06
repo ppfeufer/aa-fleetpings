@@ -8,12 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.17.0] - 2022-12-06
+
 ### Added
 
 - `AA_FLEETPINGS_WEBHOOK_VERIFICATION` setting to disable webhook URL verification
   so you can use non-Discord webhooks for your pings. If you do so, it is up to you
   to ensure your webhook understands a payload formatted for Discord webhooks.
-  (Thanks to @pvyParts)
+  (Thanks to [@pvyParts])
 
 
 ## [2.16.0] - 2022-09-18
@@ -563,3 +566,7 @@ backend, since we just nuked them from the old app.
 ### Added
 
 - initial version
+
+
+<!-- URLs -->
+[@pvyParts]: https://github.com/pvyParts "Aaron"

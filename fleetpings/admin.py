@@ -49,11 +49,11 @@ class FleetCommAdmin(admin.ModelAdmin):
     ordering = ("name",)
     list_filter = ("is_enabled",)
 
+    @classmethod
     @admin.display(
         description="Fleet Comms",
         ordering="name",
     )
-    @classmethod
     def _name(cls, obj):
         return obj.name
 
@@ -73,27 +73,27 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @classmethod
     @admin.display(
         description="Doctrine",
         ordering="name",
     )
-    @classmethod
     def _name(cls, obj):
         return obj.name
 
+    @classmethod
     @admin.display(
         description="Doctrine Link",
         ordering="link",
     )
-    @classmethod
     def _link(cls, obj):
         return obj.name
 
+    @classmethod
     @admin.display(
         description="Restricted to",
         ordering="restricted_to_group__name",
     )
-    @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -138,19 +138,19 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @classmethod
     @admin.display(
         description="Ping Target",
         ordering="name",
     )
-    @classmethod
     def _name(cls, obj):
         return obj.name
 
+    @classmethod
     @admin.display(
         description="Restricted to",
         ordering="restricted_to_group__name",
     )
-    @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -184,19 +184,19 @@ class FleetTypeAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @classmethod
     @admin.display(
         description="Fleet Type",
         ordering="name",
     )
-    @classmethod
     def _name(cls, obj):
         return obj.name
 
+    @classmethod
     @admin.display(
         description="Embed Color",
         ordering="embed_color",
     )
-    @classmethod
     def _embed_color(cls, obj):
         return_value = (
             "<span "
@@ -207,11 +207,11 @@ class FleetTypeAdmin(admin.ModelAdmin):
 
         return mark_safe(return_value)
 
+    @classmethod
     @admin.display(
         description="Restricted to",
         ordering="restricted_to_group__name",
     )
-    @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -243,27 +243,27 @@ class WebhookAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @classmethod
     @admin.display(
         description="Channel Name",
         ordering="name",
     )
-    @classmethod
     def _name(cls, obj):
         return obj.name
 
+    @classmethod
     @admin.display(
         description="Webhook URL",
         ordering="url",
     )
-    @classmethod
     def _url(cls, obj):
         return obj.url
 
+    @classmethod
     @admin.display(
         description="Restricted to",
         ordering="restricted_to_group__name",
     )
-    @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 

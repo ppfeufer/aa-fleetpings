@@ -33,16 +33,13 @@ Discord.
 ### ⚠️ Important ⚠️
 
 This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already,
-please install it first before proceeding.
-(see the official
-[AA installation guide](https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html)
+please install it first before proceeding. (see the official [AA installation guide]
 for details)
 
-**⚠️ You also want to make sure that you have the
-[Discord service](https://allianceauth.readthedocs.io/en/latest/features/services/discord.html)
-installed, configured and activated before installing this app. ⚠️**
+**⚠️ You also want to make sure that you have the [Discord service] installed,
+configured and activated before installing this app. ⚠️**
 
-### Step 1 - Install the app
+### Step 1 - Install the App
 
 Make sure you are in the virtual environment (venv) of your Alliance Auth installation.
 Then install the latest version:
@@ -51,14 +48,14 @@ Then install the latest version:
 pip install aa-fleetpings
 ```
 
-### Step 2 - Update your AA settings
+### Step 2 - Update Your AA Settings
 
 Configure your AA settings (`local.py`) as follows:
 
 - Add `'fleetpings',` to `INSTALLED_APPS`
 
 
-### Step 3 - Finalize the installation
+### Step 3 - Finalize the Installation
 
 Copy static files and run migrations
 
@@ -69,13 +66,13 @@ python manage.py migrate
 
 Restart your supervisor services for AA
 
-### Step 4 - Setup permission
+### Step 4 - Setup Permission
 
-Now you can setup permissions in Alliance Auth for your users.
+Now you can set up permissions in Alliance Auth for your users.
 Add ``fleetpings | aa fleetpings | Can access this app`` to the states and/or
 groups you would like to have access.
 
-### Step 5 - Setup the app
+### Step 5 - Setup the App
 
 In your admin backend you'll find a new section called `Fleet Pings`.
 This is where you set all your stuff up, like the webhooks you want to ping and who
@@ -98,7 +95,7 @@ python manage.py collectstatic
 python manage.py migrate
 ```
 
-Finally restart your AA supervisor services.
+Finally, restart your AA supervisor services.
 
 
 ## Screenshots
@@ -114,12 +111,20 @@ Finally restart your AA supervisor services.
 
 ## Configuration
 
-### Use Doctrines from Fittings module
+The following settings can be made in your `local.py`:
 
-If you have the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings)
-module installed, and your doctrines configured there, you don't have to re-build
-your doctrine list for this module. You can simply use the doctrines you already
-have configured in the Fittings and Doctrines module.
+| Setting                                            | Description                                                                              | Default |
+|:---------------------------------------------------|:-----------------------------------------------------------------------------------------|:--------|
+| `AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE` | Enables integration with the [Fittings and Doctrines] module for doctrine suggestion.      | `False` |
+| `AA_FLEETPINGS_WEBHOOK_VERIFICATION`               | Enables or disables verification of webhook URLs to see if it's a valid Discord webhook  | `True`  |
+
+
+### Use Doctrines From Fittings Module
+
+If you have the [Fittings and Doctrines] module installed, and your doctrines
+configured there, you don't have to re-build your doctrine list for this module. You
+can simply use the doctrines you already have configured in the Fittings and
+Doctrines module.
 
 To do so, add the following to your `local.py`:
 
@@ -127,3 +132,21 @@ To do so, add the following to your `local.py`:
 ## AA Fleet Pings
 AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = True
 ```
+
+### Allow Non Discord Webhooks
+
+If you require your pings to be sent to a webhook that is not a standard discord
+webhook, add the following to your `local.py`:
+
+```python
+## AA Fleet Pings
+AA_FLEETPINGS_WEBHOOK_VERIFICATION = False
+```
+
+When disabling webhook verification and using non Discord webhooks, it is up to you
+to make sure your webhook understands a payload that is formatted for Discord webhooks.
+
+<!-- URLs -->
+[Fittings and Doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
+[Discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
+[AA installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"

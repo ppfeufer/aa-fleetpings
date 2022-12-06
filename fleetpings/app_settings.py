@@ -14,6 +14,11 @@ AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
     "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
 )
 
+# Allow non discord webhook url's
+AA_FLEETPINGS_WEBHOOK_VERIFICATION = clean_setting(
+    "AA_FLEETPINGS_WEBHOOK_VERIFICATION", True
+)
+
 
 def timezones_installed() -> bool:
     """

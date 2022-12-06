@@ -42,7 +42,7 @@ for details)
 [Discord service](https://allianceauth.readthedocs.io/en/latest/features/services/discord.html)
 installed, configured and activated before installing this app. ⚠️**
 
-### Step 1 - Install the app
+### Step 1 - Install the App
 
 Make sure you are in the virtual environment (venv) of your Alliance Auth installation.
 Then install the latest version:
@@ -51,14 +51,14 @@ Then install the latest version:
 pip install aa-fleetpings
 ```
 
-### Step 2 - Update your AA settings
+### Step 2 - Update Your AA Settings
 
 Configure your AA settings (`local.py`) as follows:
 
 - Add `'fleetpings',` to `INSTALLED_APPS`
 
 
-### Step 3 - Finalize the installation
+### Step 3 - Finalize the Installation
 
 Copy static files and run migrations
 
@@ -69,13 +69,13 @@ python manage.py migrate
 
 Restart your supervisor services for AA
 
-### Step 4 - Setup permission
+### Step 4 - Setup Permission
 
-Now you can setup permissions in Alliance Auth for your users.
+Now you can set up permissions in Alliance Auth for your users.
 Add ``fleetpings | aa fleetpings | Can access this app`` to the states and/or
 groups you would like to have access.
 
-### Step 5 - Setup the app
+### Step 5 - Setup the App
 
 In your admin backend you'll find a new section called `Fleet Pings`.
 This is where you set all your stuff up, like the webhooks you want to ping and who
@@ -114,7 +114,7 @@ Finally restart your AA supervisor services.
 
 ## Configuration
 
-### Use Doctrines from Fittings module
+### Use Doctrines From Fittings Module
 
 If you have the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings)
 module installed, and your doctrines configured there, you don't have to re-build
@@ -137,3 +137,6 @@ webhook, add the following to your `local.py`:
 ## AA Fleet Pings
 AA_FLEETPINGS_WEBHOOK_VERIFICATION = False
 ```
+
+When disabling webhook verification and using non Discord webhooks, it is up to you
+to make sure your webhook understands a payload that is formatted for Discord webhooks.

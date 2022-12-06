@@ -67,14 +67,13 @@ class TestModels(TestCase):
     @mock.patch("fleetpings.models.AA_FLEETPINGS_WEBHOOK_VERIFICATION", False)
     def test_discord_webhook_does_not_throw_exception(self):
         """
-        Test we do not get a ValidationError for an invalid Discord webhook when the setting is set
+        Test we do not get a ValidationError for an invalid Discord webhook when
+        AA_FLEETPINGS_WEBHOOK_VERIFICATION is set to False
         :return:
         """
 
         # given
-        webhook = Webhook(
-            url=("http://test/a/bad/webhook"),
-        )
+        webhook = Webhook(url=("http://test/a/bad/webhook"))
 
         self.assertIsNone(webhook.clean())
 

@@ -49,12 +49,13 @@ class FleetCommAdmin(admin.ModelAdmin):
     ordering = ("name",)
     list_filter = ("is_enabled",)
 
+    @admin.display(
+        description="Fleet Comms",
+        ordering="name",
+    )
     @classmethod
     def _name(cls, obj):
         return obj.name
-
-    _name.short_description = "Fleet Comms"
-    _name.admin_order_field = "name"
 
 
 @admin.register(FleetDoctrine)
@@ -72,20 +73,26 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @admin.display(
+        description="Doctrine",
+        ordering="name",
+    )
     @classmethod
     def _name(cls, obj):
         return obj.name
 
-    _name.short_description = "Doctrine"
-    _name.admin_order_field = "name"
-
+    @admin.display(
+        description="Doctrine Link",
+        ordering="link",
+    )
     @classmethod
     def _link(cls, obj):
         return obj.name
 
-    _link.short_description = "Doctrine Link"
-    _link.admin_order_field = "link"
-
+    @admin.display(
+        description="Restricted to",
+        ordering="restricted_to_group__name",
+    )
     @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
@@ -94,9 +101,6 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
             return ", ".join(names)
 
         return None
-
-    _restricted_to_group.short_description = "Restricted to"
-    _restricted_to_group.admin_order_field = "restricted_to_group__name"
 
 
 @admin.register(FormupLocation)
@@ -134,13 +138,18 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @admin.display(
+        description="Ping Target",
+        ordering="name",
+    )
     @classmethod
     def _name(cls, obj):
         return obj.name
 
-    _name.short_description = "Ping Target"
-    _name.admin_order_field = "name"
-
+    @admin.display(
+        description="Restricted to",
+        ordering="restricted_to_group__name",
+    )
     @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
@@ -149,9 +158,6 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
             return ", ".join(names)
 
         return None
-
-    _restricted_to_group.short_description = "Restricted to"
-    _restricted_to_group.admin_order_field = "restricted_to_group__name"
 
 
 @admin.register(FleetType)
@@ -178,13 +184,18 @@ class FleetTypeAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @admin.display(
+        description="Fleet Type",
+        ordering="name",
+    )
     @classmethod
     def _name(cls, obj):
         return obj.name
 
-    _name.short_description = "Fleet Type"
-    _name.admin_order_field = "name"
-
+    @admin.display(
+        description="Embed Color",
+        ordering="embed_color",
+    )
     @classmethod
     def _embed_color(cls, obj):
         return_value = (
@@ -196,9 +207,10 @@ class FleetTypeAdmin(admin.ModelAdmin):
 
         return mark_safe(return_value)
 
-    _embed_color.short_description = "Embed Color"
-    _embed_color.admin_order_field = "embed_color"
-
+    @admin.display(
+        description="Restricted to",
+        ordering="restricted_to_group__name",
+    )
     @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
@@ -207,9 +219,6 @@ class FleetTypeAdmin(admin.ModelAdmin):
             return ", ".join(names)
 
         return None
-
-    _restricted_to_group.short_description = "Restricted to"
-    _restricted_to_group.admin_order_field = "restricted_to_group__name"
 
 
 @admin.register(Webhook)
@@ -234,20 +243,26 @@ class WebhookAdmin(admin.ModelAdmin):
         ("restricted_to_group", custom_filter(title="restriction")),
     )
 
+    @admin.display(
+        description="Channel Name",
+        ordering="name",
+    )
     @classmethod
     def _name(cls, obj):
         return obj.name
 
-    _name.short_description = "Channel Name"
-    _name.admin_order_field = "name"
-
+    @admin.display(
+        description="Webhook URL",
+        ordering="url",
+    )
     @classmethod
     def _url(cls, obj):
         return obj.url
 
-    _url.short_description = "Webhook URL"
-    _url.admin_order_field = "url"
-
+    @admin.display(
+        description="Restricted to",
+        ordering="restricted_to_group__name",
+    )
     @classmethod
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
@@ -256,6 +271,3 @@ class WebhookAdmin(admin.ModelAdmin):
             return ", ".join(names)
 
         return None
-
-    _restricted_to_group.short_description = "Restricted to"
-    _restricted_to_group.admin_order_field = "restricted_to_group__name"

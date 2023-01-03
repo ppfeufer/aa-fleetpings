@@ -290,7 +290,7 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
     Create an SRP link in AA-SRP
     :param request:
-    :param srp_data:
+    :param ping_context:
     :return:
     """
 

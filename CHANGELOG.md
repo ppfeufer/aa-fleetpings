@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.18.0] - 2023-01-03
+
+### Changed
+
+- Enable ordering for the webhooks (Thanks to [@pvyParts])
+
+
 ## [2.17.0] - 2022-12-06
 
 ### Added

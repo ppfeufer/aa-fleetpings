@@ -122,7 +122,7 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
 @permission_required("fleetpings.basic_access")
 def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
     """
-    Get webhooks for ccurrent user
+    Get webhooks for current user
     :param request:
     :return:
     """
@@ -134,8 +134,9 @@ def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
             Q(restricted_to_group__in=request.user.groups.all())
             | Q(restricted_to_group__isnull=True),
             is_enabled=True,
-        ).distinct()
-        # .order_by("type", "name")
+        )
+        .distinct()
+        .order_by("name")
     )
 
     return render(
@@ -289,7 +290,7 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
     Create an SRP link in AA-SRP
     :param request:
-    :param srp_data:
+    :param ping_context:
     :return:
     """
 
@@ -401,7 +402,6 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     """
 
     context = {}
-    ping_context = {}
     success = False
 
     if request.method == "POST":

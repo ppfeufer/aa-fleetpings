@@ -122,7 +122,7 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
 @permission_required("fleetpings.basic_access")
 def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
     """
-    Get webhooks for ccurrent user
+    Get webhooks for current user
     :param request:
     :return:
     """

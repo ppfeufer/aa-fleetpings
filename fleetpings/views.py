@@ -402,7 +402,6 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     """
 
     context = {}
-    ping_context = {}
     success = False
 
     if request.method == "POST":

@@ -354,7 +354,7 @@ installing this version.
 ### Added
 
 - Filter to the admin backend
-- More checks for Discord. Now checking if the Discord Service s actually activated
+- More checks for Discord. Now check if the Discord Service s actually activated
   and setup properly
 - Compatibility to AA Timezones (v1.2.1) new link style
 - Backwards compatibility to versions of AA Timezones before 1.2.1, so the old link
@@ -462,7 +462,7 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Missing "Fleet" on embedded pings headline when no fleet type is selected
 - Hopefully escaped possible single quotes in a character name, so they will not be
-  transformed into their respective HTML-entities in a ping
+  transformed into their respective HTML entities in a ping
 
 
 ## [1.1.1] - 2020-08-02

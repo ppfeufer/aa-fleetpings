@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 15:58+0200\n"
-"PO-Revision-Date: 2023-04-16 16:29+0000\n"
+"PO-Revision-Date: 2023-04-16 23:25+0000\n"
 "Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
 "Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/ru/>\n"
@@ -142,7 +142,7 @@ msgstr "Потери во флоте покрываются SRP?"
 
 #: form.py:164
 msgid "Create SRP Link"
-msgstr "Создать ссылку для SRP"
+msgstr "Создание SRP ссылки"
 
 #: form.py:166
 msgid ""

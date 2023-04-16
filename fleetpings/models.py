@@ -232,7 +232,7 @@ class DiscordPingTargets(models.Model):
         help_text=(
             _(
                 "Name of the Discord role to ping. "
-                "(Note: This must be an Auth group that is synched to Discord.)"
+                "(Note: This must be an Auth group that is synced to Discord.)"
             )
         ),
     )

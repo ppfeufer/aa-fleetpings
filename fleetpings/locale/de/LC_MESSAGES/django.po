@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 15:58+0200\n"
-"PO-Revision-Date: 2023-04-16 16:29+0000\n"
+"PO-Revision-Date: 2023-04-16 23:33+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/de/>\n"
@@ -268,7 +268,7 @@ msgstr "Discord Ping Ziele"
 
 #: models.py:317
 msgid "Short name to identify this fleet type"
-msgstr "Kurzname für den Flottentyp"
+msgstr "Kurzname für die Flottenart"
 
 #: models.py:324
 msgid "Hightlight color for the embed"
@@ -276,15 +276,15 @@ msgstr "Hightlight Farbe für den Embed"
 
 #: models.py:332
 msgid "Restrict this fleet type to the following group(s) ..."
-msgstr "Beschränkt diesen Flottentyp auf die folgende(n) Gruppe(n) …"
+msgstr "Beschränkt diese Flottenart auf die folgende(n) Gruppe(n) …"
 
 #: models.py:346
 msgid "Whether this fleet type is enabled or not"
-msgstr "Ist dieser Flottentyp aktiv oder nicht"
+msgstr "Ist diese Flottenart aktiv oder nicht"
 
 #: models.py:358
 msgid "Fleet Types"
-msgstr "Flottentypen"
+msgstr "Flottenarten"
 
 #: models.py:372
 msgid "Name of the channel this webhook posts to"

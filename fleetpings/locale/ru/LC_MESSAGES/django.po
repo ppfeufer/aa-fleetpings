@@ -2,22 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # "H. Peter Pfeufer" <info@ppfeufer.de>, 2023.
+# Nikolay <nick.postnikov@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 15:58+0200\n"
-"PO-Revision-Date: 2023-04-13 10:41+0000\n"
-"Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/ru/>\n"
+"PO-Revision-Date: 2023-04-16 16:29+0000\n"
+"Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || ("
+"n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: Weblate 4.16.4\n"
 
 #: form.py:22
@@ -25,39 +26,43 @@ msgid ""
 " Timezones module is installed. Link to time zone conversion will be added "
 "automatically if you set a date and time here."
 msgstr ""
+" Модуль временных зон установлен. Ссылка на преобразование временных зон "
+"будет добавлена автоматически после задания даты и времени."
 
 #: form.py:40
 msgid "Discord Markdown"
-msgstr ""
+msgstr "Форматирование для Discord"
 
 #: form.py:47
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
 msgstr ""
+"Подсказка: Вы можете использовать {discord_markdown_link} для форматирования "
+"текста."
 
 #: form.py:72
 msgid "Ping Target"
-msgstr ""
+msgstr "Цель пинга"
 
 #: form.py:74
 msgid "Who do you want to ping?"
-msgstr ""
+msgstr "Кого Вы хотите пинговать?"
 
 #: form.py:79
 msgid "Pre-Ping"
-msgstr ""
+msgstr "Предварительный пинг"
 
 #: form.py:80
 msgid "Mark this checkbox if this should be a pre-ping."
-msgstr ""
+msgstr "Установите флажок, если это предварительный пинг."
 
 #: form.py:84
 msgid "Ping To"
-msgstr ""
+msgstr "Пинговать в"
 
 #: form.py:86
 msgid "Select a channel to ping automatically."
-msgstr ""
+msgstr "Выберите канал для автоматических пингов."
 
 #: form.py:89 models.py:357
 msgid "Fleet Type"
@@ -65,11 +70,11 @@ msgstr "Тип флота"
 
 #: form.py:93
 msgid "FC Name"
-msgstr ""
+msgstr "Имя командира флота"
 
 #: form.py:95
 msgid "Who is the FC?"
-msgstr ""
+msgstr "Кто командир флота?"
 
 #: form.py:99
 msgid "Fleet Name"
@@ -77,240 +82,253 @@ msgstr "Название флота"
 
 #: form.py:102
 msgid "What is the fleet name in fleet finder?"
-msgstr ""
+msgstr "Название флота в поиске?"
 
 #: form.py:107 models.py:216
 msgid "Formup Location"
-msgstr ""
+msgstr "Точка сбора"
 
 #: form.py:112
 msgid "Formup Time"
-msgstr ""
+msgstr "Время сбора"
 
 #: form.py:116
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
 msgstr ""
+"Для активации данного поля или задайте предварительный пинг (флажок выше) "
+"или отмените &quot;СЕЧАС&quot; (флажок ниже)."
 
 #: form.py:123
 msgid "Formup Timestamp"
-msgstr ""
+msgstr "Метка времени сбора"
 
 #: form.py:129
 msgid "Formup NOW"
-msgstr ""
+msgstr "СЕЙЧАС"
 
 #: form.py:131
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
 msgstr ""
+"Если флажок активен, время сбора будет задано &quot;NOW&quot; и заданное "
+"выше время (при наличии) будет проигнорировано."
 
 #: form.py:137 models.py:105
 msgid "Fleet Comms"
-msgstr ""
+msgstr "Голосовые каналы"
 
 #: form.py:142
 msgid "Doctrine"
-msgstr ""
+msgstr "Формат"
 
 #: form.py:147
 msgid "Doctrine URL"
-msgstr ""
+msgstr "URL формата"
 
 #: form.py:152
 msgid "Webhook Embed Color"
-msgstr ""
+msgstr "Webhook Embed Color"
 
 #: form.py:158
 msgid "SRP"
-msgstr ""
+msgstr "SRP"
 
 #: form.py:159
 msgid "Is this fleet covered by SRP?"
-msgstr ""
+msgstr "Потери во флоте покрываются SRP?"
 
 #: form.py:164
 msgid "Create SRP Link"
-msgstr ""
+msgstr "Создать ссылку для SRP"
 
 #: form.py:166
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
 msgstr ""
+"Если флажок активен, специальная ссылка для SRP будет создана.<br>Оставьте "
+"неактивным, если не уверены."
 
 #: form.py:172
 msgid "Additional Information"
-msgstr ""
+msgstr "Дополнительная информация"
 
 #: form.py:179
 msgid "Feel free to add some more information about the fleet…"
-msgstr ""
+msgstr "Разместите любую дополнительную информацию о флоте…"
 
 #: form.py:188
 msgid "Create Optimer"
-msgstr ""
+msgstr "Создать таймер"
 
 #: form.py:190
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
 msgstr ""
+"Если флажок активен, будет создан специальный таймер сбора для данного "
+"предварительно пинга."
 
 #: models.py:43
 msgid "You might want to install the Discord service first ..."
-msgstr ""
+msgstr "Возможно Вам следует сначала установить сервис Discord..."
 
 #: models.py:50
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
-msgstr ""
+msgstr "Вы уверены, что Discord связан с Allaince Auth?"
 
 #: models.py:54
 msgid "This group has not been synced to Discord yet."
-msgstr ""
+msgstr "Эта группа не была синхронизирована с Discord."
 
 #: models.py:81
 msgid "Short name to identify this comms"
-msgstr ""
+msgstr "Короткое название голосового канала"
 
 #: models.py:87 models.py:139 models.py:198 models.py:260 models.py:339
 msgid "You can add notes about this configuration here if you want"
-msgstr ""
+msgstr "Здесь Вы можете добавить примечания для этой конфигурации"
 
 #: models.py:93
 msgid "Whether this comms is enabled or not"
-msgstr ""
+msgstr "Активен или нет голосовой канал"
 
 #: models.py:104
 msgid "Fleet Comm"
-msgstr ""
+msgstr "Голосовой канал"
 
 #: models.py:117
 msgid "Short name to identify this doctrine"
-msgstr ""
+msgstr "Короткое название формата"
 
 #: models.py:123
 msgid "A link to a doctrine page for this doctrine if you have."
-msgstr ""
+msgstr "Ссылка на страницу формата."
 
 #: models.py:132
 msgid "Restrict this doctrine to the following group(s) ..."
-msgstr ""
+msgstr "Предоставить доступ к формату следующим группам..."
 
 #: models.py:146
 msgid "Whether this doctrine is enabled or not"
-msgstr ""
+msgstr "Активен или нет формат"
 
 #: models.py:163
 msgid "Your doctrine URL is not valid."
-msgstr ""
+msgstr "URL формата некорректный."
 
 #: models.py:176
 msgid "Fleet Doctrine"
-msgstr ""
+msgstr "Формат"
 
 #: models.py:177
 msgid "Fleet Doctrines"
-msgstr ""
+msgstr "Форматы"
 
 #: models.py:191
 msgid "Short name to identify this formup location"
-msgstr ""
+msgstr "Короткое название точки сбора"
 
 #: models.py:205 models.py:267
 msgid "Whether this formup location is enabled or not"
-msgstr ""
+msgstr "Активна или нет точка сбора"
 
 #: models.py:217
 msgid "Formup Locations"
-msgstr ""
+msgstr "Точки сбора"
 
 #: models.py:234
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
 msgstr ""
+"Имя роли Discord для пинга. (Примечание: Это должна быть синхронизированная "
+"с Discord группа Auth.)"
 
 #: models.py:245
 msgid "ID of the Discord role to ping"
-msgstr ""
+msgstr "ID роли Discord для пинга"
 
 #: models.py:253 models.py:392
 msgid "Restrict ping rights to the following group(s) ..."
-msgstr ""
+msgstr "Разрешить пинговать следующим группам..."
 
 #: models.py:302
 msgid "Discord Ping Target"
-msgstr ""
+msgstr "Цель пинга Discrod"
 
 #: models.py:303
 msgid "Discord Ping Targets"
-msgstr ""
+msgstr "Цели пинга Discord"
 
 #: models.py:317
 msgid "Short name to identify this fleet type"
-msgstr ""
+msgstr "Короткое название типа флота"
 
 #: models.py:324
 msgid "Hightlight color for the embed"
-msgstr ""
+msgstr "Цвет подсветки"
 
 #: models.py:332
 msgid "Restrict this fleet type to the following group(s) ..."
-msgstr ""
+msgstr "Предоставить доступ к флоту следующим группам..."
 
 #: models.py:346
 msgid "Whether this fleet type is enabled or not"
-msgstr ""
+msgstr "Активен или нет тип флота"
 
 #: models.py:358
 msgid "Fleet Types"
-msgstr ""
+msgstr "Типы флота"
 
 #: models.py:372
 msgid "Name of the channel this webhook posts to"
-msgstr ""
+msgstr "Название канала, в который webhook отправляет сообщения"
 
 #: models.py:381
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr ""
+"URL этого webhook, например https://discord.com/api/webhooks/123456/abcdef"
 
 #: models.py:399
 msgid "You can add notes about this webhook here if you want"
-msgstr ""
+msgstr "Здесь Вы можете добавить примечания для этого webhook"
 
 #: models.py:406
 msgid "Whether this webhook is active or not"
-msgstr ""
+msgstr "Активен или нет webhook"
 
 #: models.py:417
 msgid "Webhook"
-msgstr ""
+msgstr "Webhook"
 
 #: models.py:418
 msgid "Webhooks"
-msgstr ""
+msgstr "Webhook'и"
 
 #: models.py:434
 msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
 msgstr ""
+"Некорректный URL для webhook. Введенный URL не совпадает с известными "
+"форматами Discord webhook. Пожалуйста, проверьте URL."
 
 #: templates/fleetpings/base.html:5 templates/fleetpings/base.html:8
 msgid "Fleet Ping Tool"
-msgstr ""
+msgstr "Сбор флота"
 
 #: templates/fleetpings/index.html:11
 msgid "Fleet Information"
-msgstr ""
+msgstr "Информация о флоте"
 
 #: templates/fleetpings/index.html:22
 msgid "Formatted Ping Text"
-msgstr ""
+msgstr "Отформатированный текст пинга"
 
 #: templates/fleetpings/index.html:49
 msgid ""
@@ -318,32 +336,41 @@ msgid ""
 "all of the following information:<br>» FC Name<br>» Fleet Name<br>» Formup "
 "Location<br>» Formup Time<br>» Ships / Doctrine"
 msgstr ""
+"Отсутствует необходимая информация. Для создания таймера должна быть "
+"предоставлена следующая информация:<br>» Имя командира<br>» Имя флота<br>» "
+"Точка сбора<br>» Время сбора<br>» Корабли / Формат"
 
 #: templates/fleetpings/index.html:54
 msgid ""
 "Mandatory information is missing. To create an SRP link, you need to provide "
 "all of the following information:<br>» Fleet Name<br>» Ships / Doctrine"
 msgstr ""
+"Отсутствует необходимая информация. Для создания SRP ссылки должна быть "
+"предоставлена следующая информация:<br>» Имя флота<br>» Корабли / Формат"
 
 #: templates/fleetpings/index.html:58
 msgid ""
 "Error! Your ping was not copied to your clipboard. Maybe your browser "
 "doesn&apos;t support this feature."
 msgstr ""
+"Ошибка! Ваш пинг не был скопирован в буфер обмена. Возможно, браузер не "
+"поддерживает данную функциональность."
 
 #: templates/fleetpings/index.html:59
 msgid ""
 "Success! Your ping text has been copied to your clipboard. Now be a good FC "
 "and throw it in your chat so you actually get some people in fleet."
 msgstr ""
+"Успех! Текст пинга был скопирован в буфер обмена. Скопируйте сообщение в "
+"чат, чтобы пилоты могли присоединиться."
 
 #: templates/fleetpings/partials/form/form.html:68
 msgid "Create Ping"
-msgstr ""
+msgstr "Создать пинг"
 
 #: templates/fleetpings/partials/form/hints/ping-everyone.html:7
 msgid "Please think twice if you really need to ping <code>@everyone</code>."
-msgstr ""
+msgstr "Подумайте дважды перед тем, как пинговать <code>@everyone</code>."
 
 #: templates/fleetpings/partials/form/hints/ping-everyone.html:11
 msgid ""
@@ -358,76 +385,95 @@ msgid ""
 "                    pings by the time they open Discord.\n"
 "                "
 msgstr ""
+"\n"
+"                    <code>@everyone</code>\n"
+"                    обозначает всех людей в канале, включая тех кто offline,"
+"\n"
+"                    возможно сейчас спит и будет разбужен звуком\n"
+"                    мобильного устройств. Или они проснуться через несколько "
+"часов\n"
+"                    и увидят неактуальные пинги в Discord.\n"
+"                "
 
 #: templates/fleetpings/partials/form/hints/ping-everyone.html:21
 msgid ""
 "Notification spam is a real thing and might entice people to mute channels."
 msgstr ""
+"Спам нотификациями это злоупотребление и может заставить людей отключить "
+"звук каналу."
 
 #: templates/fleetpings/partials/form/hints/ping-everyone.html:25
 msgid "<code>@here</code> usually does the trick just fine."
-msgstr ""
+msgstr "<code>@here</code> обычно решает задачу."
 
 #: templates/fleetpings/partials/form/segments/fleet-type.html:3
 msgid "Please select"
-msgstr ""
+msgstr "Выберите"
 
 #: templates/fleetpings/partials/form/segments/fleet-type.html:4
 msgid "Roaming Fleet"
-msgstr ""
+msgstr "Роаминг"
 
 #: templates/fleetpings/partials/form/segments/fleet-type.html:5
 msgid "Home Defense"
-msgstr ""
+msgstr "Дефенс"
 
 #: templates/fleetpings/partials/form/segments/fleet-type.html:6
 msgid "StratOP"
-msgstr ""
+msgstr "Стратоп"
 
 #: templates/fleetpings/partials/form/segments/fleet-type.html:7
 msgid "CTA"
-msgstr ""
+msgstr "КТА"
 
 #: templates/fleetpings/partials/form/segments/fleet-type.html:11
 msgid "Additionally configured fleet types"
-msgstr ""
+msgstr "Дополнительные типы флотов"
 
 #: templates/fleetpings/partials/form/segments/ping-channel.html:3
 msgid "None, just format it for me"
-msgstr ""
+msgstr "Нет, только отформатируй"
 
 #: templates/fleetpings/partials/form/segments/ping-targets.html:3
 msgid "Don't Ping"
-msgstr ""
+msgstr "Не пингуй"
 
 #: templates/fleetpings/partials/form/segments/ping-targets.html:9
 msgid "Additionally configured ping targets"
-msgstr ""
+msgstr "Дополнительные цели пингов"
 
 #: templates/fleetpings/partials/ping/ping.html:5
 msgid "No ping created yet ..."
-msgstr ""
+msgstr "Пингов нет..."
 
 #: templates/fleetpings/partials/ping/ping.html:22
 msgid "Copy Ping Text"
-msgstr ""
+msgstr "Копировать текст пинга"
 
 #: views.py:391
 msgid "Not all mandatory information available to create an SRP link."
-msgstr ""
+msgstr "Не вся необходимая информация предоставлена для создания ссылки SRP."
 
 #: views.py:424
 msgid "Fleet operations timer has been created ..."
-msgstr ""
+msgstr "Таймер флота был создан..."
 
 #: views.py:434
 msgid "SRP link has been created ..."
-msgstr ""
+msgstr "SRP ссылка была создана..."
 
 #: views.py:451
 msgid "Form invalid. Please check your input."
-msgstr ""
+msgstr "Форма некорректна. Проверьте введенные данные."
 
 #: views.py:453
 msgid "No form data submitted."
+msgstr "Данные формы не отправлены."
+
+#: models.py:234
+msgid ""
+"Name of the Discord role to ping. (Note: This must be an Auth group that is "
+"synched to Discord.)"
 msgstr ""
+"Имя роли Discord для пинга. (Примечание: Это должна быть синхронизированная "
+"с Discord группа Auth.)"

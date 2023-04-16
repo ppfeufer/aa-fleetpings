@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -356,7 +355,7 @@ class Migration(migrations.Migration):
                         help_text=(
                             "Name of the Discord role to ping. "
                             "(Note: This must be an Auth group "
-                            "that is synched to Discord.)"
+                            "that is synced to Discord.)"
                         ),
                         on_delete=django.db.models.deletion.CASCADE,
                         to="auth.Group",

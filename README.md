@@ -17,15 +17,25 @@ App for Alliance Auth that can format your fleet pings and also ping for you to
 Discord.
 
 
-## Contents
-
-- [Installation](#installation)
-- [Updating](#updating)
-- [Screenshots](#screenshots)
-- [Configuration](#configuration)
-- [Change Log](https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md)
-- [Code of Conduct](https://github.com/ppfeufer/aa-fleetpings/blob/master/CODE_OF_CONDUCT.md)
-- [Contribute](https://github.com/ppfeufer/aa-fleetpings/blob/master/CONTRIBUTING.md)
+<!-- TOC -->
+* [AA Fleet Pings](#aa-fleet-pings)
+  * [Installation](#installation)
+    * [⚠️ Important ⚠️](#-important-)
+    * [Step 1: Install the App](#step-1-install-the-app)
+    * [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings)
+    * [Step 3: Finalizing the Installation](#step-3-finalizing-the-installation)
+    * [Step 4: Setting up Permission](#step-4-setting-up-permission)
+    * [Step 5: Setting up the App](#step-5-setting-up-the-app)
+  * [Updating](#updating)
+  * [Screenshots](#screenshots)
+    * [View in Alliance Auth](#view-in-alliance-auth)
+    * [Discord Ping Example](#discord-ping-example)
+  * [Configuration](#configuration)
+    * [Use Doctrines From Fittings Module](#use-doctrines-from-fittings-module)
+    * [Allow Non Discord Webhooks](#allow-non-discord-webhooks)
+  * [Changelog](#changelog)
+  * [Contributing](#contributing)
+<!-- TOC -->
 
 
 ## Installation
@@ -33,29 +43,29 @@ Discord.
 ### ⚠️ Important ⚠️
 
 This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already,
-please install it first before proceeding. (see the official [AA installation guide]
+please install it first before proceeding. (See the official [AA installation guide]
 for details)
 
 **⚠️ You also want to make sure that you have the [Discord service] installed,
 configured and activated before installing this app. ⚠️**
 
-### Step 1 - Install the App
+### Step 1: Install the App
 
-Make sure you are in the virtual environment (venv) of your Alliance Auth installation.
+Make sure you're in the virtual environment (venv) of your Alliance Auth installation.
 Then install the latest version:
 
 ```bash
 pip install aa-fleetpings
 ```
 
-### Step 2 - Update Your AA Settings
+### Step 2: Update Your AA Settings
 
 Configure your AA settings (`local.py`) as follows:
 
 - Add `'fleetpings',` to `INSTALLED_APPS`
 
 
-### Step 3 - Finalize the Installation
+### Step 3: Finalizing the Installation
 
 Copy static files and run migrations
 
@@ -66,23 +76,23 @@ python manage.py migrate
 
 Restart your supervisor services for AA
 
-### Step 4 - Setup Permission
+### Step 4: Setting up Permission
 
 Now you can set up permissions in Alliance Auth for your users.
 Add ``fleetpings | aa fleetpings | Can access this app`` to the states and/or
 groups you would like to have access.
 
-### Step 5 - Setup the App
+### Step 5: Setting up the App
 
 In your admin backend you'll find a new section called `Fleet Pings`.
 This is where you set all your stuff up, like the webhooks you want to ping and who
-can ping them, fleet types, comms, formup locations and so on. It's pretty straight
+can ping them, fleet types, comms, formup locations, and so on. It's pretty straight
 forward, so you shouldn't have any issues. Go nuts!
 
 
 ## Updating
 
-To update your existing installation of AA Discord Ping Formatter first enable your
+To update your existing installation of AA Discord Ping Formatter, first enable your
 virtual environment.
 
 Then run the following commands from your AA project directory (the one that
@@ -113,10 +123,10 @@ Finally, restart your AA supervisor services.
 
 The following settings can be made in your `local.py`:
 
-| Setting                                            | Description                                                                              | Default |
-|:---------------------------------------------------|:-----------------------------------------------------------------------------------------|:--------|
-| `AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE` | Enables integration with the [Fittings and Doctrines] module for doctrine suggestion.      | `False` |
-| `AA_FLEETPINGS_WEBHOOK_VERIFICATION`               | Enables or disables verification of webhook URLs to see if it's a valid Discord webhook  | `True`  |
+| Setting                                            | Description                                                                             | Default |
+|:---------------------------------------------------|:----------------------------------------------------------------------------------------|:--------|
+| `AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE` | Enables integration with the [Fittings and Doctrines] module for doctrine suggestion.   | `False` |
+| `AA_FLEETPINGS_WEBHOOK_VERIFICATION`               | Enables or disables verification of webhook URLs to see if it's a valid Discord webhook | `True`  |
 
 
 ### Use Doctrines From Fittings Module
@@ -150,3 +160,16 @@ to make sure your webhook understands a payload that is formatted for Discord we
 [Fittings and Doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
 [Discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
 [AA installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"
+
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md)
+
+
+## Contributing
+
+You want to contribute to this project? That's cool!
+
+Please make sure to read the [Contribution Guidelines](https://github.com/ppfeufer/aa-fleetpings/blob/master/CONTRIBUTING.md)
+(I promise, it's not much, just some basics)

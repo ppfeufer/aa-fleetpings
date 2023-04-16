@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.20.0] - 2023-04-16
+
+### Added
+
+- Russian translation
+
+
 ## [2.19.0] - 2023-04-13
 
 ### Added
@@ -27,7 +34,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- `AA_FLEETPINGS_WEBHOOK_VERIFICATION` setting to disable webhook URL verification
+- `AA_FLEETPINGS_WEBHOOK_VERIFICATION` setting to disable webhook URL verification,
   so you can use non-Discord webhooks for your pings. If you do so, it is up to you
   to ensure your webhook understands a payload formatted for Discord webhooks.
   (Thanks to [@pvyParts])
@@ -61,7 +68,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Simplified checks for mandatory fields in JS (If you are still using Internet
+- Simplified checks for mandatory fields in JS (If you're still using Internet
   Explorer 11 or older, you should feel bad and update to a modern browser)
 
 
@@ -151,13 +158,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Error message on missing information for Optimer and SRP
-  - Optimer (Mandatrory fields):
+  - Optimer (Mandatory fields):
     - » FC Name
     - » Fleet Name
     - » Formup Location
     - » Formup Time
     - » Ships / Doctrine
-  - SRP (Mandatrory fields):
+  - SRP (Mandatory fields):
     - » Fleet Name
     - » Ships / Doctrine
 
@@ -262,7 +269,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Permission checks for "Create SRP Link" checkbox, so only FC's who have the
+- Permission checks for "Create SRP Link" checkbox, so only FCs who have the
   permission to actually add SRP links can use this feature (#46)
 
 ### Fixed
@@ -287,7 +294,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Checkbox to create SRP link when SRP is active for a fleet and formup time is set
+- Checkbox to create an SRP link when SRP is active for a fleet and formup time is set
   to "NOW". Supported SRP Modules:
   - allianceauth.srp (that's the built-in module)
   - [aasrp](https://github.com/ppfeufer/aa-srp)
@@ -334,33 +341,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Checkbox to automatically create an fleet operations timer for a pre ping
+- Checkbox to automatically create a fleet operations timer for a pre-ping
 
 
 ## [2.3.0] - 2020-10-14
 
 ### Important!
 
-Before updating to this version, make sure you have your Alliance Auth updated to version 2.8.0 (or newer).
-This version of AA Fleetpings uses a JavaScript library that is introduced in Alliance Auth 2.8.0,
-so have your Auth updated before installing this version.
+Before updating to this version, make sure you have your Alliance Auth updated to
+version 2.8.0 (or newer). This version of AA Fleetpings uses a JavaScript library
+that is introduced in Alliance Auth 2.8.0, so have your Auth updated before
+installing this version.
 
 ### Fixed
 
-- mySQL text fields can't have default values
+- MySQL text fields can't have default values
 - Parameters differ from overridden method warning
 
 ### Added
 
 - Filter to the admin backend
-- More checks for Discord. Now checking if the Discord Service s actually activated and setup properly
+- More checks for Discord. Now check if the Discord Service s actually activated
+  and setup properly
 - Compatibility to AA Timezones (v1.2.1) new link style
-- Backwards compatibility to versions of AA Timezones before 1.2.1, so the old link style is still generated when using an older version
+- Backwards compatibility to versions of AA Timezones before 1.2.1, so the old link
+  style is still generated when using an older version
 
 ### Changed
 
 - Use clipboard.js bundled with Alliance Auth
-- Minimum required Alliance Auth version set to 2.8.0 due to us using clipboard.js bundled with Alliance Auth
+- Minimum required Alliance Auth version set to 2.8.0 due to us using `clipboard.js`
+  bundled with Alliance Auth
 - Unused lib removed
 
 
@@ -368,7 +379,7 @@ so have your Auth updated before installing this version.
 
 ### Added
 
-- Django 3 stuff in setup.py, Should probably be in there as well ...
+- Django 3 stuff in `setup.py`, Should probably be in there as well …
 
 
 ## [2.2.1] - 2020-09-23
@@ -399,12 +410,13 @@ so have your Auth updated before installing this version.
 
 ## [2.0.0] - 2020-09-15
 
-This is the official re-brand of AA Discord Ping Formatter, since the original name didn't fit anymore with
-the new features, like automatic pings and now the new Slack implementation.
+This is the official re-brand of AA Discord Ping Formatter, since the original name
+didn't fit anymore with the new features, like automatic pings and now the new Slack
+implementation.
 
-If you were testing one of the alpha versions of AA Discord Ping Formatter, make sure to migrate
-discordpingformatter zero and deactivate the old app in your local.py before activating this one.
-They will not run side by side.
+If you were testing one of the alpha versions of AA Discord Ping Formatter, make
+sure to migrate discordpingformatter zero and deactivate the old app in your `local.py`
+before activating this one. They will not run side by side.
 
 This is how you do it:
 ```bash
@@ -412,21 +424,26 @@ python manage.py migrate discordpingformatter zero
 ```
 Now remove the `'discordpingformatter',` line and add `'fleetpings',` instead.
 
-Once done, run collectstatic and migrations again. You now have to re-do your settings in the admin
-backend, since we just nuked them from the old app.
+Once done, run collectstatic and migrations again. You now have to re-do your
+settings in the admin backend, since we just nuked them from the old app.
 
 ### Added
 
-- **Support for pings to Slack.** If you're using Slack, simply add ``AA_FLEETPINGS_USE_SLACK = True`` to your `local.py`
+- **Support for pings to Slack.** If you're using Slack, simply add
+  ``AA_FLEETPINGS_USE_SLACK = True`` to your `local.py`
 
 ### Changed
 
-- **!! breaking change !!** Settings are no longer in your `local.py`. You find them now in your admin backend. Which means. after installing this version, you _have_ to re-do you setting in the admin backend of Auth. But trust me, it's worth the effort.
-- Minimum AA version set to 2.7.4 since we use a feature that was introduced in this version. So make sure to update your Alliance Auth before testing this app.
+- **!! breaking change !!** Settings are no longer in your `local.py`. You find them
+  now in your admin backend. Which means. after installing this version, you _have_
+  to re-do your setting in the admin backend of Auth. But trust me, it's worth the
+  effort.
+- Minimum AA version set to 2.7.4 since we use a feature that was introduced in this
+  version. So make sure to update your Alliance Auth before testing this app.
 
 ### Fixed
 
-- Several logic errors in the JavaScript
+- Several logic errors in JavaScript
 
 
 ## From the discontinued AA Discord Ping Formatter (to keep the history alive)
@@ -436,7 +453,7 @@ backend, since we just nuked them from the old app.
 
 ### Fixed
 
-- Little logic error in embedded prepings when no FC is set
+- Little logic error in embedded pre-pings when no FC is set
 
 
 ## [1.1.3] - 2020-08-11
@@ -451,7 +468,8 @@ backend, since we just nuked them from the old app.
 ### Fixed
 
 - Missing "Fleet" on embedded pings headline when no fleet type is selected
-- Hopefully escaped possible single quotes in a characters name so they will not be transformed into their respective HTML-entities in a ping
+- Hopefully escaped possible single quotes in a character name, so they will not be
+  transformed into their respective HTML entities in a ping
 
 
 ## [1.1.1] - 2020-08-02
@@ -459,30 +477,37 @@ backend, since we just nuked them from the old app.
 ### Changed
 
 - JS modularizing, creation of the link for aa-timezones moved to its own function
-- Added a bit more information to the embedded ping, so on mobile phones or system notification there is a bit more than just `@everyone` or `@here` to see.
+- Added a bit more information to the embedded ping, so on mobile phones or system
+  notification there is a bit more than just `@everyone` or `@here` to see.
 
 
 ## [1.1.0] - 2020-07-17
 
 ### Added
 
-- Configuration for pre-defined fleet comms, formup locations and doctrines. These can be configured in your `local.py` via `AA_DISCORDFORMATTER_FLEET_COMMS`, `AA_DISCORDFORMATTER_FLEET_DOCTRINES` and `AA_DISCORDFORMATTER_FLEET_FORMUP_LOCATIONS`. See [README](https://github.com/ppfeufer/aa-discord-ping-formatter#fleet-comms-formup-location-and-doctrine) for syntax.
+- Configuration for pre-defined fleet comms, formup locations, and doctrines. These
+  can be configured in your `local.py` via `AA_DISCORDFORMATTER_FLEET_COMMS`,
+  `AA_DISCORDFORMATTER_FLEET_DOCTRINES` and
+  `AA_DISCORDFORMATTER_FLEET_FORMUP_LOCATIONS`. See [README](https://github.com/ppfeufer/aa-discord-ping-formatter#fleet-comms-formup-location-and-doctrine) for syntax.
 
 
 ## [1.0.0] - 2020-07-16
 
 ### Added
 
-- Restriction for ping targets. Just to make sure not everyone can ping for Capitals or even Supers and Titans if these are configured ping targets. (#18)
+- Restriction for ping targets. Just to make sure not everyone can ping for Capitals
+  or even Supers and Titans if these are configured ping targets. (#18)
 
 ### Changed
 
-- Set time selection steps to 15 minutes instead of 60 in te datepicker
+- Set time selection steps to 15 minutes instead of 60 in the datepicker
 - Set Monday as the beginning of the week in the datepicker
 
 ### Fixed
 
-- Our Australian time travelers and everyone else who lives in the future (UTC+x) is now able to pre-ping fleets that are coming up in 2 hours Eve time, which might still be in their past local time, depending on how far in the future they live. (#19)
+- Our Australian time travelers and everyone else who lives in the future (UTC+x) are
+  now able to pre-ping fleets that are coming up in 2 hours Eve time, which might
+  still be in their past local time, depending on how far in the future they live. (#19)
 
 
 ## [0.1.10] - 2020-07-16
@@ -490,7 +515,9 @@ backend, since we just nuked them from the old app.
 ### Added
 
 - Option to embed automatic pings via webhook (#13)
-- Embedded ping via webhook are color coded. Pre-defined fleet types are by default (Roam = green, Home Defense = yellow, StratOP = orange, CTA = red) and custom fleet types can be defined via settings (see [README](https://github.com/ppfeufer/aa-discord-ping-formatter#embed-webhook-pings))
+- Embedded pings via webhook are now color coded. Pre-defined fleet types are by
+  default (Roam = green, Home Defense = yellow, StratOP = orange, CTA = red), and custom
+  fleet types can be defined via settings (see [README](https://github.com/ppfeufer/aa-discord-ping-formatter#embed-webhook-pings))
 
 ### Changed
 
@@ -512,13 +539,20 @@ backend, since we just nuked them from the old app.
 
 ### Added
 
-- Webhook group restrictions. Webhooks can now be restricted to certain groups (see [README](https://github.com/ppfeufer/aa-discord-ping-formatter#adding-ping-channels)), so not everyone who has access too this module can ping through all webhooks. Webhoos without restrictions are accessible for all with access to the module. (Thanks to Exiom for bringing this up)
-- FC name is pre-filled with the users main character name, since the user is most likely te FC pinging for his own fleet.
+- Webhook group restrictions. Webhooks can now be restricted to certain groups (see
+  [README](https://github.com/ppfeufer/aa-discord-ping-formatter#adding-ping-channels)),
+  so not everyone who has access to this module can ping through all webhooks.
+  Webhooks without restrictions are accessible for all with access to the module.
+  (Thanks to Exiom for bringing this up)
+- FC name is pre-filled with the user's main character name, since the user is most
+  likely te FC pinging for his own fleet.
 
 ### Changed
 
-- Formup Time is now a proper date picker so there is a consistent date/time format throughout the pings
-- Formup Time disabled by default. To enable it either check the Pre-Ping checkbox or disable the Formup NOW checkbox below the Formup Time field
+- Formup Time is now a proper datepicker, so there is a consistent date/time format
+  throughout the pings
+- Formup Time disabled by default. To enable it, either check the Pre-Ping checkbox
+  or disable the Formup NOW checkbox below the Formup Time field
 - Formup Time is set to NOW by default
 
 
@@ -526,14 +560,15 @@ backend, since we just nuked them from the old app.
 
 ### Added
 
-- Link to timezones conversion on formup time if the [aa-timezones](https://github.com/ppfeufer/aa-timezones) module is installed
+- Link to timezones conversion on formup time if the
+  [aa-timezones](https://github.com/ppfeufer/aa-timezones) module is installed
 
 
 ## [0.1.6] - 2020-07-04
 
 ### Fixed
 
-- Ping for non default roles via Webhook (#9)
+- Ping for non-default roles via Webhook (#9)
 
 
 ## [0.1.5] - 2020-06-24

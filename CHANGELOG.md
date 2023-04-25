@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.21.0] - 2023-04-25
+
+### Added
+
+- Ukrainian translation
+
+### Changed
+
+- Russian translation updated
+- Moved the build process to PEP 621 / pyproject.toml
+
+
 ## [2.20.0] - 2023-04-16
 
 ### Added

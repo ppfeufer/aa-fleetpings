@@ -16,6 +16,7 @@
 App for Alliance Auth that can format your fleet pings and also ping for you to
 Discord.
 
+---
 
 <!-- TOC -->
 * [AA Fleet Pings](#aa-fleet-pings)
@@ -36,6 +37,8 @@ Discord.
   * [Changelog](#changelog)
   * [Contributing](#contributing)
 <!-- TOC -->
+
+---
 
 
 ## Installation

@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("fleetpings", "0006_fleetdoctrine_restricted_to_group"),
     ]

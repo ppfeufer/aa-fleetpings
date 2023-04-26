@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("fleetpings", "0007_mysql8_default_value_fixes_20201003_1232"),
     ]

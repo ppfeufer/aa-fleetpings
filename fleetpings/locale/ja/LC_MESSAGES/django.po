@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 15:58+0200\n"
+"POT-Creation-Date: 2023-04-26 21:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,7 +158,7 @@ msgid ""
 msgstr ""
 
 #: models.py:43
-msgid "You might want to install the Discord service first ..."
+msgid "You might want to install the Discord service first …"
 msgstr ""
 
 #: models.py:50
@@ -194,7 +194,7 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr ""
 
 #: models.py:132
-msgid "Restrict this doctrine to the following group(s) ..."
+msgid "Restrict this doctrine to the following group(s) …"
 msgstr ""
 
 #: models.py:146
@@ -236,7 +236,7 @@ msgid "ID of the Discord role to ping"
 msgstr ""
 
 #: models.py:253 models.py:392
-msgid "Restrict ping rights to the following group(s) ..."
+msgid "Restrict ping rights to the following group(s) …"
 msgstr ""
 
 #: models.py:302
@@ -256,7 +256,7 @@ msgid "Hightlight color for the embed"
 msgstr ""
 
 #: models.py:332
-msgid "Restrict this fleet type to the following group(s) ..."
+msgid "Restrict this fleet type to the following group(s) …"
 msgstr ""
 
 #: models.py:346
@@ -403,7 +403,7 @@ msgid "Additionally configured ping targets"
 msgstr ""
 
 #: templates/fleetpings/partials/ping/ping.html:5
-msgid "No ping created yet ..."
+msgid "No ping created yet …"
 msgstr ""
 
 #: templates/fleetpings/partials/ping/ping.html:22
@@ -414,18 +414,18 @@ msgstr ""
 msgid "Not all mandatory information available to create an SRP link."
 msgstr ""
 
-#: views.py:424
-msgid "Fleet operations timer has been created ..."
+#: views.py:423
+msgid "Fleet operations timer has been created …"
 msgstr ""
 
-#: views.py:434
-msgid "SRP link has been created ..."
+#: views.py:432
+msgid "SRP link has been created …"
 msgstr ""
 
-#: views.py:451
+#: views.py:449
 msgid "Form invalid. Please check your input."
 msgstr ""
 
-#: views.py:453
+#: views.py:451
 msgid "No form data submitted."
 msgstr ""

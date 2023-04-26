@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 15:58+0200\n"
+"POT-Creation-Date: 2023-04-26 21:34+0200\n"
 "PO-Revision-Date: 2023-04-16 23:33+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: German <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/de/>\n"
+"Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -172,7 +172,9 @@ msgstr ""
 "Ping erstellt."
 
 #: models.py:43
-msgid "You might want to install the Discord service first ..."
+#, fuzzy
+#| msgid "You might want to install the Discord service first ..."
+msgid "You might want to install the Discord service first …"
 msgstr "Du solltest zunächst den Discord Service installieren …"
 
 #: models.py:50
@@ -211,7 +213,9 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Ein Link zu einer Doktrinenseite für diese Doktrin, falls vorhanden."
 
 #: models.py:132
-msgid "Restrict this doctrine to the following group(s) ..."
+#, fuzzy
+#| msgid "Restrict this doctrine to the following group(s) ..."
+msgid "Restrict this doctrine to the following group(s) …"
 msgstr "Beschränkt diese Doktrin auf die folgende(n) Gruppe(n) …"
 
 #: models.py:146
@@ -255,7 +259,9 @@ msgid "ID of the Discord role to ping"
 msgstr "ID der Discord Rolle zum Pingen"
 
 #: models.py:253 models.py:392
-msgid "Restrict ping rights to the following group(s) ..."
+#, fuzzy
+#| msgid "Restrict ping rights to the following group(s) ..."
+msgid "Restrict ping rights to the following group(s) …"
 msgstr "Beschränkt die Ping-Rechte auf die folgende(n) Gruppe(n) ..."
 
 #: models.py:302
@@ -275,7 +281,9 @@ msgid "Hightlight color for the embed"
 msgstr "Hightlight Farbe für den Embed"
 
 #: models.py:332
-msgid "Restrict this fleet type to the following group(s) ..."
+#, fuzzy
+#| msgid "Restrict this fleet type to the following group(s) ..."
+msgid "Restrict this fleet type to the following group(s) …"
 msgstr "Beschränkt diese Flottenart auf die folgende(n) Gruppe(n) …"
 
 #: models.py:346
@@ -451,7 +459,9 @@ msgid "Additionally configured ping targets"
 msgstr "Zusätzlich konfigurierte Ping Ziele"
 
 #: templates/fleetpings/partials/ping/ping.html:5
-msgid "No ping created yet ..."
+#, fuzzy
+#| msgid "No ping created yet ..."
+msgid "No ping created yet …"
 msgstr "Noch kein Ping erstellt …"
 
 #: templates/fleetpings/partials/ping/ping.html:22
@@ -464,18 +474,22 @@ msgstr ""
 "Nicht alle obligatorischen Informationen zum Erstellen eines SRP-Links "
 "verfügbar."
 
-#: views.py:424
-msgid "Fleet operations timer has been created ..."
+#: views.py:423
+#, fuzzy
+#| msgid "Fleet operations timer has been created ..."
+msgid "Fleet operations timer has been created …"
 msgstr "Der Timer für Flottenoperationen wurde erstellt …"
 
-#: views.py:434
-msgid "SRP link has been created ..."
+#: views.py:432
+#, fuzzy
+#| msgid "SRP link has been created ..."
+msgid "SRP link has been created …"
 msgstr "SRP Link erstellt …"
 
-#: views.py:451
+#: views.py:449
 msgid "Form invalid. Please check your input."
 msgstr "Formular ungültig. Bitte die Angaben prüfen."
 
-#: views.py:453
+#: views.py:451
 msgid "No form data submitted."
 msgstr "Keine Formulardaten übermittelt."

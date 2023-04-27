@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-26 21:34+0200\n"
-"PO-Revision-Date: 2023-04-26 18:27+0000\n"
+"PO-Revision-Date: 2023-04-27 19:50+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/uk/>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -172,10 +172,8 @@ msgstr ""
 "попереднього пінгу."
 
 #: models.py:43
-#, fuzzy
-#| msgid "You might want to install the Discord service first ..."
 msgid "You might want to install the Discord service first …"
-msgstr "Можливо, ви захочете спочатку встановити службу Discord ..."
+msgstr "Можливо, ви захочете спочатку встановити службу Discord …"
 
 #: models.py:50
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
@@ -210,10 +208,8 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Посилання на сторінку доктрини для цієї доктрини, якщо вона у вас є."
 
 #: models.py:132
-#, fuzzy
-#| msgid "Restrict this doctrine to the following group(s) ..."
 msgid "Restrict this doctrine to the following group(s) …"
-msgstr "Обмежте цю доктрину наступними групами ..."
+msgstr "Обмежте цю доктрину наступними групами …"
 
 #: models.py:146
 msgid "Whether this doctrine is enabled or not"
@@ -256,10 +252,8 @@ msgid "ID of the Discord role to ping"
 msgstr "Ідентифікатор ролі Discord для пінгування"
 
 #: models.py:253 models.py:392
-#, fuzzy
-#| msgid "Restrict ping rights to the following group(s) ..."
 msgid "Restrict ping rights to the following group(s) …"
-msgstr "Обмежити права на пінг для наступних груп ..."
+msgstr "Обмежити права на пінг для наступних груп …"
 
 #: models.py:302
 msgid "Discord Ping Target"
@@ -278,10 +272,8 @@ msgid "Hightlight color for the embed"
 msgstr "Виділіть колір для вставки"
 
 #: models.py:332
-#, fuzzy
-#| msgid "Restrict this fleet type to the following group(s) ..."
 msgid "Restrict this fleet type to the following group(s) …"
-msgstr "Обмежте цей тип флоту наступними групами ..."
+msgstr "Обмежте цей тип флоту наступними групами …"
 
 #: models.py:346
 msgid "Whether this fleet type is enabled or not"
@@ -451,10 +443,8 @@ msgid "Additionally configured ping targets"
 msgstr "Додатково налаштовані цілі пінгу"
 
 #: templates/fleetpings/partials/ping/ping.html:5
-#, fuzzy
-#| msgid "No ping created yet ..."
 msgid "No ping created yet …"
-msgstr "Пінг ще не створено ..."
+msgstr "Пінг ще не створено …"
 
 #: templates/fleetpings/partials/ping/ping.html:22
 msgid "Copy Ping Text"
@@ -465,16 +455,12 @@ msgid "Not all mandatory information available to create an SRP link."
 msgstr "Не вся обов'язкова інформація доступна для створення SRP-посилання."
 
 #: views.py:423
-#, fuzzy
-#| msgid "Fleet operations timer has been created ..."
 msgid "Fleet operations timer has been created …"
-msgstr "Створено таймер операцій флоту ..."
+msgstr "Створено таймер операцій флоту …"
 
 #: views.py:432
-#, fuzzy
-#| msgid "SRP link has been created ..."
 msgid "SRP link has been created …"
-msgstr "Створено SRP-посилання ..."
+msgstr "Створено SRP-посилання …"
 
 #: views.py:449
 msgid "Form invalid. Please check your input."

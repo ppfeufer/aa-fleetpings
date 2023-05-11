@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Changed
+
+- Migrated settings from `local.py` to the database
+
 
 ## [2.21.0] - 2023-04-25
 
@@ -92,7 +96,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Templates cleaned up and re-organised
+- Templates cleaned up and re-organized
 - Minimum Requirement:
   - Alliance Auth >= 2.14.0
 
@@ -518,7 +522,7 @@ settings in the admin backend, since we just nuked them from the old app.
 ### Fixed
 
 - Our Australian time travelers and everyone else who lives in the future (UTC+x) are
-  now able to pre-ping fleets that are coming up in 2 hours Eve time, which might
+  now able to pre-ping fleets that are coming up in 2-hours Eve time, which might
   still be in their past local time, depending on how far in the future they live. (#19)
 
 

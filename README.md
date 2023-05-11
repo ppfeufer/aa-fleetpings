@@ -160,6 +160,12 @@ When disabling webhook verification and using non-Discord webhooks, it is up to 
 to make sure your webhook understands a payload that is formatted for Discord webhooks.
 
 
+### Default Embed Color
+
+The default highlight for the embed, that is used when no other highlight color is
+defined.
+
+
 ## Changelog
 
 See [CHANGELOG.md](https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md)

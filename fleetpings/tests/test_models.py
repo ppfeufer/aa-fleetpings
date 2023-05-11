@@ -2,9 +2,6 @@
 Test models
 """
 
-# Standard Library
-from unittest import mock
-
 # Django
 from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
@@ -67,7 +64,6 @@ class TestModels(TestCase):
         ):
             webhook.clean()
 
-    @mock.patch("fleetpings.models.AA_FLEETPINGS_WEBHOOK_VERIFICATION", False)
     def test_discord_webhook_does_not_throw_exception(self):
         """
         Test we do not get a ValidationError for an invalid Discord webhook when
@@ -76,6 +72,10 @@ class TestModels(TestCase):
         """
 
         # given
+        settings = Setting.objects.get(pk=1)
+        settings.webhook_verification = False
+        settings.save()
+
         webhook = Webhook(url=("http://test/a/bad/webhook"))
 
         self.assertIsNone(webhook.clean())

@@ -44,13 +44,15 @@ from fleetpings.models import (
     Webhook,
 )
 
-if (
-    fittings_installed() is True
-    and Setting.objects.get_setting(Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE)
-    is True
-):
-    # Third Party
-    from fittings.views import _get_docs_qs
+
+def _use_fleet_doctrines() -> bool:
+    return (
+        fittings_installed() is True
+        and Setting.objects.get_setting(
+            Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE
+        )
+        is True
+    )
 
 
 logger = LoggerAddTag(get_extension_logger(__name__), __title__)
@@ -235,18 +237,11 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
 
     logger.info(f"Getting fleet doctrines for user {request.user}")
 
-    use_fleet_doctrines = False
-    if (
-        fittings_installed() is True
-        and Setting.objects.get_setting(
-            Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE
-        )
-        is True
-    ):
-        use_fleet_doctrines = True
-
     # Get doctrines
-    if use_fleet_doctrines is True:
+    if _use_fleet_doctrines() is True:
+        # Third Party
+        from fittings.views import _get_docs_qs
+
         groups = request.user.groups.all()
         doctrines = _get_docs_qs(request, groups).order_by("name")
     else:
@@ -263,7 +258,7 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/fleet-doctrine.html",
-        {"doctrines": doctrines, "use_fleet_doctrines": use_fleet_doctrines},
+        {"doctrines": doctrines, "use_fleet_doctrines": _use_fleet_doctrines()},
     )
 
 

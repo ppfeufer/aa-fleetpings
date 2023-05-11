@@ -16,10 +16,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 # AA Fleet Pings
-from fleetpings.app_settings import (
-    AA_FLEETPINGS_WEBHOOK_VERIFICATION,
-    discord_service_installed,
-)
+from fleetpings.app_settings import discord_service_installed
 from fleetpings.constants import DISCORD_WEBHOOK_REGEX
 from fleetpings.managers import SettingManager
 
@@ -460,11 +457,10 @@ class Webhook(models.Model):
         :return:
         """
 
-        # Check if it's an actual webhook url if the verification setting is set.
-        if (
-            not re.match(DISCORD_WEBHOOK_REGEX, self.url)
-            and AA_FLEETPINGS_WEBHOOK_VERIFICATION
-        ):
+        # Check if it's an actual Discord Webhook URL if the verification setting is set.
+        if not re.match(
+            DISCORD_WEBHOOK_REGEX, self.url
+        ) and Setting.objects.get_setting(Setting.Field.WEBHOOK_VERIFICATION):
             raise ValidationError(
                 _(
                     "Invalid webhook URL. The webhook URL you entered does not match "

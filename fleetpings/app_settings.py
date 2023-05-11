@@ -6,14 +6,6 @@ App setting
 from django.apps import apps
 from django.core.handlers.wsgi import WSGIRequest
 
-# AA Fleet Pings
-from fleetpings.utils import clean_setting
-
-# Allow non discord webhook url's
-AA_FLEETPINGS_WEBHOOK_VERIFICATION = clean_setting(
-    "AA_FLEETPINGS_WEBHOOK_VERIFICATION", True
-)
-
 
 def timezones_installed() -> bool:
     """

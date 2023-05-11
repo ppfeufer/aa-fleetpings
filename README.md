@@ -32,8 +32,10 @@ Discord.
     * [View in Alliance Auth](#view-in-alliance-auth)
     * [Discord Ping Example](#discord-ping-example)
   * [Configuration](#configuration)
+    * [Use Default Fleet Types](#use-default-fleet-types)
+    * [Use Default Ping Targets](#use-default-ping-targets)
     * [Use Doctrines From Fittings Module](#use-doctrines-from-fittings-module)
-    * [Allow Non Discord Webhooks](#allow-non-discord-webhooks)
+    * [Webhook Verification](#webhook-verification)
   * [Changelog](#changelog)
   * [Contributing](#contributing)
 <!-- TOC -->
@@ -117,6 +119,7 @@ Finally, restart your AA supervisor services.
 
 ![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/images/aa-view.jpg "View in Alliance Auth")
 
+
 ### Discord Ping Example
 
 ![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/images/discord-ping.jpg "Discord Ping Example")
@@ -124,12 +127,20 @@ Finally, restart your AA supervisor services.
 
 ## Configuration
 
-The following settings can be made in your `local.py`:
+The following settings are available in the Django Admin Backend under
+`/admin/fleetpings/setting/`:
 
-| Setting                                            | Description                                                                             | Default |
-|:---------------------------------------------------|:----------------------------------------------------------------------------------------|:--------|
-| `AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE` | Enables integration with the [Fittings and Doctrines] module for doctrine suggestion.   | `False` |
-| `AA_FLEETPINGS_WEBHOOK_VERIFICATION`               | Enables or disables verification of webhook URLs to see if it's a valid Discord webhook | `True`  |
+
+### Use Default Fleet Types
+
+Enable or disable the default fleet types (Roaming, Home Defense, StratOP, and CTA)
+that are shown in the fleet type dropdown in addition to your own.
+
+
+### Use Default Ping Targets
+
+Enable or disable the default ping targets (@everyone and @here) that are shown in
+the ping target dropdown in addition to your own.
 
 
 ### Use Doctrines From Fittings Module
@@ -139,30 +150,14 @@ configured there, you don't have to re-build your doctrine list for this module.
 can simply use the doctrines you already have configured in the Fittings and
 Doctrines module.
 
-To do so, add the following to your `local.py`:
 
-```python
-## AA Fleet Pings
-AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = True
-```
+### Webhook Verification
 
-### Allow Non Discord Webhooks
+If you require your pings to be sent to a webhook, that is not a standard discord
+webhook.
 
-If you require your pings to be sent to a webhook that is not a standard discord
-webhook, add the following to your `local.py`:
-
-```python
-## AA Fleet Pings
-AA_FLEETPINGS_WEBHOOK_VERIFICATION = False
-```
-
-When disabling webhook verification and using non Discord webhooks, it is up to you
+When disabling webhook verification and using non-Discord webhooks, it is up to you
 to make sure your webhook understands a payload that is formatted for Discord webhooks.
-
-<!-- URLs -->
-[Fittings and Doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
-[Discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
-[AA installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"
 
 
 ## Changelog
@@ -176,3 +171,9 @@ You want to contribute to this project? That's cool!
 
 Please make sure to read the [Contribution Guidelines](https://github.com/ppfeufer/aa-fleetpings/blob/master/CONTRIBUTING.md)
 (I promise, it's not much, just some basics)
+
+
+<!-- URLs -->
+[Fittings and Doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
+[Discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
+[AA installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"

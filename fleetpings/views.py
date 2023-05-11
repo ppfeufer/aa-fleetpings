@@ -30,6 +30,7 @@ from fleetpings.app_settings import (
     optimer_installed,
     srp_module_installed,
     srp_module_is,
+    use_fittings_module_for_doctrines,
 )
 from fleetpings.form import FleetPingForm
 from fleetpings.helper.discord_webhook import ping_discord_webhook
@@ -43,17 +44,6 @@ from fleetpings.models import (
     Setting,
     Webhook,
 )
-
-
-def _use_fleet_doctrines() -> bool:
-    return (
-        fittings_installed() is True
-        and Setting.objects.get_setting(
-            Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE
-        )
-        is True
-    )
-
 
 logger = LoggerAddTag(get_extension_logger(__name__), __title__)
 
@@ -238,7 +228,7 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     logger.info(f"Getting fleet doctrines for user {request.user}")
 
     # Get doctrines
-    if _use_fleet_doctrines() is True:
+    if use_fittings_module_for_doctrines() is True:
         # Third Party
         from fittings.views import _get_docs_qs
 
@@ -258,7 +248,10 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/fleet-doctrine.html",
-        {"doctrines": doctrines, "use_fleet_doctrines": _use_fleet_doctrines()},
+        {
+            "doctrines": doctrines,
+            "use_fleet_doctrines": use_fittings_module_for_doctrines(),
+        },
     )
 
 

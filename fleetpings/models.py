@@ -49,11 +49,11 @@ def _get_discord_group_info(ping_target: Group) -> dict:
         raise ValidationError(
             _("Are you sure you have your Discord linked to your Alliance Auth?")
         ) from http_error
-    else:
-        if not discord_group_info:
-            raise ValidationError(_("This group has not been synced to Discord yet."))
 
-        return discord_group_info
+    if not discord_group_info:
+        raise ValidationError(_("This group has not been synced to Discord yet."))
+
+    return discord_group_info
 
 
 class AaFleetpings(models.Model):
@@ -198,7 +198,7 @@ class FormupLocation(models.Model):
         help_text=_("You can add notes about this configuration here if you want"),
     )
 
-    # Is formup location active
+    # Is formup location active?
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
@@ -260,7 +260,7 @@ class DiscordPingTargets(models.Model):
         help_text=_("You can add notes about this configuration here if you want"),
     )
 
-    # Is this group active
+    # Is this group active?
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
@@ -399,7 +399,7 @@ class Webhook(models.Model):
         help_text=_("You can add notes about this webhook here if you want"),
     )
 
-    # Is it enabled
+    # Is it enabled?
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,

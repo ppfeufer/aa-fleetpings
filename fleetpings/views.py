@@ -422,7 +422,7 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
 
                 context["message"] = str(_("Fleet operations timer has been created …"))
 
-            # Create SRP link if requested
+            # Create an SRP link if requested
             if srp_module_installed() and ping_context["srp"]["create_srp_link"]:
                 ping_context["srp"]["link"] = _create_srp_link(
                     request=request,

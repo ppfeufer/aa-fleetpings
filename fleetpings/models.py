@@ -483,17 +483,17 @@ class Setting(SingletonModel):
         """
 
         USE_DEFAULT_FLEET_TYPES = "use_default_fleet_types", _(
-            "Use default fleet types"
+            "Use default fleet types."
         )
         USE_DEFAULT_PING_TARGETS = "use_default_ping_targets", _(
-            "Use default ping targets"
+            "Use default ping targets."
         )
         USE_DOCTRINES_FROM_FITTINGS_MODULE = "use_doctrines_from_fittings_module", _(
-            "Use Doctrines from Fittings module"
+            "Use Doctrines from Fittings module."
         )
         WEBHOOK_VERIFICATION = "webhook_verification", _("Verify Webhooks")
         DEFAULT_EMBED_COLOR = "default_embed_color", _(
-            "Default highlight color for the webhook embed"
+            "Default highlight color for the webhook embed."
         )
 
     use_default_fleet_types = models.BooleanField(
@@ -540,7 +540,7 @@ class Setting(SingletonModel):
         default="#FAA61A",
         max_length=7,
         blank=True,
-        help_text=_("Default highlight color for the embed."),
+        help_text=_("Default highlight color for the webhook embed."),
     )
 
     objects = SettingManager()

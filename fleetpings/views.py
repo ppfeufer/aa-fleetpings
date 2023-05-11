@@ -41,6 +41,7 @@ from fleetpings.models import (
     FleetDoctrine,
     FleetType,
     FormupLocation,
+    Setting,
     Webhook,
 )
 
@@ -79,7 +80,6 @@ def index(request: WSGIRequest) -> HttpResponse:
             is_enabled=True,
         ).exists(),
         "site_url": site_absolute_url(),
-        # "timezones_installed": timezones_installed(),
         "optimer_installed": optimer_installed(),
         "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,
@@ -114,7 +114,12 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/ping-targets.html",
-        {"ping_targets": additional_discord_ping_targets},
+        {
+            "ping_targets": additional_discord_ping_targets,
+            "use_default_ping_targets": Setting.objects.get_setting(
+                Setting.Field.USE_DEFAULT_PING_TARGETS
+            ),
+        },
     )
 
 
@@ -170,7 +175,12 @@ def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/fleet-type.html",
-        {"fleet_types": fleet_types},
+        {
+            "fleet_types": fleet_types,
+            "use_default_fleet_types": Setting.objects.get_setting(
+                Setting.Field.USE_DEFAULT_FLEET_TYPES
+            ),
+        },
     )
 
 

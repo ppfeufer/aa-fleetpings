@@ -1,0 +1,7 @@
+{% for fleet_type in fleet_types %}
+    {% if fleet_type.embed_color %}
+        <option value="{{ fleet_type.name }}" data-embed-color="{{ fleet_type.embed_color }}">{{ fleet_type.name }}</option>
+    {% else %}
+        <option value="{{ fleet_type.name }}" data-embed-color="#FAA61A">{{ fleet_type.name }}</option>
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,3 @@
+{% for ping_target in ping_targets %}
+    <option value="{{ ping_target.discord_id }}">@{{ ping_target.name }}</option>
+{% endfor %}

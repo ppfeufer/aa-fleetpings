@@ -16,14 +16,11 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 # AA Fleet Pings
-from fleetpings.app_settings import (
-    AA_FLEETPINGS_WEBHOOK_VERIFICATION,
-    discord_service_installed,
-)
+from fleetpings.app_settings import discord_service_installed
+from fleetpings.constants import DISCORD_WEBHOOK_REGEX
+from fleetpings.managers import SettingManager
 
 # Check if the Discord service is active
-from fleetpings.constants import DISCORD_WEBHOOK_REGEX
-
 if discord_service_installed():
     # Alliance Auth
     from allianceauth.services.modules.discord.models import DiscordUser
@@ -54,6 +51,42 @@ def _get_discord_group_info(ping_target: Group) -> dict:
         raise ValidationError(_("This group has not been synced to Discord yet."))
 
     return discord_group_info
+
+
+class SingletonModel(models.Model):
+    """
+    SingletonModel
+    """
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        Model meta definitions
+        """
+
+        abstract = True
+
+    def save(self, *args, **kwargs):
+        """
+        Save action
+        :param args:
+        :param kwargs:
+        :return:
+        """
+
+        if self.__class__.objects.count():
+            self.pk = self.__class__.objects.first().pk
+
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        """
+        Delete action
+        :param args:
+        :param kwargs:
+        :return:
+        """
+
+        pass  # pylint: disable=unnecessary-pass
 
 
 class AaFleetpings(models.Model):
@@ -321,7 +354,7 @@ class FleetType(models.Model):
     embed_color = models.CharField(
         max_length=7,
         blank=True,
-        help_text=_("Hightlight color for the embed"),
+        help_text=_("Highlight color for the embed"),
     )
 
     # Restrictions
@@ -424,11 +457,10 @@ class Webhook(models.Model):
         :return:
         """
 
-        # Check if it's an actual webhook url if the verification setting is set.
-        if (
-            not re.match(DISCORD_WEBHOOK_REGEX, self.url)
-            and AA_FLEETPINGS_WEBHOOK_VERIFICATION
-        ):
+        # Check if it's an actual Discord Webhook URL if the verification setting is set.
+        if not re.match(
+            DISCORD_WEBHOOK_REGEX, self.url
+        ) and Setting.objects.get_setting(Setting.Field.WEBHOOK_VERIFICATION):
             raise ValidationError(
                 _(
                     "Invalid webhook URL. The webhook URL you entered does not match "
@@ -438,3 +470,89 @@ class Webhook(models.Model):
             )
 
         super().clean()
+
+
+class Setting(SingletonModel):
+    """
+    Default forum settings
+    """
+
+    class Field(models.TextChoices):
+        """
+        Choices for Setting.Field
+        """
+
+        USE_DEFAULT_FLEET_TYPES = "use_default_fleet_types", _(
+            "Use default fleet types"
+        )
+        USE_DEFAULT_PING_TARGETS = "use_default_ping_targets", _(
+            "Use default ping targets"
+        )
+        USE_DOCTRINES_FROM_FITTINGS_MODULE = "use_doctrines_from_fittings_module", _(
+            "Use Doctrines from Fittings module"
+        )
+        WEBHOOK_VERIFICATION = "webhook_verification", _("Verify Webhooks")
+        DEFAULT_EMBED_COLOR = "default_embed_color", _(
+            "Default highlight color for the webhook embed"
+        )
+
+    use_default_fleet_types = models.BooleanField(
+        default=True,
+        db_index=True,
+        help_text=_(
+            "Whether to use default fleet types. If checked, the default fleet types "
+            "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
+            "dropdown."
+        ),
+    )
+
+    use_default_ping_targets = models.BooleanField(
+        default=True,
+        db_index=True,
+        help_text=_(
+            "Whether to use default ping targets. If checked, the default ping targets "
+            "(@everyone and @here) will be added to the Ping Target dropdown."
+        ),
+    )
+
+    use_doctrines_from_fittings_module = models.BooleanField(
+        default=False,
+        db_index=True,
+        help_text=_(
+            "Whether to use the doctrines from the Fittings modules in the doctrine "
+            "dropdown. Note: The fittings module needs to be installed for this."
+        ),
+    )
+
+    webhook_verification = models.BooleanField(
+        default=True,
+        db_index=True,
+        help_text=_(
+            "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
+            "will not be verified, so the app can be used with non-Discord Webhooks "
+            "as well. When disabling webhook verification and using non-Discord "
+            "webhooks, it is up to you to make sure your webhook understands a payload "
+            "that is formatted for Discord webhooks."
+        ),
+    )
+
+    default_embed_color = models.CharField(
+        default="#FAA61A",
+        max_length=7,
+        blank=True,
+        help_text=_("Default highlight color for the embed."),
+    )
+
+    objects = SettingManager()
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        Meta definitions
+        """
+
+        default_permissions = ()
+        verbose_name = _("setting")
+        verbose_name_plural = _("settings")
+
+    def __str__(self) -> str:
+        return "Fleet Pings Settings"

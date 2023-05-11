@@ -7,13 +7,14 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 # AA Fleet Pings
-from fleetpings.form import FleetTypeAdminForm
+from fleetpings.form import FleetTypeAdminForm, SettingAdminForm
 from fleetpings.models import (
     DiscordPingTargets,
     FleetComm,
     FleetDoctrine,
     FleetType,
     FormupLocation,
+    Setting,
     Webhook,
 )
 
@@ -37,6 +38,23 @@ def custom_filter(title):
             return instance
 
     return Wrapper
+
+
+class SingletonModelAdmin(admin.ModelAdmin):
+    """
+    Prevents Django admin users deleting the singleton or adding extra rows.
+    """
+
+    actions = None  # Removes the default delete action.
+
+    def has_add_permission(self, request):
+        """
+        Has "add" permissions
+        :param request:
+        :return:
+        """
+
+        return self.model.objects.all().count() == 0
 
 
 @admin.register(FleetComm)
@@ -235,3 +253,12 @@ class WebhookAdmin(admin.ModelAdmin):
             return ", ".join(names)
 
         return None
+
+
+@admin.register(Setting)
+class SettingAdmin(SingletonModelAdmin):
+    """
+    Setting Admin
+    """
+
+    form = SettingAdminForm

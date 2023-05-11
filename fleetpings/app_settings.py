@@ -6,19 +6,6 @@ App setting
 from django.apps import apps
 from django.core.handlers.wsgi import WSGIRequest
 
-# AA Fleet Pings
-from fleetpings.utils import clean_setting
-
-# Set default panels if none are set in local.py
-AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
-    "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
-)
-
-# Allow non discord webhook url's
-AA_FLEETPINGS_WEBHOOK_VERIFICATION = clean_setting(
-    "AA_FLEETPINGS_WEBHOOK_VERIFICATION", True
-)
-
 
 def timezones_installed() -> bool:
     """
@@ -96,3 +83,22 @@ def can_add_srp_links(request: WSGIRequest, module_name: str) -> bool:
         return_value = True
 
     return return_value
+
+
+def use_fittings_module_for_doctrines() -> bool:
+    """
+    Check if the Fittings module can be used for the doctrine list
+    :return:
+    :rtype:
+    """
+
+    # AA Fleet Pings
+    from fleetpings.models import Setting
+
+    return (
+        fittings_installed() is True
+        and Setting.objects.get_setting(
+            Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE
+        )
+        is True
+    )

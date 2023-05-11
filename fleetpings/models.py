@@ -20,10 +20,10 @@ from fleetpings.app_settings import (
     AA_FLEETPINGS_WEBHOOK_VERIFICATION,
     discord_service_installed,
 )
+from fleetpings.constants import DISCORD_WEBHOOK_REGEX
+from fleetpings.managers import SettingManager
 
 # Check if the Discord service is active
-from fleetpings.constants import DISCORD_WEBHOOK_REGEX
-
 if discord_service_installed():
     # Alliance Auth
     from allianceauth.services.modules.discord.models import DiscordUser
@@ -54,6 +54,42 @@ def _get_discord_group_info(ping_target: Group) -> dict:
         raise ValidationError(_("This group has not been synced to Discord yet."))
 
     return discord_group_info
+
+
+class SingletonModel(models.Model):
+    """
+    SingletonModel
+    """
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        Model meta definitions
+        """
+
+        abstract = True
+
+    def save(self, *args, **kwargs):
+        """
+        Save action
+        :param args:
+        :param kwargs:
+        :return:
+        """
+
+        if self.__class__.objects.count():
+            self.pk = self.__class__.objects.first().pk
+
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        """
+        Delete action
+        :param args:
+        :param kwargs:
+        :return:
+        """
+
+        pass  # pylint: disable=unnecessary-pass
 
 
 class AaFleetpings(models.Model):
@@ -438,3 +474,54 @@ class Webhook(models.Model):
             )
 
         super().clean()
+
+
+class Setting(SingletonModel):
+    """
+    Default forum settings
+    """
+
+    class Field(models.TextChoices):
+        """
+        Choices for Setting.Field
+        """
+
+        USE_DEFAULT_FLEET_TYPES = "use_default_fleet_types", _(
+            "Use default fleet types"
+        )
+        USE_DEFAULT_PING_TARGETS = "use_default_ping_targets", _(
+            "Use default ping targets"
+        )
+
+    use_default_fleet_types = models.BooleanField(
+        default=True,
+        db_index=True,
+        help_text=_(
+            "Whether to use default fleet types. If checked, the default fleet types "
+            "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
+            "dropdown."
+        ),
+    )
+
+    use_default_ping_targets = models.BooleanField(
+        default=True,
+        db_index=True,
+        help_text=_(
+            "Whether to use default ping targets. If checked, the default ping targets "
+            "(@everyone and @here) will be added to the Ping Target dropdown."
+        ),
+    )
+
+    objects = SettingManager()
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        Meta definitions
+        """
+
+        default_permissions = ()
+        verbose_name = _("setting")
+        verbose_name_plural = _("settings")
+
+    def __str__(self) -> str:
+        return "Fleet Pings Settings"

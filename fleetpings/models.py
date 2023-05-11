@@ -492,6 +492,10 @@ class Setting(SingletonModel):
         USE_DEFAULT_PING_TARGETS = "use_default_ping_targets", _(
             "Use default ping targets"
         )
+        USE_DOCTRINES_FROM_FITTINGS_MODULE = "use_doctrines_from_fittings_module", _(
+            "Use Doctrines from Fittings module"
+        )
+        WEBHOOK_VERIFICATION = "webhook_verification", _("Verify Webhooks")
 
     use_default_fleet_types = models.BooleanField(
         default=True,
@@ -509,6 +513,26 @@ class Setting(SingletonModel):
         help_text=_(
             "Whether to use default ping targets. If checked, the default ping targets "
             "(@everyone and @here) will be added to the Ping Target dropdown."
+        ),
+    )
+
+    use_doctrines_from_fittings_module = models.BooleanField(
+        default=False,
+        db_index=True,
+        help_text=_(
+            "Whether to use the doctrines from the Fittings modules in the doctrine "
+            "dropdown. Note: The fittings module needs to be installed for this."
+        ),
+    )
+
+    webhook_verification = models.BooleanField(
+        default=True,
+        db_index=True,
+        help_text=_(
+            "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
+            "will not be verified, so the app can be used with non-Discord Webhooks "
+            "as well. This is up to you, not every Webhook might understand what this "
+            "app is sending."
         ),
     )
 

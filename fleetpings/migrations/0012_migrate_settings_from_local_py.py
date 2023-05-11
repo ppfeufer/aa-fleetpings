@@ -1,10 +1,14 @@
 # Django
 from django.db import migrations
 
-default_settings_to_migrate = [
-    {"variable": "useDefaultFleetTypes", "value": True},
-    {"variable": "usedefaultPingTargets", "value": True},
-]
+# AA Fleet Pings
+from fleetpings.utils import clean_setting
+
+use_doctrines_from_fittings_module = clean_setting(
+    "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
+)
+
+webhook_verification = clean_setting("AA_FLEETPINGS_WEBHOOK_VERIFICATION", True)
 
 
 def on_migrate(apps, schema_editor):
@@ -18,7 +22,11 @@ def on_migrate(apps, schema_editor):
     Setting = apps.get_model("fleetpings", "Setting")
     db_alias = schema_editor.connection.alias
 
-    Setting.objects.using(db_alias).create(pk=1)
+    Setting.objects.using(db_alias).create(
+        pk=1,
+        use_doctrines_from_fittings_module=use_doctrines_from_fittings_module,
+        webhook_verification=webhook_verification,
+    )
 
 
 def on_migrate_zero(apps, schema_editor):

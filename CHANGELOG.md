@@ -504,7 +504,7 @@ settings in the admin backend, since we just nuked them from the old app.
 - Configuration for pre-defined fleet comms, formup locations, and doctrines. These
   can be configured in your `local.py` via `AA_DISCORDFORMATTER_FLEET_COMMS`,
   `AA_DISCORDFORMATTER_FLEET_DOCTRINES` and
-  `AA_DISCORDFORMATTER_FLEET_FORMUP_LOCATIONS`. See [README](https://github.com/ppfeufer/aa-discord-ping-formatter#fleet-comms-formup-location-and-doctrine) for syntax.
+  `AA_DISCORDFORMATTER_FLEET_FORMUP_LOCATIONS`.
 
 
 ## [1.0.0] - 2020-07-16
@@ -533,7 +533,7 @@ settings in the admin backend, since we just nuked them from the old app.
 - Option to embed automatic pings via webhook (#13)
 - Embedded pings via webhook are now color coded. Pre-defined fleet types are by
   default (Roam = green, Home Defense = yellow, StratOP = orange, CTA = red), and custom
-  fleet types can be defined via settings (see [README](https://github.com/ppfeufer/aa-discord-ping-formatter#embed-webhook-pings))
+  fleet types can be defined via settings.
 
 ### Changed
 
@@ -555,8 +555,7 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ### Added
 
-- Webhook group restrictions. Webhooks can now be restricted to certain groups (see
-  [README](https://github.com/ppfeufer/aa-discord-ping-formatter#adding-ping-channels)),
+- Webhook group restrictions. Webhooks can now be restricted to certain groups,
   so not everyone who has access to this module can ping through all webhooks.
   Webhooks without restrictions are accessible for all with access to the module.
   (Thanks to Exiom for bringing this up)

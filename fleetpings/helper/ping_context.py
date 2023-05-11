@@ -11,8 +11,7 @@ from fleetpings.app_settings import (
     optimer_installed,
     timezones_installed,
 )
-from fleetpings.constants import DEFAULT_EMBED_COLOR
-from fleetpings.models import DiscordPingTargets, Webhook
+from fleetpings.models import DiscordPingTargets, Setting, Webhook
 
 
 def get_ping_context_from_form_data(form_data: dict) -> dict:
@@ -52,7 +51,9 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
 
     # Check for webhooks
     ping_channel_webhook = None
-    ping_channel_webhook_embed_color = DEFAULT_EMBED_COLOR
+    ping_channel_webhook_embed_color = Setting.objects.get_setting(
+        Setting.Field.DEFAULT_EMBED_COLOR
+    )
 
     if form_data["ping_channel"]:
         try:

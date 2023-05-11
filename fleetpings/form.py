@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 
 # AA Fleet Pings
 from fleetpings.app_settings import timezones_installed
-from fleetpings.models import FleetType
+from fleetpings.models import FleetType, Setting
 
 
 def _get_timezones_module_hint_text() -> str:
@@ -60,6 +60,21 @@ class FleetTypeAdminForm(forms.ModelForm):
         model = FleetType
         fields = "__all__"
         widgets = {"embed_color": forms.TextInput(attrs={"type": "color"})}
+
+
+class SettingAdminForm(forms.ModelForm):
+    """
+    Form definitions for the FleetType form in admin
+    """
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """
+        Meta
+        """
+
+        model = Setting
+        fields = "__all__"
+        widgets = {"default_embed_color": forms.TextInput(attrs={"type": "color"})}
 
 
 class FleetPingForm(forms.Form):

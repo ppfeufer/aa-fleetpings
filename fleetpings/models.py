@@ -354,7 +354,7 @@ class FleetType(models.Model):
     embed_color = models.CharField(
         max_length=7,
         blank=True,
-        help_text=_("Hightlight color for the embed"),
+        help_text=_("Highlight color for the embed"),
     )
 
     # Restrictions
@@ -492,6 +492,9 @@ class Setting(SingletonModel):
             "Use Doctrines from Fittings module"
         )
         WEBHOOK_VERIFICATION = "webhook_verification", _("Verify Webhooks")
+        DEFAULT_EMBED_COLOR = "default_embed_color", _(
+            "Default highlight color for the webhook embed"
+        )
 
     use_default_fleet_types = models.BooleanField(
         default=True,
@@ -527,9 +530,17 @@ class Setting(SingletonModel):
         help_text=_(
             "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
             "will not be verified, so the app can be used with non-Discord Webhooks "
-            "as well. This is up to you, not every Webhook might understand what this "
-            "app is sending."
+            "as well. When disabling webhook verification and using non-Discord "
+            "webhooks, it is up to you to make sure your webhook understands a payload "
+            "that is formatted for Discord webhooks."
         ),
+    )
+
+    default_embed_color = models.CharField(
+        default="#FAA61A",
+        max_length=7,
+        blank=True,
+        help_text=_("Default highlight color for the embed."),
     )
 
     objects = SettingManager()

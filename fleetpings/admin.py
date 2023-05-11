@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 # AA Fleet Pings
-from fleetpings.form import FleetTypeAdminForm
+from fleetpings.form import FleetTypeAdminForm, SettingAdminForm
 from fleetpings.models import (
     DiscordPingTargets,
     FleetComm,
@@ -260,3 +260,5 @@ class SettingAdmin(SingletonModelAdmin):
     """
     Setting Admin
     """
+
+    form = SettingAdminForm

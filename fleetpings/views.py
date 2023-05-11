@@ -25,7 +25,6 @@ from app_utils.urls import reverse_absolute, site_absolute_url
 # AA Fleet Pings
 from fleetpings import __title__
 from fleetpings.app_settings import (
-    AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
@@ -47,7 +46,8 @@ from fleetpings.models import (
 
 if (
     fittings_installed() is True
-    and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+    and Setting.objects.get_setting(Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE)
+    is True
 ):
     # Third Party
     from fittings.views import _get_docs_qs
@@ -238,7 +238,10 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     use_fleet_doctrines = False
     if (
         fittings_installed() is True
-        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
+        and Setting.objects.get_setting(
+            Setting.Field.USE_DOCTRINES_FROM_FITTINGS_MODULE
+        )
+        is True
     ):
         use_fleet_doctrines = True
 

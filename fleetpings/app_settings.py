@@ -9,11 +9,6 @@ from django.core.handlers.wsgi import WSGIRequest
 # AA Fleet Pings
 from fleetpings.utils import clean_setting
 
-# Set default panels if none are set in local.py
-AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE = clean_setting(
-    "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
-)
-
 # Allow non discord webhook url's
 AA_FLEETPINGS_WEBHOOK_VERIFICATION = clean_setting(
     "AA_FLEETPINGS_WEBHOOK_VERIFICATION", True

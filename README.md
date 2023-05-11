@@ -36,6 +36,7 @@ Discord.
     * [Use Default Ping Targets](#use-default-ping-targets)
     * [Use Doctrines From Fittings Module](#use-doctrines-from-fittings-module)
     * [Webhook Verification](#webhook-verification)
+    * [Default Embed Color](#default-embed-color)
   * [Changelog](#changelog)
   * [Contributing](#contributing)
 <!-- TOC -->

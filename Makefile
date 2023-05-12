@@ -37,7 +37,7 @@ graph_models:
 
 coverage:
 	rm -rfv htmlcov && \
-	coverage run ../myauth/manage.py test $(package) --keepdb --failfast && coverage html && coverage report -m
+	coverage run ../myauth/manage.py test $(package) --keepdb --failfast -v 3 && coverage html && coverage report -m
 
 build_test:
 	rm -rfv dist && \

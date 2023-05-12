@@ -2,6 +2,9 @@
 Test models
 """
 
+# Standard Library
+from unittest import mock
+
 # Django
 from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
@@ -64,20 +67,26 @@ class TestModels(TestCase):
         ):
             webhook.clean()
 
-    def test_discord_webhook_does_not_throw_exception(self):
+    @mock.patch(
+        "fleetpings.models.Setting.webhook_verification",
+        new_callable=mock.PropertyMock,
+    )
+    def test_discord_webhook_should_not_throw_exception_with_verification_false(
+        self, webhook_verification
+    ):
         """
         Test we do not get a ValidationError for an invalid Discord webhook when
-        AA_FLEETPINGS_WEBHOOK_VERIFICATION is set to False
+        settings.webhook_verification is set to False
         :return:
         """
 
         # given
-        settings = Setting.objects.get(pk=1)
-        settings.webhook_verification = False
-        settings.save()
+        webhook_verification.return_value = False
 
-        webhook = Webhook(url=("http://test/a/bad/webhook"))
+        # when
+        webhook = Webhook(url="http://test/a/bad/webhook")
 
+        # then
         self.assertIsNone(webhook.clean())
 
     def test_doctrine_link_should_throw_exception(self):

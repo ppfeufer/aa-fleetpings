@@ -28,8 +28,9 @@ def get_character_portrait_from_evecharacter(
     if as_html is True:
         character_name = character.character_name
         return_value = (
-            '<img class="aasrp-character-portrait img-rounded" '
-            f'src="{portrait_url}" alt="{character_name}">'
+            '<img class="aa-fleetpings-character-portrait img-rounded" '
+            f'src="{portrait_url}" alt="{character_name}" '
+            f'width="{size}" height="{size}">'
         )
 
     return return_value

@@ -51,10 +51,38 @@ class SingletonModelAdmin(admin.ModelAdmin):
         """
         Has "add" permissions
         :param request:
+        :type request:
         :return:
+        :rtype:
         """
 
         return self.model.objects.all().count() == 0
+
+    def has_change_permission(self, request, obj=None):
+        """
+        Has "change" permissions
+        :param request:
+        :type request:
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
+        return True
+
+    def has_delete_permission(self, request, obj=None):
+        """
+        Has "delete" permissions
+        :param request:
+        :type request:
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
+        return False
 
 
 @admin.register(FleetComm)

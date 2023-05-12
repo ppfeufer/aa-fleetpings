@@ -23,6 +23,8 @@ class TestHelperEveImages(TestCase):
         Set up groups and users
         """
 
+        super().setUpClass()
+
         cls.user_1001 = create_fake_user(1001, "Peter Parker")
 
     def test_should_return_character_portrait_url(self):

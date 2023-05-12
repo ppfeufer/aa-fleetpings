@@ -1,5 +1,5 @@
 """
-Test for our helper functions
+Tests for the eve_images helper
 """
 
 # Django
@@ -14,7 +14,7 @@ from fleetpings.helper.eve_images import get_character_portrait_from_evecharacte
 
 class TestHelperEveImages(TestCase):
     """
-    Test fleetpings_versioned_static template tag
+    Test eve_images helper
     """
 
     @classmethod

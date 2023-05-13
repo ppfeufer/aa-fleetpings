@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 16:55+0200\n"
+"POT-Creation-Date: 2023-05-13 16:59+0200\n"
 "PO-Revision-Date: 2023-05-13 08:15+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -53,9 +53,11 @@ msgstr "Тип флоту"
 msgid "Embed color"
 msgstr "Колір вставки Webhook"
 
-#: admin.py:273
-msgid "Channel name"
-msgstr ""
+#: admin.py:273 models.py:431
+#, fuzzy
+#| msgid "Discord Markdown"
+msgid "Discord channel"
+msgstr "Discord markdown"
 
 #: admin.py:278 models.py:444
 #, fuzzy
@@ -341,12 +343,6 @@ msgstr "Типи флоту"
 #: models.py:430
 msgid "Name of the channel this webhook posts to"
 msgstr "Назва каналу, на який публікується цей веб-хук"
-
-#: models.py:431
-#, fuzzy
-#| msgid "Discord Markdown"
-msgid "Discord channel"
-msgstr "Discord markdown"
 
 #: models.py:440
 msgid ""

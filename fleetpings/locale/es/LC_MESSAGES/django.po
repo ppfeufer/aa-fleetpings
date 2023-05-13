@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 16:55+0200\n"
+"POT-Creation-Date: 2023-05-13 16:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,8 +47,8 @@ msgstr ""
 msgid "Embed color"
 msgstr ""
 
-#: admin.py:273
-msgid "Channel name"
+#: admin.py:273 models.py:431
+msgid "Discord channel"
 msgstr ""
 
 #: admin.py:278 models.py:444
@@ -312,10 +312,6 @@ msgstr ""
 
 #: models.py:430
 msgid "Name of the channel this webhook posts to"
-msgstr ""
-
-#: models.py:431
-msgid "Discord channel"
 msgstr ""
 
 #: models.py:440

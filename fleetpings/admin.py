@@ -270,7 +270,7 @@ class WebhookAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description=_("Channel name"), ordering="name")
+    @admin.display(description=_("Discord channel"), ordering="name")
     def _name(cls, obj):
         return obj.name
 

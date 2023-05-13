@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 16:55+0200\n"
+"POT-Creation-Date: 2023-05-13 16:59+0200\n"
 "PO-Revision-Date: 2023-05-13 13:44+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -51,9 +51,11 @@ msgstr "Flottenart"
 msgid "Embed color"
 msgstr "Webhook Embed Farbe"
 
-#: admin.py:273
-msgid "Channel name"
-msgstr ""
+#: admin.py:273 models.py:431
+#, fuzzy
+#| msgid "Discord Markdown"
+msgid "Discord channel"
+msgstr "Discord Markdown"
 
 #: admin.py:278 models.py:444
 #, fuzzy
@@ -342,12 +344,6 @@ msgstr "Flottenarten"
 #: models.py:430
 msgid "Name of the channel this webhook posts to"
 msgstr "Name des Kanals in dem dieser Webhook postet"
-
-#: models.py:431
-#, fuzzy
-#| msgid "Discord Markdown"
-msgid "Discord channel"
-msgstr "Discord Markdown"
 
 #: models.py:440
 msgid ""

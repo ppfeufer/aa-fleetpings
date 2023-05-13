@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 19:59+0200\n"
+"POT-Creation-Date: 2023-05-13 11:04+0200\n"
 "PO-Revision-Date: 2023-05-13 08:15+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/uk/>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -377,6 +377,10 @@ msgstr ""
 
 #: models.py:555
 msgid "settings"
+msgstr ""
+
+#: models.py:558
+msgid "Fleet Pings Settings"
 msgstr ""
 
 #: templates/fleetpings/base.html:5 templates/fleetpings/base.html:8

@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Migrated settings from `local.py` to the database
+- German translation updated
+- Russian translation updated
+- Ukrainian translation updated (not complete yet, currently at 90% translated)
+
+### Update Notes:
+
+After this update and successful migration, you can remove this app's settings from
+your `local.py`. All settings are now handled through the Django Admin Backend under
+`/admin/fleetpings/setting/`
 
 
 ## [2.21.0] - 2023-04-25

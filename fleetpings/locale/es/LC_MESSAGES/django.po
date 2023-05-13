@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 19:59+0200\n"
+"POT-Creation-Date: 2023-05-13 11:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -352,6 +352,10 @@ msgstr ""
 
 #: models.py:555
 msgid "settings"
+msgstr ""
+
+#: models.py:558
+msgid "Fleet Pings Settings"
 msgstr ""
 
 #: templates/fleetpings/base.html:5 templates/fleetpings/base.html:8

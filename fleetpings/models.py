@@ -555,4 +555,4 @@ class Setting(SingletonModel):
         verbose_name_plural = _("settings")
 
     def __str__(self) -> str:
-        return "Fleet Pings Settings"
+        return str(_("Fleet Pings Settings"))

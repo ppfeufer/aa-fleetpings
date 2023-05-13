@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-13 16:59+0200\n"
-"PO-Revision-Date: 2023-05-13 13:44+0000\n"
+"PO-Revision-Date: 2023-05-13 17:22+0000\n"
 "Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/ru/>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,15 +29,13 @@ msgid "Doctrine"
 msgstr "Формат"
 
 #: admin.py:126 models.py:166
-#, fuzzy
-#| msgid "Doctrine"
 msgid "Doctrine link"
-msgstr "Формат"
+msgstr "Ссылка на формат"
 
 #: admin.py:132 admin.py:185 admin.py:239 admin.py:284 models.py:175
 #: models.py:304 models.py:388 models.py:453
 msgid "Group restrictions"
-msgstr ""
+msgstr "Ограничения групп"
 
 #: admin.py:179 form.py:87
 msgid "Ping Target"
@@ -48,22 +46,16 @@ msgid "Fleet Type"
 msgstr "Тип флота"
 
 #: admin.py:226 models.py:379
-#, fuzzy
-#| msgid "Webhook Embed Color"
 msgid "Embed color"
-msgstr "Вебхук Embed Color"
+msgstr "Цвет встраивания"
 
 #: admin.py:273 models.py:431
-#, fuzzy
-#| msgid "Discord Markdown"
 msgid "Discord channel"
-msgstr "Форматирование для Discord"
+msgstr "Канал Discord"
 
 #: admin.py:278 models.py:444
-#, fuzzy
-#| msgid "Webhook"
 msgid "Webhook URL"
-msgstr "Вебхук"
+msgstr "Вебхук URL"
 
 #: form.py:22
 msgid ""
@@ -221,10 +213,8 @@ msgid "Short name to identify this comms"
 msgstr "Короткое название голосового канала"
 
 #: models.py:117 models.py:158 models.py:237 models.py:371
-#, fuzzy
-#| msgid "FC Name"
 msgid "Name"
-msgstr "Имя командира флота"
+msgstr "Название"
 
 #: models.py:123 models.py:182 models.py:244 models.py:311 models.py:395
 msgid "You can add notes about this configuration here if you want"
@@ -233,7 +223,7 @@ msgstr "Здесь Вы можете добавить примечания дл�
 #: models.py:124 models.py:183 models.py:245 models.py:312 models.py:396
 #: models.py:461
 msgid "Notes"
-msgstr ""
+msgstr "Примечания"
 
 #: models.py:130
 msgid "Whether this comms is enabled or not"
@@ -242,7 +232,7 @@ msgstr "Активен или нет голосовой канал"
 #: models.py:131 models.py:191 models.py:253 models.py:320 models.py:404
 #: models.py:469
 msgid "Is enabled"
-msgstr ""
+msgstr "Разрешен"
 
 #: models.py:157
 msgid "Short name to identify this doctrine"
@@ -294,17 +284,15 @@ msgstr ""
 
 #: models.py:286
 msgid "Group name"
-msgstr ""
+msgstr "Название группы"
 
 #: models.py:294
 msgid "ID of the Discord role to ping"
 msgstr "ID роли Discord для пинга"
 
 #: models.py:295
-#, fuzzy
-#| msgid "Discord Markdown"
 msgid "Discord ID"
-msgstr "Форматирование для Discord"
+msgstr "Идентификатор Discord"
 
 #: models.py:303 models.py:452
 msgid "Restrict ping rights to the following group(s) …"
@@ -373,22 +361,16 @@ msgstr ""
 "вебхуков Discord. Пожалуйста, проверьте URL."
 
 #: models.py:516
-#, fuzzy
-#| msgid "Use default fleet types."
 msgid "Use default fleet types"
-msgstr "Использовать типы флотов по умолчанию."
+msgstr "Использовать типы флотов по умолчанию"
 
 #: models.py:519
-#, fuzzy
-#| msgid "Use default ping targets."
 msgid "Use default ping targets"
-msgstr "Использовать цель пинга по умолчанию."
+msgstr "Использовать цель пинга по умолчанию"
 
 #: models.py:522
-#, fuzzy
-#| msgid "Use Doctrines from Fittings module."
 msgid "Use Doctrines from Fittings module"
-msgstr "Использовать форматы из модуля Fittings."
+msgstr "Использовать форматы из модуля Fittings"
 
 #: models.py:524
 msgid "Verify Webhooks"
@@ -396,7 +378,7 @@ msgstr "Проверять Вебхуки"
 
 #: models.py:525
 msgid "Default embed color"
-msgstr ""
+msgstr "Цвет встраивания по умолчанию"
 
 #: models.py:531
 msgid ""

@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-11 19:59+0200\n"
-"PO-Revision-Date: 2023-04-27 19:50+0000\n"
+"PO-Revision-Date: 2023-05-13 08:15+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/ru/>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -268,10 +268,8 @@ msgid "Short name to identify this fleet type"
 msgstr "Короткое название типа флота"
 
 #: models.py:357
-#, fuzzy
-#| msgid "Hightlight color for the embed"
 msgid "Highlight color for the embed"
-msgstr "Цвет подсветки"
+msgstr "Цвет при встраивании"
 
 #: models.py:365
 msgid "Restrict this fleet type to the following group(s) …"
@@ -321,27 +319,23 @@ msgstr ""
 
 #: models.py:486
 msgid "Use default fleet types."
-msgstr ""
+msgstr "Использовать типы флотов по умолчанию."
 
 #: models.py:489
 msgid "Use default ping targets."
-msgstr ""
+msgstr "Использовать цель пинга по умолчанию."
 
 #: models.py:492
 msgid "Use Doctrines from Fittings module."
-msgstr ""
+msgstr "Использовать форматы из модуля Fittings."
 
 #: models.py:494
-#, fuzzy
-#| msgid "Webhooks"
 msgid "Verify Webhooks"
-msgstr "Вебхуки"
+msgstr "Проверять Вебхуки"
 
 #: models.py:496 models.py:543
-#, fuzzy
-#| msgid "Hightlight color for the embed"
 msgid "Default highlight color for the webhook embed."
-msgstr "Цвет подсветки"
+msgstr "Цвет подсветки по умолчанию для встраивания webhook."
 
 #: models.py:503
 msgid ""
@@ -349,18 +343,24 @@ msgid ""
 "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
 "dropdown."
 msgstr ""
+"Использование типов флотов по умолчанию. Если установлен, стандартные типы "
+"флотов (роум, хоумдеф, стратоп и КТА) будут добавлены в список Тип Флота."
 
 #: models.py:513
 msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
 msgstr ""
+"Использование целей пинга по умолчанию. Если установлен, стандартные цели "
+"пинга (@everyone и @here) будут добавлены в список Цель Пинга."
 
 #: models.py:522
 msgid ""
 "Whether to use the doctrines from the Fittings modules in the doctrine "
 "dropdown. Note: The fittings module needs to be installed for this."
 msgstr ""
+"Использование форматов из модуля Fittings в списке выбора формата. "
+"Примечание: модуль Fittings должен быть установлен."
 
 #: models.py:531
 msgid ""
@@ -370,14 +370,18 @@ msgid ""
 "is up to you to make sure your webhook understands a payload that is "
 "formatted for Discord webhooks."
 msgstr ""
+"Проверка Webhooks URL. Примечание: Если сброшен, Webhook URL не будет "
+"проверяться, таким образом приложение может быть использовано с не-Discord "
+"Webhook. При выключенной проверке для не-Discord Webhook, убедитесь, что ваш "
+"Webhook понимает данные в формате Discord."
 
 #: models.py:554
 msgid "setting"
-msgstr ""
+msgstr "настройка"
 
 #: models.py:555
 msgid "settings"
-msgstr ""
+msgstr "настройки"
 
 #: templates/fleetpings/base.html:5 templates/fleetpings/base.html:8
 msgid "Fleet Ping Tool"

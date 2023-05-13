@@ -597,6 +597,3 @@ msgstr "Formular ungültig. Bitte die Angaben prüfen."
 #: views.py:452
 msgid "No form data submitted."
 msgstr "Keine Formulardaten übermittelt."
-
-#~ msgid "Channel name"
-#~ msgstr "Kanalname"

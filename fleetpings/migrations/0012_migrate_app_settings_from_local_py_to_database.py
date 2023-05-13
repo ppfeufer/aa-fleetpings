@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
     """
 
     dependencies = [
-        ("fleetpings", "0011_setting"),
+        ("fleetpings", "0011_settings_and_verbose_names"),
     ]
 
     operations = [migrations.RunPython(on_migrate, on_migrate_zero)]

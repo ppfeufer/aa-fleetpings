@@ -111,19 +111,24 @@ class FleetComm(models.Model):
     """
 
     name = models.CharField(
-        max_length=255, unique=True, help_text=_("Short name to identify this comms")
+        max_length=255,
+        unique=True,
+        help_text=_("Short name to identify this comms"),
+        verbose_name=_("Name"),
     )
 
     notes = models.TextField(
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
+        verbose_name=_("Notes"),
     )
 
     is_enabled = models.BooleanField(
         default=True,
         db_index=True,
         help_text=_("Whether this comms is enabled or not"),
+        verbose_name=_("Is enabled"),
     )
 
     def __str__(self) -> str:
@@ -147,14 +152,18 @@ class FleetDoctrine(models.Model):
 
     # Doctrine name
     name = models.CharField(
-        max_length=255, unique=True, help_text=_("Short name to identify this doctrine")
+        max_length=255,
+        unique=True,
+        help_text=_("Short name to identify this doctrine"),
+        verbose_name=_("Name"),
     )
 
     # Link to your doctrine
     link = models.CharField(
         max_length=255,
-        help_text=_("A link to a doctrine page for this doctrine if you have."),
         blank=True,
+        help_text=_("A link to a doctrine page for this doctrine if you have."),
+        verbose_name=_("Doctrine link"),
     )
 
     # Restrictions
@@ -163,6 +172,7 @@ class FleetDoctrine(models.Model):
         blank=True,
         related_name="fleetdoctrine_require_groups",
         help_text=_("Restrict this doctrine to the following group(s) …"),
+        verbose_name=_("Group restrictions"),
     )
 
     # Doctrine notes
@@ -170,6 +180,7 @@ class FleetDoctrine(models.Model):
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
+        verbose_name=_("Notes"),
     )
 
     # Is doctrine active
@@ -177,6 +188,7 @@ class FleetDoctrine(models.Model):
         default=True,
         db_index=True,
         help_text=_("Whether this doctrine is enabled or not"),
+        verbose_name=_("Is enabled"),
     )
 
     def clean(self):
@@ -222,6 +234,7 @@ class FormupLocation(models.Model):
         max_length=255,
         unique=True,
         help_text=_("Short name to identify this formup location"),
+        verbose_name=_("Name"),
     )
 
     # Formup location notes
@@ -229,6 +242,7 @@ class FormupLocation(models.Model):
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
+        verbose_name=_("Notes"),
     )
 
     # Is formup location active?
@@ -236,6 +250,7 @@ class FormupLocation(models.Model):
         default=True,
         db_index=True,
         help_text=_("Whether this formup location is enabled or not"),
+        verbose_name=_("Is enabled"),
     )
 
     def __str__(self) -> str:
@@ -268,6 +283,7 @@ class DiscordPingTargets(models.Model):
                 "(Note: This must be an Auth group that is synced to Discord.)"
             )
         ),
+        verbose_name=_("Group name"),
     )
 
     # Discord group id
@@ -276,6 +292,7 @@ class DiscordPingTargets(models.Model):
         unique=True,
         blank=True,
         help_text=_("ID of the Discord role to ping"),
+        verbose_name=_("Discord ID"),
     )
 
     # Restrictions
@@ -284,6 +301,7 @@ class DiscordPingTargets(models.Model):
         blank=True,
         related_name="discord_role_require_groups",
         help_text=_("Restrict ping rights to the following group(s) …"),
+        verbose_name=_("Group restrictions"),
     )
 
     # Notes
@@ -291,6 +309,7 @@ class DiscordPingTargets(models.Model):
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
+        verbose_name=_("Notes"),
     )
 
     # Is this group active?
@@ -298,6 +317,7 @@ class DiscordPingTargets(models.Model):
         default=True,
         db_index=True,
         help_text=_("Whether this formup location is enabled or not"),
+        verbose_name=_("Is enabled"),
     )
 
     def clean(self):
@@ -348,6 +368,7 @@ class FleetType(models.Model):
         max_length=255,
         unique=True,
         help_text=_("Short name to identify this fleet type"),
+        verbose_name=_("Name"),
     )
 
     # Embed color
@@ -355,6 +376,7 @@ class FleetType(models.Model):
         max_length=7,
         blank=True,
         help_text=_("Highlight color for the embed"),
+        verbose_name=_("Embed color"),
     )
 
     # Restrictions
@@ -363,6 +385,7 @@ class FleetType(models.Model):
         blank=True,
         related_name="fleettype_require_groups",
         help_text=_("Restrict this fleet type to the following group(s) …"),
+        verbose_name=_("Group restrictions"),
     )
 
     # Fleet type notes
@@ -370,6 +393,7 @@ class FleetType(models.Model):
         null=True,
         blank=True,
         help_text=_("You can add notes about this configuration here if you want"),
+        verbose_name=_("Notes"),
     )
 
     # Is this fleet type enabled
@@ -377,6 +401,7 @@ class FleetType(models.Model):
         default=True,
         db_index=True,
         help_text=_("Whether this fleet type is enabled or not"),
+        verbose_name=_("Is enabled"),
     )
 
     def __str__(self) -> str:
@@ -403,6 +428,7 @@ class Webhook(models.Model):
         max_length=255,
         unique=True,
         help_text=_("Name of the channel this webhook posts to"),
+        verbose_name=_("Discord channel"),
     )
 
     # Wehbook url
@@ -415,6 +441,7 @@ class Webhook(models.Model):
                 "https://discord.com/api/webhooks/123456/abcdef"
             )
         ),
+        verbose_name=_("Webhook URL"),
     )
 
     # Restrictions
@@ -423,6 +450,7 @@ class Webhook(models.Model):
         blank=True,
         related_name="webhook_require_groups",
         help_text=_("Restrict ping rights to the following group(s) …"),
+        verbose_name=_("Group restrictions"),
     )
 
     # Webhook notes
@@ -430,6 +458,7 @@ class Webhook(models.Model):
         null=True,
         blank=True,
         help_text=_("You can add notes about this webhook here if you want"),
+        verbose_name=_("Notes"),
     )
 
     # Is it enabled?
@@ -437,6 +466,7 @@ class Webhook(models.Model):
         default=True,
         db_index=True,
         help_text=_("Whether this webhook is active or not"),
+        verbose_name=_("Is enabled"),
     )
 
     def __str__(self) -> str:
@@ -483,18 +513,16 @@ class Setting(SingletonModel):
         """
 
         USE_DEFAULT_FLEET_TYPES = "use_default_fleet_types", _(
-            "Use default fleet types."
+            "Use default fleet types"
         )
         USE_DEFAULT_PING_TARGETS = "use_default_ping_targets", _(
-            "Use default ping targets."
+            "Use default ping targets"
         )
         USE_DOCTRINES_FROM_FITTINGS_MODULE = "use_doctrines_from_fittings_module", _(
-            "Use Doctrines from Fittings module."
+            "Use Doctrines from Fittings module"
         )
         WEBHOOK_VERIFICATION = "webhook_verification", _("Verify Webhooks")
-        DEFAULT_EMBED_COLOR = "default_embed_color", _(
-            "Default highlight color for the webhook embed."
-        )
+        DEFAULT_EMBED_COLOR = "default_embed_color", _("Default embed color")
 
     use_default_fleet_types = models.BooleanField(
         default=True,
@@ -504,6 +532,7 @@ class Setting(SingletonModel):
             "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
             "dropdown."
         ),
+        verbose_name=Field.USE_DEFAULT_FLEET_TYPES.label,
     )
 
     use_default_ping_targets = models.BooleanField(
@@ -513,6 +542,7 @@ class Setting(SingletonModel):
             "Whether to use default ping targets. If checked, the default ping targets "
             "(@everyone and @here) will be added to the Ping Target dropdown."
         ),
+        verbose_name=Field.USE_DEFAULT_PING_TARGETS.label,
     )
 
     use_doctrines_from_fittings_module = models.BooleanField(
@@ -522,6 +552,7 @@ class Setting(SingletonModel):
             "Whether to use the doctrines from the Fittings modules in the doctrine "
             "dropdown. Note: The fittings module needs to be installed for this."
         ),
+        verbose_name=Field.USE_DOCTRINES_FROM_FITTINGS_MODULE.label,
     )
 
     webhook_verification = models.BooleanField(
@@ -534,6 +565,7 @@ class Setting(SingletonModel):
             "webhooks, it is up to you to make sure your webhook understands a payload "
             "that is formatted for Discord webhooks."
         ),
+        verbose_name=Field.WEBHOOK_VERIFICATION.label,
     )
 
     default_embed_color = models.CharField(
@@ -541,6 +573,7 @@ class Setting(SingletonModel):
         max_length=7,
         blank=True,
         help_text=_("Default highlight color for the webhook embed."),
+        verbose_name=Field.DEFAULT_EMBED_COLOR.label,
     )
 
     objects = SettingManager()

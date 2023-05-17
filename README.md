@@ -137,11 +137,15 @@ The following settings are available in the Django Admin Backend under
 Enable or disable the default fleet types (Roaming, Home Defense, StratOP, and CTA)
 that are shown in the fleet type dropdown in addition to your own.
 
+**Default:** True
+
 
 ### Use Default Ping Targets
 
 Enable or disable the default ping targets (@everyone and @here) that are shown in
 the ping target dropdown in addition to your own.
+
+**Default:** True
 
 
 ### Use Doctrines From Fittings Module
@@ -150,6 +154,8 @@ If you have the [Fittings and Doctrines] module installed, and your doctrines
 configured there, you don't have to re-build your doctrine list for this module. You
 can simply use the doctrines you already have configured in the Fittings and
 Doctrines module.
+
+**Default:** True
 
 
 ### Webhook Verification
@@ -160,11 +166,15 @@ webhook.
 When disabling webhook verification and using non-Discord webhooks, it is up to you
 to make sure your webhook understands a payload that is formatted for Discord webhooks.
 
+**Default:** True
+
 
 ### Default Embed Color
 
 The default highlight for the embed, that is used when no other highlight color is
 defined.
+
+**Default:** #FAA61A
 
 
 ## Changelog

@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-13 21:18+0200\n"
-"PO-Revision-Date: 2023-05-13 16:44+0000\n"
+"PO-Revision-Date: 2023-05-19 23:43+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/de/>\n"
+"Language-Team: German <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "Gruppenbeschränkungen"
 
 #: admin.py:179 form.py:87
 msgid "Ping Target"
-msgstr "Ping Ziel"
+msgstr "Pingziel"
 
 #: admin.py:221 form.py:104 models.py:415
 msgid "Fleet Type"
@@ -122,9 +122,9 @@ msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
 msgstr ""
-"Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping "
-"(Kontrollkästchen oben) oder deaktiviere &quot;Flottenstart JETZT&quot; "
-"(Kontrollkästchen unten)."
+"Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping ("
+"Kontrollkästchen oben) oder deaktiviere &quot;Flottenstart JETZT&quot; ("
+"Kontrollkästchen unten)."
 
 #: form.py:138
 msgid "Formup Timestamp"
@@ -139,9 +139,9 @@ msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
 msgstr ""
-"Wenn dieses Kontrollkästchen aktiviert ist, wird der Flottenstart auf &quot;"
-"JETZT&quot; gesetzt. und die Zeit im obigen Feld (falls vorhanden) wird "
-"ignoriert."
+"Wenn dieses Kontrollkästchen aktiviert ist, wird der Flottenstart auf "
+"&quot;JETZT&quot; gesetzt. und die Zeit im obigen Feld (falls vorhanden) "
+"wird ignoriert."
 
 #: form.py:152 models.py:143
 msgid "Fleet Comms"
@@ -303,11 +303,11 @@ msgstr "Beschränkt die Ping-Rechte auf die folgende(n) Gruppe(n) …"
 
 #: models.py:355
 msgid "Discord Ping Target"
-msgstr "Discord Ping Ziel"
+msgstr "Discord Pingziel"
 
 #: models.py:356
 msgid "Discord Ping Targets"
-msgstr "Discord Ping Ziele"
+msgstr "Discord Pingziele"
 
 #: models.py:370
 msgid "Short name to identify this fleet type"
@@ -336,8 +336,7 @@ msgstr "Name des Kanals in dem dieser Webhook postet"
 #: models.py:440
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
-msgstr ""
-"URL des Webhooks, z. B.: https://discord.com/api/webhooks/123456/abcdef"
+msgstr "URL des Webhooks, z. B.: https://discord.com/api/webhooks/123456/abcdef"
 
 #: models.py:460
 msgid "You can add notes about this webhook here if you want"
@@ -371,7 +370,7 @@ msgstr "Standard Flottenarten nutzen"
 
 #: models.py:519
 msgid "Use default ping targets"
-msgstr "Standard Ping Ziele nutzen"
+msgstr "Standard Pingziele nutzen"
 
 #: models.py:522
 msgid "Use Doctrines from Fittings module"
@@ -400,8 +399,8 @@ msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
 msgstr ""
-"Standard Ping Ziele nutzen. Wenn angehakt, werden die Standard Ping Ziele "
-"(@everyone and @here) dem Dropdown im Formular hinzugefügt."
+"Standard Pingziele nutzen. Wenn angehakt, werden die Standard Pingziele (@"
+"everyone and @here) dem Dropdown im Formular hinzugefügt."
 
 #: models.py:552
 msgid ""
@@ -566,7 +565,7 @@ msgstr "Kein Ping"
 
 #: templates/fleetpings/partials/form/segments/ping-targets.html:13
 msgid "Additionally configured ping targets"
-msgstr "Zusätzlich konfigurierte Ping Ziele"
+msgstr "Zusätzlich konfigurierte Pingziele"
 
 #: templates/fleetpings/partials/ping/ping.html:5
 msgid "No ping created yet …"

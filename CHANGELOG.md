@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.22.0] - 2023-05-20
+
 ### Changed
 
 - Migrated settings from `local.py` to the database

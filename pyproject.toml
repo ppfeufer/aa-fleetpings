@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "aa-fleetpings"
-version = "2.21.0"
+version = "2.22.0"
 description = "Fleet Ping Tool for Alliance Auth supporting pings via webhooks to Discord."
 readme = "README.md"
 license = "GPL-3.0"

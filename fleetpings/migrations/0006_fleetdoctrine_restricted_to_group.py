@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("auth", "0011_update_proxy_permissions"),
         ("fleetpings", "0005_fleettype_restricted_to_group"),

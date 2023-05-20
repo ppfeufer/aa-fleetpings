@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("fleetpings", "0002_webhook_is_embed_description_change"),
     ]

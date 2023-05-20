@@ -27,7 +27,7 @@ def clean_setting(
     """
     Cleans the input for a custom setting
 
-    Will use `default_value` if settings does not exit or has the wrong type
+    Will use `default_value` if Settings do not exist or has the wrong type
     or is outside define boundaries (for int only)
 
     Need to define `required_type` if `default_value` is `None`

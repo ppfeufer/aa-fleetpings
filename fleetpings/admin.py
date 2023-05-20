@@ -5,15 +5,17 @@ Settings for the admin backend
 # Django
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 
 # AA Fleet Pings
-from fleetpings.form import FleetTypeAdminForm
+from fleetpings.form import FleetTypeAdminForm, SettingAdminForm
 from fleetpings.models import (
     DiscordPingTargets,
     FleetComm,
     FleetDoctrine,
     FleetType,
     FormupLocation,
+    Setting,
     Webhook,
 )
 
@@ -39,6 +41,51 @@ def custom_filter(title):
     return Wrapper
 
 
+class SingletonModelAdmin(admin.ModelAdmin):
+    """
+    Prevents Django admin users deleting the singleton or adding extra rows.
+    """
+
+    actions = None  # Removes the default delete action.
+
+    def has_add_permission(self, request):
+        """
+        Has "add" permissions
+        :param request:
+        :type request:
+        :return:
+        :rtype:
+        """
+
+        return self.model.objects.all().count() == 0
+
+    def has_change_permission(self, request, obj=None):
+        """
+        Has "change" permissions
+        :param request:
+        :type request:
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
+        return True
+
+    def has_delete_permission(self, request, obj=None):
+        """
+        Has "delete" permissions
+        :param request:
+        :type request:
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
+        return False
+
+
 @admin.register(FleetComm)
 class FleetCommAdmin(admin.ModelAdmin):
     """
@@ -50,7 +97,7 @@ class FleetCommAdmin(admin.ModelAdmin):
     list_filter = ("is_enabled",)
 
     @classmethod
-    @admin.display(description="Fleet Comms", ordering="name")
+    @admin.display(description=_("Fleet Comm"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
@@ -71,17 +118,19 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description="Doctrine", ordering="name")
+    @admin.display(description=_("Doctrine"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
     @classmethod
-    @admin.display(description="Doctrine Link", ordering="link")
+    @admin.display(description=_("Doctrine link"), ordering="link")
     def _link(cls, obj):
         return obj.name
 
     @classmethod
-    @admin.display(description="Restricted to", ordering="restricted_to_group__name")
+    @admin.display(
+        description=_("Group restrictions"), ordering="restricted_to_group__name"
+    )
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -127,12 +176,14 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description="Ping Target", ordering="name")
+    @admin.display(description=_("Ping Target"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
     @classmethod
-    @admin.display(description="Restricted to", ordering="restricted_to_group__name")
+    @admin.display(
+        description=_("Group restrictions"), ordering="restricted_to_group__name"
+    )
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -167,12 +218,12 @@ class FleetTypeAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description="Fleet Type", ordering="name")
+    @admin.display(description=_("Fleet Type"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
     @classmethod
-    @admin.display(description="Embed Color", ordering="embed_color")
+    @admin.display(description=_("Embed color"), ordering="embed_color")
     def _embed_color(cls, obj):
         return_value = (
             "<span "
@@ -184,7 +235,9 @@ class FleetTypeAdmin(admin.ModelAdmin):
         return mark_safe(return_value)
 
     @classmethod
-    @admin.display(description="Restricted to", ordering="restricted_to_group__name")
+    @admin.display(
+        description=_("Group restrictions"), ordering="restricted_to_group__name"
+    )
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -217,17 +270,19 @@ class WebhookAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description="Channel Name", ordering="name")
+    @admin.display(description=_("Discord channel"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
     @classmethod
-    @admin.display(description="Webhook URL", ordering="url")
+    @admin.display(description=_("Webhook URL"), ordering="url")
     def _url(cls, obj):
         return obj.url
 
     @classmethod
-    @admin.display(description="Restricted to", ordering="restricted_to_group__name")
+    @admin.display(
+        description=_("Group restrictions"), ordering="restricted_to_group__name"
+    )
     def _restricted_to_group(cls, obj):
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
@@ -235,3 +290,12 @@ class WebhookAdmin(admin.ModelAdmin):
             return ", ".join(names)
 
         return None
+
+
+@admin.register(Setting)
+class SettingAdmin(SingletonModelAdmin):
+    """
+    Setting Admin
+    """
+
+    form = SettingAdminForm

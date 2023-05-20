@@ -25,12 +25,12 @@ from app_utils.urls import reverse_absolute, site_absolute_url
 # AA Fleet Pings
 from fleetpings import __title__
 from fleetpings.app_settings import (
-    AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE,
     can_add_srp_links,
     fittings_installed,
     optimer_installed,
     srp_module_installed,
     srp_module_is,
+    use_fittings_module_for_doctrines,
 )
 from fleetpings.form import FleetPingForm
 from fleetpings.helper.discord_webhook import ping_discord_webhook
@@ -41,16 +41,9 @@ from fleetpings.models import (
     FleetDoctrine,
     FleetType,
     FormupLocation,
+    Setting,
     Webhook,
 )
-
-if (
-    fittings_installed() is True
-    and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
-):
-    # Third Party
-    from fittings.views import _get_docs_qs
-
 
 logger = LoggerAddTag(get_extension_logger(__name__), __title__)
 
@@ -79,7 +72,6 @@ def index(request: WSGIRequest) -> HttpResponse:
             is_enabled=True,
         ).exists(),
         "site_url": site_absolute_url(),
-        # "timezones_installed": timezones_installed(),
         "optimer_installed": optimer_installed(),
         "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,
@@ -114,7 +106,12 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/ping-targets.html",
-        {"ping_targets": additional_discord_ping_targets},
+        {
+            "ping_targets": additional_discord_ping_targets,
+            "use_default_ping_targets": Setting.objects.get_setting(
+                Setting.Field.USE_DEFAULT_PING_TARGETS
+            ),
+        },
     )
 
 
@@ -170,7 +167,12 @@ def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/fleet-type.html",
-        {"fleet_types": fleet_types},
+        {
+            "fleet_types": fleet_types,
+            "use_default_fleet_types": Setting.objects.get_setting(
+                Setting.Field.USE_DEFAULT_FLEET_TYPES
+            ),
+        },
     )
 
 
@@ -225,15 +227,11 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
 
     logger.info(f"Getting fleet doctrines for user {request.user}")
 
-    use_fleet_doctrines = False
-    if (
-        fittings_installed() is True
-        and AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE is True
-    ):
-        use_fleet_doctrines = True
-
     # Get doctrines
-    if use_fleet_doctrines is True:
+    if use_fittings_module_for_doctrines() is True:
+        # Third Party
+        from fittings.views import _get_docs_qs
+
         groups = request.user.groups.all()
         doctrines = _get_docs_qs(request, groups).order_by("name")
     else:
@@ -250,7 +248,10 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     return render(
         request,
         "fleetpings/partials/form/segments/fleet-doctrine.html",
-        {"doctrines": doctrines, "use_fleet_doctrines": use_fleet_doctrines},
+        {
+            "doctrines": doctrines,
+            "use_fleet_doctrines": use_fittings_module_for_doctrines(),
+        },
     )
 
 
@@ -420,18 +421,16 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
                     ping_context=ping_context,
                 )
 
-                context["message"] = str(
-                    _("Fleet operations timer has been created ...")
-                )
+                context["message"] = str(_("Fleet operations timer has been created …"))
 
-            # Create SRP link if requested
+            # Create an SRP link if requested
             if srp_module_installed() and ping_context["srp"]["create_srp_link"]:
                 ping_context["srp"]["link"] = _create_srp_link(
                     request=request,
                     ping_context=ping_context,
                 )
 
-                context["message"] = str(_("SRP link has been created ..."))
+                context["message"] = str(_("SRP link has been created …"))
 
             # If we have a Discord webhook, ping it
             if ping_context["ping_channel"]["webhook"]:

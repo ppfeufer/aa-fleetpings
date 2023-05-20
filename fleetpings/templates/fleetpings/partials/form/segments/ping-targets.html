@@ -1,14 +1,19 @@
 {% load i18n %}
 
 <option value="">{% translate "Don't Ping" %}</option>
-<option value="@here">@here</option>
-<option value="@everyone">@everyone</option>
+
+{% if use_default_ping_targets %}
+    <option value="@here">@here</option>
+    <option value="@everyone">@everyone</option>
+{% endif %}
 
 {% if ping_targets %}
-    <option value="" disabled></option>
-    <optgroup label="{% translate 'Additionally configured ping targets' %}">
-        {% for ping_target in ping_targets %}
-            <option value="{{ ping_target.discord_id }}">@{{ ping_target.name }}</option>
-        {% endfor %}
-    </optgroup>
+    {% if use_default_ping_targets %}
+        <option value="" disabled></option>
+        <optgroup label="{% translate 'Additionally configured ping targets' %}">
+            {% include "fleetpings/partials/form/segments/ping-targets-loop.html" %}
+        </optgroup>
+    {% else %}
+        {% include "fleetpings/partials/form/segments/ping-targets-loop.html" %}
+    {% endif %}
 {% endif %}

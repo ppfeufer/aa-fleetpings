@@ -12,6 +12,9 @@ from django.contrib.auth.models import User
 # Alliance Auth
 from allianceauth.tests.auth_utils import AuthUtils
 
+# AA Fleet Pings
+from fleetpings.models import Setting
+
 
 def create_fake_user(
     character_id: int,
@@ -55,3 +58,13 @@ def create_fake_user(
         user = AuthUtils.add_permissions_to_user(perms=perm_objs, user=user)
 
     return user
+
+
+def create_setting(**kwargs) -> Setting:
+    """
+    Create setting
+    :param kwargs:
+    :return:
+    """
+
+    return Setting.objects.create(**kwargs)

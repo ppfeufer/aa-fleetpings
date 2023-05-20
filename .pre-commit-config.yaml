@@ -18,7 +18,8 @@ repos:
             .min\.css|
             .min\.js|
             .po|
-            .mo
+            .mo|
+            fleetpings/static/fleetpings/libs/
           )
       - id: end-of-file-fixer
         exclude: |
@@ -26,7 +27,8 @@ repos:
             .min\.css|
             .min\.js|
             .po|
-            .mo
+            .mo|
+            fleetpings/static/fleetpings/libs/
           )
       - id: mixed-line-ending
         args: [ --fix=lf ]
@@ -45,7 +47,8 @@ repos:
       - id: editorconfig-checker
         exclude: |
           (?x)(
-            LICENSE
+            LICENSE|
+            fleetpings/static/fleetpings/libs/
           )
 
   - repo: https://github.com/pre-commit/pygrep-hooks

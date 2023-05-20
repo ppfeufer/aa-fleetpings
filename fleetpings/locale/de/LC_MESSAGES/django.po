@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 21:18+0200\n"
+"POT-Creation-Date: 2023-05-20 20:48+0200\n"
 "PO-Revision-Date: 2023-05-19 23:43+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: German <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/de/>\n"
+"Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Fleet Comm"
 msgstr "Flottenkommunikation"
 
-#: admin.py:121 form.py:157
+#: admin.py:121 form.py:161
 msgid "Doctrine"
 msgstr "Doktrin"
 
@@ -113,61 +113,61 @@ msgstr "Wie lautet der Flottenname im Flottenfinder?"
 msgid "Formup Location"
 msgstr "Treffpunkt"
 
-#: form.py:127
+#: form.py:129
 msgid "Formup Time"
 msgstr "Flottenstart"
 
-#: form.py:131
+#: form.py:133
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
 msgstr ""
-"Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping ("
-"Kontrollkästchen oben) oder deaktiviere &quot;Flottenstart JETZT&quot; ("
-"Kontrollkästchen unten)."
+"Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping "
+"(Kontrollkästchen oben) oder deaktiviere &quot;Flottenstart JETZT&quot; "
+"(Kontrollkästchen unten)."
 
-#: form.py:138
+#: form.py:140
 msgid "Formup Timestamp"
 msgstr "Flottenstart Zeitstempel"
 
-#: form.py:144
+#: form.py:146
 msgid "Formup NOW"
 msgstr "Flottenstart JETZT"
 
-#: form.py:146
+#: form.py:148
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
 msgstr ""
-"Wenn dieses Kontrollkästchen aktiviert ist, wird der Flottenstart auf "
-"&quot;JETZT&quot; gesetzt. und die Zeit im obigen Feld (falls vorhanden) "
-"wird ignoriert."
+"Wenn dieses Kontrollkästchen aktiviert ist, wird der Flottenstart auf &quot;"
+"JETZT&quot; gesetzt. und die Zeit im obigen Feld (falls vorhanden) wird "
+"ignoriert."
 
-#: form.py:152 models.py:143
+#: form.py:154 models.py:143
 msgid "Fleet Comms"
 msgstr "Flottenkommunikation"
 
-#: form.py:162
+#: form.py:168
 msgid "Doctrine URL"
 msgstr "Doktrin URL"
 
-#: form.py:167
+#: form.py:173
 msgid "Webhook Embed Color"
 msgstr "Webhook Embed Farbe"
 
-#: form.py:173
+#: form.py:179
 msgid "SRP"
 msgstr "SRP"
 
-#: form.py:174
+#: form.py:180
 msgid "Is this fleet covered by SRP?"
 msgstr "Ist diese Flotte durch SRP abgedeckt?"
 
-#: form.py:179
+#: form.py:185
 msgid "Create SRP Link"
 msgstr "SRP Link erstellen"
 
-#: form.py:181
+#: form.py:187
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -176,19 +176,19 @@ msgstr ""
 "spezifischer SRP-Link erstellt.<br>Leer lassen, wenn Du Dir nicht sicher "
 "bist."
 
-#: form.py:187
+#: form.py:193
 msgid "Additional Information"
 msgstr "Zusätzliche Informationen"
 
-#: form.py:194
+#: form.py:200
 msgid "Feel free to add some more information about the fleet…"
 msgstr "Fühl Dich frei, weitere Informationen über die Flotte hinzuzufügen …"
 
-#: form.py:203
+#: form.py:209
 msgid "Create Optimer"
 msgstr "Op Timer erstellen"
 
-#: form.py:205
+#: form.py:211
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -336,7 +336,8 @@ msgstr "Name des Kanals in dem dieser Webhook postet"
 #: models.py:440
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
-msgstr "URL des Webhooks, z. B.: https://discord.com/api/webhooks/123456/abcdef"
+msgstr ""
+"URL des Webhooks, z. B.: https://discord.com/api/webhooks/123456/abcdef"
 
 #: models.py:460
 msgid "You can add notes about this webhook here if you want"
@@ -399,8 +400,8 @@ msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
 msgstr ""
-"Standard Pingziele nutzen. Wenn angehakt, werden die Standard Pingziele (@"
-"everyone and @here) dem Dropdown im Formular hinzugefügt."
+"Standard Pingziele nutzen. Wenn angehakt, werden die Standard Pingziele "
+"(@everyone and @here) dem Dropdown im Formular hinzugefügt."
 
 #: models.py:552
 msgid ""

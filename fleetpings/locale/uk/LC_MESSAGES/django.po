@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 21:18+0200\n"
+"POT-Creation-Date: 2023-05-20 20:48+0200\n"
 "PO-Revision-Date: 2023-05-13 08:15+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Fleet Comm"
 msgstr "Зв'язок флоту"
 
-#: admin.py:121 form.py:157
+#: admin.py:121 form.py:161
 msgid "Doctrine"
 msgstr "Доктрина"
 
@@ -124,11 +124,11 @@ msgstr "Як називається флот у пошуку флоту?"
 msgid "Formup Location"
 msgstr "Місце формування"
 
-#: form.py:127
+#: form.py:129
 msgid "Formup Time"
 msgstr "Час формування"
 
-#: form.py:131
+#: form.py:133
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
@@ -136,15 +136,15 @@ msgstr ""
 "Щоб увімкнути це поле, зробіть його попереднім пінгом (прапорець вище) або "
 "зніміть прапорець &quot;Створити зараз&quot; (прапорець нижче)."
 
-#: form.py:138
+#: form.py:140
 msgid "Formup Timestamp"
 msgstr "Мітка часу(timestamp) для формування"
 
-#: form.py:144
+#: form.py:146
 msgid "Formup NOW"
 msgstr "Формування зараз"
 
-#: form.py:146
+#: form.py:148
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
@@ -152,31 +152,31 @@ msgstr ""
 "Якщо цей прапорець активний, час формування буде встановлено на &quot;"
 "ЗАРАЗ&quot;, а час у полі вище (якщо він встановлений) буде проігноровано."
 
-#: form.py:152 models.py:143
+#: form.py:154 models.py:143
 msgid "Fleet Comms"
 msgstr "Канал зв'язку для флоту"
 
-#: form.py:162
+#: form.py:168
 msgid "Doctrine URL"
 msgstr "Посилання на доктрину"
 
-#: form.py:167
+#: form.py:173
 msgid "Webhook Embed Color"
 msgstr "Колір вставки Webhook"
 
-#: form.py:173
+#: form.py:179
 msgid "SRP"
 msgstr "srp"
 
-#: form.py:174
+#: form.py:180
 msgid "Is this fleet covered by SRP?"
 msgstr "Чи поширюється на цей флот дія SRP?"
 
-#: form.py:179
+#: form.py:185
 msgid "Create SRP Link"
 msgstr "Створіть SRP-посилання"
 
-#: form.py:181
+#: form.py:187
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -184,19 +184,19 @@ msgstr ""
 "Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для "
 "цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
 
-#: form.py:187
+#: form.py:193
 msgid "Additional Information"
 msgstr "Додаткова інформація"
 
-#: form.py:194
+#: form.py:200
 msgid "Feel free to add some more information about the fleet…"
 msgstr "Не соромтеся додавати додаткову інформацію про флот…"
 
-#: form.py:203
+#: form.py:209
 msgid "Create Optimer"
 msgstr "Створити таймер операції"
 
-#: form.py:205
+#: form.py:211
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."

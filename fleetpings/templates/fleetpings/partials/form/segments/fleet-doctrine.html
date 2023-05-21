@@ -4,9 +4,9 @@
     <datalist id="fleetDoctrineList">
         {% for doctrine in doctrines %}
             {% if use_fleet_doctrines %}
-                <option value="{{ doctrine.name }}" data-doctrine-url="{% fleetpings_reverse_url 'fittings:view_doctrine' doctrine.pk %}">
+                <option value="{{ doctrine.name }}" data-doctrine-url="{% fleetpings_reverse_url 'fittings:view_doctrine' doctrine.pk %}">{{ doctrine.name }}</option>
             {% else %}
-                <option value="{{ doctrine.name }}" data-doctrine-url="{{ doctrine.link }}">
+                <option value="{{ doctrine.name }}" data-doctrine-url="{{ doctrine.link }}">{{ doctrine.name }}</option>
             {% endif %}
         {% endfor %}
     </datalist>

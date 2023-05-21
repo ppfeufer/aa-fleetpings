@@ -509,6 +509,14 @@ $(document).ready(() => {
     });
 
     /**
+     * FlexDatalist
+     * http://projects.sergiodinislopes.pt/flexdatalist/
+     */
+    $('.flexdatalist').flexdatalist({
+        minLength: 1, noResultsText: '', searchContain: true
+    });
+
+    /**
      * Initialize functions that need to start on load
      */
     (() => {

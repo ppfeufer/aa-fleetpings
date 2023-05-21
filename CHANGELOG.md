@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
-### Changed
+
+## [2.22.1] - 2023-05-21
+
+### Fixed
 
 - Dropdowns for fleet comms, formup locations and doctrines now look more like
   actual dropdowns.

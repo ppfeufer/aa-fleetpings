@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-28 07:43+0200\n"
-"PO-Revision-Date: 2023-05-13 08:15+0000\n"
+"PO-Revision-Date: 2023-05-28 14:24+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/uk/>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -227,10 +227,8 @@ msgid "Short name to identify this comms"
 msgstr "Коротка назва для ідентифікації цього каналу зв'язку"
 
 #: models.py:117 models.py:158 models.py:237 models.py:371
-#, fuzzy
-#| msgid "FC Name"
 msgid "Name"
-msgstr "Нік ФК"
+msgstr "Назва"
 
 #: models.py:123 models.py:182 models.py:244 models.py:311 models.py:395
 msgid "You can add notes about this configuration here if you want"

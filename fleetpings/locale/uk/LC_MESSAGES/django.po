@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-28 07:43+0200\n"
+"POT-Creation-Date: 2023-05-28 16:36+0200\n"
 "PO-Revision-Date: 2023-05-28 14:24+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/uk/>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,8 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 4.17\n"
 
-#: __init__.py:12 templates/fleetpings/base.html:8
+#: __init__.py:12 templates/fleetpings/base.html:5
+#: templates/fleetpings/base.html:8
 #, fuzzy
 #| msgid "Fleet Ping Tool"
 msgid "Fleet Pings"
@@ -445,10 +446,6 @@ msgstr ""
 #: models.py:591
 msgid "Fleet Pings Settings"
 msgstr ""
-
-#: templates/fleetpings/base.html:5
-msgid "Fleet Ping Tool"
-msgstr "Інструмент пінгування флоту"
 
 #: templates/fleetpings/index.html:11
 msgid "Fleet Information"

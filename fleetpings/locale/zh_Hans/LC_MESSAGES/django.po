@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-28 07:43+0200\n"
+"POT-Creation-Date: 2023-05-28 16:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: __init__.py:12 templates/fleetpings/base.html:8
+#: __init__.py:12 templates/fleetpings/base.html:5
+#: templates/fleetpings/base.html:8
 msgid "Fleet Pings"
 msgstr ""
 
@@ -407,10 +408,6 @@ msgstr ""
 
 #: models.py:591
 msgid "Fleet Pings Settings"
-msgstr ""
-
-#: templates/fleetpings/base.html:5
-msgid "Fleet Ping Tool"
 msgstr ""
 
 #: templates/fleetpings/index.html:11

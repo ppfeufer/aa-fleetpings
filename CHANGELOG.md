@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Dropdowns for fleet comms, formup locations and doctrines now look more like
   actual dropdowns.
+- Page title now reflects the app name properly
+- Unnecessary "by" removed from Discord embed footer (Thanks to [@pvyParts])
 
 
 ## [2.22.0] - 2023-05-20

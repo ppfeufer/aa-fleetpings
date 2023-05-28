@@ -36,7 +36,7 @@ def ping_discord_webhook(ping_context: dict, user: User):
         title=".: Fleet Details :.",
         timestamp=timezone.now(),
         color=int(embed_color.lstrip("#"), 16),
-        footer=Footer(f"Ping sent by by: {author_eve_name}", author_eve_avatar),
+        footer=Footer(f"Ping sent by: {author_eve_name}", author_eve_avatar),
     )
 
     discord_webhook.execute(

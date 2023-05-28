@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-20 20:48+0200\n"
+"POT-Creation-Date: 2023-05-28 07:43+0200\n"
 "PO-Revision-Date: 2023-05-13 17:22+0000\n"
 "Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
 "Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -19,6 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : (n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 4.17\n"
+
+#: __init__.py:12 templates/fleetpings/base.html:8
+#, fuzzy
+#| msgid "Fleet Ping Tool"
+msgid "Fleet Pings"
+msgstr "Сбор флота"
 
 #: admin.py:100 models.py:142
 msgid "Fleet Comm"
@@ -434,7 +440,7 @@ msgstr "настройки"
 msgid "Fleet Pings Settings"
 msgstr "Настройки Сбора флота"
 
-#: templates/fleetpings/base.html:5 templates/fleetpings/base.html:8
+#: templates/fleetpings/base.html:5
 msgid "Fleet Ping Tool"
 msgstr "Сбор флота"
 

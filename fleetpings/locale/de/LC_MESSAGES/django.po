@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-20 20:48+0200\n"
+"POT-Creation-Date: 2023-05-28 07:43+0200\n"
 "PO-Revision-Date: 2023-05-19 23:43+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -17,6 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17\n"
+
+#: __init__.py:12 templates/fleetpings/base.html:8
+#, fuzzy
+#| msgid "Fleet Ping Tool"
+msgid "Fleet Pings"
+msgstr "Flottenankündigungs Tool"
 
 #: admin.py:100 models.py:142
 msgid "Fleet Comm"
@@ -440,7 +446,7 @@ msgstr "Einstellungen"
 msgid "Fleet Pings Settings"
 msgstr "Fleet Pings Einstellungen"
 
-#: templates/fleetpings/base.html:5 templates/fleetpings/base.html:8
+#: templates/fleetpings/base.html:5
 msgid "Fleet Ping Tool"
 msgstr "Flottenankündigungs Tool"
 

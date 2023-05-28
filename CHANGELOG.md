@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.22.2] - 2023-05-28
+
+### Fixed
+
+- Page title now reflects the app name properly
+- Unnecessary "by" removed from Discord embed footer (Thanks to @pvyParts » #112)
+
+### Changed
+
+- German translation updated
+- Russian translation updated
+
+
 ## [2.22.1] - 2023-05-21
 
 ### Fixed

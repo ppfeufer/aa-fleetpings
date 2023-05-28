@@ -2,9 +2,6 @@
 Hook into AA
 """
 
-# Django
-from django.utils.translation import gettext_lazy as _
-
 # Alliance Auth
 from allianceauth import hooks
 from allianceauth.services.hooks import MenuItemHook, UrlHook
@@ -22,7 +19,7 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
         # Setup menu entry for sidebar
         MenuItemHook.__init__(
             self,
-            _(__title__),
+            __title__,
             "far fa-bell fa-fw",
             "fleetpings:index",
             navactive=["fleetpings:index"],

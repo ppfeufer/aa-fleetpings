@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - Page title now reflects the app name properly
-- Unnecessary "by" removed from Discord embed footer (Thanks to @pvyParts » #112)
+- Unnecessary "by" removed from Discord embed footer (Thanks to [@pvyParts] » [#112])
 
 ### Changed
 
@@ -671,3 +671,4 @@ settings in the admin backend, since we just nuked them from the old app.
 
 <!-- URLs -->
 [@pvyParts]: https://github.com/pvyParts "Aaron"
+[#112]: https://github.com/ppfeufer/aa-fleetpings/pull/112 "PR: Remove Double \"By\""

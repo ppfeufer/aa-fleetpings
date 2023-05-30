@@ -1,5 +1,5 @@
 """
-Test for model FleetComm
+Tests for model FleetComm
 """
 
 # Django

@@ -112,9 +112,15 @@ class FleetComm(models.Model):
 
     name = models.CharField(
         max_length=255,
-        unique=True,
         help_text=_("Short name to identify this comms"),
         verbose_name=_("Name"),
+    )
+
+    channel = models.CharField(
+        blank=True,
+        max_length=255,
+        help_text=_("In which channel is the fleet?"),
+        verbose_name=_("Channel"),
     )
 
     notes = models.TextField(
@@ -132,7 +138,7 @@ class FleetComm(models.Model):
     )
 
     def __str__(self) -> str:
-        return str(self.name)
+        return f"{self.name} » {self.channel}" if self.channel else f"{self.name}"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
@@ -142,6 +148,8 @@ class FleetComm(models.Model):
         verbose_name = _("Fleet Comm")
         verbose_name_plural = _("Fleet Comms")
         default_permissions = ()
+
+        unique_together = ("name", "channel")
 
 
 # FleetDoctrine Model

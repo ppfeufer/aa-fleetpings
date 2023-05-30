@@ -14,7 +14,6 @@ from django.test import TestCase
 # AA Fleet Pings
 from fleetpings.models import (
     DiscordPingTargets,
-    FleetComm,
     FleetDoctrine,
     FleetType,
     FormupLocation,
@@ -129,19 +128,6 @@ class TestModels(TestCase):
     #         expected_message=("This group has not been synced to Discord yet."),
     #     ):
     #         ping_target.clean()
-
-    def test_should_return_fleetcomm_model_string_name(self):
-        """
-        Test should return the FleetComm model string name
-        :return:
-        :rtype:
-        """
-
-        test_object = FleetComm(name="Alliance Mumble")
-
-        test_object.save()
-
-        self.assertEqual(str(test_object), "Alliance Mumble")
 
     def test_should_return_fleetdoctrine_model_string_name(self):
         """

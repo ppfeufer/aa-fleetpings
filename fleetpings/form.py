@@ -7,44 +7,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 # AA Fleet Pings
-from fleetpings.app_settings import timezones_installed
 from fleetpings.models import FleetType, Setting
-
-
-def _get_timezones_module_hint_text() -> str:
-    """
-    Get the additional help text when the `timezones` module is installed
-    :return:
-    """
-
-    if timezones_installed():
-        return _(
-            " Timezones module is installed. Link to time zone conversion will be "
-            "added automatically if you set a date and time here."
-        )
-
-    return ""
-
-
-def _get_discord_markdown_hin_text() -> str:
-    """
-    Get the formatted help text for any field that allows Discord Markdown
-    :return:
-    """
-
-    discord_helpdesk_url = (
-        "https://support.discord.com/hc/en-us/articles/210298617"
-        "-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline- "
-    )
-
-    discord_markdown_link_text = _("Discord Markdown")
-
-    discord_markdown_link = (
-        f'<a href="{discord_helpdesk_url}" target="_blank" rel="noopener noreferer">'
-        f"{discord_markdown_link_text}</a>"
-    )
-
-    return _(f"Hint: You can use {discord_markdown_link} to format the text.")
 
 
 class FleetTypeAdminForm(forms.ModelForm):
@@ -132,8 +95,7 @@ class FleetPingForm(forms.Form):
         help_text=_(
             "To enable this field, either make it a Pre-Ping (checkbox above) or "
             "uncheck &quot;Formup NOW&quot; (checkbox below)."
-        )
-        + _get_timezones_module_hint_text(),
+        ),
     )
     formup_timestamp = forms.CharField(
         required=False,
@@ -201,7 +163,6 @@ class FleetPingForm(forms.Form):
                 ),
             }
         ),
-        help_text=_get_discord_markdown_hin_text(),
     )
     optimer = forms.BooleanField(
         initial=False,

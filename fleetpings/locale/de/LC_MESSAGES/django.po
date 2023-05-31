@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-30 20:06+0200\n"
-"PO-Revision-Date: 2023-05-28 14:24+0000\n"
+"PO-Revision-Date: 2023-05-31 20:57+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/de/>\n"
+"Language-Team: German <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,11 +224,11 @@ msgstr "Name"
 
 #: models.py:122
 msgid "In which channel is the fleet?"
-msgstr ""
+msgstr "In welchem Kanal ist die Flotte?"
 
 #: models.py:123
 msgid "Channel"
-msgstr ""
+msgstr "Kanal"
 
 #: models.py:129 models.py:190 models.py:252 models.py:319 models.py:403
 msgid "You can add notes about this configuration here if you want"

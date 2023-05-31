@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 20:06+0200\n"
+"POT-Creation-Date: 2023-06-01 00:13+0200\n"
 "PO-Revision-Date: 2023-05-31 20:57+0000\n"
 "Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/ru/>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr "Анонсы флота"
 msgid "Fleet Comm"
 msgstr "Голосовой канал"
 
-#: admin.py:121 form.py:161
+#: admin.py:121 form.py:123
 msgid "Doctrine"
 msgstr "Формат"
 
@@ -42,11 +42,11 @@ msgstr "Ссылка на формат"
 msgid "Group restrictions"
 msgstr "Ограничения групп"
 
-#: admin.py:179 form.py:87
+#: admin.py:179 form.py:50
 msgid "Ping Target"
 msgstr "Цель пинга"
 
-#: admin.py:221 form.py:104 models.py:423
+#: admin.py:221 form.py:67 models.py:423
 msgid "Fleet Type"
 msgstr "Тип флота"
 
@@ -62,70 +62,51 @@ msgstr "Канал Discord"
 msgid "Webhook URL"
 msgstr "Вебхук URL"
 
-#: form.py:22
-msgid ""
-" Timezones module is installed. Link to time zone conversion will be added "
-"automatically if you set a date and time here."
-msgstr ""
-" Модуль временных зон установлен. Ссылка на преобразование временных зон "
-"будет добавлена автоматически после задания даты и времени."
-
-#: form.py:40
-msgid "Discord Markdown"
-msgstr "Форматирование для Discord"
-
-#: form.py:47
-#, python-brace-format
-msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
-"Подсказка: Вы можете использовать {discord_markdown_link} для форматирования "
-"текста."
-
-#: form.py:89
+#: form.py:52
 msgid "Who do you want to ping?"
 msgstr "Кого Вы хотите пинговать?"
 
-#: form.py:94
+#: form.py:57
 msgid "Pre-Ping"
 msgstr "Предварительный пинг"
 
-#: form.py:95
+#: form.py:58
 msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "Установите флажок, если это предварительный пинг."
 
-#: form.py:99
+#: form.py:62
 msgid "Ping To"
 msgstr "Пинговать в"
 
-#: form.py:101
+#: form.py:64
 msgid "Select a channel to ping automatically."
 msgstr "Выберите канал для автоматических пингов."
 
-#: form.py:108
+#: form.py:71
 msgid "FC Name"
 msgstr "Имя командира флота"
 
-#: form.py:110
+#: form.py:73
 msgid "Who is the FC?"
 msgstr "Кто командир флота?"
 
-#: form.py:114
+#: form.py:77
 msgid "Fleet Name"
 msgstr "Название флота"
 
-#: form.py:117
+#: form.py:80
 msgid "What is the fleet name in fleet finder?"
 msgstr "Название флота в поиске?"
 
-#: form.py:122 models.py:272
+#: form.py:85 models.py:272
 msgid "Formup Location"
 msgstr "Точка сбора"
 
-#: form.py:129
+#: form.py:92
 msgid "Formup Time"
 msgstr "Время сбора"
 
-#: form.py:133
+#: form.py:96
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
@@ -133,15 +114,15 @@ msgstr ""
 "Для активации данного поля или задайте предварительный пинг (флажок выше) "
 "или отмените &quot;СЕЧАС&quot; (флажок ниже)."
 
-#: form.py:140
+#: form.py:102
 msgid "Formup Timestamp"
 msgstr "Метка времени сбора"
 
-#: form.py:146
+#: form.py:108
 msgid "Formup NOW"
 msgstr "СЕЙЧАС"
 
-#: form.py:148
+#: form.py:110
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
@@ -149,31 +130,31 @@ msgstr ""
 "Если флажок активен, время сбора будет задано &quot;NOW&quot; и заданное "
 "выше время (при наличии) будет проигнорировано."
 
-#: form.py:154 models.py:149
+#: form.py:116 models.py:149
 msgid "Fleet Comms"
 msgstr "Голосовые каналы"
 
-#: form.py:168
+#: form.py:130
 msgid "Doctrine URL"
 msgstr "URL формата"
 
-#: form.py:173
+#: form.py:135
 msgid "Webhook Embed Color"
 msgstr "Вебхук Embed Color"
 
-#: form.py:179
+#: form.py:141
 msgid "SRP"
 msgstr "SRP"
 
-#: form.py:180
+#: form.py:142
 msgid "Is this fleet covered by SRP?"
 msgstr "Потери во флоте покрываются SRP?"
 
-#: form.py:185
+#: form.py:147
 msgid "Create SRP Link"
 msgstr "Создавать SRP ссылку"
 
-#: form.py:187
+#: form.py:149
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -181,19 +162,19 @@ msgstr ""
 "Если флажок активен, специальная ссылка для SRP будет создана.<br>Оставьте "
 "неактивным, если не уверены."
 
-#: form.py:193
+#: form.py:155
 msgid "Additional Information"
 msgstr "Дополнительная информация"
 
-#: form.py:200
+#: form.py:162
 msgid "Feel free to add some more information about the fleet…"
 msgstr "Разместите любую дополнительную информацию о флоте…"
 
-#: form.py:209
+#: form.py:170
 msgid "Create Optimer"
 msgstr "Создать таймер"
 
-#: form.py:211
+#: form.py:172
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."

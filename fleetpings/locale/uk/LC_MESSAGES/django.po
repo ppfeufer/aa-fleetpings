@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 20:06+0200\n"
+"POT-Creation-Date: 2023-06-01 00:13+0200\n"
 "PO-Revision-Date: 2023-05-28 14:24+0000\n"
 "Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -31,7 +31,7 @@ msgstr "Інструмент пінгування флоту"
 msgid "Fleet Comm"
 msgstr "Зв'язок флоту"
 
-#: admin.py:121 form.py:161
+#: admin.py:121 form.py:123
 msgid "Doctrine"
 msgstr "Доктрина"
 
@@ -46,11 +46,11 @@ msgstr "Доктрина"
 msgid "Group restrictions"
 msgstr ""
 
-#: admin.py:179 form.py:87
+#: admin.py:179 form.py:50
 msgid "Ping Target"
 msgstr "Мета пінгу"
 
-#: admin.py:221 form.py:104 models.py:423
+#: admin.py:221 form.py:67 models.py:423
 msgid "Fleet Type"
 msgstr "Тип флоту"
 
@@ -72,70 +72,51 @@ msgstr "Discord markdown"
 msgid "Webhook URL"
 msgstr "Веб-хук"
 
-#: form.py:22
-msgid ""
-" Timezones module is installed. Link to time zone conversion will be added "
-"automatically if you set a date and time here."
-msgstr ""
-" Модуль часових поясів встановлено. Посилання на конвертацію часових поясів "
-"буде додано автоматично, якщо ви встановите тут дату і час."
-
-#: form.py:40
-msgid "Discord Markdown"
-msgstr "Discord markdown"
-
-#: form.py:47
-#, python-brace-format
-msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
-"Підказка: Ви можете використовувати {discord_markdown_link} для форматування "
-"тексту."
-
-#: form.py:89
+#: form.py:52
 msgid "Who do you want to ping?"
 msgstr "Кого ви хочете пінгувати?"
 
-#: form.py:94
+#: form.py:57
 msgid "Pre-Ping"
 msgstr "Попередній пінг"
 
-#: form.py:95
+#: form.py:58
 msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "Відмітьте цей прапорець, якщо це має бути попередній пінг."
 
-#: form.py:99
+#: form.py:62
 msgid "Ping To"
 msgstr "Кого пінгувати"
 
-#: form.py:101
+#: form.py:64
 msgid "Select a channel to ping automatically."
 msgstr "Виберіть канал для автоматичного пінгування."
 
-#: form.py:108
+#: form.py:71
 msgid "FC Name"
 msgstr "Нік ФК"
 
-#: form.py:110
+#: form.py:73
 msgid "Who is the FC?"
 msgstr "Хто ФК?"
 
-#: form.py:114
+#: form.py:77
 msgid "Fleet Name"
 msgstr "Назва флоту"
 
-#: form.py:117
+#: form.py:80
 msgid "What is the fleet name in fleet finder?"
 msgstr "Як називається флот у пошуку флоту?"
 
-#: form.py:122 models.py:272
+#: form.py:85 models.py:272
 msgid "Formup Location"
 msgstr "Місце формування"
 
-#: form.py:129
+#: form.py:92
 msgid "Formup Time"
 msgstr "Час формування"
 
-#: form.py:133
+#: form.py:96
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
@@ -143,15 +124,15 @@ msgstr ""
 "Щоб увімкнути це поле, зробіть його попереднім пінгом (прапорець вище) або "
 "зніміть прапорець &quot;Створити зараз&quot; (прапорець нижче)."
 
-#: form.py:140
+#: form.py:102
 msgid "Formup Timestamp"
 msgstr "Мітка часу(timestamp) для формування"
 
-#: form.py:146
+#: form.py:108
 msgid "Formup NOW"
 msgstr "Формування зараз"
 
-#: form.py:148
+#: form.py:110
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
@@ -159,31 +140,31 @@ msgstr ""
 "Якщо цей прапорець активний, час формування буде встановлено на &quot;"
 "ЗАРАЗ&quot;, а час у полі вище (якщо він встановлений) буде проігноровано."
 
-#: form.py:154 models.py:149
+#: form.py:116 models.py:149
 msgid "Fleet Comms"
 msgstr "Канал зв'язку для флоту"
 
-#: form.py:168
+#: form.py:130
 msgid "Doctrine URL"
 msgstr "Посилання на доктрину"
 
-#: form.py:173
+#: form.py:135
 msgid "Webhook Embed Color"
 msgstr "Колір вставки Webhook"
 
-#: form.py:179
+#: form.py:141
 msgid "SRP"
 msgstr "srp"
 
-#: form.py:180
+#: form.py:142
 msgid "Is this fleet covered by SRP?"
 msgstr "Чи поширюється на цей флот дія SRP?"
 
-#: form.py:185
+#: form.py:147
 msgid "Create SRP Link"
 msgstr "Створіть SRP-посилання"
 
-#: form.py:187
+#: form.py:149
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -191,19 +172,19 @@ msgstr ""
 "Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для "
 "цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
 
-#: form.py:193
+#: form.py:155
 msgid "Additional Information"
 msgstr "Додаткова інформація"
 
-#: form.py:200
+#: form.py:162
 msgid "Feel free to add some more information about the fleet…"
 msgstr "Не соромтеся додавати додаткову інформацію про флот…"
 
-#: form.py:209
+#: form.py:170
 msgid "Create Optimer"
 msgstr "Створити таймер операції"
 
-#: form.py:211
+#: form.py:172
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."

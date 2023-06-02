@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.23.0] - 2023-06-02
+
 ### Added
 
 - Channel to Fleet Comms

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-28 16:36+0200\n"
+"POT-Creation-Date: 2023-06-01 00:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,165 +22,150 @@ msgstr ""
 msgid "Fleet Pings"
 msgstr ""
 
-#: admin.py:100 models.py:142
+#: admin.py:100 models.py:148
 msgid "Fleet Comm"
 msgstr ""
 
-#: admin.py:121 form.py:161
+#: admin.py:121 form.py:123
 msgid "Doctrine"
 msgstr ""
 
-#: admin.py:126 models.py:166
+#: admin.py:126 models.py:174
 msgid "Doctrine link"
 msgstr ""
 
-#: admin.py:132 admin.py:185 admin.py:239 admin.py:284 models.py:175
-#: models.py:304 models.py:388 models.py:453
+#: admin.py:132 admin.py:185 admin.py:239 admin.py:284 models.py:183
+#: models.py:312 models.py:396 models.py:461
 msgid "Group restrictions"
 msgstr ""
 
-#: admin.py:179 form.py:87
+#: admin.py:179 form.py:50
 msgid "Ping Target"
 msgstr ""
 
-#: admin.py:221 form.py:104 models.py:415
+#: admin.py:221 form.py:67 models.py:423
 msgid "Fleet Type"
 msgstr ""
 
-#: admin.py:226 models.py:379
+#: admin.py:226 models.py:387
 msgid "Embed color"
 msgstr ""
 
-#: admin.py:273 models.py:431
+#: admin.py:273 models.py:439
 msgid "Discord channel"
 msgstr ""
 
-#: admin.py:278 models.py:444
+#: admin.py:278 models.py:452
 msgid "Webhook URL"
 msgstr ""
 
-#: form.py:22
-msgid ""
-" Timezones module is installed. Link to time zone conversion will be added "
-"automatically if you set a date and time here."
-msgstr ""
-
-#: form.py:40
-msgid "Discord Markdown"
-msgstr ""
-
-#: form.py:47
-#, python-brace-format
-msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
-
-#: form.py:89
+#: form.py:52
 msgid "Who do you want to ping?"
 msgstr ""
 
-#: form.py:94
+#: form.py:57
 msgid "Pre-Ping"
 msgstr ""
 
-#: form.py:95
+#: form.py:58
 msgid "Mark this checkbox if this should be a pre-ping."
 msgstr ""
 
-#: form.py:99
+#: form.py:62
 msgid "Ping To"
 msgstr ""
 
-#: form.py:101
+#: form.py:64
 msgid "Select a channel to ping automatically."
 msgstr ""
 
-#: form.py:108
+#: form.py:71
 msgid "FC Name"
 msgstr ""
 
-#: form.py:110
+#: form.py:73
 msgid "Who is the FC?"
 msgstr ""
 
-#: form.py:114
+#: form.py:77
 msgid "Fleet Name"
 msgstr ""
 
-#: form.py:117
+#: form.py:80
 msgid "What is the fleet name in fleet finder?"
 msgstr ""
 
-#: form.py:122 models.py:264
+#: form.py:85 models.py:272
 msgid "Formup Location"
 msgstr ""
 
-#: form.py:129
+#: form.py:92
 msgid "Formup Time"
 msgstr ""
 
-#: form.py:133
+#: form.py:96
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
 msgstr ""
 
-#: form.py:140
+#: form.py:102
 msgid "Formup Timestamp"
 msgstr ""
 
-#: form.py:146
+#: form.py:108
 msgid "Formup NOW"
 msgstr ""
 
-#: form.py:148
+#: form.py:110
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
 msgstr ""
 
-#: form.py:154 models.py:143
+#: form.py:116 models.py:149
 msgid "Fleet Comms"
 msgstr ""
 
-#: form.py:168
+#: form.py:130
 msgid "Doctrine URL"
 msgstr ""
 
-#: form.py:173
+#: form.py:135
 msgid "Webhook Embed Color"
 msgstr ""
 
-#: form.py:179
+#: form.py:141
 msgid "SRP"
 msgstr ""
 
-#: form.py:180
+#: form.py:142
 msgid "Is this fleet covered by SRP?"
 msgstr ""
 
-#: form.py:185
+#: form.py:147
 msgid "Create SRP Link"
 msgstr ""
 
-#: form.py:187
+#: form.py:149
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
 msgstr ""
 
-#: form.py:193
+#: form.py:155
 msgid "Additional Information"
 msgstr ""
 
-#: form.py:200
+#: form.py:162
 msgid "Feel free to add some more information about the fleet…"
 msgstr ""
 
-#: form.py:209
+#: form.py:170
 msgid "Create Optimer"
 msgstr ""
 
-#: form.py:211
+#: form.py:172
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -198,193 +183,201 @@ msgstr ""
 msgid "This group has not been synced to Discord yet."
 msgstr ""
 
-#: models.py:116
+#: models.py:115
 msgid "Short name to identify this comms"
 msgstr ""
 
-#: models.py:117 models.py:158 models.py:237 models.py:371
+#: models.py:116 models.py:166 models.py:245 models.py:379
 msgid "Name"
 msgstr ""
 
-#: models.py:123 models.py:182 models.py:244 models.py:311 models.py:395
+#: models.py:122
+msgid "In which channel is the fleet?"
+msgstr ""
+
+#: models.py:123
+msgid "Channel"
+msgstr ""
+
+#: models.py:129 models.py:190 models.py:252 models.py:319 models.py:403
 msgid "You can add notes about this configuration here if you want"
 msgstr ""
 
-#: models.py:124 models.py:183 models.py:245 models.py:312 models.py:396
-#: models.py:461
+#: models.py:130 models.py:191 models.py:253 models.py:320 models.py:404
+#: models.py:469
 msgid "Notes"
 msgstr ""
 
-#: models.py:130
+#: models.py:136
 msgid "Whether this comms is enabled or not"
 msgstr ""
 
-#: models.py:131 models.py:191 models.py:253 models.py:320 models.py:404
-#: models.py:469
+#: models.py:137 models.py:199 models.py:261 models.py:328 models.py:412
+#: models.py:477
 msgid "Is enabled"
 msgstr ""
 
-#: models.py:157
+#: models.py:165
 msgid "Short name to identify this doctrine"
 msgstr ""
 
-#: models.py:165
+#: models.py:173
 msgid "A link to a doctrine page for this doctrine if you have."
 msgstr ""
 
-#: models.py:174
+#: models.py:182
 msgid "Restrict this doctrine to the following group(s) …"
 msgstr ""
 
-#: models.py:190
+#: models.py:198
 msgid "Whether this doctrine is enabled or not"
 msgstr ""
 
-#: models.py:208
+#: models.py:216
 msgid "Your doctrine URL is not valid."
 msgstr ""
 
-#: models.py:221
+#: models.py:229
 msgid "Fleet Doctrine"
 msgstr ""
 
-#: models.py:222
+#: models.py:230
 msgid "Fleet Doctrines"
 msgstr ""
 
-#: models.py:236
+#: models.py:244
 msgid "Short name to identify this formup location"
 msgstr ""
 
-#: models.py:252 models.py:319
+#: models.py:260 models.py:327
 msgid "Whether this formup location is enabled or not"
 msgstr ""
 
-#: models.py:265
+#: models.py:273
 msgid "Formup Locations"
 msgstr ""
 
-#: models.py:282
+#: models.py:290
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
 msgstr ""
 
-#: models.py:286
+#: models.py:294
 msgid "Group name"
 msgstr ""
 
-#: models.py:294
+#: models.py:302
 msgid "ID of the Discord role to ping"
 msgstr ""
 
-#: models.py:295
+#: models.py:303
 msgid "Discord ID"
 msgstr ""
 
-#: models.py:303 models.py:452
+#: models.py:311 models.py:460
 msgid "Restrict ping rights to the following group(s) …"
 msgstr ""
 
-#: models.py:355
+#: models.py:363
 msgid "Discord Ping Target"
 msgstr ""
 
-#: models.py:356
+#: models.py:364
 msgid "Discord Ping Targets"
 msgstr ""
 
-#: models.py:370
+#: models.py:378
 msgid "Short name to identify this fleet type"
 msgstr ""
 
-#: models.py:378
+#: models.py:386
 msgid "Highlight color for the embed"
 msgstr ""
 
-#: models.py:387
+#: models.py:395
 msgid "Restrict this fleet type to the following group(s) …"
 msgstr ""
 
-#: models.py:403
+#: models.py:411
 msgid "Whether this fleet type is enabled or not"
 msgstr ""
 
-#: models.py:416
+#: models.py:424
 msgid "Fleet Types"
 msgstr ""
 
-#: models.py:430
+#: models.py:438
 msgid "Name of the channel this webhook posts to"
 msgstr ""
 
-#: models.py:440
+#: models.py:448
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr ""
 
-#: models.py:460
+#: models.py:468
 msgid "You can add notes about this webhook here if you want"
 msgstr ""
 
-#: models.py:468
+#: models.py:476
 msgid "Whether this webhook is active or not"
 msgstr ""
 
-#: models.py:480
+#: models.py:488
 msgid "Webhook"
 msgstr ""
 
-#: models.py:481
+#: models.py:489
 msgid "Webhooks"
 msgstr ""
 
-#: models.py:496
+#: models.py:504
 msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
 msgstr ""
 
-#: models.py:516
+#: models.py:524
 msgid "Use default fleet types"
 msgstr ""
 
-#: models.py:519
+#: models.py:527
 msgid "Use default ping targets"
 msgstr ""
 
-#: models.py:522
+#: models.py:530
 msgid "Use Doctrines from Fittings module"
 msgstr ""
 
-#: models.py:524
+#: models.py:532
 msgid "Verify Webhooks"
 msgstr ""
 
-#: models.py:525
+#: models.py:533
 msgid "Default embed color"
 msgstr ""
 
-#: models.py:531
+#: models.py:539
 msgid ""
 "Whether to use default fleet types. If checked, the default fleet types "
 "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
 "dropdown."
 msgstr ""
 
-#: models.py:542
+#: models.py:550
 msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
 msgstr ""
 
-#: models.py:552
+#: models.py:560
 msgid ""
 "Whether to use the doctrines from the Fittings modules in the doctrine "
 "dropdown. Note: The fittings module needs to be installed for this."
 msgstr ""
 
-#: models.py:562
+#: models.py:570
 msgid ""
 "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
 "will not be verified, so the app can be used with non-Discord Webhooks as "
@@ -393,19 +386,19 @@ msgid ""
 "formatted for Discord webhooks."
 msgstr ""
 
-#: models.py:575
+#: models.py:583
 msgid "Default highlight color for the webhook embed."
 msgstr ""
 
-#: models.py:587
+#: models.py:595
 msgid "setting"
 msgstr ""
 
-#: models.py:588
+#: models.py:596
 msgid "settings"
 msgstr ""
 
-#: models.py:591
+#: models.py:599
 msgid "Fleet Pings Settings"
 msgstr ""
 

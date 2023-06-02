@@ -9,12 +9,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.23.0] - 2023-06-02
+
+### Added
+
+- Channel to Fleet Comms
+
+### Changed
+
+- German translation improved
+
+
 ## [2.22.2] - 2023-05-28
 
 ### Fixed
 
 - Page title now reflects the app name properly
-- Unnecessary "by" removed from Discord embed footer (Thanks to @pvyParts » #112)
+- Unnecessary "by" removed from Discord embed footer (Thanks to [@pvyParts] » [#112])
 
 ### Changed
 
@@ -76,7 +87,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ### Changed
 
-- Enable ordering for the webhooks (Thanks to [@pvyParts])
+- Enable ordering for the webhooks (Thanks to [@pvyParts] » [#89])
 
 
 ## [2.17.0] - 2022-12-06
@@ -86,7 +97,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - `AA_FLEETPINGS_WEBHOOK_VERIFICATION` setting to disable webhook URL verification,
   so you can use non-Discord webhooks for your pings. If you do so, it is up to you
   to ensure your webhook understands a payload formatted for Discord webhooks.
-  (Thanks to [@pvyParts])
+  (Thanks to [@pvyParts] » [#87])
 
 
 ## [2.16.0] - 2022-09-18
@@ -138,7 +149,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ### Fixed
 
-- Issue: Custom ping targets not auto-linking in Discord properly. #74
+- Issue: Custom ping targets not auto-linking in Discord properly. ([#74])
 
 
 ## [2.13.1] - 2022-04-17
@@ -152,7 +163,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ### Added
 
-- Local time to formup time segment (#70)
+- Local time to formup time segment ([#70])
 
 ### Changed
 
@@ -175,7 +186,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ### Added
 
-- Local time to formup time segment (#70)
+- Local time to formup time segment ([#70])
 
 ### Changed
 
@@ -234,7 +245,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 ### Added
 
 - `(Upcoming)` to the header text of pre-pinged fleets to ensure there is no
-  confusion between pre-pinged fleets and fleets that start now (#61)
+  confusion between pre-pinged fleets and fleets that start now ([#61])
 
 ### Changed
 
@@ -319,7 +330,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 ### Added
 
 - Permission checks for "Create SRP Link" checkbox, so only FCs who have the
-  permission to actually add SRP links can use this feature (#46)
+  permission to actually add SRP links can use this feature ([#46])
 
 ### Fixed
 
@@ -336,7 +347,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 ### Fixed
 
 - An issue where additionally configured ping targets wouldn't show up in the
-  dropdown (#44)
+  dropdown ([#44])
 
 
 ## [2.5.0] - 2021-01-12
@@ -369,14 +380,14 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ### Fixed
 
-- An issue with quotes in the doctrines field (#38)
+- An issue with quotes in the doctrine field ([#38])
 
 
 ## [2.4.2] - 2020-11-08
 
 ### Fixed
 
-- Create optimer is visible even if optimer is not active (#35)
+- Create optimer is visible even if optimer is not active ([#35])
 
 
 ## [2.4.1] - 2020-11-05
@@ -509,7 +520,7 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ### Fixed
 
-- Single quote issue finally fixed (#31)
+- Single quote issue finally fixed ([#31])
 
 
 ## [1.1.2] - 2020-08-10
@@ -545,7 +556,7 @@ settings in the admin backend, since we just nuked them from the old app.
 ### Added
 
 - Restriction for ping targets. Just to make sure not everyone can ping for Capitals
-  or even Supers and Titans if these are configured ping targets. (#18)
+  or even Supers and Titans if these are configured ping targets. ([#18])
 
 ### Changed
 
@@ -556,14 +567,14 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Our Australian time travelers and everyone else who lives in the future (UTC+x) are
   now able to pre-ping fleets that are coming up in 2-hours Eve time, which might
-  still be in their past local time, depending on how far in the future they live. (#19)
+  still be in their past local time, depending on how far in the future they live. ([#19])
 
 
 ## [0.1.10] - 2020-07-16
 
 ### Added
 
-- Option to embed automatic pings via webhook (#13)
+- Option to embed automatic pings via webhook ([#13])
 - Embedded pings via webhook are now color coded. Pre-defined fleet types are by
   default (Roam = green, Home Defense = yellow, StratOP = orange, CTA = red), and custom
   fleet types can be defined via settings.
@@ -616,7 +627,7 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ### Fixed
 
-- Ping for non-default roles via Webhook (#9)
+- Ping for non-default roles via Webhook ([#9])
 
 
 ## [0.1.5] - 2020-06-24
@@ -634,7 +645,7 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ### Fixed
 
-- typo in Additional Information
+- Typo in Additional Information
 
 
 ## [0.1.3] - 2020-06-15
@@ -648,22 +659,39 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ### Fixed
 
-- sanitizing form field input
+- Sanitizing form field input
 
 
 ## [0.1.1] - 2020-06-13
 
 ### Fixed
 
-- there should always be an empty line before Additional Information ...
+- There should always be an empty line before Additional Information ...
 
 
 ## [0.1.0] - 2020-06-13
 
 ### Added
 
-- initial version
+- Initial version
 
 
 <!-- URLs -->
 [@pvyParts]: https://github.com/pvyParts "Aaron"
+
+[#9]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/9 "Cant ping additional ping targets via direct ping"
+[#13]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/13 "Enchantment: Send ping as embed"
+[#18]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/18 "Restrict additional ping targets"
+[#19]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/19 "Allow past date/time"
+[#31]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/31 "[Bug] properly escape single quotes in names"
+
+[#35]: https://github.com/ppfeufer/aa-fleetpings/issues/35 "Create optimer is visible even if optimer is not active"
+[#38]: https://github.com/ppfeufer/aa-fleetpings/issues/38 "Sanitize inputs"
+[#44]: https://github.com/ppfeufer/aa-fleetpings/issues/44 "2.5.0 breaks additional ping targets"
+[#46]: https://github.com/ppfeufer/aa-fleetpings/issues/46 "No Permission Check for SRP Link Checkbox."
+[#61]: https://github.com/ppfeufer/aa-fleetpings/issues/61 "Pre ping title includes indication that the fleet is already up"
+[#70]: https://github.com/ppfeufer/aa-fleetpings/issues/70 "[Feature Request] Discord timestamp conversion support."
+[#74]: https://github.com/ppfeufer/aa-fleetpings/issues/74 "Custom ping targets not auto-linking in Discord properly."
+[#87]: https://github.com/ppfeufer/aa-fleetpings/pull/87 "Allow disabling of Discord webhook url verification"
+[#89]: https://github.com/ppfeufer/aa-fleetpings/pull/89 "Enable Ordering for the webhooks"
+[#112]: https://github.com/ppfeufer/aa-fleetpings/pull/112 "PR: Remove Double \"By\""

@@ -92,8 +92,8 @@ class FleetCommAdmin(admin.ModelAdmin):
     FleetCommAdmin
     """
 
-    list_display = ("_name", "notes", "is_enabled")
-    ordering = ("name",)
+    list_display = ("_name", "channel", "notes", "is_enabled")
+    ordering = ("name", "channel")
     list_filter = ("is_enabled",)
 
     @classmethod

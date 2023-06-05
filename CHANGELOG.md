@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Changed
+
+- JS modernised
+
 
 ## [2.23.0] - 2023-06-02
 

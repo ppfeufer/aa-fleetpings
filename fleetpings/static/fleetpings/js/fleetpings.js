@@ -50,7 +50,7 @@ $(document).ready(() => {
         const response = await fetch(url);
 
         if (!response.ok) {
-            const message = `An error has occured: ${response.status}`;
+            const message = `An error has occurred: ${response.status}`;
 
             throw new Error(message);
         }
@@ -385,7 +385,7 @@ $(document).ready(() => {
      * Generate ping text
      */
     $('form').submit((event) => {
-        // Stop the browser from sending the form, we take care of it
+        // Stop the browser from sending the form, we take care of it here …
         event.preventDefault();
 
         // Close all possible form messages

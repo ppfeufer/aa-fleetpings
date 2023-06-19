@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-01 00:13+0200\n"
+"POT-Creation-Date: 2023-06-19 20:37+0200\n"
 "PO-Revision-Date: 2023-06-14 17:18+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/uk/>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,7 +175,9 @@ msgid "Additional Information"
 msgstr "Додаткова інформація"
 
 #: form.py:162
-msgid "Feel free to add some more information about the fleet…"
+#, fuzzy
+#| msgid "Feel free to add some more information about the fleet…"
+msgid "Feel free to add some more information about the fleet …"
 msgstr "Не соромтеся додавати додаткову інформацію про флот…"
 
 #: form.py:170

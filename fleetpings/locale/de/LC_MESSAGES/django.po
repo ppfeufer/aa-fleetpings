@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-19 20:37+0200\n"
-"PO-Revision-Date: 2023-06-01 22:57+0000\n"
-"Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
-"Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/de/>\n"
+"PO-Revision-Date: 2023-06-19 18:40+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: German <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
 #: templates/fleetpings/base.html:8
@@ -168,8 +168,6 @@ msgid "Additional Information"
 msgstr "Zusätzliche Informationen"
 
 #: form.py:162
-#, fuzzy
-#| msgid "Feel free to add some more information about the fleet…"
 msgid "Feel free to add some more information about the fleet …"
 msgstr "Fühl Dich frei, weitere Informationen über die Flotte hinzuzufügen …"
 

@@ -296,7 +296,7 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
 
     # Third Party
-    from aasrp.models import AaSrpLink
+    from aasrp.models import SrpLink
 
     # Django
     from django.utils.crypto import get_random_string
@@ -305,7 +305,7 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     creator = request.user.profile.main_character
     srp_code = get_random_string(length=16)
 
-    AaSrpLink(
+    SrpLink(
         srp_name=ping_context["fleet_name"],
         fleet_time=post_time,
         fleet_doctrine=ping_context["doctrine"]["name"],

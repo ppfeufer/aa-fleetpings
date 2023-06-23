@@ -7,12 +7,12 @@ from django.contrib.auth.models import Group
 from django.test import TestCase
 
 # AA Fleet Pings
-from fleetpings.models import DiscordPingTargets
+from fleetpings.models import DiscordPingTarget
 
 
-class TestModelDiscordPingTargets(TestCase):
+class TestModelDiscordPingTarget(TestCase):
     """
-    Testing the DiscordPingTargets model
+    Testing the DiscordPingTarget model
     """
 
     @classmethod
@@ -32,6 +32,6 @@ class TestModelDiscordPingTargets(TestCase):
         :rtype:
         """
 
-        test_object = DiscordPingTargets(name=self.group)
+        test_object = DiscordPingTarget(name=self.group)
 
         self.assertEqual(str(test_object), self.group.name)

@@ -11,7 +11,7 @@ from fleetpings.app_settings import (
     optimer_installed,
     timezones_installed,
 )
-from fleetpings.models import DiscordPingTargets, Setting, Webhook
+from fleetpings.models import DiscordPingTarget, Setting, Webhook
 
 
 def get_ping_context_from_form_data(form_data: dict) -> dict:
@@ -34,10 +34,10 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
         else:
             try:
                 # Check if we deal with a custom ping target
-                ping_target = DiscordPingTargets.objects.get(
+                ping_target = DiscordPingTarget.objects.get(
                     discord_id=form_data["ping_target"]
                 )
-            except DiscordPingTargets.DoesNotExist:
+            except DiscordPingTarget.DoesNotExist:
                 pass
             else:
                 # We deal with a custom ping target, gather the information we need
@@ -176,7 +176,7 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
 
         if ping_context["formup_time"]["timestamp"]:
             if timezones_installed():
-                # Add timezones conversion to ping text
+                # Add timezones conversion to the ping text
                 timezones_url = reverse_absolute(
                     "timezones:index",
                     args=[ping_context["formup_time"]["timestamp"]],

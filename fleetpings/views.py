@@ -2,6 +2,8 @@
 The views
 """
 
+# pylint: disable=import-outside-toplevel
+
 # Standard Library
 import json
 
@@ -36,7 +38,7 @@ from fleetpings.form import FleetPingForm
 from fleetpings.helper.discord_webhook import ping_discord_webhook
 from fleetpings.helper.ping_context import get_ping_context_from_form_data
 from fleetpings.models import (
-    DiscordPingTargets,
+    DiscordPingTarget,
     FleetComm,
     FleetDoctrine,
     FleetType,
@@ -94,7 +96,7 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
     logger.info(f"Getting ping targets for user {request.user}")
 
     additional_discord_ping_targets = (
-        DiscordPingTargets.objects.filter(
+        DiscordPingTarget.objects.filter(
             Q(restricted_to_group__in=request.user.groups.all())
             | Q(restricted_to_group__isnull=True),
             is_enabled=True,

@@ -93,7 +93,7 @@ def use_fittings_module_for_doctrines() -> bool:
     """
 
     # AA Fleet Pings
-    from fleetpings.models import Setting
+    from fleetpings.models import Setting  # pylint: disable=import-outside-toplevel
 
     return (
         fittings_installed() is True

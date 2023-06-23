@@ -179,7 +179,7 @@ class FleetDoctrine(models.Model):
         Group,
         blank=True,
         related_name="fleetdoctrine_require_groups",
-        help_text=_("Restrict this doctrine to the following group(s) …"),
+        help_text=_("Restrict this doctrine to the following groups …"),
         verbose_name=_("Group restrictions"),
     )
 
@@ -275,7 +275,7 @@ class FormupLocation(models.Model):
 
 
 # DiscordPingTargets Model
-class DiscordPingTargets(models.Model):
+class DiscordPingTarget(models.Model):
     """
     Discord Ping Targets
     """
@@ -308,7 +308,7 @@ class DiscordPingTargets(models.Model):
         Group,
         blank=True,
         related_name="discord_role_require_groups",
-        help_text=_("Restrict ping rights to the following group(s) …"),
+        help_text=_("Restrict ping rights to the following groups …"),
         verbose_name=_("Group restrictions"),
     )
 
@@ -392,7 +392,7 @@ class FleetType(models.Model):
         Group,
         blank=True,
         related_name="fleettype_require_groups",
-        help_text=_("Restrict this fleet type to the following group(s) …"),
+        help_text=_("Restrict this fleet type to the following groups …"),
         verbose_name=_("Group restrictions"),
     )
 
@@ -457,7 +457,7 @@ class Webhook(models.Model):
         Group,
         blank=True,
         related_name="webhook_require_groups",
-        help_text=_("Restrict ping rights to the following group(s) …"),
+        help_text=_("Restrict ping rights to the following groups …"),
         verbose_name=_("Group restrictions"),
     )
 

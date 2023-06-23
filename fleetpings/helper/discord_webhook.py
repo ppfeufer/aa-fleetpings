@@ -18,7 +18,11 @@ def ping_discord_webhook(ping_context: dict, user: User):
     """
     Ping a Discord webhook
     :param ping_context:
+    :type ping_context:
+    :param user:
+    :type user:
     :return:
+    :rtype:
     """
 
     webhook_ping_context = _get_webhook_ping_context(ping_context=ping_context)

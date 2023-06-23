@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-20 03:07+0200\n"
+"POT-Creation-Date: 2023-06-23 13:29+0200\n"
 "PO-Revision-Date: 2023-06-14 17:18+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -69,6 +69,12 @@ msgstr ""
 #| msgid "Webhook"
 msgid "Webhook URL"
 msgstr "Веб-хук"
+
+#. Translators: This is the app name and version, which will appear in the Django Backend
+#: apps.py:21
+#, python-brace-format
+msgid "Fleet Pings v{__version__}"
+msgstr ""
 
 #: form.py:25
 #, fuzzy
@@ -258,7 +264,9 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Посилання на сторінку доктрини для цієї доктрини, якщо вона у вас є."
 
 #: models.py:182
-msgid "Restrict this doctrine to the following group(s) …"
+#, fuzzy
+#| msgid "Restrict this doctrine to the following group(s) …"
+msgid "Restrict this doctrine to the following groups …"
 msgstr "Обмежте цю доктрину наступними групами …"
 
 #: models.py:198
@@ -312,7 +320,9 @@ msgid "Discord ID"
 msgstr "Discord markdown"
 
 #: models.py:311 models.py:460
-msgid "Restrict ping rights to the following group(s) …"
+#, fuzzy
+#| msgid "Restrict ping rights to the following group(s) …"
+msgid "Restrict ping rights to the following groups …"
 msgstr "Обмежити права на пінг для наступних груп …"
 
 #: models.py:363
@@ -334,7 +344,9 @@ msgid "Highlight color for the embed"
 msgstr "Виділіть колір для вставки"
 
 #: models.py:395
-msgid "Restrict this fleet type to the following group(s) …"
+#, fuzzy
+#| msgid "Restrict this fleet type to the following group(s) …"
+msgid "Restrict this fleet type to the following groups …"
 msgstr "Обмежте цей тип флоту наступними групами …"
 
 #: models.py:411
@@ -574,22 +586,22 @@ msgstr "Пінг ще не створено …"
 msgid "Copy Ping Text"
 msgstr "Скопіювати текст пінгу"
 
-#: views.py:392
+#: views.py:394
 msgid "Not all mandatory information available to create an SRP link."
 msgstr "Не вся обов'язкова інформація доступна для створення SRP-посилання."
 
-#: views.py:424
+#: views.py:426
 msgid "Fleet operations timer has been created …"
 msgstr "Створено таймер операцій флоту …"
 
-#: views.py:433
+#: views.py:435
 msgid "SRP link has been created …"
 msgstr "Створено SRP-посилання …"
 
-#: views.py:450
+#: views.py:452
 msgid "Form invalid. Please check your input."
 msgstr "Форма невірна. Будь ласка, перевірте свої дані."
 
-#: views.py:452
+#: views.py:454
 msgid "No form data submitted."
 msgstr "Не подано жодних даних."

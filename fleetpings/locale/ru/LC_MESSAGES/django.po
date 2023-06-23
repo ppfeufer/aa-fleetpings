@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-20 03:07+0200\n"
+"POT-Creation-Date: 2023-06-23 13:29+0200\n"
 "PO-Revision-Date: 2023-06-21 19:18+0000\n"
 "Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/ru/>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,13 @@ msgstr "Канал Discord"
 #: admin.py:278 models.py:452
 msgid "Webhook URL"
 msgstr "Вебхук URL"
+
+#. Translators: This is the app name and version, which will appear in the Django Backend
+#: apps.py:21
+#, fuzzy, python-brace-format
+#| msgid "Fleet Pings Settings"
+msgid "Fleet Pings v{__version__}"
+msgstr "Настройки Сбора флота"
 
 #: form.py:25
 msgid "Discord Markdown"
@@ -248,7 +255,9 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Ссылка на страницу формата."
 
 #: models.py:182
-msgid "Restrict this doctrine to the following group(s) …"
+#, fuzzy
+#| msgid "Restrict this doctrine to the following group(s) …"
+msgid "Restrict this doctrine to the following groups …"
 msgstr "Предоставить доступ к формату следующим группам …"
 
 #: models.py:198
@@ -300,7 +309,9 @@ msgid "Discord ID"
 msgstr "Идентификатор Discord"
 
 #: models.py:311 models.py:460
-msgid "Restrict ping rights to the following group(s) …"
+#, fuzzy
+#| msgid "Restrict ping rights to the following group(s) …"
+msgid "Restrict ping rights to the following groups …"
 msgstr "Разрешить пинговать следующим группам …"
 
 #: models.py:363
@@ -320,7 +331,9 @@ msgid "Highlight color for the embed"
 msgstr "Цвет при встраивании"
 
 #: models.py:395
-msgid "Restrict this fleet type to the following group(s) …"
+#, fuzzy
+#| msgid "Restrict this fleet type to the following group(s) …"
+msgid "Restrict this fleet type to the following groups …"
 msgstr "Предоставить доступ к флоту следующим группам …"
 
 #: models.py:411
@@ -567,22 +580,22 @@ msgstr "Пингов нет …"
 msgid "Copy Ping Text"
 msgstr "Копировать текст пинга"
 
-#: views.py:392
+#: views.py:394
 msgid "Not all mandatory information available to create an SRP link."
 msgstr "Не вся необходимая информация предоставлена для создания ссылки SRP."
 
-#: views.py:424
+#: views.py:426
 msgid "Fleet operations timer has been created …"
 msgstr "Таймер флота был создан …"
 
-#: views.py:433
+#: views.py:435
 msgid "SRP link has been created …"
 msgstr "SRP ссылка была создана …"
 
-#: views.py:450
+#: views.py:452
 msgid "Form invalid. Please check your input."
 msgstr "Форма некорректна. Проверьте введенные данные."
 
-#: views.py:452
+#: views.py:454
 msgid "No form data submitted."
 msgstr "Данные формы не отправлены."

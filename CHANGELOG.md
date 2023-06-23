@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - JS modernised
+- Model renamed to be in line with the Django naming scheme
 
 
 ## [2.23.0] - 2023-06-02

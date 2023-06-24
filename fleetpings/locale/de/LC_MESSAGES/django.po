@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-01 00:13+0200\n"
-"PO-Revision-Date: 2023-06-01 22:57+0000\n"
-"Last-Translator: \"H. Peter Pfeufer\" <info@ppfeufer.de>\n"
+"POT-Creation-Date: 2023-06-23 13:29+0200\n"
+"PO-Revision-Date: 2023-06-24 13:57+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/de/>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
 #: templates/fleetpings/base.html:8
@@ -27,7 +27,7 @@ msgstr "Flotten-Ankündigungen"
 msgid "Fleet Comm"
 msgstr "Flottenkommunikation"
 
-#: admin.py:121 form.py:123
+#: admin.py:121 form.py:147
 msgid "Doctrine"
 msgstr "Doktrin"
 
@@ -40,11 +40,11 @@ msgstr "Doktrin Link"
 msgid "Group restrictions"
 msgstr "Gruppenbeschränkungen"
 
-#: admin.py:179 form.py:50
+#: admin.py:179 form.py:74
 msgid "Ping Target"
 msgstr "Pingziel"
 
-#: admin.py:221 form.py:67 models.py:423
+#: admin.py:221 form.py:91 models.py:423
 msgid "Fleet Type"
 msgstr "Flottenart"
 
@@ -60,51 +60,67 @@ msgstr "Discord-Kanal"
 msgid "Webhook URL"
 msgstr "Webhook URL"
 
-#: form.py:52
+#. Translators: This is the app name and version, which will appear in the Django Backend
+#: apps.py:21
+#, python-brace-format
+msgid "Fleet Pings v{__version__}"
+msgstr "Fleet Pings v{__version__}"
+
+#: form.py:25
+msgid "Discord Markdown"
+msgstr "Discord Markdown"
+
+#: form.py:32
+#, python-brace-format
+msgid "Hint: You can use {discord_markdown_link} to format the text."
+msgstr ""
+"Hinweis: Du kannst {discord_markdown_link} nutzen um den Text zu formatieren."
+
+#: form.py:76
 msgid "Who do you want to ping?"
 msgstr "Wen möchtest Du pingen?"
 
-#: form.py:57
+#: form.py:81
 msgid "Pre-Ping"
 msgstr "Pre-Ping"
 
-#: form.py:58
+#: form.py:82
 msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "Markiere dieses Kontrollkästchen, wenn dies ein Pre-Ping sein soll."
 
-#: form.py:62
+#: form.py:86
 msgid "Ping To"
 msgstr "Ping in"
 
-#: form.py:64
+#: form.py:88
 msgid "Select a channel to ping automatically."
 msgstr "Wähle einen Kanal aus, der automatisch gepingt werden soll."
 
-#: form.py:71
+#: form.py:95
 msgid "FC Name"
 msgstr "FC Name"
 
-#: form.py:73
+#: form.py:97
 msgid "Who is the FC?"
 msgstr "Wer ist der FC?"
 
-#: form.py:77
+#: form.py:101
 msgid "Fleet Name"
 msgstr "Flottenname"
 
-#: form.py:80
+#: form.py:104
 msgid "What is the fleet name in fleet finder?"
 msgstr "Wie lautet der Flottenname im Flottenfinder?"
 
-#: form.py:85 models.py:272
+#: form.py:109 models.py:272
 msgid "Formup Location"
 msgstr "Treffpunkt"
 
-#: form.py:92
+#: form.py:116
 msgid "Formup Time"
 msgstr "Flottenstart"
 
-#: form.py:96
+#: form.py:120
 msgid ""
 "To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
@@ -113,15 +129,15 @@ msgstr ""
 "(Kontrollkästchen oben) oder deaktiviere &quot;Flottenstart JETZT&quot; "
 "(Kontrollkästchen unten)."
 
-#: form.py:102
+#: form.py:126
 msgid "Formup Timestamp"
 msgstr "Flottenstart Zeitstempel"
 
-#: form.py:108
+#: form.py:132
 msgid "Formup NOW"
 msgstr "Flottenstart JETZT"
 
-#: form.py:110
+#: form.py:134
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
@@ -130,31 +146,31 @@ msgstr ""
 "JETZT&quot; gesetzt. und die Zeit im obigen Feld (falls vorhanden) wird "
 "ignoriert."
 
-#: form.py:116 models.py:149
+#: form.py:140 models.py:149
 msgid "Fleet Comms"
 msgstr "Flottenkommunikation"
 
-#: form.py:130
+#: form.py:154
 msgid "Doctrine URL"
 msgstr "Doktrin URL"
 
-#: form.py:135
+#: form.py:159
 msgid "Webhook Embed Color"
 msgstr "Webhook Embed Farbe"
 
-#: form.py:141
+#: form.py:165
 msgid "SRP"
 msgstr "SRP"
 
-#: form.py:142
+#: form.py:166
 msgid "Is this fleet covered by SRP?"
 msgstr "Ist diese Flotte durch SRP abgedeckt?"
 
-#: form.py:147
+#: form.py:171
 msgid "Create SRP Link"
 msgstr "SRP Link erstellen"
 
-#: form.py:149
+#: form.py:173
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -163,19 +179,19 @@ msgstr ""
 "spezifischer SRP-Link erstellt.<br>Leer lassen, wenn Du Dir nicht sicher "
 "bist."
 
-#: form.py:155
+#: form.py:179
 msgid "Additional Information"
 msgstr "Zusätzliche Informationen"
 
-#: form.py:162
-msgid "Feel free to add some more information about the fleet…"
+#: form.py:186
+msgid "Feel free to add some more information about the fleet …"
 msgstr "Fühl Dich frei, weitere Informationen über die Flotte hinzuzufügen …"
 
-#: form.py:170
+#: form.py:195
 msgid "Create Optimer"
 msgstr "Op Timer erstellen"
 
-#: form.py:172
+#: form.py:197
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -241,8 +257,8 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Ein Link zu einer Doktrinenseite für diese Doktrin, falls vorhanden."
 
 #: models.py:182
-msgid "Restrict this doctrine to the following group(s) …"
-msgstr "Beschränkt diese Doktrin auf die folgende(n) Gruppe(n) …"
+msgid "Restrict this doctrine to the following groups …"
+msgstr "Beschränkt diese Doktrin auf die folgenden Gruppen …"
 
 #: models.py:198
 msgid "Whether this doctrine is enabled or not"
@@ -293,8 +309,8 @@ msgid "Discord ID"
 msgstr "Discord ID"
 
 #: models.py:311 models.py:460
-msgid "Restrict ping rights to the following group(s) …"
-msgstr "Beschränkt die Ping-Rechte auf die folgende(n) Gruppe(n) …"
+msgid "Restrict ping rights to the following groups …"
+msgstr "Beschränkt die Ping-Rechte auf die folgenden Gruppen …"
 
 #: models.py:363
 msgid "Discord Ping Target"
@@ -313,8 +329,8 @@ msgid "Highlight color for the embed"
 msgstr "Highlight Farbe für den Embed"
 
 #: models.py:395
-msgid "Restrict this fleet type to the following group(s) …"
-msgstr "Beschränkt diese Flottenart auf die folgende(n) Gruppe(n) …"
+msgid "Restrict this fleet type to the following groups …"
+msgstr "Beschränkt diese Flottenart auf die folgenden Gruppen …"
 
 #: models.py:411
 msgid "Whether this fleet type is enabled or not"
@@ -567,24 +583,24 @@ msgstr "Noch kein Ping erstellt …"
 msgid "Copy Ping Text"
 msgstr "Ping Text kopieren"
 
-#: views.py:392
+#: views.py:394
 msgid "Not all mandatory information available to create an SRP link."
 msgstr ""
 "Nicht alle obligatorischen Informationen zum Erstellen eines SRP-Links "
 "verfügbar."
 
-#: views.py:424
+#: views.py:426
 msgid "Fleet operations timer has been created …"
 msgstr "Der Timer für Flottenoperationen wurde erstellt …"
 
-#: views.py:433
+#: views.py:435
 msgid "SRP link has been created …"
 msgstr "SRP Link erstellt …"
 
-#: views.py:450
+#: views.py:452
 msgid "Form invalid. Please check your input."
 msgstr "Formular ungültig. Bitte die Angaben prüfen."
 
-#: views.py:452
+#: views.py:454
 msgid "No form data submitted."
 msgstr "Keine Formulardaten übermittelt."

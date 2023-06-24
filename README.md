@@ -9,6 +9,7 @@
 [![Discord](https://img.shields.io/discord/790364535294132234?label=discord)](https://discord.gg/zmh52wnfvM)
 [![Checks](https://github.com/ppfeufer/aa-fleetpings/actions/workflows/automated-checks.yml/badge.svg)](https://github.com/ppfeufer/aa-fleetpings/actions/workflows/automated-checks.yml)
 [![codecov](https://codecov.io/gh/ppfeufer/aa-fleetpings/branch/master/graph/badge.svg?token=9I6HQB6W6J)](https://codecov.io/gh/ppfeufer/aa-fleetpings)
+[![Translation Status](https://weblate.ppfeufer.de/widgets/alliance-auth-apps/-/aa-fleetpings/svg-badge.svg)](https://weblate.ppfeufer.de/engage/alliance-auth-apps/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/ppfeufer/aa-fleetpings/blob/master/CODE_OF_CONDUCT.md)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N8CL1BY)
@@ -118,12 +119,12 @@ Finally, restart your AA supervisor services.
 
 ### View in Alliance Auth
 
-![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/images/aa-view.jpg "View in Alliance Auth")
+![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/screenshots/aa-view.jpg "View in Alliance Auth")
 
 
 ### Discord Ping Example
 
-![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/images/discord-ping.jpg "Discord Ping Example")
+![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/fleetpings/docs/screenshots/discord-ping.jpg "Discord Ping Example")
 
 
 ## Configuration

@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.24.0] - 2023-06-24
+
+### Changed
+
+- JS modernised
+- Model renamed to be in line with the Django naming scheme
+
+
 ## [2.23.0] - 2023-06-02
 
 ### Added

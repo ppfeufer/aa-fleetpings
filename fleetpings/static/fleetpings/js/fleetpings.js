@@ -41,74 +41,44 @@ $(document).ready(() => {
     /* Functions
     --------------------------------------------------------------------------------- */
     /**
-     * Get the additional Discord ping targets for the current user
+     * Get data from a given ajax URL
+     *
+     * @param {string} url The URL to query
+     * @returns {Promise<string>}
      */
-    const getPingTargetsForCurrentUser = () => {
-        $.ajax({
-            url: fleetpingsSettings.url.pingTargets,
-            success: (data) => {
-                $(selectPingTarget).html(data);
-            }
-        });
+    const getDataFromAjaxUrl = async (url) => {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            const message = `An error has occurred: ${response.status}`;
+
+            throw new Error(message);
+        }
+
+        return await response.text();
     };
 
     /**
-     * Get webhooks for current user
+     * Get the current user's dropdown data
      */
-    const getWebhooksForCurrentUser = () => {
-        $.ajax({
-            url: fleetpingsSettings.url.pingWebhooks,
-            success: (data) => {
-                $(selectPingChannel).html(data);
-            }
+    const getUserDropdownData = () => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.pingTargets).then(pingTargets => {
+            $(selectPingTarget).html(pingTargets);
         });
-    };
-
-    /**
-     * Get fleet types for current user
-     */
-    const getFleetTypesForCurrentUser = () => {
-        $.ajax({
-            url: fleetpingsSettings.url.fleetTypes,
-            success: (data) => {
-                $(selectFleetType).html(data);
-            }
+        getDataFromAjaxUrl(fleetpingsSettings.url.pingWebhooks).then(pingWebhooks => {
+            $(selectPingChannel).html(pingWebhooks);
         });
-    };
-
-    /**
-     * Get formup locations
-     */
-    const getFormupLocations = () => {
-        $.ajax({
-            url: fleetpingsSettings.url.formupLocations,
-            success: (data) => {
-                $(inputFormupLocation).after(data);
-            }
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetTypes).then(fleetTypes => {
+            $(selectFleetType).html(fleetTypes);
         });
-    };
-
-    /**
-     * Get fleet comms
-     */
-    const getFleetComms = () => {
-        $.ajax({
-            url: fleetpingsSettings.url.fleetComms,
-            success: (data) => {
-                $(inputFleetComms).after(data);
-            }
+        getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then(formupLocations => {
+            $(inputFormupLocation).after(formupLocations);
         });
-    };
-
-    /**
-     * Get fleet doctrines for the current user
-     */
-    const getFleetDoctrines = () => {
-        $.ajax({
-            url: fleetpingsSettings.url.fleetDoctrines,
-            success: (data) => {
-                $(inputFleetDoctrine).after(data);
-            }
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {
+            $(inputFleetComms).after(fleetComms);
+        });
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then(fleetDoctrines => {
+            $(inputFleetDoctrine).after(fleetDoctrines);
         });
     };
 
@@ -127,7 +97,7 @@ $(document).ready(() => {
     };
 
     /**
-     * Show message when copy action was successful
+     * Show a message when copy action was successful
      *
      * @param {string} message
      * @param {string} element
@@ -143,7 +113,7 @@ $(document).ready(() => {
     };
 
     /**
-     * Show message when copy action was not successful
+     * Show a message when copy action was not successful
      *
      * @param {string} message
      * @param {string} element
@@ -265,7 +235,7 @@ $(document).ready(() => {
     /* Events
     --------------------------------------------------------------------------------- */
     /**
-     * Show hint about ping spam for `@everyone`
+     * Show a hint about ping spam for `@everyone`
      */
     $(selectPingTarget).change(() => {
         if (selectPingTarget.val() === '@everyone') {
@@ -415,7 +385,7 @@ $(document).ready(() => {
      * Generate ping text
      */
     $('form').submit((event) => {
-        // Stop the browser from sending the form, we take care of it
+        // Stop the browser from sending the form, we take care of it here …
         event.preventDefault();
 
         // Close all possible form messages
@@ -520,11 +490,6 @@ $(document).ready(() => {
      * Initialize functions that need to start on load
      */
     (() => {
-        getPingTargetsForCurrentUser();
-        getWebhooksForCurrentUser();
-        getFleetTypesForCurrentUser();
-        getFormupLocations();
-        getFleetComms();
-        getFleetDoctrines();
+        getUserDropdownData();
     })();
 });

@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 # AA Fleet Pings
 from fleetpings.form import FleetTypeAdminForm, SettingAdminForm
 from fleetpings.models import (
-    DiscordPingTargets,
+    DiscordPingTarget,
     FleetComm,
     FleetDoctrine,
     FleetType,
@@ -151,7 +151,7 @@ class FormupLocationAdmin(admin.ModelAdmin):
     list_filter = ("is_enabled",)
 
 
-@admin.register(DiscordPingTargets)
+@admin.register(DiscordPingTarget)
 class DiscordPingTargetsAdmin(admin.ModelAdmin):
     """
     DiscordPingTargetsAdmin

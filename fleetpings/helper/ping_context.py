@@ -34,10 +34,12 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
         else:
             try:
                 # Check if we deal with a custom ping target
-                ping_target = DiscordPingTarget.objects.get(
-                    discord_id=form_data["ping_target"]
+                ping_target = (
+                    DiscordPingTarget.objects.get(  # pylint: disable=no-member
+                        discord_id=form_data["ping_target"]
+                    )
                 )
-            except DiscordPingTarget.DoesNotExist:
+            except DiscordPingTarget.DoesNotExist:  # pylint: disable=no-member
                 pass
             else:
                 # We deal with a custom ping target, gather the information we need
@@ -57,8 +59,10 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
 
     if form_data["ping_channel"]:
         try:
-            ping_channel = Webhook.objects.get(pk=form_data["ping_channel"])
-        except Webhook.DoesNotExist:
+            ping_channel = Webhook.objects.get(  # pylint: disable=no-member
+                pk=form_data["ping_channel"]
+            )
+        except Webhook.DoesNotExist:  # pylint: disable=no-member
             pass
         else:
             ping_channel_webhook = ping_channel.url
@@ -132,7 +136,7 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
 
     # Check if it's a pre-ping or not
     if ping_context["is_pre_ping"]:
-        webhook_ping_text_header += "### PRE PING ###"
+        webhook_ping_text_header += r"\### PRE PING ###"
 
         if ping_context["fleet_type"]:
             webhook_ping_text_header += (

@@ -7,7 +7,7 @@
     **
 
     {% if is_pre_ping %}
-        ### PRE PING ###
+        {% if not ping_target.at_mention %}\{% endif %}### PRE PING ###
 
         {% if fleet_type %}
             / (Upcoming) {{ fleet_type }} Fleet

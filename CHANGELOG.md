@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+### Fixed
+
+- Discord Message Format Inconsistency ([#127])
+
+<!-- Links -->
+[#127]: https://github.com/ppfeufer/aa-fleetpings/issues/127 "Discord Message Format Inconsistency"
+
 
 ## [2.24.0] - 2023-06-24
 

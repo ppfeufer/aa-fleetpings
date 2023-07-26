@@ -3,22 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Kristof <kristof@teh.ninja>, 2023.
 # "H. Peter Pfeufer" <info@ppfeufer.de>, 2023.
+# "Andrii M." <elfleg0las88@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-23 13:29+0200\n"
-"PO-Revision-Date: 2023-06-14 17:18+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/uk/>\n"
+"PO-Revision-Date: 2023-07-26 12:39+0000\n"
+"Last-Translator: \"Andrii M.\" <elfleg0las88@gmail.com>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : (n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
 #: templates/fleetpings/base.html:8
@@ -36,15 +37,13 @@ msgid "Doctrine"
 msgstr "Доктрина"
 
 #: admin.py:126 models.py:174
-#, fuzzy
-#| msgid "Doctrine"
 msgid "Doctrine link"
-msgstr "Доктрина"
+msgstr "Посилання на доктрину"
 
 #: admin.py:132 admin.py:185 admin.py:239 admin.py:284 models.py:183
 #: models.py:312 models.py:396 models.py:461
 msgid "Group restrictions"
-msgstr ""
+msgstr "Групові обмеження"
 
 #: admin.py:179 form.py:74
 msgid "Ping Target"
@@ -62,13 +61,11 @@ msgstr "Колір вставки Webhook"
 
 #: admin.py:273 models.py:439
 msgid "Discord channel"
-msgstr ""
+msgstr "Канал діскорду"
 
 #: admin.py:278 models.py:452
-#, fuzzy
-#| msgid "Webhook"
 msgid "Webhook URL"
-msgstr "Веб-хук"
+msgstr "Веб-хук URL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: apps.py:21
@@ -252,8 +249,9 @@ msgstr "Увімкнено цей канал зв'язку чи ні"
 
 #: models.py:137 models.py:199 models.py:261 models.py:328 models.py:412
 #: models.py:477
+#, fuzzy
 msgid "Is enabled"
-msgstr ""
+msgstr "Дозволено"
 
 #: models.py:165
 msgid "Short name to identify this doctrine"
@@ -307,7 +305,7 @@ msgstr ""
 
 #: models.py:294
 msgid "Group name"
-msgstr ""
+msgstr "Назва групи"
 
 #: models.py:302
 msgid "ID of the Discord role to ping"

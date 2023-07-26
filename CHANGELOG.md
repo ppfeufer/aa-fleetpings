@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Ukrainian translation improved
+- Translation string unified (No need for 2 different strings for the same thing)
 
 
 ## [2.24.2] - 2023-06-27

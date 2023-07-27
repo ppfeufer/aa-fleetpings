@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-26 16:32+0200\n"
-"PO-Revision-Date: 2023-07-26 12:39+0000\n"
-"Last-Translator: \"Andrii M.\" <elfleg0las88@gmail.com>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/uk/>\n"
+"PO-Revision-Date: 2023-07-27 15:39+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -245,7 +245,6 @@ msgstr "Увімкнено цей канал зв'язку чи ні"
 
 #: models.py:137 models.py:199 models.py:261 models.py:328 models.py:412
 #: models.py:477
-#, fuzzy
 msgid "Is enabled"
 msgstr "Дозволено"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-26 16:32+0200\n"
+"POT-Creation-Date: 2023-07-27 23:37+0200\n"
 "PO-Revision-Date: 2023-06-24 13:57+0000\n"
 "Last-Translator: Nikolay <nick.postnikov@gmail.com>\n"
 "Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.1\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
-#: templates/fleetpings/base.html:8
+#: templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "Анонсы флота"
 
@@ -482,6 +482,19 @@ msgid ""
 msgstr ""
 "Успех! Текст пинга был скопирован в буфер обмена. Скопируйте сообщение в "
 "чат, чтобы пилоты могли присоединиться."
+
+#: templates/fleetpings/partials/footer/app-translation-footer.html:4
+msgid "Join our team of translators!"
+msgstr ""
+
+#: templates/fleetpings/partials/footer/app-translation-footer.html:7
+#, python-format
+msgid ""
+"\n"
+"            Do you want to help translate this app into your language or "
+"improve the existing translation? - %(weblate_link)s\n"
+"        "
+msgstr ""
 
 #: templates/fleetpings/partials/form/form.html:68
 msgid "Create Ping"

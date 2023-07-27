@@ -5,8 +5,18 @@
 {% block page_title %}{% translate "Fleet Pings" %}{% endblock %}
 
 {% block content %}
-    {% translate "Fleet Pings" as translated_header %}
-    {% include "fleetpings/partials/header/page-header.html" with header_text=translated_header %}
+    <div class="aa-fleetpings">
+        <div class="aa-fleetpings-header">
+            {% translate "Fleet Pings" as translated_header %}
+            {% include "fleetpings/partials/header/page-header.html" with header_text=translated_header %}
+        </div>
 
-    {% block details %}{% endblock %}
+        <div class="aa-fleetpings-body">
+            {% block aa_fleetpings_body %}{% endblock %}
+        </div>
+
+        <div class="aa-fleetpings-footer">
+            {% include "fleetpings/partials/footer/app-translation-footer.html" %}
+        </div>
+    </div>
 {% endblock %}

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-23 13:29+0200\n"
-"PO-Revision-Date: 2023-06-24 13:57+0000\n"
+"POT-Creation-Date: 2023-07-27 23:37+0200\n"
+"PO-Revision-Date: 2023-07-28 22:39+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/de/>\n"
@@ -16,10 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
-#: templates/fleetpings/base.html:8
+#: templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "Flotten-Ankündigungen"
 
@@ -31,7 +31,7 @@ msgstr "Flottenkommunikation"
 msgid "Doctrine"
 msgstr "Doktrin"
 
-#: admin.py:126 models.py:174
+#: admin.py:126 form.py:154 models.py:174
 msgid "Doctrine link"
 msgstr "Doktrin Link"
 
@@ -149,10 +149,6 @@ msgstr ""
 #: form.py:140 models.py:149
 msgid "Fleet Comms"
 msgstr "Flottenkommunikation"
-
-#: form.py:154
-msgid "Doctrine URL"
-msgstr "Doktrin URL"
 
 #: form.py:159
 msgid "Webhook Embed Color"
@@ -494,6 +490,23 @@ msgstr ""
 "Erfolg! Der Ping-Text wurde in Ihre Zwischenablage kopiert. Sei jetzt ein "
 "guter FC und wirf Sie es in einen Discord Chat, damit auch einige Leute in "
 "die Flotte kommen."
+
+#: templates/fleetpings/partials/footer/app-translation-footer.html:4
+msgid "Join our team of translators!"
+msgstr "Tritt unserm Team von Übersetzern bei!"
+
+#: templates/fleetpings/partials/footer/app-translation-footer.html:7
+#, python-format
+msgid ""
+"\n"
+"            Do you want to help translate this app into your language or "
+"improve the existing translation? - %(weblate_link)s\n"
+"        "
+msgstr ""
+"\n"
+"            Du möchtest helfen diese App in Deine Sprache zu übersetzen oder "
+"die bestehende Übersetzung verbessern? - %(weblate_link)s\n"
+"        "
 
 #: templates/fleetpings/partials/form/form.html:68
 msgid "Create Ping"

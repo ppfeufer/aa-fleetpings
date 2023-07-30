@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [In Development] - Unreleased
 
 
+## [2.24.3] - 2023-07-30
+
+### Added
+
+- Bootstrap CSS fix
+- Footer to promote help with the app translation
+
+### Changed
+
+- Ukrainian translation improved
+- Translation string unified (No need for 2 different strings for the same thing)
+
+
 ## [2.24.2] - 2023-06-27
 
 ### Fixed

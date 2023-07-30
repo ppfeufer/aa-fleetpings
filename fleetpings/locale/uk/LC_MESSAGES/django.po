@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Kristof <kristof@teh.ninja>, 2023.
 # "H. Peter Pfeufer" <info@ppfeufer.de>, 2023.
+# "Andrii M." <elfleg0las88@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-23 13:29+0200\n"
-"PO-Revision-Date: 2023-06-14 17:18+0000\n"
+"POT-Creation-Date: 2023-07-27 23:37+0200\n"
+"PO-Revision-Date: 2023-07-27 15:39+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
 "apps/aa-fleetpings/uk/>\n"
@@ -18,10 +19,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : (n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
-#: templates/fleetpings/base.html:8
+#: templates/fleetpings/base.html:10
 #, fuzzy
 #| msgid "Fleet Ping Tool"
 msgid "Fleet Pings"
@@ -35,16 +36,14 @@ msgstr "Зв'язок флоту"
 msgid "Doctrine"
 msgstr "Доктрина"
 
-#: admin.py:126 models.py:174
-#, fuzzy
-#| msgid "Doctrine"
+#: admin.py:126 form.py:154 models.py:174
 msgid "Doctrine link"
-msgstr "Доктрина"
+msgstr "Посилання на доктрину"
 
 #: admin.py:132 admin.py:185 admin.py:239 admin.py:284 models.py:183
 #: models.py:312 models.py:396 models.py:461
 msgid "Group restrictions"
-msgstr ""
+msgstr "Групові обмеження"
 
 #: admin.py:179 form.py:74
 msgid "Ping Target"
@@ -62,13 +61,11 @@ msgstr "Колір вставки Webhook"
 
 #: admin.py:273 models.py:439
 msgid "Discord channel"
-msgstr ""
+msgstr "Канал діскорду"
 
 #: admin.py:278 models.py:452
-#, fuzzy
-#| msgid "Webhook"
 msgid "Webhook URL"
-msgstr "Веб-хук"
+msgstr "Веб-хук URL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: apps.py:21
@@ -158,10 +155,6 @@ msgstr ""
 #: form.py:140 models.py:149
 msgid "Fleet Comms"
 msgstr "Канал зв'язку для флоту"
-
-#: form.py:154
-msgid "Doctrine URL"
-msgstr "Посилання на доктрину"
 
 #: form.py:159
 msgid "Webhook Embed Color"
@@ -253,7 +246,7 @@ msgstr "Увімкнено цей канал зв'язку чи ні"
 #: models.py:137 models.py:199 models.py:261 models.py:328 models.py:412
 #: models.py:477
 msgid "Is enabled"
-msgstr ""
+msgstr "Дозволено"
 
 #: models.py:165
 msgid "Short name to identify this doctrine"
@@ -307,7 +300,7 @@ msgstr ""
 
 #: models.py:294
 msgid "Group name"
-msgstr ""
+msgstr "Назва групи"
 
 #: models.py:302
 msgid "ID of the Discord role to ping"
@@ -500,6 +493,19 @@ msgid ""
 msgstr ""
 "Успішно! Текст вашого пінгу було скопійовано до буфера обміну. Тепер будь "
 "хорошим ФК і кинь його у свій чат, щоб дійсно отримати кілька людей у флот."
+
+#: templates/fleetpings/partials/footer/app-translation-footer.html:4
+msgid "Join our team of translators!"
+msgstr ""
+
+#: templates/fleetpings/partials/footer/app-translation-footer.html:7
+#, python-format
+msgid ""
+"\n"
+"            Do you want to help translate this app into your language or "
+"improve the existing translation? - %(weblate_link)s\n"
+"        "
+msgstr ""
 
 #: templates/fleetpings/partials/form/form.html:68
 msgid "Create Ping"

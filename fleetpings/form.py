@@ -151,7 +151,7 @@ class FleetPingForm(forms.Form):
     )
     fleet_doctrine_url = forms.CharField(
         required=False,
-        label=_("Doctrine URL"),
+        label=_("Doctrine link"),
         widget=forms.TextInput(attrs={"hidden": "hidden"}),
     )
     webhook_embed_color = forms.CharField(

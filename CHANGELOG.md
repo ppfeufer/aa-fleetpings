@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [In Development] - Unreleased
 
+
+## [2.24.3] - 2023-07-30
+
 ### Added
 
 - Bootstrap CSS fix

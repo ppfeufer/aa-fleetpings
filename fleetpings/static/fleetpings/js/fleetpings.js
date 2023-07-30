@@ -137,7 +137,7 @@ $(document).ready(() => {
     const sanitizeInput = (input) => {
         if (input) {
             return input.replace(
-                /<(|\/|[^>\/bi]|\/[^>bi]|[^\/>][^>]+|\/[^>][^>]+)>/g,
+                /<(|\/|[^>/bi]|\/[^>bi]|[^/>][^>]+|\/[^>][^>]+)>/g,
                 ''
             );
         } else {

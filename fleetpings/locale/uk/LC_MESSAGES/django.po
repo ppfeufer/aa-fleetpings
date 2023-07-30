@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-27 23:37+0200\n"
+"POT-Creation-Date: 2023-07-30 18:45+0200\n"
 "PO-Revision-Date: 2023-07-27 15:39+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -494,17 +494,14 @@ msgstr ""
 "Успішно! Текст вашого пінгу було скопійовано до буфера обміну. Тепер будь "
 "хорошим ФК і кинь його у свій чат, щоб дійсно отримати кілька людей у флот."
 
-#: templates/fleetpings/partials/footer/app-translation-footer.html:4
-msgid "Join our team of translators!"
+#: templates/fleetpings/partials/footer/app-translation-footer.html:5
+msgid ""
+"Do you want to help translate this app into your language or improve the "
+"existing translation?"
 msgstr ""
 
-#: templates/fleetpings/partials/footer/app-translation-footer.html:7
-#, python-format
-msgid ""
-"\n"
-"            Do you want to help translate this app into your language or "
-"improve the existing translation? - %(weblate_link)s\n"
-"        "
+#: templates/fleetpings/partials/footer/app-translation-footer.html:8
+msgid "Join our team of translators!"
 msgstr ""
 
 #: templates/fleetpings/partials/form/form.html:68

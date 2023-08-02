@@ -74,7 +74,7 @@ class SingletonModel(models.Model):
         """
 
         if self.__class__.objects.count():
-            self.pk = self.__class__.objects.first().pk
+            self.pk = self.__class__.objects.first().pk  # pylint: disable=invalid-name
 
         super().save(*args, **kwargs)
 
@@ -339,7 +339,11 @@ class DiscordPingTarget(models.Model):
         super().clean()
 
     def save(
-        self, force_insert=False, force_update=False, using=None, update_fields=None
+        self,
+        force_insert=False,  # pylint: disable=unused-argument
+        force_update=False,  # pylint: disable=unused-argument
+        using=None,  # pylint: disable=unused-argument
+        update_fields=None,  # pylint: disable=unused-argument
     ):
         """
         Add the Discord group ID (if Discord service is active) and save the whole thing
@@ -540,7 +544,7 @@ class Setting(SingletonModel):
             "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
             "dropdown."
         ),
-        verbose_name=Field.USE_DEFAULT_FLEET_TYPES.label,
+        verbose_name=Field.USE_DEFAULT_FLEET_TYPES.label,  # pylint: disable=no-member
     )
 
     use_default_ping_targets = models.BooleanField(
@@ -550,7 +554,7 @@ class Setting(SingletonModel):
             "Whether to use default ping targets. If checked, the default ping targets "
             "(@everyone and @here) will be added to the Ping Target dropdown."
         ),
-        verbose_name=Field.USE_DEFAULT_PING_TARGETS.label,
+        verbose_name=Field.USE_DEFAULT_PING_TARGETS.label,  # pylint: disable=no-member
     )
 
     use_doctrines_from_fittings_module = models.BooleanField(
@@ -560,7 +564,7 @@ class Setting(SingletonModel):
             "Whether to use the doctrines from the Fittings modules in the doctrine "
             "dropdown. Note: The fittings module needs to be installed for this."
         ),
-        verbose_name=Field.USE_DOCTRINES_FROM_FITTINGS_MODULE.label,
+        verbose_name=Field.USE_DOCTRINES_FROM_FITTINGS_MODULE.label,  # pylint: disable=no-member
     )
 
     webhook_verification = models.BooleanField(
@@ -573,7 +577,7 @@ class Setting(SingletonModel):
             "webhooks, it is up to you to make sure your webhook understands a payload "
             "that is formatted for Discord webhooks."
         ),
-        verbose_name=Field.WEBHOOK_VERIFICATION.label,
+        verbose_name=Field.WEBHOOK_VERIFICATION.label,  # pylint: disable=no-member
     )
 
     default_embed_color = models.CharField(
@@ -581,7 +585,7 @@ class Setting(SingletonModel):
         max_length=7,
         blank=True,
         help_text=_("Default highlight color for the webhook embed."),
-        verbose_name=Field.DEFAULT_EMBED_COLOR.label,
+        verbose_name=Field.DEFAULT_EMBED_COLOR.label,  # pylint: disable=no-member
     )
 
     objects = SettingManager()

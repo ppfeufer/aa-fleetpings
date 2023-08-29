@@ -1,22 +1,24 @@
 [build-system]
-requires = ["hatchling"]
 build-backend = "hatchling.build"
+requires = [
+    "hatchling",
+]
 
 [project]
 name = "aa-fleetpings"
 version = "2.25.0"
 description = "Fleet Ping Tool for Alliance Auth supporting pings via webhooks to Discord."
 readme = "README.md"
-license = "GPL-3.0"
-requires-python = "~=3.8"
-authors = [
-    { name = "Peter Pfeufer", email = "develop@ppfeufer.de" },
-]
 keywords = [
     "allianceauth",
     "eveonline",
     "fleetpings",
 ]
+license = {file = "LICENSE"}
+authors = [
+    { name = "Peter Pfeufer", email = "develop@ppfeufer.de" },
+]
+requires-python = "~=3.8"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -34,16 +36,16 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
 dependencies = [
-    "allianceauth-app-utils>=1.13.0",
-    "allianceauth>=3.2.0",
+    "allianceauth>=3.2",
+    "allianceauth-app-utils>=1.13",
     "dhooks-lite>=0.6.1",
 ]
-
 [project.urls]
-Homepage = "https://github.com/ppfeufer/aa-fleetpings"
-Documentation = "https://github.com/ppfeufer/aa-fleetpings/blob/master/README.md"
-Source = "https://github.com/ppfeufer/aa-fleetpings.git"
 Changelog = "https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md"
+Documentation = "https://github.com/ppfeufer/aa-fleetpings/blob/master/README.md"
+Donations = "https://ko-fi.com/ppfeufer"
+Homepage = "https://github.com/ppfeufer/aa-fleetpings"
+Source = "https://github.com/ppfeufer/aa-fleetpings.git"
 Tracker = "https://github.com/ppfeufer/aa-fleetpings/issues"
 
 [tool.hatch.build]

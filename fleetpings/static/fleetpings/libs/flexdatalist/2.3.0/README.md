@@ -1,9 +1,8 @@
-jQuery.Flexdatalist
-======
+# jQuery.Flexdatalist
 
-Flexdatalist is (another) jQuery autocomplete plugin with support for <code>&lt;datalist&gt;</code>. Check the documentation page to see the plugin in action.
+Flexdatalist is (another) jQuery autocomplete plugin with support for <code>\<datalist></code>. Check the documentation page to see the plugin in action.
 
-## Demo & Documentation ##
+## Demo & Documentation
 
 Check out the [examples and documentation](http://projects.sergiodinislopes.pt/flexdatalist/) page.
 
@@ -16,5 +15,6 @@ Check out the [examples and documentation](http://projects.sergiodinislopes.pt/f
 - Make it jQuery independent (this will take a while to make it to a release)
 
 ### License
+
 Flexdatalist is licensed under the [MIT license](http://opensource.org/licenses/MIT).
 Copyright (c) 2016 - 2021 [Sérgio Dinis Lopes](http://github.com/sergiodlopes)

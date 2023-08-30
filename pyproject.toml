@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "aa-fleetpings"
-version = "2.25.0"
+version = "2.26.0"
 description = "Fleet Ping Tool for Alliance Auth supporting pings via webhooks to Discord."
 readme = "README.md"
 keywords = [

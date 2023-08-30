@@ -40,6 +40,7 @@ ______________________________________________________________________
     - [Webhook Verification](#webhook-verification)
     - [Default Embed Color](#default-embed-color)
   - [Changelog](#changelog)
+  - [Translations](#translations)
   - [Contributing](#contributing)
 
 <!-- mdformat-toc end -->
@@ -172,6 +173,19 @@ defined.
 
 See [CHANGELOG.md](https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md)
 
+## Translations<a name="translations"></a>
+
+This app is currently translated into:
+
+- English
+- German
+- Korean
+- Russian
+- Spanish
+
+If you want to help to translate this app or improve existing translations, join
+our team of translators over on [Weblate][weblate engage]!
+
 ## Contributing<a name="contributing"></a>
 
 You want to contribute to this project? That's cool!
@@ -184,3 +198,4 @@ Please make sure to read the [Contribution Guidelines](https://github.com/ppfeuf
 [aa installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"
 [discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
 [fittings and doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
+[weblate engage]: https://weblate.ppfeufer.de/engage/alliance-auth-apps/ "Weblate Translations"

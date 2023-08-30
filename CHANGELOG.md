@@ -5,25 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## \[In Development\] - Unreleased
 
-## [In Development] - Unreleased
+## \[2.26.0\] - 2023-08-30
 
+### Added
 
-## [2.25.0] - 2023-08-16
+- Korean translation
+
+## \[2.25.0\] - 2023-08-16
 
 ### Added
 
 - Spanish translation
 
-
-## [2.24.4] - 2023-08-13
+## \[2.24.4\] - 2023-08-13
 
 ### Fixed
 
 - Bootstrap CSS fix
 
-
-## [2.24.3] - 2023-07-30
+## \[2.24.3\] - 2023-07-30
 
 ### Added
 
@@ -35,33 +37,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Ukrainian translation improved
 - Translation string unified (No need for 2 different strings for the same thing)
 
-
-## [2.24.2] - 2023-06-27
+## \[2.24.2\] - 2023-06-27
 
 ### Fixed
 
 - And another one for ([#127])
 
-
-## [2.24.1] - 2023-06-27
+## \[2.24.1\] - 2023-06-27
 
 ### Fixed
 
 - Discord Message Format Inconsistency ([#127])
 
 <!-- Links -->
-[#127]: https://github.com/ppfeufer/aa-fleetpings/issues/127 "Discord Message Format Inconsistency"
 
-
-## [2.24.0] - 2023-06-24
+## \[2.24.0\] - 2023-06-24
 
 ### Changed
 
 - JS modernised
 - Model renamed to be in line with the Django naming scheme
 
-
-## [2.23.0] - 2023-06-02
+## \[2.23.0\] - 2023-06-02
 
 ### Added
 
@@ -71,8 +68,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - German translation improved
 
-
-## [2.22.2] - 2023-05-28
+## \[2.22.2\] - 2023-05-28
 
 ### Fixed
 
@@ -84,16 +80,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - German translation updated
 - Russian translation updated
 
-
-## [2.22.1] - 2023-05-21
+## \[2.22.1\] - 2023-05-21
 
 ### Fixed
 
 - Dropdowns for fleet comms, formup locations and doctrines now look more like
   actual dropdowns.
 
-
-## [2.22.0] - 2023-05-20
+## \[2.22.0\] - 2023-05-20
 
 ### Changed
 
@@ -108,8 +102,7 @@ After this update and successful migration, you can remove this app's settings f
 your `local.py`. All settings are now handled through the Django Admin Backend under
 `/admin/fleetpings/setting/`
 
-
-## [2.21.0] - 2023-04-25
+## \[2.21.0\] - 2023-04-25
 
 ### Added
 
@@ -120,29 +113,25 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - Russian translation updated
 - Moved the build process to PEP 621 / pyproject.toml
 
-
-## [2.20.0] - 2023-04-16
+## \[2.20.0\] - 2023-04-16
 
 ### Added
 
 - Russian translation
 
-
-## [2.19.0] - 2023-04-13
+## \[2.19.0\] - 2023-04-13
 
 ### Added
 
 - German translation
 
-
-## [2.18.0] - 2023-01-03
+## \[2.18.0\] - 2023-01-03
 
 ### Changed
 
 - Enable ordering for the webhooks (Thanks to [@pvyParts] » [#89])
 
-
-## [2.17.0] - 2022-12-06
+## \[2.17.0\] - 2022-12-06
 
 ### Added
 
@@ -151,28 +140,26 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
   to ensure your webhook understands a payload formatted for Discord webhooks.
   (Thanks to [@pvyParts] » [#87])
 
-
-## [2.16.0] - 2022-09-18
+## \[2.16.0\] - 2022-09-18
 
 ### Added
 
 - Hint text to the "Announcement Text" field with a link to Discord Markdown
 
 ### Changed
+
 - Some code/internal improvements
 - Minimum Requirement:
   - Alliance Auth >= 3.2.0
 
-
-## [2.15.0] - 2022-08-15
+## \[2.15.0\] - 2022-08-15
 
 ### Added
 
 - Warning about ping spam when `@everyone` is selected as target. Hopefully this
   will fight ping spam a little.
 
-
-## [2.14.1] - 2022-08-05
+## \[2.14.1\] - 2022-08-05
 
 ### Fixed
 
@@ -183,8 +170,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - Simplified checks for mandatory fields in JS (If you're still using Internet
   Explorer 11 or older, you should feel bad and update to a modern browser)
 
-
-## [2.14.0] - 2022-07-11
+## \[2.14.0\] - 2022-07-11
 
 ### Fixed
 
@@ -196,22 +182,19 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - Minimum Requirement:
   - Alliance Auth >= 2.14.0
 
-
-## [2.13.2] - 2022-04-21
+## \[2.13.2\] - 2022-04-21
 
 ### Fixed
 
 - Issue: Custom ping targets not auto-linking in Discord properly. ([#74])
 
-
-## [2.13.1] - 2022-04-17
+## \[2.13.1\] - 2022-04-17
 
 ### Added
 
 - Missing `helper` directory
 
-
-## [2.13.0] - 2022-04-17
+## \[2.13.0\] - 2022-04-17
 
 ### Added
 
@@ -233,8 +216,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - Support for Slack Webhooks. Slack is not supported by Alliance Auth, so it has
   been dropped from this app as well.
 
-
-## [2.13.0-beta.1] - 2022-04-06
+## \[2.13.0-beta.1\] - 2022-04-06
 
 ### Added
 
@@ -244,8 +226,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - Get `timezones` app URL from Django instead of it being hardcoded
 
-
-## [2.12.0] - 2022-03-02
+## \[2.12.0\] - 2022-03-02
 
 ### Added
 
@@ -259,12 +240,11 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - Deprecated settings
 
-
-## [2.11.0] - 2022-02-28
+## \[2.11.0\] - 2022-02-28
 
 ### Fixed
 
-- [Compatibility] AA 3.x / Django 4 :: ImportError: cannot import name
+- \[Compatibility\] AA 3.x / Django 4 :: ImportError: cannot import name
   'ugettext_lazy' from 'django.utils.translation'
 
 ### Added
@@ -284,15 +264,13 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - JavaScript modernised
 
-
-## [2.10.1] - 2022-02-02
+## \[2.10.1\] - 2022-02-02
 
 ### Changed
 
 - Using `path` in URL config instead of soon-to-be removed `url`
 
-
-## [2.10.0] - 2022-01-12
+## \[2.10.0\] - 2022-01-12
 
 ### Added
 
@@ -303,8 +281,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - JS rewrite
 
-
-## [2.9.0] - 2022-01-11
+## \[2.9.0\] - 2022-01-11
 
 ### Added
 
@@ -315,8 +292,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - An issue where the checkboxes haven't been cleared properly when switching between
   "Pre-Ping" and "Formup NOW"
 
-
-## [2.8.0] - 2022-01-02
+## \[2.8.0\] - 2022-01-02
 
 ### Added
 
@@ -332,8 +308,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - Check for AA-GDPR, since we don't load any external resources it is not needed
 
-
-## [2.7.0] - 2021-11-30
+## \[2.7.0\] - 2021-11-30
 
 ### Changed
 
@@ -341,8 +316,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
   - Python 3.7
   - Alliance Auth v2.9.3
 
-
-## [2.6.0] - 2021-11-15
+## \[2.6.0\] - 2021-11-15
 
 ### Added
 
@@ -354,30 +328,26 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - Minimum Python version set to 3.7
 - Minimum AA version set to 2.8.8
 
-
-## [2.5.5] - 2021-07-08
+## \[2.5.5\] - 2021-07-08
 
 ### Added
 
 - Python 3.9 and Django 3.2 compatibility
 
-
-## [2.5.4] - 2021-05-05
+## \[2.5.4\] - 2021-05-05
 
 ### Fixed
 
 - Using Django application registry instead of directly accessing `INSTALLED_APPS` (#49)
 
-
-## [2.5.3] - 2021-05-05
+## \[2.5.3\] - 2021-05-05
 
 ### Fixed
 
 - Interference with Discord service migrations in case the Discord service is
   activated _after_ this app is installed.
 
-
-## [2.5.2] - 2021-01-19
+## \[2.5.2\] - 2021-01-19
 
 ### Added
 
@@ -388,8 +358,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - Creating multiple SRP links with the same SRP code.
 
-
-## [2.5.1] - 2021-01-17
+## \[2.5.1\] - 2021-01-17
 
 ### Changed
 
@@ -401,8 +370,7 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 - An issue where additionally configured ping targets wouldn't show up in the
   dropdown ([#44])
 
-
-## [2.5.0] - 2021-01-12
+## \[2.5.0\] - 2021-01-12
 
 ### Added
 
@@ -420,43 +388,37 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 - Django 2 support
 
-
-## [2.4.4] - 2020-12-16
+## \[2.4.4\] - 2020-12-16
 
 ### Fixed
 
 - Bootstrap classes in template
 
-
-## [2.4.3] - 2020-12-10
+## \[2.4.3\] - 2020-12-10
 
 ### Fixed
 
 - An issue with quotes in the doctrine field ([#38])
 
-
-## [2.4.2] - 2020-11-08
+## \[2.4.2\] - 2020-11-08
 
 ### Fixed
 
 - Create optimer is visible even if optimer is not active ([#35])
 
-
-## [2.4.1] - 2020-11-05
+## \[2.4.1\] - 2020-11-05
 
 ### Added
 
 - "Don't Ping" option to ping targets
 
-
-## [2.4.0] - 2020-10-26
+## \[2.4.0\] - 2020-10-26
 
 ### Added
 
 - Checkbox to automatically create a fleet operations timer for a pre-ping
 
-
-## [2.3.0] - 2020-10-14
+## \[2.3.0\] - 2020-10-14
 
 ### Important!
 
@@ -486,15 +448,13 @@ installing this version.
   bundled with Alliance Auth
 - Unused lib removed
 
-
-## [2.2.2] - 2020-09-23
+## \[2.2.2\] - 2020-09-23
 
 ### Added
 
 - Django 3 stuff in `setup.py`, Should probably be in there as well …
 
-
-## [2.2.1] - 2020-09-23
+## \[2.2.1\] - 2020-09-23
 
 ### Checked
 
@@ -504,23 +464,20 @@ installing this version.
 
 - Fleet type embed color is now a color picker in admin backend
 
-
-## [2.2.0] - 2020-09-16
+## \[2.2.0\] - 2020-09-16
 
 ### Added
 
 - Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed
 
-
-## [2.1.0] - 2020-09-16
+## \[2.1.0\] - 2020-09-16
 
 ### Added
 
 - Restrictions to fleet types
 - Restrictions to doctrines
 
-
-## [2.0.0] - 2020-09-15
+## \[2.0.0\] - 2020-09-15
 
 This is the official re-brand of AA Discord Ping Formatter, since the original name
 didn't fit anymore with the new features, like automatic pings and now the new Slack
@@ -531,9 +488,11 @@ sure to migrate discordpingformatter zero and deactivate the old app in your `lo
 before activating this one. They will not run side by side.
 
 This is how you do it:
+
 ```bash
 python manage.py migrate discordpingformatter zero
 ```
+
 Now remove the `'discordpingformatter',` line and add `'fleetpings',` instead.
 
 Once done, run collectstatic and migrations again. You now have to re-do your
@@ -542,7 +501,7 @@ settings in the admin backend, since we just nuked them from the old app.
 ### Added
 
 - **Support for pings to Slack.** If you're using Slack, simply add
-  ``AA_FLEETPINGS_USE_SLACK = True`` to your `local.py`
+  `AA_FLEETPINGS_USE_SLACK = True` to your `local.py`
 
 ### Changed
 
@@ -557,25 +516,21 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Several logic errors in JavaScript
 
-
 ## From the discontinued AA Discord Ping Formatter (to keep the history alive)
 
-
-## [1.1.4] - 2020-08-14
+## \[1.1.4\] - 2020-08-14
 
 ### Fixed
 
 - Little logic error in embedded pre-pings when no FC is set
 
-
-## [1.1.3] - 2020-08-11
+## \[1.1.3\] - 2020-08-11
 
 ### Fixed
 
 - Single quote issue finally fixed ([#31])
 
-
-## [1.1.2] - 2020-08-10
+## \[1.1.2\] - 2020-08-10
 
 ### Fixed
 
@@ -583,8 +538,7 @@ settings in the admin backend, since we just nuked them from the old app.
 - Hopefully escaped possible single quotes in a character name, so they will not be
   transformed into their respective HTML entities in a ping
 
-
-## [1.1.1] - 2020-08-02
+## \[1.1.1\] - 2020-08-02
 
 ### Changed
 
@@ -592,8 +546,7 @@ settings in the admin backend, since we just nuked them from the old app.
 - Added a bit more information to the embedded ping, so on mobile phones or system
   notification there is a bit more than just `@everyone` or `@here` to see.
 
-
-## [1.1.0] - 2020-07-17
+## \[1.1.0\] - 2020-07-17
 
 ### Added
 
@@ -602,8 +555,7 @@ settings in the admin backend, since we just nuked them from the old app.
   `AA_DISCORDFORMATTER_FLEET_DOCTRINES` and
   `AA_DISCORDFORMATTER_FLEET_FORMUP_LOCATIONS`.
 
-
-## [1.0.0] - 2020-07-16
+## \[1.0.0\] - 2020-07-16
 
 ### Added
 
@@ -621,8 +573,7 @@ settings in the admin backend, since we just nuked them from the old app.
   now able to pre-ping fleets that are coming up in 2-hours Eve time, which might
   still be in their past local time, depending on how far in the future they live. ([#19])
 
-
-## [0.1.10] - 2020-07-16
+## \[0.1.10\] - 2020-07-16
 
 ### Added
 
@@ -639,15 +590,13 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Missing semicolons in JavaScript found their way back to where they belong
 
-
-## [0.1.9] - 2020-07-14
+## \[0.1.9\] - 2020-07-14
 
 ### Added
 
 - Ping creator at the end auf automatic pings via webhooks
 
-
-## [0.1.8] - 2020-07-09
+## \[0.1.8\] - 2020-07-09
 
 ### Added
 
@@ -666,30 +615,26 @@ settings in the admin backend, since we just nuked them from the old app.
   or disable the Formup NOW checkbox below the Formup Time field
 - Formup Time is set to NOW by default
 
-
-## [0.1.7] - 2020-07-08
+## \[0.1.7\] - 2020-07-08
 
 ### Added
 
 - Link to timezones conversion on formup time if the
   [aa-timezones](https://github.com/ppfeufer/aa-timezones) module is installed
 
-
-## [0.1.6] - 2020-07-04
+## \[0.1.6\] - 2020-07-04
 
 ### Fixed
 
 - Ping for non-default roles via Webhook ([#9])
 
-
-## [0.1.5] - 2020-06-24
+## \[0.1.5\] - 2020-06-24
 
 ### Added
 
 - Configurable Discord webhooks to ping channels automagically
 
-
-## [0.1.4] - 2020-06-18
+## \[0.1.4\] - 2020-06-18
 
 ### Changed
 
@@ -699,44 +644,38 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Typo in Additional Information
 
-
-## [0.1.3] - 2020-06-15
+## \[0.1.3\] - 2020-06-15
 
 ### Added
 
 - Configuration for additional ping targets and fleet types
 
-
-## [0.1.2] - 2020-06-14
+## \[0.1.2\] - 2020-06-14
 
 ### Fixed
 
 - Sanitizing form field input
 
-
-## [0.1.1] - 2020-06-13
+## \[0.1.1\] - 2020-06-13
 
 ### Fixed
 
 - There should always be an empty line before Additional Information ...
 
-
-## [0.1.0] - 2020-06-13
+## \[0.1.0\] - 2020-06-13
 
 ### Added
 
 - Initial version
 
-
 <!-- URLs -->
-[@pvyParts]: https://github.com/pvyParts "Aaron"
 
-[#9]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/9 "Cant ping additional ping targets via direct ping"
+[#112]: https://github.com/ppfeufer/aa-fleetpings/pull/112 "PR: Remove Double \"By\""
+[#127]: https://github.com/ppfeufer/aa-fleetpings/issues/127 "Discord Message Format Inconsistency"
 [#13]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/13 "Enchantment: Send ping as embed"
 [#18]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/18 "Restrict additional ping targets"
 [#19]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/19 "Allow past date/time"
 [#31]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/31 "[Bug] properly escape single quotes in names"
-
 [#35]: https://github.com/ppfeufer/aa-fleetpings/issues/35 "Create optimer is visible even if optimer is not active"
 [#38]: https://github.com/ppfeufer/aa-fleetpings/issues/38 "Sanitize inputs"
 [#44]: https://github.com/ppfeufer/aa-fleetpings/issues/44 "2.5.0 breaks additional ping targets"
@@ -746,4 +685,5 @@ settings in the admin backend, since we just nuked them from the old app.
 [#74]: https://github.com/ppfeufer/aa-fleetpings/issues/74 "Custom ping targets not auto-linking in Discord properly."
 [#87]: https://github.com/ppfeufer/aa-fleetpings/pull/87 "Allow disabling of Discord webhook url verification"
 [#89]: https://github.com/ppfeufer/aa-fleetpings/pull/89 "Enable Ordering for the webhooks"
-[#112]: https://github.com/ppfeufer/aa-fleetpings/pull/112 "PR: Remove Double \"By\""
+[#9]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/9 "Cant ping additional ping targets via direct ping"
+[@pvyparts]: https://github.com/pvyParts "Aaron"

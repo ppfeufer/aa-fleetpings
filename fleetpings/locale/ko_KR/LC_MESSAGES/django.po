@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Author50CO <tkddlschry@gmail.com>, 2023.
+# Peter Pfeufer <info@ppfeufer.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-30 18:45+0200\n"
-"PO-Revision-Date: 2023-08-30 17:40+0000\n"
-"Last-Translator: Author50CO <tkddlschry@gmail.com>\n"
+"PO-Revision-Date: 2023-09-01 15:19+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Korean <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/ko/>\n"
 "Language: ko_KR\n"
@@ -304,6 +305,7 @@ msgid "Discord Ping Targets"
 msgstr "핑 보낼 디스코드 역할"
 
 #: models.py:378
+#, fuzzy
 msgid "Short name to identify this fleet type"
 msgstr "함대 종류"
 
@@ -476,7 +478,7 @@ msgstr "이 앱을 번역하거나 기존 번역을 개선하고 싶으신가요
 
 #: templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr "번역 팀에 참여하세요!"
+msgstr "번역가 팀에 참여하세요!"
 
 #: templates/fleetpings/partials/form/form.html:68
 msgid "Create Ping"

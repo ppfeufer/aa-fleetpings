@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-30 18:45+0200\n"
-"PO-Revision-Date: 2023-09-01 15:19+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"PO-Revision-Date: 2023-09-02 15:40+0000\n"
+"Last-Translator: Author50CO <tkddlschry@gmail.com>\n"
 "Language-Team: Korean <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/ko/>\n"
 "Language: ko_KR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18.2\n"
+"X-Generator: Weblate 5.0\n"
 
 #: __init__.py:12 templates/fleetpings/base.html:5
 #: templates/fleetpings/base.html:10
@@ -65,7 +65,7 @@ msgstr "웹훅 URL"
 #: apps.py:21
 #, python-brace-format
 msgid "Fleet Pings v{__version__}"
-msgstr "플릿 핑 버전{__version__}"
+msgstr "플릿 핑 v{__version__}"
 
 #: form.py:25
 msgid "Discord Markdown"
@@ -202,7 +202,7 @@ msgstr "이 그룹은 아직 디스코드와 연동되어 있지 않습니다."
 
 #: models.py:115
 msgid "Short name to identify this comms"
-msgstr "함대 음성 채널 이름"
+msgstr "함대 음성 채널 이름을 설명하는 짧은 이름"
 
 #: models.py:116 models.py:166 models.py:245 models.py:379
 msgid "Name"
@@ -236,7 +236,7 @@ msgstr "활성화"
 
 #: models.py:165
 msgid "Short name to identify this doctrine"
-msgstr "독트린 이름"
+msgstr "독트린 이름을 설명하는 짧은 이름"
 
 #: models.py:173
 msgid "A link to a doctrine page for this doctrine if you have."
@@ -264,7 +264,7 @@ msgstr "함대 독트린"
 
 #: models.py:244
 msgid "Short name to identify this formup location"
-msgstr "폼업 위치 이름"
+msgstr "폼업 위치 이름을 설명하는 짧은 이름"
 
 #: models.py:260 models.py:327
 msgid "Whether this formup location is enabled or not"
@@ -305,9 +305,8 @@ msgid "Discord Ping Targets"
 msgstr "핑 보낼 디스코드 역할"
 
 #: models.py:378
-#, fuzzy
 msgid "Short name to identify this fleet type"
-msgstr "함대 종류"
+msgstr "함대 종류를 설명하는 짧은 이름"
 
 #: models.py:386
 msgid "Highlight color for the embed"

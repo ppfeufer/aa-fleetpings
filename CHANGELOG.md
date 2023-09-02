@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Korean translatoin improved
+- Korean translation improved
 
 ## \[2.26.0\] - 2023-08-30
 

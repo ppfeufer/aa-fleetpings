@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## \[In Development\] - Unreleased
 
+### Changed
+
+- Use `clean_setting` function from `allianceauth´app-utils` instead of reinventing the
+  wheel and have our own
+
 ## \[2.26.1\] - 2023-09-02
 
 ### Changed

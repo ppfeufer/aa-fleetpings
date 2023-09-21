@@ -1,8 +1,8 @@
 # Django
 from django.db import migrations
 
-# AA Fleet Pings
-from fleetpings.utils import clean_setting
+# Alliance Auth (External Libs)
+from app_utils.app_settings import clean_setting
 
 use_doctrines_from_fittings_module = clean_setting(
     "AA_FLEETPINGS_USE_DOCTRINES_FROM_FITTINGS_MODULE", False
@@ -31,7 +31,7 @@ def on_migrate(apps, schema_editor):
 
 def on_migrate_zero(apps, schema_editor):
     """
-    Remove default settings on migratio to zero
+    Remove default settings on migration to zero
     :param apps:
     :param schema_editor:
     :return:

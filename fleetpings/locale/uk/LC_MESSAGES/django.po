@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 18:45+0200\n"
+"POT-Creation-Date: 2023-09-22 21:19+0200\n"
 "PO-Revision-Date: 2023-07-27 15:39+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -28,42 +28,48 @@ msgstr ""
 msgid "Fleet Pings"
 msgstr "Інструмент пінгування флоту"
 
-#: admin.py:100 models.py:148
-msgid "Fleet Comm"
+#: admin.py:104 models.py:147
+#, fuzzy
+#| msgid "Fleet Comm"
+msgid "Fleet comm"
 msgstr "Зв'язок флоту"
 
-#: admin.py:121 form.py:147
+#: admin.py:125 form.py:149
 msgid "Doctrine"
 msgstr "Доктрина"
 
-#: admin.py:126 form.py:154 models.py:174
+#: admin.py:130 form.py:156 models.py:172
 msgid "Doctrine link"
 msgstr "Посилання на доктрину"
 
-#: admin.py:132 admin.py:185 admin.py:239 admin.py:284 models.py:183
-#: models.py:312 models.py:396 models.py:461
+#: admin.py:136 admin.py:189 admin.py:243 admin.py:288 models.py:181
+#: models.py:308 models.py:395 models.py:459
 msgid "Group restrictions"
 msgstr "Групові обмеження"
 
-#: admin.py:179 form.py:74
-msgid "Ping Target"
+#: admin.py:183 form.py:74
+#, fuzzy
+#| msgid "Ping Target"
+msgid "Ping target"
 msgstr "Мета пінгу"
 
-#: admin.py:221 form.py:91 models.py:423
-msgid "Fleet Type"
+#: admin.py:225 form.py:91 models.py:422
+#, fuzzy
+#| msgid "Fleet Type"
+msgid "Fleet type"
 msgstr "Тип флоту"
 
-#: admin.py:226 models.py:387
+#: admin.py:230 models.py:386
 #, fuzzy
 #| msgid "Webhook Embed Color"
 msgid "Embed color"
 msgstr "Колір вставки Webhook"
 
-#: admin.py:273 models.py:439
+#: admin.py:277 models.py:437
 msgid "Discord channel"
 msgstr "Канал діскорду"
 
-#: admin.py:278 models.py:452
+#: admin.py:282 models.py:450
 msgid "Webhook URL"
 msgstr "Веб-хук URL"
 
@@ -97,7 +103,9 @@ msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "Відмітьте цей прапорець, якщо це має бути попередній пінг."
 
 #: form.py:86
-msgid "Ping To"
+#, fuzzy
+#| msgid "Ping To"
+msgid "Ping to"
 msgstr "Кого пінгувати"
 
 #: form.py:88
@@ -105,46 +113,60 @@ msgid "Select a channel to ping automatically."
 msgstr "Виберіть канал для автоматичного пінгування."
 
 #: form.py:95
-msgid "FC Name"
-msgstr "Нік ФК"
+msgid "FC name"
+msgstr ""
 
 #: form.py:97
 msgid "Who is the FC?"
 msgstr "Хто ФК?"
 
 #: form.py:101
-msgid "Fleet Name"
+#, fuzzy
+#| msgid "Fleet Name"
+msgid "Fleet name"
 msgstr "Назва флоту"
 
-#: form.py:104
-msgid "What is the fleet name in fleet finder?"
+#: form.py:105
+#, fuzzy
+#| msgid "What is the fleet name in fleet finder?"
+msgid "What is the fleet name in the fleet finder in Eve?"
 msgstr "Як називається флот у пошуку флоту?"
 
-#: form.py:109 models.py:272
-msgid "Formup Location"
+#: form.py:111 models.py:269
+#, fuzzy
+#| msgid "Formup Location"
+msgid "Formup location"
 msgstr "Місце формування"
 
-#: form.py:116
-msgid "Formup Time"
+#: form.py:118
+#, fuzzy
+#| msgid "Formup Time"
+msgid "Formup time"
 msgstr "Час формування"
 
-#: form.py:120
+#: form.py:122
+#, fuzzy
+#| msgid ""
+#| "To enable this field, either make it a Pre-Ping (checkbox above) or "
+#| "uncheck &quot;Formup NOW&quot; (checkbox below)."
 msgid ""
-"To enable this field, either make it a Pre-Ping (checkbox above) or uncheck "
+"To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "&quot;Formup NOW&quot; (checkbox below)."
 msgstr ""
 "Щоб увімкнути це поле, зробіть його попереднім пінгом (прапорець вище) або "
 "зніміть прапорець &quot;Створити зараз&quot; (прапорець нижче)."
 
-#: form.py:126
-msgid "Formup Timestamp"
+#: form.py:128
+#, fuzzy
+#| msgid "Formup Timestamp"
+msgid "Formup timestamp"
 msgstr "Мітка часу(timestamp) для формування"
 
-#: form.py:132
+#: form.py:134
 msgid "Formup NOW"
 msgstr "Формування зараз"
 
-#: form.py:134
+#: form.py:136
 msgid ""
 "If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
 "the time in the field above (if any is set) will be ignored."
@@ -152,27 +174,33 @@ msgstr ""
 "Якщо цей прапорець активний, час формування буде встановлено на &quot;"
 "ЗАРАЗ&quot;, а час у полі вище (якщо він встановлений) буде проігноровано."
 
-#: form.py:140 models.py:149
-msgid "Fleet Comms"
+#: form.py:142 models.py:148
+#, fuzzy
+#| msgid "Fleet Comms"
+msgid "Fleet comms"
 msgstr "Канал зв'язку для флоту"
 
-#: form.py:159
-msgid "Webhook Embed Color"
+#: form.py:161
+#, fuzzy
+#| msgid "Webhook Embed Color"
+msgid "Webhook embed color"
 msgstr "Колір вставки Webhook"
 
-#: form.py:165
+#: form.py:167
 msgid "SRP"
 msgstr "srp"
 
-#: form.py:166
+#: form.py:168
 msgid "Is this fleet covered by SRP?"
 msgstr "Чи поширюється на цей флот дія SRP?"
 
-#: form.py:171
-msgid "Create SRP Link"
+#: form.py:173
+#, fuzzy
+#| msgid "Create SRP Link"
+msgid "Create SRP link"
 msgstr "Створіть SRP-посилання"
 
-#: form.py:173
+#: form.py:175
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -180,21 +208,23 @@ msgstr ""
 "Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для "
 "цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
 
-#: form.py:179
-msgid "Additional Information"
+#: form.py:181
+#, fuzzy
+#| msgid "Additional Information"
+msgid "Additional information"
 msgstr "Додаткова інформація"
 
-#: form.py:186
+#: form.py:188
 #, fuzzy
 #| msgid "Feel free to add some more information about the fleet…"
 msgid "Feel free to add some more information about the fleet …"
 msgstr "Не соромтеся додавати додаткову інформацію про флот…"
 
-#: form.py:195
+#: form.py:197
 msgid "Create Optimer"
 msgstr "Створити таймер операції"
 
-#: form.py:197
+#: form.py:199
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -214,83 +244,93 @@ msgstr "Ви впевнені, що ваш Discord пов'язаний з ваш
 msgid "This group has not been synced to Discord yet."
 msgstr "Цю групу ще не синхронізовано з Discord."
 
-#: models.py:115
+#: models.py:104
+msgid "Can access this app"
+msgstr ""
+
+#: models.py:114
 msgid "Short name to identify this comms"
 msgstr "Коротка назва для ідентифікації цього каналу зв'язку"
 
-#: models.py:116 models.py:166 models.py:245 models.py:379
+#: models.py:115 models.py:164 models.py:242 models.py:378
 msgid "Name"
 msgstr "Назва"
 
-#: models.py:122
+#: models.py:121
 msgid "In which channel is the fleet?"
 msgstr ""
 
-#: models.py:123
+#: models.py:122
 msgid "Channel"
 msgstr ""
 
-#: models.py:129 models.py:190 models.py:252 models.py:319 models.py:403
+#: models.py:128 models.py:188 models.py:249 models.py:315 models.py:402
 msgid "You can add notes about this configuration here if you want"
 msgstr "Ви можете додати примітки про цю конфігурацію тут, якщо хочете"
 
-#: models.py:130 models.py:191 models.py:253 models.py:320 models.py:404
-#: models.py:469
+#: models.py:129 models.py:189 models.py:250 models.py:316 models.py:403
+#: models.py:467
 msgid "Notes"
 msgstr ""
 
-#: models.py:136
+#: models.py:135
 msgid "Whether this comms is enabled or not"
 msgstr "Увімкнено цей канал зв'язку чи ні"
 
-#: models.py:137 models.py:199 models.py:261 models.py:328 models.py:412
-#: models.py:477
+#: models.py:136 models.py:197 models.py:258 models.py:324 models.py:411
+#: models.py:475
 msgid "Is enabled"
 msgstr "Дозволено"
 
-#: models.py:165
+#: models.py:163
 msgid "Short name to identify this doctrine"
 msgstr "Коротка назва для ідентифікації цієї доктрини"
 
-#: models.py:173
+#: models.py:171
 msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Посилання на сторінку доктрини для цієї доктрини, якщо вона у вас є."
 
-#: models.py:182
+#: models.py:180
 #, fuzzy
 #| msgid "Restrict this doctrine to the following group(s) …"
 msgid "Restrict this doctrine to the following groups …"
 msgstr "Обмежте цю доктрину наступними групами …"
 
-#: models.py:198
+#: models.py:196
 msgid "Whether this doctrine is enabled or not"
 msgstr "Включена ця доктрина чи ні"
 
-#: models.py:216
+#: models.py:214
 msgid "Your doctrine URL is not valid."
 msgstr "Ваше посилання на доктрину невірне."
 
-#: models.py:229
-msgid "Fleet Doctrine"
+#: models.py:227
+#, fuzzy
+#| msgid "Fleet Doctrine"
+msgid "Fleet doctrine"
 msgstr "Доктрина флоту"
 
-#: models.py:230
-msgid "Fleet Doctrines"
+#: models.py:228
+#, fuzzy
+#| msgid "Fleet Doctrines"
+msgid "Fleet doctrines"
 msgstr "Доктрини флоту"
 
-#: models.py:244
+#: models.py:241
 msgid "Short name to identify this formup location"
 msgstr "Коротка назва для ідентифікації цього місця формування"
 
-#: models.py:260 models.py:327
+#: models.py:257 models.py:323
 msgid "Whether this formup location is enabled or not"
 msgstr "Чи ввімкнено це місце формування чи ні"
 
-#: models.py:273
-msgid "Formup Locations"
+#: models.py:270
+#, fuzzy
+#| msgid "Formup Locations"
+msgid "Formup locations"
 msgstr "Місця формування"
 
-#: models.py:290
+#: models.py:286
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
@@ -298,86 +338,92 @@ msgstr ""
 "Ім'я ролі Discord, яку потрібно пінгувати. (Примітка: це має бути група "
 "Auth, яка синхронізована з Discord.)"
 
-#: models.py:294
+#: models.py:290
 msgid "Group name"
 msgstr "Назва групи"
 
-#: models.py:302
+#: models.py:298
 msgid "ID of the Discord role to ping"
 msgstr "Ідентифікатор ролі Discord для пінгування"
 
-#: models.py:303
+#: models.py:299
 #, fuzzy
 #| msgid "Discord Markdown"
 msgid "Discord ID"
 msgstr "Discord markdown"
 
-#: models.py:311 models.py:460
+#: models.py:307 models.py:458
 #, fuzzy
 #| msgid "Restrict ping rights to the following group(s) …"
 msgid "Restrict ping rights to the following groups …"
 msgstr "Обмежити права на пінг для наступних груп …"
 
 #: models.py:363
-msgid "Discord Ping Target"
+#, fuzzy
+#| msgid "Discord Ping Target"
+msgid "Discord ping target"
 msgstr "Ціль для пінгу в Discord"
 
 #: models.py:364
-msgid "Discord Ping Targets"
+#, fuzzy
+#| msgid "Discord Ping Targets"
+msgid "Discord ping targets"
 msgstr "Цілі для пінгу в Discord"
 
-#: models.py:378
+#: models.py:377
 msgid "Short name to identify this fleet type"
 msgstr "Коротка назва для ідентифікації цього типу флоту"
 
-#: models.py:386
+#: models.py:385
 #, fuzzy
 #| msgid "Hightlight color for the embed"
 msgid "Highlight color for the embed"
 msgstr "Виділіть колір для вставки"
 
-#: models.py:395
+#: models.py:394
 #, fuzzy
 #| msgid "Restrict this fleet type to the following group(s) …"
 msgid "Restrict this fleet type to the following groups …"
 msgstr "Обмежте цей тип флоту наступними групами …"
 
-#: models.py:411
+#: models.py:410
 msgid "Whether this fleet type is enabled or not"
 msgstr "Увімкнено цей тип флоту чи ні"
 
-#: models.py:424
-msgid "Fleet Types"
+#: models.py:423
+#, fuzzy
+#| msgid "Fleet Types"
+msgid "Fleet types"
 msgstr "Типи флоту"
 
-#: models.py:438
+#: models.py:436
 msgid "Name of the channel this webhook posts to"
 msgstr "Назва каналу, на який публікується цей веб-хук"
 
-#: models.py:448
+#: models.py:446
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr ""
 "URL-адреса цього веб-хука, наприклад, https://discord.com/api/"
 "webhooks/123456/abcdef"
 
-#: models.py:468
+#: models.py:466
 msgid "You can add notes about this webhook here if you want"
 msgstr "Ви можете додати примітки про цей вебхук тут, якщо хочете"
 
-#: models.py:476
+#: models.py:474
 msgid "Whether this webhook is active or not"
 msgstr "Активний цей вебхук чи ні"
 
-#: models.py:488
+#: models.py:486
 msgid "Webhook"
 msgstr "Веб-хук"
 
-#: models.py:489
+#: models.py:487
 msgid "Webhooks"
 msgstr "Веб-хуки"
 
-#: models.py:504
+#: models.py:502
 msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
@@ -386,94 +432,110 @@ msgstr ""
 "відповідає жодному з відомих форматів веб-хуків Discord. Будь ласка, "
 "перевірте URL-адресу веб-хука."
 
-#: models.py:524
+#: models.py:522
 msgid "Use default fleet types"
 msgstr ""
 
-#: models.py:527
+#: models.py:525
 msgid "Use default ping targets"
 msgstr ""
 
-#: models.py:530
+#: models.py:528
 msgid "Use Doctrines from Fittings module"
 msgstr ""
 
-#: models.py:532
+#: models.py:530
 #, fuzzy
 #| msgid "Webhooks"
-msgid "Verify Webhooks"
+msgid "Verify webhooks"
 msgstr "Веб-хуки"
 
-#: models.py:533
+#: models.py:531
 msgid "Default embed color"
 msgstr ""
 
-#: models.py:539
+#: models.py:537
 msgid ""
 "Whether to use default fleet types. If checked, the default fleet types "
 "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
 "dropdown."
 msgstr ""
 
-#: models.py:550
+#: models.py:548
 msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
 msgstr ""
 
-#: models.py:560
+#: models.py:558
 msgid ""
 "Whether to use the doctrines from the Fittings modules in the doctrine "
 "dropdown. Note: The fittings module needs to be installed for this."
 msgstr ""
 
-#: models.py:570
+#: models.py:568
 msgid ""
-"Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
-"will not be verified, so the app can be used with non-Discord Webhooks as "
+"Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs "
+"will not be verified, so the app can be used with non-Discord webhooks as "
 "well. When disabling webhook verification and using non-Discord webhooks, it "
 "is up to you to make sure your webhook understands a payload that is "
 "formatted for Discord webhooks."
 msgstr ""
 
-#: models.py:583
+#: models.py:581
 msgid "Default highlight color for the webhook embed."
 msgstr "Виділіть колір для вставки."
 
-#: models.py:595
-msgid "setting"
+#: models.py:593
+msgid "Setting"
 msgstr ""
 
-#: models.py:596
-msgid "settings"
-msgstr ""
+#: models.py:594
+#, fuzzy
+#| msgid "Fleet Ping Tool"
+msgid "Settings"
+msgstr "Інструмент пінгування флоту"
 
-#: models.py:599
+#: models.py:597
 msgid "Fleet Pings Settings"
 msgstr ""
 
 #: templates/fleetpings/index.html:11
-msgid "Fleet Information"
+#, fuzzy
+#| msgid "Fleet Information"
+msgid "Fleet information"
 msgstr "Інформація про флот"
 
 #: templates/fleetpings/index.html:22
-msgid "Formatted Ping Text"
+#, fuzzy
+#| msgid "Formatted Ping Text"
+msgid "Formatted ping text"
 msgstr "Відформатований текст пінгу"
 
 #: templates/fleetpings/index.html:49
+#, fuzzy
+#| msgid ""
+#| "Mandatory information is missing. To create an optimer, you need to "
+#| "provide all of the following information:<br>» FC Name<br>» Fleet "
+#| "Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine"
 msgid ""
 "Mandatory information is missing. To create an optimer, you need to provide "
-"all of the following information:<br>» FC Name<br>» Fleet Name<br>» Formup "
-"Location<br>» Formup Time<br>» Ships / Doctrine"
+"all of the following information:<br>» FC name<br>» Fleet name<br>» Formup "
+"location<br>» Formup time<br>» Ships / Doctrine"
 msgstr ""
 "Обов'язкова інформація відсутня. Для того щоб створити пінг флотової "
 "операції ви маєте заповнити всю інформацію нижче: <br>» Нік ФК<br>» Назва "
 "флоту<br>» Місце формування<br>» Чис формування<br>» Кораблі / Доктрина"
 
 #: templates/fleetpings/index.html:54
+#, fuzzy
+#| msgid ""
+#| "Mandatory information is missing. To create an SRP link, you need to "
+#| "provide all of the following information:<br>» Fleet Name<br>» Ships / "
+#| "Doctrine"
 msgid ""
 "Mandatory information is missing. To create an SRP link, you need to provide "
-"all of the following information:<br>» Fleet Name<br>» Ships / Doctrine"
+"all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr ""
 "Обов'язкова інформація відсутня. Щоб створити посилання SRP, вам потрібно "
 "надати всю наступну інформацію: <br> » Назва флоту <br> » Кораблі / Доктрина"
@@ -505,7 +567,9 @@ msgid "Join our team of translators!"
 msgstr ""
 
 #: templates/fleetpings/partials/form/form.html:68
-msgid "Create Ping"
+#, fuzzy
+#| msgid "Create Ping"
+msgid "Create ping"
 msgstr "Створити пінг"
 
 #: templates/fleetpings/partials/form/hints/ping-everyone.html:7
@@ -574,7 +638,9 @@ msgid "None, just format it for me"
 msgstr "Ні, просто відформатуйте для мене"
 
 #: templates/fleetpings/partials/form/segments/ping-targets.html:3
-msgid "Don't Ping"
+#, fuzzy
+#| msgid "Don't Ping"
+msgid "Don't ping"
 msgstr "Не пінгувати"
 
 #: templates/fleetpings/partials/form/segments/ping-targets.html:13
@@ -586,7 +652,9 @@ msgid "No ping created yet …"
 msgstr "Пінг ще не створено …"
 
 #: templates/fleetpings/partials/ping/ping.html:22
-msgid "Copy Ping Text"
+#, fuzzy
+#| msgid "Copy Ping Text"
+msgid "Copy ping text"
 msgstr "Скопіювати текст пінгу"
 
 #: views.py:394

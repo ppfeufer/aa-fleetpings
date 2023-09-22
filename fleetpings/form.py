@@ -71,7 +71,7 @@ class FleetPingForm(forms.Form):
 
     ping_target = forms.CharField(
         required=False,
-        label=_("Ping Target"),
+        label=_("Ping target"),
         widget=forms.Select(choices={}),
         help_text=_("Who do you want to ping?"),
     )
@@ -83,47 +83,49 @@ class FleetPingForm(forms.Form):
     )
     ping_channel = forms.CharField(
         required=False,
-        label=_("Ping To"),
+        label=_("Ping to"),
         widget=forms.Select(choices={}),
         help_text=_("Select a channel to ping automatically."),
     )
     fleet_type = forms.CharField(
-        required=False, label=_("Fleet Type"), widget=forms.Select(choices={})
+        required=False, label=_("Fleet type"), widget=forms.Select(choices={})
     )
     fleet_commander = forms.CharField(
         required=False,
-        label=_("FC Name"),
+        label=_("FC name"),
         max_length=254,
         widget=forms.TextInput(attrs={"placeholder": _("Who is the FC?")}),
     )
     fleet_name = forms.CharField(
         required=False,
-        label=_("Fleet Name"),
+        label=_("Fleet name"),
         max_length=254,
         widget=forms.TextInput(
-            attrs={"placeholder": _("What is the fleet name in fleet finder?")}
+            attrs={
+                "placeholder": _("What is the fleet name in the fleet finder in Eve?")
+            }
         ),
     )
     formup_location = forms.CharField(
         required=False,
-        label=_("Formup Location"),
+        label=_("Formup location"),
         widget=forms.TextInput(
             attrs={"list": "formupLocationList", "class": "flexdatalist"}
         ),
     )
     formup_time = forms.CharField(
         required=False,
-        label=_("Formup Time"),
+        label=_("Formup time"),
         max_length=254,
         widget=forms.TextInput(attrs={"disabled": "disabled", "autocomplete": "off"}),
         help_text=_(
-            "To enable this field, either make it a Pre-Ping (checkbox above) or "
+            "To enable this field, either make it a pre-ping (checkbox above) or "
             "uncheck &quot;Formup NOW&quot; (checkbox below)."
         ),
     )
     formup_timestamp = forms.CharField(
         required=False,
-        label=_("Formup Timestamp"),
+        label=_("Formup timestamp"),
         widget=forms.TextInput(attrs={"hidden": "hidden"}),
     )
     formup_now = forms.BooleanField(
@@ -137,7 +139,7 @@ class FleetPingForm(forms.Form):
     )
     fleet_comms = forms.CharField(
         required=False,
-        label=_("Fleet Comms"),
+        label=_("Fleet comms"),
         widget=forms.TextInput(
             attrs={"list": "fleetCommsList", "class": "flexdatalist"}
         ),
@@ -156,7 +158,7 @@ class FleetPingForm(forms.Form):
     )
     webhook_embed_color = forms.CharField(
         required=False,
-        label=_("Webhook Embed Color"),
+        label=_("Webhook embed color"),
         widget=forms.TextInput(attrs={"hidden": "hidden"}),
     )
     srp = forms.BooleanField(
@@ -168,7 +170,7 @@ class FleetPingForm(forms.Form):
     srp_link = forms.BooleanField(
         initial=False,
         required=False,
-        label=_("Create SRP Link"),
+        label=_("Create SRP link"),
         help_text=_(
             "If this checkbox is active, a SRP link specific for this fleet will be "
             "created.<br>Leave blank if unsure."
@@ -176,7 +178,7 @@ class FleetPingForm(forms.Form):
     )
     additional_information = forms.CharField(
         required=False,
-        label=_("Additional Information"),
+        label=_("Additional information"),
         widget=forms.Textarea(
             attrs={
                 "rows": 10,

@@ -101,7 +101,7 @@ class FleetCommAdmin(admin.ModelAdmin):
     list_filter = ("is_enabled",)
 
     @classmethod
-    @admin.display(description=_("Fleet Comm"), ordering="name")
+    @admin.display(description=_("Fleet comm"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
@@ -180,7 +180,7 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description=_("Ping Target"), ordering="name")
+    @admin.display(description=_("Ping target"), ordering="name")
     def _name(cls, obj):
         return obj.name
 
@@ -222,7 +222,7 @@ class FleetTypeAdmin(admin.ModelAdmin):
     )
 
     @classmethod
-    @admin.display(description=_("Fleet Type"), ordering="name")
+    @admin.display(description=_("Fleet type"), ordering="name")
     def _name(cls, obj):
         return obj.name
 

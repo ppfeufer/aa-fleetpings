@@ -101,10 +101,9 @@ class AaFleetpings(models.Model):
 
         managed = False
         default_permissions = ()
-        permissions = (("basic_access", "Can access this app"),)
+        permissions = (("basic_access", _("Can access this app")),)
 
 
-# FleetComm Model
 class FleetComm(models.Model):
     """
     Fleet Comms
@@ -145,14 +144,13 @@ class FleetComm(models.Model):
         FleetComm :: Meta
         """
 
-        verbose_name = _("Fleet Comm")
-        verbose_name_plural = _("Fleet Comms")
+        verbose_name = _("Fleet comm")
+        verbose_name_plural = _("Fleet comms")
         default_permissions = ()
 
         unique_together = ("name", "channel")
 
 
-# FleetDoctrine Model
 class FleetDoctrine(models.Model):
     """
     Fleet Doctrine
@@ -226,12 +224,11 @@ class FleetDoctrine(models.Model):
         FleetDoctrine :: Meta
         """
 
-        verbose_name = _("Fleet Doctrine")
-        verbose_name_plural = _("Fleet Doctrines")
+        verbose_name = _("Fleet doctrine")
+        verbose_name_plural = _("Fleet doctrines")
         default_permissions = ()
 
 
-# FormupLocation Model
 class FormupLocation(models.Model):
     """
     Formup Location
@@ -269,12 +266,11 @@ class FormupLocation(models.Model):
         FormupLocation :: Meta
         """
 
-        verbose_name = _("Formup Location")
-        verbose_name_plural = _("Formup Locations")
+        verbose_name = _("Formup location")
+        verbose_name_plural = _("Formup locations")
         default_permissions = ()
 
 
-# DiscordPingTargets Model
 class DiscordPingTarget(models.Model):
     """
     Discord Ping Targets
@@ -364,12 +360,11 @@ class DiscordPingTarget(models.Model):
         DiscordPingTargets :: Meta
         """
 
-        verbose_name = _("Discord Ping Target")
-        verbose_name_plural = _("Discord Ping Targets")
+        verbose_name = _("Discord ping target")
+        verbose_name_plural = _("Discord ping targets")
         default_permissions = ()
 
 
-# FleetType Model
 class FleetType(models.Model):
     """
     Fleet Types
@@ -395,7 +390,7 @@ class FleetType(models.Model):
     restricted_to_group = models.ManyToManyField(
         Group,
         blank=True,
-        related_name="fleettype_require_groups",
+        related_name="+",
         help_text=_("Restrict this fleet type to the following groups …"),
         verbose_name=_("Group restrictions"),
     )
@@ -424,12 +419,11 @@ class FleetType(models.Model):
         FleetType :: Meta
         """
 
-        verbose_name = _("Fleet Type")
-        verbose_name_plural = _("Fleet Types")
+        verbose_name = _("Fleet type")
+        verbose_name_plural = _("Fleet types")
         default_permissions = ()
 
 
-# Webhook Model
 class Webhook(models.Model):
     """
     A Discord webhook
@@ -533,7 +527,7 @@ class Setting(SingletonModel):
         USE_DOCTRINES_FROM_FITTINGS_MODULE = "use_doctrines_from_fittings_module", _(
             "Use Doctrines from Fittings module"
         )
-        WEBHOOK_VERIFICATION = "webhook_verification", _("Verify Webhooks")
+        WEBHOOK_VERIFICATION = "webhook_verification", _("Verify webhooks")
         DEFAULT_EMBED_COLOR = "default_embed_color", _("Default embed color")
 
     use_default_fleet_types = models.BooleanField(
@@ -571,8 +565,8 @@ class Setting(SingletonModel):
         default=True,
         db_index=True,
         help_text=_(
-            "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
-            "will not be verified, so the app can be used with non-Discord Webhooks "
+            "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs "
+            "will not be verified, so the app can be used with non-Discord webhooks "
             "as well. When disabling webhook verification and using non-Discord "
             "webhooks, it is up to you to make sure your webhook understands a payload "
             "that is formatted for Discord webhooks."
@@ -596,8 +590,8 @@ class Setting(SingletonModel):
         """
 
         default_permissions = ()
-        verbose_name = _("setting")
-        verbose_name_plural = _("settings")
+        verbose_name = _("Setting")
+        verbose_name_plural = _("Settings")
 
     def __str__(self) -> str:
         return str(_("Fleet Pings Settings"))

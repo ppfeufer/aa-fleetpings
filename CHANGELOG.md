@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## \[In Development\] - Unreleased
 
+### Fixed
+
+- Capitalization for translatable strings
+
+### Changed
+
+- Use `clean_setting` function from `allianceauth´app-utils` instead of reinventing the
+  wheel and have our own
+- Test suite updated
+- Translation updates
+
 ## \[2.26.1\] - 2023-09-02
 
 ### Changed

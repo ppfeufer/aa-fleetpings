@@ -40,6 +40,16 @@ dependencies = [
     "allianceauth-app-utils>=1.13",
     "dhooks-lite>=0.6.1",
 ]
+[project.optional-dependencies]
+tests-allianceauth-stable = [
+    "aa-srp>=1.20",
+    "aa-timezones",
+    "coverage",
+    "django-eveuniverse",
+    "django-webtest",
+    "Faker",
+    "fittings",
+]
 [project.urls]
 Changelog = "https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md"
 Documentation = "https://github.com/ppfeufer/aa-fleetpings/blob/master/README.md"

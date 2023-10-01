@@ -120,7 +120,7 @@ class FleetPingForm(forms.Form):
         widget=forms.TextInput(attrs={"disabled": "disabled", "autocomplete": "off"}),
         help_text=_(
             "To enable this field, either make it a pre-ping (checkbox above) or "
-            "uncheck &quot;Formup NOW&quot; (checkbox below)."
+            'uncheck "Formup NOW" (checkbox below).'
         ),
     )
     formup_timestamp = forms.CharField(
@@ -133,7 +133,7 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Formup NOW"),
         help_text=_(
-            "If this checkbox is active, formup time will be set to &quot;NOW&quot; "
+            'If this checkbox is active, formup time will be set to "NOW" '
             "and the time in the field above (if any is set) will be ignored."
         ),
     )

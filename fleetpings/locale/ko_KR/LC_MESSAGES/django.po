@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-27 10:08+0200\n"
+"POT-Creation-Date: 2023-10-01 17:17+0200\n"
 "PO-Revision-Date: 2023-09-24 13:14+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Korean <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -19,179 +19,184 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.0.2\n"
 
-#: __init__.py:12 templates/fleetpings/base.html:5
-#: templates/fleetpings/base.html:10
+#: fleetpings/__init__.py:12 fleetpings/templates/fleetpings/base.html:5
+#: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "함대 핑"
 
-#: admin.py:104 models.py:147
+#: fleetpings/admin.py:104 fleetpings/models.py:147
 #, fuzzy
 #| msgid "Fleet Comm"
 msgid "Fleet comm"
 msgstr "함대 음성"
 
-#: admin.py:125 form.py:149
+#: fleetpings/admin.py:125 fleetpings/form.py:149
 msgid "Doctrine"
 msgstr "독트린"
 
-#: admin.py:130 form.py:156 models.py:172
+#: fleetpings/admin.py:130 fleetpings/form.py:156 fleetpings/models.py:172
 msgid "Doctrine link"
 msgstr "독트린 링크"
 
-#: admin.py:136 admin.py:189 admin.py:243 admin.py:288 models.py:181
-#: models.py:308 models.py:395 models.py:459
+#: fleetpings/admin.py:136 fleetpings/admin.py:189 fleetpings/admin.py:243
+#: fleetpings/admin.py:288 fleetpings/models.py:181 fleetpings/models.py:308
+#: fleetpings/models.py:395 fleetpings/models.py:459
 msgid "Group restrictions"
 msgstr "그룹 제한"
 
-#: admin.py:183 form.py:74
+#: fleetpings/admin.py:183 fleetpings/form.py:74
 #, fuzzy
 #| msgid "Ping Target"
 msgid "Ping target"
 msgstr "핑 역할"
 
-#: admin.py:225 form.py:91 models.py:422
+#: fleetpings/admin.py:225 fleetpings/form.py:91 fleetpings/models.py:422
 msgid "Fleet type"
 msgstr "함대 종류"
 
-#: admin.py:230 models.py:386
+#: fleetpings/admin.py:230 fleetpings/models.py:386
 msgid "Embed color"
 msgstr "Embed 색상"
 
-#: admin.py:277 models.py:437
+#: fleetpings/admin.py:277 fleetpings/models.py:437
 msgid "Discord channel"
 msgstr "디스코드 채널"
 
-#: admin.py:282 models.py:450
+#: fleetpings/admin.py:282 fleetpings/models.py:450
 msgid "Webhook URL"
 msgstr "웹훅 URL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
-#: apps.py:21
+#: fleetpings/apps.py:21
 #, python-brace-format
 msgid "Fleet Pings v{__version__}"
 msgstr "플릿 핑 v{__version__}"
 
-#: form.py:25
+#: fleetpings/form.py:25
 msgid "Discord Markdown"
 msgstr "디스코드 마크다운"
 
-#: form.py:32
+#: fleetpings/form.py:32
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
 msgstr ""
 "힌트: {discord_markdown_link}를 사용해 텍스트 양식을 변경할 수 있습니다."
 
-#: form.py:76
+#: fleetpings/form.py:76
 msgid "Who do you want to ping?"
 msgstr "핑을 보낼까요?"
 
-#: form.py:81
+#: fleetpings/form.py:81
 msgid "Pre-Ping"
 msgstr "예고 핑"
 
-#: form.py:82
+#: fleetpings/form.py:82
 msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "예고 핑인 경우 체크박스를 선택하세요."
 
-#: form.py:86
+#: fleetpings/form.py:86
 #, fuzzy
 #| msgid "Ping To"
 msgid "Ping to"
 msgstr "핑 보낼 대상"
 
-#: form.py:88
+#: fleetpings/form.py:88
 msgid "Select a channel to ping automatically."
 msgstr "자동으로 핑을 보낼 채널을 선택하세요."
 
-#: form.py:95
+#: fleetpings/form.py:95
 msgid "FC name"
 msgstr ""
 
-#: form.py:97
+#: fleetpings/form.py:97
 msgid "Who is the FC?"
 msgstr "함대 지휘관이 누구인가요?"
 
-#: form.py:101
+#: fleetpings/form.py:101
 #, fuzzy
 #| msgid "Fleet Name"
 msgid "Fleet name"
 msgstr "함대 이름"
 
-#: form.py:105
+#: fleetpings/form.py:105
 #, fuzzy
 #| msgid "What is the fleet name in fleet finder?"
 msgid "What is the fleet name in the fleet finder in Eve?"
 msgstr "함대 찾기에서 플릿 이름이 무엇인가요?"
 
-#: form.py:111 models.py:269
+#: fleetpings/form.py:111 fleetpings/models.py:269
 #, fuzzy
 #| msgid "Formup Location"
 msgid "Formup location"
 msgstr "폼업 위치"
 
-#: form.py:118
+#: fleetpings/form.py:118
 #, fuzzy
 #| msgid "Formup Time"
 msgid "Formup time"
 msgstr "폼업 시간"
 
-#: form.py:122
+#: fleetpings/form.py:122
 #, fuzzy
 #| msgid ""
 #| "To enable this field, either make it a Pre-Ping (checkbox above) or "
 #| "uncheck &quot;Formup NOW&quot; (checkbox below)."
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
-"&quot;Formup NOW&quot; (checkbox below)."
+"\"Formup NOW\" (checkbox below)."
 msgstr ""
 "이 창을 활성화하려면, 예고 핑을 활성화하거나(위 체크박스), &quot;지금 폼업하"
 "기&quot; 체크 박스를 해제하세요."
 
-#: form.py:128
+#: fleetpings/form.py:128
 #, fuzzy
 #| msgid "Formup Timestamp"
 msgid "Formup timestamp"
 msgstr "폼업 타임스탬프"
 
-#: form.py:134
+#: fleetpings/form.py:134
 msgid "Formup NOW"
 msgstr "지금 폼업"
 
-#: form.py:136
+#: fleetpings/form.py:136
+#, fuzzy
+#| msgid ""
+#| "If this checkbox is active, formup time will be set to &quot;NOW&quot; "
+#| "and the time in the field above (if any is set) will be ignored."
 msgid ""
-"If this checkbox is active, formup time will be set to &quot;NOW&quot; and "
-"the time in the field above (if any is set) will be ignored."
+"If this checkbox is active, formup time will be set to \"NOW\" and the time "
+"in the field above (if any is set) will be ignored."
 msgstr ""
 "이 체크박스가 활성화되어 있으면, 폼업 시간이 &quot;지금&quot; 으로 설정되며 "
 "위쪽에 설정된 시간을 무시합니다."
 
-#: form.py:142 models.py:148
+#: fleetpings/form.py:142 fleetpings/models.py:148
 #, fuzzy
 #| msgid "Fleet Comms"
 msgid "Fleet comms"
 msgstr "함대 음성"
 
-#: form.py:161
+#: fleetpings/form.py:161
 #, fuzzy
 #| msgid "Webhook Embed Color"
 msgid "Webhook embed color"
 msgstr "웹훅 Embed 색상"
 
-#: form.py:167
+#: fleetpings/form.py:167
 msgid "SRP"
 msgstr "SRP"
 
-#: form.py:168
+#: fleetpings/form.py:168
 msgid "Is this fleet covered by SRP?"
 msgstr "SRP가 가능한 함대인가요?"
 
-#: form.py:173
+#: fleetpings/form.py:173
 #, fuzzy
 #| msgid "Create SRP Link"
 msgid "Create SRP link"
 msgstr "SRP 주소 생성"
 
-#: form.py:175
+#: fleetpings/form.py:175
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -199,19 +204,19 @@ msgstr ""
 "이 체크박스가 활성화되어 있으면, 이 함대에 대한 SRP 링크가 생성됩니다. <br> "
 "확실하지 않은 경우 체크하지 마세요."
 
-#: form.py:181
+#: fleetpings/form.py:181
 msgid "Additional information"
 msgstr "추가 정보"
 
-#: form.py:188
+#: fleetpings/form.py:188
 msgid "Feel free to add some more information about the fleet …"
 msgstr "함대에 대한 추가 정보를 입력하세요…"
 
-#: form.py:197
+#: fleetpings/form.py:197
 msgid "Create Optimer"
 msgstr "옵 타이머 생성"
 
-#: form.py:199
+#: fleetpings/form.py:199
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -219,183 +224,185 @@ msgstr ""
 "이 체크박스가 활성화되어 있으면, 이 예고 핑에 대한 함대 옵 타이머가 생성됩니"
 "다."
 
-#: models.py:40
+#: fleetpings/models.py:40
 msgid "You might want to install the Discord service first …"
 msgstr "디스코드 서비스를 먼저 설치해주세요…"
 
-#: models.py:47
+#: fleetpings/models.py:47
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
 msgstr "디스코드가 Alliance Auth와 연동되어 있나요?"
 
-#: models.py:51
+#: fleetpings/models.py:51
 msgid "This group has not been synced to Discord yet."
 msgstr "이 그룹은 아직 디스코드와 연동되어 있지 않습니다."
 
-#: models.py:104
+#: fleetpings/models.py:104
 msgid "Can access this app"
 msgstr ""
 
-#: models.py:114
+#: fleetpings/models.py:114
 msgid "Short name to identify this comms"
 msgstr "함대 음성 채널 이름을 설명하는 짧은 이름"
 
-#: models.py:115 models.py:164 models.py:242 models.py:378
+#: fleetpings/models.py:115 fleetpings/models.py:164 fleetpings/models.py:242
+#: fleetpings/models.py:378
 msgid "Name"
 msgstr "이름"
 
-#: models.py:121
+#: fleetpings/models.py:121
 msgid "In which channel is the fleet?"
 msgstr "어떤 음성 채널을 사용하나요?"
 
-#: models.py:122
+#: fleetpings/models.py:122
 msgid "Channel"
 msgstr "채널"
 
-#: models.py:128 models.py:188 models.py:249 models.py:315 models.py:402
+#: fleetpings/models.py:128 fleetpings/models.py:188 fleetpings/models.py:249
+#: fleetpings/models.py:315 fleetpings/models.py:402
 msgid "You can add notes about this configuration here if you want"
 msgstr "해당 설정에 대한 설명을 남길 수 있습니다"
 
-#: models.py:129 models.py:189 models.py:250 models.py:316 models.py:403
-#: models.py:467
+#: fleetpings/models.py:129 fleetpings/models.py:189 fleetpings/models.py:250
+#: fleetpings/models.py:316 fleetpings/models.py:403 fleetpings/models.py:467
 msgid "Notes"
 msgstr "설명"
 
-#: models.py:135
+#: fleetpings/models.py:135
 msgid "Whether this comms is enabled or not"
 msgstr "음성 채널 활성화 및 비활성화"
 
-#: models.py:136 models.py:197 models.py:258 models.py:324 models.py:411
-#: models.py:475
+#: fleetpings/models.py:136 fleetpings/models.py:197 fleetpings/models.py:258
+#: fleetpings/models.py:324 fleetpings/models.py:411 fleetpings/models.py:475
 msgid "Is enabled"
 msgstr "활성화"
 
-#: models.py:163
+#: fleetpings/models.py:163
 msgid "Short name to identify this doctrine"
 msgstr "독트린 이름을 설명하는 짧은 이름"
 
-#: models.py:171
+#: fleetpings/models.py:171
 msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "해당 독트린 페이지의 링크."
 
-#: models.py:180
+#: fleetpings/models.py:180
 msgid "Restrict this doctrine to the following groups …"
 msgstr "다음 그룹만 해당 독트린을 사용할 수 있습니다…"
 
-#: models.py:196
+#: fleetpings/models.py:196
 msgid "Whether this doctrine is enabled or not"
 msgstr "독트린 활성화 및 비활성화"
 
-#: models.py:214
+#: fleetpings/models.py:214
 msgid "Your doctrine URL is not valid."
 msgstr "잘못된 독트린 URL 입니다."
 
-#: models.py:227
+#: fleetpings/models.py:227
 #, fuzzy
 #| msgid "Fleet Doctrine"
 msgid "Fleet doctrine"
 msgstr "함대 독트린"
 
-#: models.py:228
+#: fleetpings/models.py:228
 #, fuzzy
 #| msgid "Fleet Doctrines"
 msgid "Fleet doctrines"
 msgstr "함대 독트린"
 
-#: models.py:241
+#: fleetpings/models.py:241
 msgid "Short name to identify this formup location"
 msgstr "폼업 위치 이름을 설명하는 짧은 이름"
 
-#: models.py:257 models.py:323
+#: fleetpings/models.py:257 fleetpings/models.py:323
 msgid "Whether this formup location is enabled or not"
 msgstr "폼업지 활성화 및 비활성화"
 
-#: models.py:270
+#: fleetpings/models.py:270
 #, fuzzy
 #| msgid "Formup Locations"
 msgid "Formup locations"
 msgstr "폼업 위치"
 
-#: models.py:286
+#: fleetpings/models.py:286
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
 msgstr ""
 "핑을 보낼 디스코드 역할. (설명: 디스코드와 연동된 Auth 그룹이어야 합니다.)"
 
-#: models.py:290
+#: fleetpings/models.py:290
 msgid "Group name"
 msgstr "그룹 이름"
 
-#: models.py:298
+#: fleetpings/models.py:298
 msgid "ID of the Discord role to ping"
 msgstr "핑을 보낼 역할의 디스코드 역할 ID"
 
-#: models.py:299
+#: fleetpings/models.py:299
 msgid "Discord ID"
 msgstr "역할 ID"
 
-#: models.py:307 models.py:458
+#: fleetpings/models.py:307 fleetpings/models.py:458
 msgid "Restrict ping rights to the following groups …"
 msgstr "다음 그룹만 핑을 보낼 수 있습니다…"
 
-#: models.py:363
+#: fleetpings/models.py:363
 #, fuzzy
 #| msgid "Discord Ping Target"
 msgid "Discord ping target"
 msgstr "핑 보낼 디스코드 역할"
 
-#: models.py:364
+#: fleetpings/models.py:364
 #, fuzzy
 #| msgid "Discord Ping Targets"
 msgid "Discord ping targets"
 msgstr "핑 보낼 디스코드 역할"
 
-#: models.py:377
+#: fleetpings/models.py:377
 msgid "Short name to identify this fleet type"
 msgstr "함대 종류를 설명하는 짧은 이름"
 
-#: models.py:385
+#: fleetpings/models.py:385
 msgid "Highlight color for the embed"
 msgstr "embed의 하이라이트 색상"
 
-#: models.py:394
+#: fleetpings/models.py:394
 msgid "Restrict this fleet type to the following groups …"
 msgstr "다음 그룹만 이 함대 종류를 참가할 수 있습니다…"
 
-#: models.py:410
+#: fleetpings/models.py:410
 msgid "Whether this fleet type is enabled or not"
 msgstr "함대 종류 활성화 및 비활성화"
 
-#: models.py:423
+#: fleetpings/models.py:423
 msgid "Fleet types"
 msgstr "함대 종류"
 
-#: models.py:436
+#: fleetpings/models.py:436
 msgid "Name of the channel this webhook posts to"
 msgstr "웹훅과 연결된 채널 이름"
 
-#: models.py:446
+#: fleetpings/models.py:446
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr "웹훅의 URL, 예시) https://discord.com/api/webhooks/123456/abcdef"
 
-#: models.py:466
+#: fleetpings/models.py:466
 msgid "You can add notes about this webhook here if you want"
 msgstr "웹훅에 대한 설명을 남길 수 있습니다"
 
-#: models.py:474
+#: fleetpings/models.py:474
 msgid "Whether this webhook is active or not"
 msgstr "웹훅 활성화 및 비활성화"
 
-#: models.py:486
+#: fleetpings/models.py:486
 msgid "Webhook"
 msgstr "웹훅"
 
-#: models.py:487
+#: fleetpings/models.py:487
 msgid "Webhooks"
 msgstr "웹훅"
 
-#: models.py:502
+#: fleetpings/models.py:502
 msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
@@ -403,29 +410,29 @@ msgstr ""
 "잘못된 웹훅 URL. 알려진 디스코드의 웹훅 URL 형태와 일치하지 않습니다. 웹훅 "
 "URL을 확인해 주세요."
 
-#: models.py:522
+#: fleetpings/models.py:522
 msgid "Use default fleet types"
 msgstr "기본 함대 종류 사용"
 
-#: models.py:525
+#: fleetpings/models.py:525
 msgid "Use default ping targets"
 msgstr "기본 핑 역할 사용"
 
-#: models.py:528
+#: fleetpings/models.py:528
 msgid "Use Doctrines from Fittings module"
 msgstr "피팅 모듈에서 만들어진 독트린을 사용하세요"
 
-#: models.py:530
+#: fleetpings/models.py:530
 #, fuzzy
 #| msgid "Verify Webhooks"
 msgid "Verify webhooks"
 msgstr "웹훅 검사"
 
-#: models.py:531
+#: fleetpings/models.py:531
 msgid "Default embed color"
 msgstr "기본 embed 색상"
 
-#: models.py:537
+#: fleetpings/models.py:537
 msgid ""
 "Whether to use default fleet types. If checked, the default fleet types "
 "(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
@@ -434,7 +441,7 @@ msgstr ""
 "기본 함대 종류를 사용할지 여부 설정. 활성화된 경우, 기본 함대 종류(로밍, 기"
 "지 방어, 스트랫 옵, CTA)가 함대 종류 드롭다운 메뉴에 추가됩니다."
 
-#: models.py:548
+#: fleetpings/models.py:548
 msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
@@ -442,7 +449,7 @@ msgstr ""
 "기본 핑 역할 사용 여부 설정. 활성화된 경우, 기본 핑 역할 (@everyone 과 "
 "@here) 가 핑 역할 드롭다운에 추가됩니다."
 
-#: models.py:558
+#: fleetpings/models.py:558
 msgid ""
 "Whether to use the doctrines from the Fittings modules in the doctrine "
 "dropdown. Note: The fittings module needs to be installed for this."
@@ -450,7 +457,7 @@ msgstr ""
 "독트린 드롭다운에서 해당 독트린의 피팅 모듈 사용 여부 설정. 설명: 피팅 모듈"
 "이 설치되어 있어야 합니다."
 
-#: models.py:568
+#: fleetpings/models.py:568
 #, fuzzy
 #| msgid ""
 #| "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
@@ -470,37 +477,37 @@ msgstr ""
 "를 해제하고 디스코드가 아닌 웹훅을 사용할 경우, 웹훅이 디스코드로 보내질 만큼"
 "의 payload를 감당할 수 있을지 판단은 사용자의 몫입니다."
 
-#: models.py:581
+#: fleetpings/models.py:581
 msgid "Default highlight color for the webhook embed."
 msgstr "웹훅 embed 기본 하이라이트 색상."
 
-#: models.py:593
+#: fleetpings/models.py:593
 #, fuzzy
 #| msgid "setting"
 msgid "Setting"
 msgstr "설정"
 
-#: models.py:594
+#: fleetpings/models.py:594
 msgid "Settings"
 msgstr "설정"
 
-#: models.py:597
+#: fleetpings/models.py:597
 msgid "Fleet Pings Settings"
 msgstr "함대 핑 설정"
 
-#: templates/fleetpings/index.html:11
+#: fleetpings/templates/fleetpings/index.html:11
 #, fuzzy
 #| msgid "Fleet Information"
 msgid "Fleet information"
 msgstr "함대 정보"
 
-#: templates/fleetpings/index.html:22
+#: fleetpings/templates/fleetpings/index.html:22
 #, fuzzy
 #| msgid "Formatted Ping Text"
 msgid "Formatted ping text"
 msgstr "양식 적용된 핑 텍스트"
 
-#: templates/fleetpings/index.html:49
+#: fleetpings/templates/fleetpings/index.html:49
 #, fuzzy
 #| msgid ""
 #| "Mandatory information is missing. To create an optimer, you need to "
@@ -515,7 +522,7 @@ msgstr ""
 "야 합니다:<br>» 함대 지휘관 이름<br>» 플릿 이름<br>» 폼업 지역<br>» 폼업 시각"
 "<br>» 함선/독트린"
 
-#: templates/fleetpings/index.html:54
+#: fleetpings/templates/fleetpings/index.html:54
 #, fuzzy
 #| msgid ""
 #| "Mandatory information is missing. To create an SRP link, you need to "
@@ -528,7 +535,7 @@ msgstr ""
 "필수 정보가 누락되었습니다. SRP 링크를 생성하려면, 다음 정보를 모두 제공해야 "
 "합니다:<br>» 함대 이름<br>» 함선 / 독트린"
 
-#: templates/fleetpings/index.html:58
+#: fleetpings/templates/fleetpings/index.html:58
 msgid ""
 "Error! Your ping was not copied to your clipboard. Maybe your browser "
 "doesn&apos;t support this feature."
@@ -536,7 +543,7 @@ msgstr ""
 "오류! 핑이 클립보드에 복사되지 않았습니다. 브라우저가 이 기능을 지원하지 않"
 "을 수도 있습니다."
 
-#: templates/fleetpings/index.html:59
+#: fleetpings/templates/fleetpings/index.html:59
 msgid ""
 "Success! Your ping text has been copied to your clipboard. Now be a good FC "
 "and throw it in your chat so you actually get some people in fleet."
@@ -544,27 +551,27 @@ msgstr ""
 "성공! 핑이 클립보드에 복사되었습니다. 채팅창에 핑을 붙여넣어 사람을 모아보세"
 "요."
 
-#: templates/fleetpings/partials/footer/app-translation-footer.html:5
+#: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:5
 msgid ""
 "Do you want to help translate this app into your language or improve the "
 "existing translation?"
 msgstr "이 앱을 번역하거나 기존 번역을 개선하고 싶으신가요?"
 
-#: templates/fleetpings/partials/footer/app-translation-footer.html:8
+#: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
 msgstr "번역가 팀에 참여하세요!"
 
-#: templates/fleetpings/partials/form/form.html:68
+#: fleetpings/templates/fleetpings/partials/form/form.html:68
 #, fuzzy
 #| msgid "Create Ping"
 msgid "Create ping"
 msgstr "핑 생성"
 
-#: templates/fleetpings/partials/form/hints/ping-everyone.html:7
+#: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:7
 msgid "Please think twice if you really need to ping <code>@everyone</code>."
 msgstr "정말 <code>@everyone</code> 을 사용해야 하는지 확인해 주세요."
 
-#: templates/fleetpings/partials/form/hints/ping-everyone.html:11
+#: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:11
 msgid ""
 "\n"
 "                    <code>@everyone</code>\n"
@@ -586,81 +593,81 @@ msgstr ""
 "                    별로 중요하지 않은 내용의 핑을 볼 수도 있습니다.\n"
 "                "
 
-#: templates/fleetpings/partials/form/hints/ping-everyone.html:21
+#: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:21
 msgid ""
 "Notification spam is a real thing and might entice people to mute channels."
 msgstr ""
 "알람 스팸은 실제로 존재하며 사람들이 채널 알람을 끄게 되는 이유가 될 수 있습"
 "니다."
 
-#: templates/fleetpings/partials/form/hints/ping-everyone.html:25
+#: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:25
 msgid "<code>@here</code> usually does the trick just fine."
 msgstr "<code>@here</code> 는 사용해도 좋습니다."
 
-#: templates/fleetpings/partials/form/segments/fleet-type.html:3
+#: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:3
 msgid "Please select"
 msgstr "선택해 주세요"
 
-#: templates/fleetpings/partials/form/segments/fleet-type.html:7
+#: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:7
 msgid "Roaming Fleet"
 msgstr "로밍 함대"
 
-#: templates/fleetpings/partials/form/segments/fleet-type.html:8
+#: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:8
 msgid "Home Defense"
 msgstr "기지 방어"
 
-#: templates/fleetpings/partials/form/segments/fleet-type.html:9
+#: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:9
 msgid "StratOP"
 msgstr "스트랫 옵"
 
-#: templates/fleetpings/partials/form/segments/fleet-type.html:10
+#: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:10
 msgid "CTA"
 msgstr "CTA"
 
-#: templates/fleetpings/partials/form/segments/fleet-type.html:16
+#: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:16
 msgid "Additionally configured fleet types"
 msgstr "추가로 설정된 함대 종류"
 
-#: templates/fleetpings/partials/form/segments/ping-channel.html:3
+#: fleetpings/templates/fleetpings/partials/form/segments/ping-channel.html:3
 msgid "None, just format it for me"
 msgstr "없음, 개인 사용 용도"
 
-#: templates/fleetpings/partials/form/segments/ping-targets.html:3
+#: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:3
 #, fuzzy
 #| msgid "Don't Ping"
 msgid "Don't ping"
 msgstr "핑 없음"
 
-#: templates/fleetpings/partials/form/segments/ping-targets.html:13
+#: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:13
 msgid "Additionally configured ping targets"
 msgstr "추가로 설정된 핑 역할"
 
-#: templates/fleetpings/partials/ping/ping.html:5
+#: fleetpings/templates/fleetpings/partials/ping/ping.html:5
 msgid "No ping created yet …"
 msgstr "아직 생성된 핑이 없습니다…"
 
-#: templates/fleetpings/partials/ping/ping.html:22
+#: fleetpings/templates/fleetpings/partials/ping/ping.html:22
 #, fuzzy
 #| msgid "Copy Ping Text"
 msgid "Copy ping text"
 msgstr "핑 텍스트 복사"
 
-#: views.py:394
+#: fleetpings/views.py:394
 msgid "Not all mandatory information available to create an SRP link."
 msgstr "SRP 링크를 생성하기 위해 필요한 필수 정보들이 부족합니다."
 
-#: views.py:426
+#: fleetpings/views.py:426
 msgid "Fleet operations timer has been created …"
 msgstr "함대 오퍼레이션 타이머가 생성되었습니다…"
 
-#: views.py:435
+#: fleetpings/views.py:435
 msgid "SRP link has been created …"
 msgstr "SRP 링크가 생성되었습니다…"
 
-#: views.py:452
+#: fleetpings/views.py:452
 msgid "Form invalid. Please check your input."
 msgstr "잘못된 양식. 내용을 확인해 주세요."
 
-#: views.py:454
+#: fleetpings/views.py:454
 msgid "No form data submitted."
 msgstr "양식 데이터가 없습니다."

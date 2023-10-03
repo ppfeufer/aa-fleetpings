@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # "H. Peter Pfeufer" <info@ppfeufer.de>, 2023.
 # Nikolay <nick.postnikov@gmail.com>, 2023.
+# Max <mark25@inbox.ru>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-01 17:17+0200\n"
-"PO-Revision-Date: 2023-09-24 13:14+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/ru/>\n"
+"PO-Revision-Date: 2023-10-03 11:34+0000\n"
+"Last-Translator: Max <mark25@inbox.ru>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,10 +27,8 @@ msgid "Fleet Pings"
 msgstr "Анонсы флота"
 
 #: fleetpings/admin.py:104 fleetpings/models.py:147
-#, fuzzy
-#| msgid "Fleet Comm"
 msgid "Fleet comm"
-msgstr "Голосовой канал"
+msgstr "Флит ком"
 
 #: fleetpings/admin.py:125 fleetpings/form.py:149
 msgid "Doctrine"
@@ -46,8 +45,6 @@ msgid "Group restrictions"
 msgstr "Ограничения групп"
 
 #: fleetpings/admin.py:183 fleetpings/form.py:74
-#, fuzzy
-#| msgid "Ping Target"
 msgid "Ping target"
 msgstr "Цель пинга"
 
@@ -97,8 +94,6 @@ msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "Установите флажок, если это предварительный пинг."
 
 #: fleetpings/form.py:86
-#, fuzzy
-#| msgid "Ping To"
 msgid "Ping to"
 msgstr "Пинговать в"
 
@@ -108,105 +103,81 @@ msgstr "Выберите канал для автоматических пинг
 
 #: fleetpings/form.py:95
 msgid "FC name"
-msgstr ""
+msgstr "Ник флиткома"
 
 #: fleetpings/form.py:97
 msgid "Who is the FC?"
-msgstr "Кто командир флота?"
+msgstr "Кто флитком?"
 
 #: fleetpings/form.py:101
 msgid "Fleet name"
 msgstr "Название флота"
 
 #: fleetpings/form.py:105
-#, fuzzy
-#| msgid "What is the fleet name in fleet finder?"
 msgid "What is the fleet name in the fleet finder in Eve?"
-msgstr "Название флота в поиске?"
+msgstr "Как называется флот в поиске флотов в Eve?"
 
 #: fleetpings/form.py:111 fleetpings/models.py:269
-#, fuzzy
-#| msgid "Formup Location"
 msgid "Formup location"
-msgstr "Точка сбора"
+msgstr "Место сбора"
 
 #: fleetpings/form.py:118
-#, fuzzy
-#| msgid "Formup Time"
 msgid "Formup time"
 msgstr "Время сбора"
 
 #: fleetpings/form.py:122
-#, fuzzy
-#| msgid ""
-#| "To enable this field, either make it a Pre-Ping (checkbox above) or "
-#| "uncheck &quot;Formup NOW&quot; (checkbox below)."
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
 msgstr ""
-"Для активации данного поля или задайте предварительный пинг (флажок выше) "
-"или отмените &quot;СЕЧАС&quot; (флажок ниже)."
+"Для активации этого поля задайте предварительный пинг (флажок выше) или "
+"отмените «СЕЙЧАС» (флажок ниже)."
 
 #: fleetpings/form.py:128
-#, fuzzy
-#| msgid "Formup Timestamp"
 msgid "Formup timestamp"
 msgstr "Метка времени сбора"
 
 #: fleetpings/form.py:134
 msgid "Formup NOW"
-msgstr "СЕЙЧАС"
+msgstr "Сбор СЕЙЧАС"
 
 #: fleetpings/form.py:136
-#, fuzzy
-#| msgid ""
-#| "If this checkbox is active, formup time will be set to &quot;NOW&quot; "
-#| "and the time in the field above (if any is set) will be ignored."
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
 msgstr ""
-"Если флажок активен, время сбора будет задано &quot;NOW&quot; и заданное "
-"выше время (при наличии) будет проигнорировано."
+"Если флажок активен, время сбора будет задано «СЕЙЧАС» и заданное выше время "
+"(при наличии) будет проигнорировано."
 
 #: fleetpings/form.py:142 fleetpings/models.py:148
-#, fuzzy
-#| msgid "Fleet Comms"
 msgid "Fleet comms"
-msgstr "Голосовые каналы"
+msgstr "Вид голосовой связи"
 
 #: fleetpings/form.py:161
-#, fuzzy
-#| msgid "Webhook Embed Color"
 msgid "Webhook embed color"
-msgstr "Вебхук Embed Color"
+msgstr "Цвет фона анонса"
 
 #: fleetpings/form.py:167
 msgid "SRP"
-msgstr "SRP"
+msgstr "Компенс"
 
 #: fleetpings/form.py:168
 msgid "Is this fleet covered by SRP?"
-msgstr "Потери во флоте покрываются SRP?"
+msgstr "Компенс есть?"
 
 #: fleetpings/form.py:173
-#, fuzzy
-#| msgid "Create SRP Link"
 msgid "Create SRP link"
-msgstr "Создавать SRP ссылку"
+msgstr "Создание SRP ссылки"
 
 #: fleetpings/form.py:175
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
 msgstr ""
-"Если флажок активен, специальная ссылка для SRP будет создана.<br>Оставьте "
-"неактивным, если не уверены."
+"Если флажок активен, специальная ссылка для компенса будет "
+"создана.<br>Оставьте неактивным, если не уверены."
 
 #: fleetpings/form.py:181
-#, fuzzy
-#| msgid "Additional Information"
 msgid "Additional information"
 msgstr "Дополнительная информация"
 
@@ -299,14 +270,10 @@ msgid "Your doctrine URL is not valid."
 msgstr "URL формата некорректный."
 
 #: fleetpings/models.py:227
-#, fuzzy
-#| msgid "Fleet Doctrine"
 msgid "Fleet doctrine"
 msgstr "Формат флота"
 
 #: fleetpings/models.py:228
-#, fuzzy
-#| msgid "Fleet Doctrines"
 msgid "Fleet doctrines"
 msgstr "Форматы"
 
@@ -319,10 +286,8 @@ msgid "Whether this formup location is enabled or not"
 msgstr "Активна или нет точка сбора"
 
 #: fleetpings/models.py:270
-#, fuzzy
-#| msgid "Formup Locations"
 msgid "Formup locations"
-msgstr "Точки сбора"
+msgstr "Места сбора"
 
 #: fleetpings/models.py:286
 msgid ""
@@ -334,7 +299,7 @@ msgstr ""
 
 #: fleetpings/models.py:290
 msgid "Group name"
-msgstr "Название группы"
+msgstr "Имя группы"
 
 #: fleetpings/models.py:298
 msgid "ID of the Discord role to ping"
@@ -423,8 +388,6 @@ msgid "Use Doctrines from Fittings module"
 msgstr "Использовать форматы из модуля Fittings"
 
 #: fleetpings/models.py:530
-#, fuzzy
-#| msgid "Verify Webhooks"
 msgid "Verify webhooks"
 msgstr "Проверять Вебхуки"
 
@@ -458,13 +421,6 @@ msgstr ""
 "Примечание: модуль Fittings должен быть установлен."
 
 #: fleetpings/models.py:568
-#, fuzzy
-#| msgid ""
-#| "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
-#| "will not be verified, so the app can be used with non-Discord Webhooks as "
-#| "well. When disabling webhook verification and using non-Discord webhooks, "
-#| "it is up to you to make sure your webhook understands a payload that is "
-#| "formatted for Discord webhooks."
 msgid ""
 "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs "
 "will not be verified, so the app can be used with non-Discord webhooks as "
@@ -482,10 +438,8 @@ msgid "Default highlight color for the webhook embed."
 msgstr "Цвет подсветки по умолчанию для встраивания webhook."
 
 #: fleetpings/models.py:593
-#, fuzzy
-#| msgid "setting"
 msgid "Setting"
-msgstr "настройка"
+msgstr "Установка"
 
 #: fleetpings/models.py:594
 msgid "Settings"
@@ -496,44 +450,30 @@ msgid "Fleet Pings Settings"
 msgstr "Настройки Сбора флота"
 
 #: fleetpings/templates/fleetpings/index.html:11
-#, fuzzy
-#| msgid "Fleet Information"
 msgid "Fleet information"
 msgstr "Информация о флоте"
 
 #: fleetpings/templates/fleetpings/index.html:22
-#, fuzzy
-#| msgid "Formatted Ping Text"
 msgid "Formatted ping text"
 msgstr "Отформатированный текст пинга"
 
 #: fleetpings/templates/fleetpings/index.html:49
-#, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an optimer, you need to "
-#| "provide all of the following information:<br>» FC Name<br>» Fleet "
-#| "Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine"
 msgid ""
 "Mandatory information is missing. To create an optimer, you need to provide "
 "all of the following information:<br>» FC name<br>» Fleet name<br>» Formup "
 "location<br>» Formup time<br>» Ships / Doctrine"
 msgstr ""
 "Отсутствует необходимая информация. Для создания таймера должна быть "
-"предоставлена следующая информация:<br>» Имя командира<br>» Имя флота<br>» "
+"предоставлена следующая информация:<br>» Ник флиткома<br>» Имя флота<br>» "
 "Точка сбора<br>» Время сбора<br>» Корабли / Формат"
 
 #: fleetpings/templates/fleetpings/index.html:54
-#, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an SRP link, you need to "
-#| "provide all of the following information:<br>» Fleet Name<br>» Ships / "
-#| "Doctrine"
 msgid ""
 "Mandatory information is missing. To create an SRP link, you need to provide "
 "all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr ""
-"Отсутствует необходимая информация. Для создания SRP ссылки должна быть "
-"предоставлена следующая информация:<br>» Имя флота<br>» Корабли / Формат"
+"Отсутствует необходимая информация. Для создания ссылки для компенса должна "
+"быть предоставлена следующая информация:<br>» Имя флота<br>» Корабли / Формат"
 
 #: fleetpings/templates/fleetpings/index.html:58
 msgid ""
@@ -564,8 +504,6 @@ msgid "Join our team of translators!"
 msgstr "Присоединяйтесь к нашей команде переводчиков!"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:68
-#, fuzzy
-#| msgid "Create Ping"
 msgid "Create ping"
 msgstr "Создать пинг"
 
@@ -636,10 +574,8 @@ msgid "None, just format it for me"
 msgstr "Нет, только отформатируй"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:3
-#, fuzzy
-#| msgid "Don't Ping"
 msgid "Don't ping"
-msgstr "Не пингуй"
+msgstr "Без пинга"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:13
 msgid "Additionally configured ping targets"
@@ -650,8 +586,6 @@ msgid "No ping created yet …"
 msgstr "Пингов нет …"
 
 #: fleetpings/templates/fleetpings/partials/ping/ping.html:22
-#, fuzzy
-#| msgid "Copy Ping Text"
 msgid "Copy ping text"
 msgstr "Копировать текст пинга"
 

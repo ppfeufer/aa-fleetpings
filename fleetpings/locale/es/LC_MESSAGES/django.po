@@ -2,15 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Zigor Fernandez Moreno <sietehierros@gmail.com>, 2023.
+# Peter Pfeufer <info@ppfeufer.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-01 17:17+0200\n"
-"PO-Revision-Date: 2023-09-24 13:14+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Spanish <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/es/>\n"
+"PO-Revision-Date: 2023-10-02 09:47+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: Spanish <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,17 +138,12 @@ msgid "Formup time"
 msgstr "Hora de Formar"
 
 #: fleetpings/form.py:122
-#, fuzzy
-#| msgid ""
-#| "To enable this field, either make it a Pre-Ping (checkbox above) or "
-#| "uncheck &quot;Formup NOW&quot; (checkbox below)."
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
 msgstr ""
 "Para habilitar este campo, conviértalo en Pre-Ping (casilla de verificación "
-"arriba) o desmarque \"Formar AHORA\" (casilla de verificación a "
-"continuación)."
+"arriba) o desmarque «Formar AHORA» (casilla de verificación a continuación)."
 
 #: fleetpings/form.py:128
 #, fuzzy
@@ -160,17 +156,13 @@ msgid "Formup NOW"
 msgstr "Formar AHORA"
 
 #: fleetpings/form.py:136
-#, fuzzy
-#| msgid ""
-#| "If this checkbox is active, formup time will be set to &quot;NOW&quot; "
-#| "and the time in the field above (if any is set) will be ignored."
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
 msgstr ""
 "Si esta casilla de verificación está activa, el tiempo de formar se "
-"establecerá en &quot;AHORA&quot; y la hora en el campo de arriba (si se ha "
-"establecido alguna) será ignorada."
+"establecerá en «AHORA» y la hora en el campo de arriba (si se ha establecido "
+"alguna) será ignorada."
 
 #: fleetpings/form.py:142 fleetpings/models.py:148
 #, fuzzy

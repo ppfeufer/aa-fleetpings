@@ -6,7 +6,6 @@ requires = [
 
 [project]
 name = "aa-fleetpings"
-version = "2.26.2"
 description = "Fleet Ping Tool for Alliance Auth supporting pings via webhooks to Discord."
 readme = "README.md"
 keywords = [
@@ -35,6 +34,9 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
+dynamic = [
+    "version",
+]
 dependencies = [
     "allianceauth>=3.2",
     "allianceauth-app-utils>=1.13",
@@ -62,3 +64,6 @@ Tracker = "https://github.com/ppfeufer/aa-fleetpings/issues"
 include = [
     "/fleetpings",
 ]
+
+[tool.hatch.version]
+path = "fleetpings/__init__.py"

@@ -5,7 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+<!--
+GitHub MD Syntax:
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+Highlighting:
+https://docs.github.com/assets/cb-41128/mw-1440/images/help/writing/alerts-rendered.webp
+
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+-->
+
 ## \[In Development\] - Unreleased
+
+<!--
+Section Order:
+
+### Added
+### Fixed
+### Changed
+### Deprecated
+### Removed
+### Security
+-->
+
+### Changed
+
+- Translations updated
 
 ## \[2.26.2\] - 2023-09-26
 
@@ -108,18 +140,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## \[2.22.0\] - 2023-05-20
 
+> \[!NOTE\]
+>
+> After this update and successful migration, you can remove this app's settings
+> from  your `local.py`. All settings are now handled through the Django Admin
+> Backend under `/admin/fleetpings/setting/`
+
 ### Changed
 
 - Migrated settings from `local.py` to the database
 - German translation updated
 - Russian translation updated
 - Ukrainian translation updated (not complete yet, currently at 90% translated)
-
-### Update Notes:
-
-After this update and successful migration, you can remove this app's settings from
-your `local.py`. All settings are now handled through the Django Admin Backend under
-`/admin/fleetpings/setting/`
 
 ## \[2.21.0\] - 2023-04-25
 
@@ -261,11 +293,6 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ## \[2.11.0\] - 2022-02-28
 
-### Fixed
-
-- \[Compatibility\] AA 3.x / Django 4 :: ImportError: cannot import name
-  'ugettext_lazy' from 'django.utils.translation'
-
 ### Added
 
 - Error message on missing information for Optimer and SRP
@@ -278,6 +305,11 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
   - SRP (Mandatory fields):
     - » Fleet Name
     - » Ships / Doctrine
+
+### Fixed
+
+- \[Compatibility\] AA 3.x / Django 4 :: ImportError: cannot import name
+  'ugettext_lazy' from 'django.utils.translation'
 
 ### Changed
 
@@ -379,15 +411,15 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ## \[2.5.1\] - 2021-01-17
 
-### Changed
-
-- Set input field for formup time to `autocomplete="off"` so you don't have to fiddle
-  around to use the datetime picker anymore
-
 ### Fixed
 
 - An issue where additionally configured ping targets wouldn't show up in the
   dropdown ([#44])
+
+### Changed
+
+- Set input field for formup time to `autocomplete="off"` so you don't have to fiddle
+  around to use the datetime picker anymore
 
 ## \[2.5.0\] - 2021-01-12
 
@@ -439,17 +471,12 @@ your `local.py`. All settings are now handled through the Django Admin Backend u
 
 ## \[2.3.0\] - 2020-10-14
 
-### Important!
-
-Before updating to this version, make sure you have your Alliance Auth updated to
-version 2.8.0 (or newer). This version of AA Fleetpings uses a JavaScript library
-that is introduced in Alliance Auth 2.8.0, so have your Auth updated before
-installing this version.
-
-### Fixed
-
-- MySQL text fields can't have default values
-- Parameters differ from overridden method warning
+> \[!IMPORTANT\]
+>
+> Before updating to this version, make sure you have your Alliance Auth updated to
+> version 2.8.0 (or newer). This version of AA Fleetpings uses a JavaScript library
+> that is introduced in Alliance Auth 2.8.0, so have your Auth updated before
+> installing this version.
 
 ### Added
 
@@ -459,6 +486,11 @@ installing this version.
 - Compatibility to AA Timezones (v1.2.1) new link style
 - Backwards compatibility to versions of AA Timezones before 1.2.1, so the old link
   style is still generated when using an older version
+
+### Fixed
+
+- MySQL text fields can't have default values
+- Parameters differ from overridden method warning
 
 ### Changed
 
@@ -475,7 +507,7 @@ installing this version.
 
 ## \[2.2.1\] - 2020-09-23
 
-### Checked
+### Added
 
 - Compatibility with the upcoming changes in Alliance Auth v2.8.0 (Django 3)
 
@@ -498,9 +530,11 @@ installing this version.
 
 ## \[2.0.0\] - 2020-09-15
 
-This is the official re-brand of AA Discord Ping Formatter, since the original name
-didn't fit anymore with the new features, like automatic pings and now the new Slack
-implementation.
+> \[!NOTE\]
+>
+> This is the official re-brand of AA Discord Ping Formatter, since the original name
+> didn't fit anymore with the new features, like automatic pings and now the new
+> Slack implementation.
 
 If you were testing one of the alpha versions of AA Discord Ping Formatter, make
 sure to migrate discordpingformatter zero and deactivate the old app in your `local.py`
@@ -601,13 +635,13 @@ settings in the admin backend, since we just nuked them from the old app.
   default (Roam = green, Home Defense = yellow, StratOP = orange, CTA = red), and custom
   fleet types can be defined via settings.
 
-### Changed
-
-- Link to time zones conversion is now a named link
-
 ### Fixed
 
 - Missing semicolons in JavaScript found their way back to where they belong
+
+### Changed
+
+- Link to time zones conversion is now a named link
 
 ## \[0.1.9\] - 2020-07-14
 
@@ -655,13 +689,13 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ## \[0.1.4\] - 2020-06-18
 
-### Changed
-
-- Ping Type renamed to Ping Target in form
-
 ### Fixed
 
 - Typo in Additional Information
+
+### Changed
+
+- Ping Type renamed to Ping Target in form
 
 ## \[0.1.3\] - 2020-06-15
 

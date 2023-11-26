@@ -1,72 +1,72 @@
-{% load bootstrap %}
+{% load django_bootstrap5 %}
 {% load i18n %}
 
 <form id="aa-fleetping-form" class="form-horizontal">
     {% csrf_token %}
+
     <fieldset class="aa-fleetpings-form">
         <!-- ping_target -->
-        {{ form.ping_target|bootstrap_horizontal }}
+        {% bootstrap_field form.ping_target %}
         {% include "fleetpings/partials/form/hints/ping-everyone.html" %}
 
         <!-- ping_channel -->
         {% if webhooks_configured %}
-            {{ form.ping_channel|bootstrap_horizontal }}
+            {% bootstrap_field form.ping_channel %}
         {% endif %}
 
         <!-- fleet_type -->
-        {{ form.fleet_type|bootstrap_horizontal }}
-        {{ form.webhook_embed_color }}
+        {% bootstrap_field form.fleet_type %}
+        {% bootstrap_field form.webhook_embed_color %}
 
         <!-- fleet_commander -->
-        {{ form.fleet_commander|bootstrap_horizontal }}
+        {% bootstrap_field form.fleet_commander %}
 
         <!-- fleet_name -->
-        {{ form.fleet_name|bootstrap_horizontal }}
+        {% bootstrap_field form.fleet_name %}
 
         <!-- formup_location -->
-        {{ form.formup_location|bootstrap_horizontal }}
+        {% bootstrap_field form.formup_location %}
 
         <!-- pre_ping -->
-        {{ form.pre_ping|bootstrap_horizontal }}
+        {% bootstrap_field form.pre_ping %}
 
         <!-- formup_time -->
-        {{ form.formup_time|bootstrap_horizontal }}
-        {{ form.formup_timestamp }}
+        {% bootstrap_field form.formup_time %}
+        {% bootstrap_field form.formup_timestamp %}
 
         <!-- optimer -->
         {% if optimer_installed %}
             <div class="fleetpings-create-optimer clearfix" style="display: none;">
-                {{ form.optimer|bootstrap_horizontal }}
+                {% bootstrap_field form.optimer %}
             </div>
         {% endif %}
 
-        {{ form.formup_now|bootstrap_horizontal }}
+        {% bootstrap_field form.formup_now %}
 
         <!-- fleet_comms -->
-        {{ form.fleet_comms|bootstrap_horizontal }}
+        {% bootstrap_field form.fleet_comms %}
 
         <!-- fleet_doctrine -->
-        {{ form.fleet_doctrine|bootstrap_horizontal }}
         {{ form.fleet_doctrine_url }}
 
         <!-- srp -->
-        {{ form.srp|bootstrap_horizontal }}
+        {% bootstrap_field form.srp %}
 
         <!-- srp_link -->
         {% if srp_module_available_to_user %}
             <div class="fleetpings-create-srp-link clearfix" style="display: none;">
-                {{ form.srp_link|bootstrap_horizontal }}
+                {% bootstrap_field form.srp_link %}
             </div>
         {% endif %}
 
         <!-- additional_information -->
-        {{ form.additional_information|bootstrap_horizontal }}
+        {% bootstrap_field form.additional_information %}
 
-        <div class="form-group clearfix">
-            <div class="col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
-                <div class="fleetpings-form-message"></div>
-                <button id="createPingText" name="createPingText" class="btn btn-primary">{% translate "Create ping" %}</button>
-            </div>
+        <div class="form-group mt-3 clearfix">
+            <div class="fleetpings-form-message"></div>
+
+            {% translate "Create ping" as button_text %}
+            {% bootstrap_button button_class="btn btn-primary" content=button_text name="createPingText" id="createPingText" %}
         </div>
     </fieldset>
 </form>

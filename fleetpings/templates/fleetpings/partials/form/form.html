@@ -16,7 +16,7 @@
 
         <!-- fleet_type -->
         {% bootstrap_field form.fleet_type %}
-        {% bootstrap_field form.webhook_embed_color %}
+        {% bootstrap_field form.webhook_embed_color show_label=False %}
 
         <!-- fleet_commander -->
         {% bootstrap_field form.fleet_commander %}
@@ -32,7 +32,7 @@
 
         <!-- formup_time -->
         {% bootstrap_field form.formup_time %}
-        {% bootstrap_field form.formup_timestamp %}
+        {% bootstrap_field form.formup_timestamp show_label=False %}
 
         <!-- optimer -->
         {% if optimer_installed %}
@@ -48,7 +48,7 @@
 
         <!-- fleet_doctrine -->
         {% bootstrap_field form.fleet_doctrine %}
-        {% bootstrap_field form.fleet_doctrine_url %}
+        {% bootstrap_field form.fleet_doctrine_url show_label=False %}
 
         <!-- srp -->
         {% bootstrap_field form.srp %}

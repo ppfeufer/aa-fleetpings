@@ -3,6 +3,12 @@
 $(document).ready(() => {
     'use strict';
 
+    /* FlexDatalist - http://projects.sergiodinislopes.pt/flexdatalist/
+    --------------------------------------------------------------------------------- */
+    $('.flexdatalist').flexdatalist({
+        minLength: 1, noResultsText: '', searchContain: true
+    });
+
     /* Variables
     --------------------------------------------------------------------------------- */
     // Check boxes
@@ -470,14 +476,6 @@ $(document).ready(() => {
      */
     $('button#copyFleetPing').on('click', () => {
         copyFleetPing();
-    });
-
-    /**
-     * FlexDatalist
-     * http://projects.sergiodinislopes.pt/flexdatalist/
-     */
-    $('.flexdatalist').flexdatalist({
-        minLength: 1, noResultsText: '', searchContain: true
     });
 
     /**

@@ -2,15 +2,16 @@
 
 {% load i18n %}
 
-{% block page_title %}{% translate "Fleet Pings" %}{% endblock %}
+{% block page_title %}
+    {% translate "Fleet Pings" %}
+{% endblock %}
+
+{% block header_nav_brand %}
+    {% translate "Fleet Pings" %}
+{% endblock header_nav_brand %}
 
 {% block content %}
     <div class="aa-fleetpings">
-        <div class="aa-fleetpings-header">
-            {% translate "Fleet Pings" as translated_header %}
-            {% include "fleetpings/partials/header/page-header.html" with header_text=translated_header %}
-        </div>
-
         <div class="aa-fleetpings-body">
             {% block aa_fleetpings_body %}{% endblock %}
         </div>

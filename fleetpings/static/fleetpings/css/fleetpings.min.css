@@ -1,2 +1,2 @@
-@media all{.aa-fleetpings-header-addition{display:block}.aa-fleetpings-pingtext{position:sticky;top:1rem}}
+@media all{.aa-fleetpings-header-addition{display:block}.aa-fleetpings-pingtext>.card{position:sticky;top:1.5rem}}
 /*# sourceMappingURL=fleetpings.min.css.map */

@@ -1,13 +1,28 @@
 """
-Versioned static URLs to break browser caches when changing the app version
+Template tags
 """
 
 # Django
 from django.template.defaulttags import register
 from django.templatetags.static import static
 
+# Alliance Auth (External Libs)
+from app_utils.urls import reverse_absolute
+
 # AA Fleet Pings
 from fleetpings import __version__
+
+
+@register.simple_tag
+def fleetpings_reverse_url(view: str, *args) -> str:
+    """
+    Absolute URL
+    :param view:
+    :param args:
+    :return:
+    """
+
+    return reverse_absolute(view, list(args))
 
 
 @register.simple_tag

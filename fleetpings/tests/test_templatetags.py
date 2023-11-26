@@ -26,7 +26,7 @@ class TestVersionedStatic(TestCase):
 
         context = Context({"version": __version__})
         template_to_render = Template(
-            "{% load fleetpings_versioned_static %}"
+            "{% load fleetpings %}"
             "{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}"
         )
 
@@ -51,7 +51,7 @@ class TestReverseUrl(TestCase):
 
         context = Context({"doctrine_pk": "1"})
         template_to_render = Template(
-            "{% load fleetpings_urls %}"
+            "{% load fleetpings %}"
             "{% fleetpings_reverse_url 'fittings:view_doctrine' doctrine_pk %}"
         )
 

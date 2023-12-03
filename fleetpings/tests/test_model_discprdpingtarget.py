@@ -18,7 +18,10 @@ class TestModelDiscordPingTarget(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """
-        Set up groups and users
+        Setup
+
+        :return:
+        :rtype:
         """
 
         super().setUpClass()
@@ -27,11 +30,12 @@ class TestModelDiscordPingTarget(TestCase):
 
     def test_should_return_pingtarget_model_string_name(self):
         """
-        Test should return the DiscordPingTargets model string name
+        Test should return DiscordPingTarget model string name
+
         :return:
         :rtype:
         """
 
         test_object = DiscordPingTarget(name=self.group)
 
-        self.assertEqual(str(test_object), self.group.name)
+        self.assertEqual(first=str(test_object), second=self.group.name)

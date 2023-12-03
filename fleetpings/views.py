@@ -47,17 +47,22 @@ from fleetpings.models import (
     Webhook,
 )
 
-logger = LoggerAddTag(get_extension_logger(__name__), __title__)
+logger = LoggerAddTag(my_logger=get_extension_logger(name=__name__), prefix=__title__)
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def index(request: WSGIRequest) -> HttpResponse:
     """
     Index view
+
+    :param request:
+    :type request:
+    :return:
+    :rtype:
     """
 
-    logger.info(f"Fleet pings view called by user {request.user}")
+    logger.info(msg=f"Fleet pings view called by user {request.user}")
 
     srp_module_available_to_user = False
     if srp_module_installed() and (
@@ -81,19 +86,24 @@ def index(request: WSGIRequest) -> HttpResponse:
         "form": FleetPingForm,
     }
 
-    return render(request, "fleetpings/index.html", context)
+    return render(
+        request=request, template_name="fleetpings/index.html", context=context
+    )
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
     """
     Get ping targets for the current user
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
-    logger.info(f"Getting ping targets for user {request.user}")
+    logger.info(msg=f"Getting ping targets for user {request.user}")
 
     additional_discord_ping_targets = (
         DiscordPingTarget.objects.filter(
@@ -106,27 +116,30 @@ def ajax_get_ping_targets(request: WSGIRequest) -> HttpResponse:
     )
 
     return render(
-        request,
-        "fleetpings/partials/form/segments/ping-targets.html",
-        {
+        request=request,
+        template_name="fleetpings/partials/form/segments/ping-targets.html",
+        context={
             "ping_targets": additional_discord_ping_targets,
             "use_default_ping_targets": Setting.objects.get_setting(
-                Setting.Field.USE_DEFAULT_PING_TARGETS
+                setting_key=Setting.Field.USE_DEFAULT_PING_TARGETS
             ),
         },
     )
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
     """
     Get webhooks for current user
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
-    logger.info(f"Getting webhooks for user {request.user}")
+    logger.info(msg=f"Getting webhooks for user {request.user}")
 
     webhooks = (
         Webhook.objects.filter(
@@ -139,22 +152,25 @@ def ajax_get_webhooks(request: WSGIRequest) -> HttpResponse:
     )
 
     return render(
-        request,
-        "fleetpings/partials/form/segments/ping-channel.html",
-        {"webhooks": webhooks},
+        request=request,
+        template_name="fleetpings/partials/form/segments/ping-channel.html",
+        context={"webhooks": webhooks},
     )
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
     """
     Get fleet types for current user
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
-    logger.info(f"Getting fleet types for user {request.user}")
+    logger.info(msg=f"Getting fleet types for user {request.user}")
 
     fleet_types = (
         FleetType.objects.filter(
@@ -167,67 +183,76 @@ def ajax_get_fleet_types(request: WSGIRequest) -> HttpResponse:
     )
 
     return render(
-        request,
-        "fleetpings/partials/form/segments/fleet-type.html",
-        {
+        request=request,
+        template_name="fleetpings/partials/form/segments/fleet-type.html",
+        context={
             "fleet_types": fleet_types,
             "use_default_fleet_types": Setting.objects.get_setting(
-                Setting.Field.USE_DEFAULT_FLEET_TYPES
+                setting_key=Setting.Field.USE_DEFAULT_FLEET_TYPES
             ),
         },
     )
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_get_formup_locations(request: WSGIRequest) -> HttpResponse:
     """
-    Get formup locations
+    Get formup locations for current user
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
-    logger.info(f"Getting formup locations for user {request.user}")
+    logger.info(msg=f"Getting formup locations for user {request.user}")
 
     formup_locations = FormupLocation.objects.filter(is_enabled=True).order_by("name")
 
     return render(
-        request,
-        "fleetpings/partials/form/segments/fleet-formup-location.html",
-        {"formup_locations": formup_locations},
+        request=request,
+        template_name="fleetpings/partials/form/segments/fleet-formup-location.html",
+        context={"formup_locations": formup_locations},
     )
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_get_fleet_comms(request: WSGIRequest) -> HttpResponse:
     """
-    Get fleet comms
+    Get fleet comms for current user
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
-    logger.info(f"Getting formup locations for user {request.user}")
+    logger.info(msg=f"Getting formup locations for user {request.user}")
 
     fleet_comms = FleetComm.objects.filter(is_enabled=True).order_by("name")
 
     return render(
-        request,
-        "fleetpings/partials/form/segments/fleet-comms.html",
-        {"fleet_comms": fleet_comms},
+        request=request,
+        template_name="fleetpings/partials/form/segments/fleet-comms.html",
+        context={"fleet_comms": fleet_comms},
     )
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
     """
-    Get fleet doctrines for the current user
+    Get fleet doctrines for current user
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
-    logger.info(f"Getting fleet doctrines for user {request.user}")
+    logger.info(msg=f"Getting fleet doctrines for user {request.user}")
 
     # Get doctrines
     if use_fittings_module_for_doctrines() is True:
@@ -248,9 +273,9 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
         )
 
     return render(
-        request,
-        "fleetpings/partials/form/segments/fleet-doctrine.html",
-        {
+        request=request,
+        template_name="fleetpings/partials/form/segments/fleet-doctrine.html",
+        context={
             "doctrines": doctrines,
             "use_fleet_doctrines": use_fittings_module_for_doctrines(),
         },
@@ -258,13 +283,17 @@ def ajax_get_fleet_doctrines(request: WSGIRequest) -> HttpResponse:
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def _create_optimer(request: WSGIRequest, ping_context: dict):
     """
-    Adding the planned fleet to the optimers
+    Create an optimer entry
+
     :param request:
+    :type request:
     :param ping_context:
+    :type ping_context:
     :return:
+    :rtype:
     """
 
     # Alliance Auth
@@ -284,17 +313,21 @@ def _create_optimer(request: WSGIRequest, ping_context: dict):
         eve_character=character,
     ).save()
 
-    logger.info(f"Optimer created by user {request.user}")
+    logger.info(msg=f"Optimer created by user {request.user}")
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
-    Create an SRP link in AA-SRP
+    Create an SRP link in aasrp
+
     :param request:
+    :type request:
     :param ping_context:
+    :type ping_context:
     :return:
+    :rtype:
     """
 
     # Third Party
@@ -316,23 +349,27 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
         creator=request.user,
     ).save()
 
-    logger.info(f"SRP Link created by user {request.user}")
+    logger.info(msg=f"SRP Link created by user {request.user}")
 
     return {
         "success": True,
         "code": srp_code,
-        "link": reverse_absolute("aasrp:request_srp", [srp_code]),
+        "link": reverse_absolute(viewname="aasrp:request_srp", args=[srp_code]),
     }
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def _create_allianceauth_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
-    Create an SRP link in Alliance Auth SRP
+    Create an SRP link in allianceauth.srp
+
     :param request:
+    :type request:
     :param ping_context:
+    :type ping_context:
     :return:
+    :rtype:
     """
 
     # Alliance Auth
@@ -351,28 +388,36 @@ def _create_allianceauth_srp_link(request: WSGIRequest, ping_context: dict) -> d
         fleet_commander=creator,
     ).save()
 
-    logger.info(f"SRP Link created by user {request.user}")
+    logger.info(msg=f"SRP Link created by user {request.user}")
 
     return {
         "success": True,
         "code": srp_code,
-        "link": reverse_absolute("srp:request", [srp_code]),
+        "link": reverse_absolute(viewname="srp:request", args=[srp_code]),
     }
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
     """
-    Create an SRP link on fleetping with formup === now and SRP === yes
+    Create an SRP link
+    Conditions:
+        - formup == now
+        - SRP == yes
+        - fleet_name and doctrine are given
+
     :param request:
+    :type request:
     :param ping_context:
+    :type ping_context:
     :return:
+    :rtype:
     """
 
     if ping_context["fleet_name"] and ping_context["doctrine"]["name"]:
         # Create aasrp link (prioritized app)
-        if srp_module_is("aasrp") and can_add_srp_links(
+        if srp_module_is(module_name="aasrp") and can_add_srp_links(
             request=request, module_name="aasrp"
         ):
             aasrp_info = _create_aasrp_link(request=request, ping_context=ping_context)
@@ -380,7 +425,7 @@ def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
             return aasrp_info
 
         # Create allianceauth.srp link
-        if srp_module_is("allianceauth.srp") and can_add_srp_links(
+        if srp_module_is(module_name="allianceauth.srp") and can_add_srp_links(
             request=request, module_name="allianceauth.srp"
         ):
             allianceauth_srp_info = _create_allianceauth_srp_link(
@@ -396,22 +441,25 @@ def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
 
 
 @login_required
-@permission_required("fleetpings.basic_access")
+@permission_required(perm="fleetpings.basic_access")
 def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     """
-    Create the fleet ping
+    Create a fleet ping
+
     :param request:
+    :type request:
     :return:
+    :rtype:
     """
 
     context = {}
     success = False
 
     if request.method == "POST":
-        form = FleetPingForm(request.POST)
+        form = FleetPingForm(data=request.POST)
 
         if form.is_valid():
-            logger.info("Fleet ping information received")
+            logger.info(msg="Fleet ping information received")
 
             # Get ping context
             ping_context = get_ping_context_from_form_data(form_data=form.cleaned_data)
@@ -438,7 +486,7 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
             if ping_context["ping_channel"]["webhook"]:
                 ping_discord_webhook(ping_context=ping_context, user=request.user)
 
-            logger.info(f"Fleet ping created by user {request.user}")
+            logger.info(msg=f"Fleet ping created by user {request.user}")
 
             ping_context["request"] = request
 
@@ -455,4 +503,4 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
 
     context["success"] = success
 
-    return HttpResponse(json.dumps(context), content_type="application/json")
+    return HttpResponse(content=json.dumps(context), content_type="application/json")

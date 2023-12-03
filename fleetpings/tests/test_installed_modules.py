@@ -19,7 +19,10 @@ class TestModulesInstalled(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """
-        Set up groups and users
+        Setup
+
+        :return:
+        :rtype:
         """
 
         super().setUpClass()
@@ -27,65 +30,79 @@ class TestModulesInstalled(TestCase):
     @modify_settings(INSTALLED_APPS={"remove": "timezones"})
     def test_for_timezones_installed_when_not_installed(self):
         """
-        Test for timezones_installed when it is not
+        Test for timezones_installed when it is not installed
+
         :return:
+        :rtype:
         """
 
-        self.assertFalse(timezones_installed())
+        self.assertFalse(expr=timezones_installed())
 
     @modify_settings(INSTALLED_APPS={"append": "timezones"})
     def test_for_timezones_installed_when_installed(self):
         """
         Test for timezones_installed when it is installed
-        :return:$FilePath$
+
+        :return:
+        :rtype:
         """
 
-        self.assertTrue(timezones_installed())
+        self.assertTrue(expr=timezones_installed())
 
     @modify_settings(INSTALLED_APPS={"remove": "allianceauth.optimer"})
     def test_for_optimer_installed_when_not_installed(self):
         """
-        Test for optimer_installed when it is not
+        Test for optimer_installed when it is not installed
+
         :return:
+        :rtype:
         """
 
-        self.assertFalse(optimer_installed())
+        self.assertFalse(expr=optimer_installed())
 
     @modify_settings(INSTALLED_APPS={"append": "allianceauth.optimer"})
     def test_for_optimer_installed_when_installed(self):
         """
         Test for optimer_installed when it is installed
+
         :return:
+        :rtype:
         """
 
-        self.assertTrue(optimer_installed())
+        self.assertTrue(expr=optimer_installed())
 
     @modify_settings(INSTALLED_APPS={"remove": "allianceauth.services.modules.discord"})
     def test_for_discord_service_installed_when_not_installed(self):
         """
-        Test for discord_service_installed when it is not
+        Test for discord_service_installed when it is not installed
+
         :return:
+        :rtype:
         """
 
-        self.assertFalse(discord_service_installed())
+        self.assertFalse(expr=discord_service_installed())
 
     @modify_settings(INSTALLED_APPS={"append": "allianceauth.services.modules.discord"})
     def test_for_discord_service_installed_when_installed(self):
         """
         Test for discord_service_installed when it is installed
+
         :return:
+        :rtype:
         """
 
-        self.assertTrue(discord_service_installed())
+        self.assertTrue(expr=discord_service_installed())
 
     @modify_settings(INSTALLED_APPS={"remove": ["allianceauth.srp", "aasrp"]})
     def test_for_srp_module_installed_when_not_installed(self):
         """
-        Test for srp_module_installed when it is not
+        Test for srp_module_installed when it is not installed
+
         :return:
+        :rtype:
         """
 
-        self.assertFalse(srp_module_installed())
+        self.assertFalse(expr=srp_module_installed())
 
     @modify_settings(
         INSTALLED_APPS={
@@ -96,11 +113,13 @@ class TestModulesInstalled(TestCase):
     def test_for_srp_module_installed_when_aasrp_installed(self):
         """
         Test for srp_module_installed when it is aasrp
+
         :return:
+        :rtype:
         """
 
-        self.assertTrue(srp_module_installed())
-        self.assertTrue(srp_module_is("aasrp"))
+        self.assertTrue(expr=srp_module_installed())
+        self.assertTrue(expr=srp_module_is("aasrp"))
 
     @modify_settings(
         INSTALLED_APPS={
@@ -111,8 +130,10 @@ class TestModulesInstalled(TestCase):
     def test_for_srp_module_installed_when_allianceauth_srp_installed(self):
         """
         Test for srp_module_installed when it is allianceauth.srp
+
         :return:
+        :rtype:
         """
 
-        self.assertTrue(srp_module_installed())
-        self.assertTrue(srp_module_is("allianceauth.srp"))
+        self.assertTrue(expr=srp_module_installed())
+        self.assertTrue(expr=srp_module_is("allianceauth.srp"))

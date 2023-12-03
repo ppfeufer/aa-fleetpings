@@ -1,5 +1,5 @@
 """
-Managers for our models
+Managers for the fleetpings app
 """
 
 # Django
@@ -30,17 +30,22 @@ class SettingManager(models.Manager):
 
     def get_setting(self, setting_key: str) -> str:
         """
-        Return the value for given setting key
+        Get a setting
+
         :param setting_key:
+        :type setting_key:
         :return:
+        :rtype:
         """
 
         return getattr(self.first(), setting_key)
 
     def get_queryset(self):
         """
-        Get a Setting queryset
+        Get the queryset
+
         :return:
+        :rtype:
         """
 
         return SettingQuerySet(self.model)

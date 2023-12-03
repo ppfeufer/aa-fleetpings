@@ -20,17 +20,24 @@ class TestHelperEveImages(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """
-        Set up groups and users
+        Setup
+
+        :return:
+        :rtype:
         """
 
         super().setUpClass()
 
-        cls.user_1001 = create_fake_user(1001, "Peter Parker")
+        cls.user_1001 = create_fake_user(
+            character_id=1001, character_name="Peter Parker"
+        )
 
     def test_should_return_character_portrait_url(self):
         """
         Test should return character portrait URL
+
         :return:
+        :rtype:
         """
 
         character = self.user_1001.profile.main_character
@@ -38,12 +45,14 @@ class TestHelperEveImages(TestCase):
         portrait_url = get_character_portrait_from_evecharacter(character=character)
         expected_url = f"https://images.evetech.net/characters/{character.character_id}/portrait?size=32"  # pylint: disable=line-too-long
 
-        self.assertEqual(portrait_url, expected_url)
+        self.assertEqual(first=portrait_url, second=expected_url)
 
     def test_should_return_character_portrait_html(self):
         """
-        Test should return character portrait HTML image tag
+        Test should return character portrait HTML
+
         :return:
+        :rtype:
         """
 
         character = self.user_1001.profile.main_character
@@ -58,4 +67,4 @@ class TestHelperEveImages(TestCase):
             'width="32" height="32">'
         )
 
-        self.assertEqual(portrait_html, expected_html)
+        self.assertEqual(first=portrait_html, second=expected_html)

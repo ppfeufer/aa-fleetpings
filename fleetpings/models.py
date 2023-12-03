@@ -1,5 +1,5 @@
 """
-Our models
+Models for the Fleet Pings app
 """
 
 # Standard Library
@@ -28,7 +28,8 @@ if discord_service_installed():
 
 def _get_discord_group_info(ping_target: Group) -> dict:
     """
-    Get Discord group info or raise an error
+    Get the Discord group info for the given group
+
     :param ping_target:
     :type ping_target:
     :return:
@@ -37,30 +38,34 @@ def _get_discord_group_info(ping_target: Group) -> dict:
 
     if not discord_service_installed():
         raise ValidationError(
-            _("You might want to install the Discord service first …")
+            message=_("You might want to install the Discord service first …")
         )
 
     try:
         discord_group_info = DiscordUser.objects.group_to_role(group=ping_target)
     except HTTPError as http_error:
         raise ValidationError(
-            _("Are you sure you have your Discord linked to your Alliance Auth?")
+            message=_(
+                "Are you sure you have your Discord linked to your Alliance Auth?"
+            )
         ) from http_error
 
     if not discord_group_info:
-        raise ValidationError(_("This group has not been synced to Discord yet."))
+        raise ValidationError(
+            message=_("This group has not been synced to Discord yet.")
+        )
 
     return discord_group_info
 
 
 class SingletonModel(models.Model):
     """
-    SingletonModel
+    Singleton model
     """
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
-        Model meta definitions
+        SingletonModel :: Meta
         """
 
         abstract = True
@@ -68,9 +73,13 @@ class SingletonModel(models.Model):
     def save(self, *args, **kwargs):
         """
         Save action
+
         :param args:
+        :type args:
         :param kwargs:
+        :type kwargs:
         :return:
+        :rtype:
         """
 
         if self.__class__.objects.count():
@@ -81,9 +90,13 @@ class SingletonModel(models.Model):
     def delete(self, *args, **kwargs):
         """
         Delete action
+
         :param args:
+        :type args:
         :param kwargs:
+        :type kwargs:
         :return:
+        :rtype:
         """
 
         pass  # pylint: disable=unnecessary-pass
@@ -91,7 +104,7 @@ class SingletonModel(models.Model):
 
 class AaFleetpings(models.Model):
     """
-    Meta model for app permissions
+    Alliance Auth Fleet Pings
     """
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -137,6 +150,13 @@ class FleetComm(models.Model):
     )
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
+
         return f"{self.name} » {self.channel}" if self.channel else f"{self.name}"
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -153,7 +173,7 @@ class FleetComm(models.Model):
 
 class FleetDoctrine(models.Model):
     """
-    Fleet Doctrine
+    Fleet Doctrines
     """
 
     # Doctrine name
@@ -174,7 +194,7 @@ class FleetDoctrine(models.Model):
 
     # Restrictions
     restricted_to_group = models.ManyToManyField(
-        Group,
+        to=Group,
         blank=True,
         related_name="fleetdoctrine_require_groups",
         help_text=_("Restrict this doctrine to the following groups …"),
@@ -199,7 +219,10 @@ class FleetDoctrine(models.Model):
 
     def clean(self):
         """
-        Check if the doctrine link is an actual link to a website
+        Check if the doctrine link is valid
+
+        :return:
+        :rtype:
         """
 
         doctrine_link = self.link
@@ -211,12 +234,19 @@ class FleetDoctrine(models.Model):
                 validate(doctrine_link)
             except ValidationError as exception:
                 raise ValidationError(
-                    _("Your doctrine URL is not valid.")
+                    message=_("Your doctrine URL is not valid.")
                 ) from exception
 
         super().clean()
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
+
         return str(self.name)
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -259,6 +289,12 @@ class FormupLocation(models.Model):
     )
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
         return str(self.name)
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -278,7 +314,7 @@ class DiscordPingTarget(models.Model):
 
     # Discord group to ping
     name = models.OneToOneField(
-        Group,
+        to=Group,
         on_delete=models.CASCADE,
         unique=True,
         help_text=(
@@ -301,7 +337,7 @@ class DiscordPingTarget(models.Model):
 
     # Restrictions
     restricted_to_group = models.ManyToManyField(
-        Group,
+        to=Group,
         blank=True,
         related_name="discord_role_require_groups",
         help_text=_("Restrict ping rights to the following groups …"),
@@ -326,8 +362,10 @@ class DiscordPingTarget(models.Model):
 
     def clean(self):
         """
-        Check if the group has already been synced to Discord,
-        if not, raise an error
+        Check if the Discord group exists and get the Discord group name
+
+        :return:
+        :rtype:
         """
 
         _get_discord_group_info(self.name)
@@ -342,7 +380,18 @@ class DiscordPingTarget(models.Model):
         update_fields=None,  # pylint: disable=unused-argument
     ):
         """
-        Add the Discord group ID (if Discord service is active) and save the whole thing
+        Save action
+
+        :param force_insert:
+        :type force_insert:
+        :param force_update:
+        :type force_update:
+        :param using:
+        :type using:
+        :param update_fields:
+        :type update_fields:
+        :return:
+        :rtype:
         """
 
         # Check if the Discord service is active
@@ -353,6 +402,13 @@ class DiscordPingTarget(models.Model):
         super().save()  # Call the "real" save() method.
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
+
         return str(self.name)
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -388,7 +444,7 @@ class FleetType(models.Model):
 
     # Restrictions
     restricted_to_group = models.ManyToManyField(
-        Group,
+        to=Group,
         blank=True,
         related_name="+",
         help_text=_("Restrict this fleet type to the following groups …"),
@@ -412,6 +468,13 @@ class FleetType(models.Model):
     )
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
+
         return str(self.name)
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -452,7 +515,7 @@ class Webhook(models.Model):
 
     # Restrictions
     restricted_to_group = models.ManyToManyField(
-        Group,
+        to=Group,
         blank=True,
         related_name="webhook_require_groups",
         help_text=_("Restrict ping rights to the following groups …"),
@@ -476,6 +539,13 @@ class Webhook(models.Model):
     )
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
+
         return str(self.name)
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -490,15 +560,19 @@ class Webhook(models.Model):
     def clean(self):
         """
         Check if the webhook URL is valid
+
         :return:
+        :rtype:
         """
 
         # Check if it's an actual Discord Webhook URL if the verification setting is set.
         if not re.match(
-            DISCORD_WEBHOOK_REGEX, self.url
-        ) and Setting.objects.get_setting(Setting.Field.WEBHOOK_VERIFICATION):
+            pattern=DISCORD_WEBHOOK_REGEX, string=self.url
+        ) and Setting.objects.get_setting(
+            setting_key=Setting.Field.WEBHOOK_VERIFICATION
+        ):
             raise ValidationError(
-                _(
+                message=_(
                     "Invalid webhook URL. The webhook URL you entered does not match "
                     "any known format for a Discord webhook. Please check the "
                     "webhook URL."
@@ -586,7 +660,7 @@ class Setting(SingletonModel):
 
     class Meta:  # pylint: disable=too-few-public-methods
         """
-        Meta definitions
+        Setting :: Meta
         """
 
         default_permissions = ()
@@ -594,4 +668,11 @@ class Setting(SingletonModel):
         verbose_name_plural = _("Settings")
 
     def __str__(self) -> str:
+        """
+        String representation of the object
+
+        :return:
+        :rtype:
+        """
+
         return str(_("Fleet Pings Settings"))

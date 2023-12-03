@@ -16,7 +16,8 @@ class TestModelFormupLocation(TestCase):
 
     def test_should_return_formuplocation_model_string_name(self):
         """
-        Test should return the FormupLocation model string name
+        Test should return FormupLocation model string name
+
         :return:
         :rtype:
         """
@@ -24,4 +25,4 @@ class TestModelFormupLocation(TestCase):
         test_object = FormupLocation(name="Alliance HQ")
         test_object.save()
 
-        self.assertEqual(str(test_object), "Alliance HQ")
+        self.assertEqual(first=str(test_object), second="Alliance HQ")

@@ -1,5 +1,5 @@
 """
-Pages url config
+URL configuration for fleetpings app
 """
 
 # Django

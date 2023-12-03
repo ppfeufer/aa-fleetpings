@@ -20,7 +20,8 @@ class TestModelWebhook(TestCase):
 
     def test_should_return_webhook_model_string_name(self):
         """
-        Test should return the Webhook model string name
+        Test should return Webhook model string name
+
         :return:
         :rtype:
         """
@@ -35,12 +36,14 @@ class TestModelWebhook(TestCase):
 
         test_object.save()
 
-        self.assertEqual(str(test_object), "Test Webhook")
+        self.assertEqual(first=str(test_object), second="Test Webhook")
 
     def test_discord_webhook_should_throw_exception(self):
         """
-        Test if we get a ValidationError for a Discord webhook
+        Test if we get a ValidationError for an invalid Discord webhook
+
         :return:
+        :rtype:
         """
 
         # given
@@ -52,11 +55,11 @@ class TestModelWebhook(TestCase):
         )
 
         # when
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(expected_exception=ValidationError):
             webhook.clean()
 
         with self.assertRaisesMessage(
-            ValidationError,
+            expected_exception=ValidationError,
             expected_message=(
                 "Invalid webhook URL. The webhook URL you entered does not match any "
                 "known format for a Discord webhook. Please check the "
@@ -66,7 +69,7 @@ class TestModelWebhook(TestCase):
             webhook.clean()
 
     @mock.patch(
-        "fleetpings.models.Setting.webhook_verification",
+        target="fleetpings.models.Setting.webhook_verification",
         new_callable=mock.PropertyMock,
     )
     def test_discord_webhook_should_not_throw_exception_with_verification_false(
@@ -75,7 +78,11 @@ class TestModelWebhook(TestCase):
         """
         Test we do not get a ValidationError for an invalid Discord webhook when
         settings.webhook_verification is set to False
+
+        :param webhook_verification:
+        :type webhook_verification:
         :return:
+        :rtype:
         """
 
         # given
@@ -85,4 +92,4 @@ class TestModelWebhook(TestCase):
         webhook = Webhook(url="http://test/a/bad/webhook")
 
         # then
-        self.assertIsNone(webhook.clean())
+        self.assertIsNone(obj=webhook.clean())

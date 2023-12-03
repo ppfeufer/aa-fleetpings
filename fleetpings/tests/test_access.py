@@ -18,7 +18,10 @@ class TestAccess(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """
-        Set up groups and users
+        Setup
+
+        :return:
+        :rtype:
         """
 
         super().setUpClass()
@@ -26,49 +29,57 @@ class TestAccess(TestCase):
         cls.group = Group.objects.create(name="Superhero")
 
         # User cannot access fleetpings
-        cls.user_1001 = create_fake_user(1001, "Peter Parker")
+        cls.user_1001 = create_fake_user(
+            character_id=1001, character_name="Peter Parker"
+        )
 
         # User can access fleetpings
         cls.user_1002 = create_fake_user(
-            1002, "Bruce Wayne", permissions=["fleetpings.basic_access"]
+            character_id=1002,
+            character_name="Bruce Wayne",
+            permissions=["fleetpings.basic_access"],
         )
 
         # User can add srp (aasrp)
         cls.user_1003 = create_fake_user(
-            1003,
-            "Clark Kent",
+            character_id=1003,
+            character_name="Clark Kent",
             permissions=["fleetpings.basic_access", "aasrp.create_srp"],
         )
 
     def test_has_no_access(self):
         """
-        Test that a user without access get a 302
+        Test that a user without access gets redirected
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1001)
+        self.client.force_login(user=self.user_1001)
 
         # when
-        res = self.client.get(reverse("fleetpings:index"))
+        res = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(res.status_code, HTTPStatus.FOUND)
+        self.assertEqual(first=res.status_code, second=HTTPStatus.FOUND)
 
     def test_has_access(self):
         """
-        Test that a user with access get to see it
+        Test that a user with access gets to see it
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1002)
+        self.client.force_login(user=self.user_1002)
 
         # when
-        res = self.client.get(reverse("fleetpings:index"))
+        res = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(res.status_code, HTTPStatus.OK)
+        self.assertEqual(first=res.status_code, second=HTTPStatus.OK)
 
     @modify_settings(
         INSTALLED_APPS={
@@ -83,23 +94,27 @@ class TestAccess(TestCase):
     )
     def test_has_access_without_additional_modules(self):
         """
-        Test that a user with access get to see it
+        Test that a user with access gets to see it (without additional modules)
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1002)
+        self.client.force_login(user=self.user_1002)
 
         # when
-        response = self.client.get(reverse("fleetpings:index"))
+        response = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
 
         # context data
-        self.assertEqual(response.context["optimer_installed"], False)
-        self.assertEqual(response.context["fittings_installed"], False)
-        self.assertEqual(response.context["srp_module_available_to_user"], False)
+        self.assertEqual(first=response.context["optimer_installed"], second=False)
+        self.assertEqual(first=response.context["fittings_installed"], second=False)
+        self.assertEqual(
+            first=response.context["srp_module_available_to_user"], second=False
+        )
 
     @modify_settings(
         INSTALLED_APPS={
@@ -115,23 +130,27 @@ class TestAccess(TestCase):
     )
     def test_has_access_with_aasrp(self):
         """
-        Test that a user with access get to see it
+        Test that a user with access gets to see it (aasrp access)
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1003)
+        self.client.force_login(user=self.user_1003)
 
         # when
-        response = self.client.get(reverse("fleetpings:index"))
+        response = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
 
         # context data
-        self.assertEqual(response.context["optimer_installed"], False)
-        self.assertEqual(response.context["fittings_installed"], False)
-        self.assertEqual(response.context["srp_module_available_to_user"], True)
+        self.assertEqual(first=response.context["optimer_installed"], second=False)
+        self.assertEqual(first=response.context["fittings_installed"], second=False)
+        self.assertEqual(
+            first=response.context["srp_module_available_to_user"], second=True
+        )
 
     @modify_settings(
         INSTALLED_APPS={
@@ -147,23 +166,27 @@ class TestAccess(TestCase):
     )
     def test_has_access_with_allianceauth_srp(self):
         """
-        Test that a user with access get to see it
+        Test that a user with access gets to see it (allianceauth.srp access)
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1003)
+        self.client.force_login(user=self.user_1003)
 
         # when
-        response = self.client.get(reverse("fleetpings:index"))
+        response = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
 
         # context data
-        self.assertEqual(response.context["optimer_installed"], False)
-        self.assertEqual(response.context["fittings_installed"], False)
-        self.assertEqual(response.context["srp_module_available_to_user"], True)
+        self.assertEqual(first=response.context["optimer_installed"], second=False)
+        self.assertEqual(first=response.context["fittings_installed"], second=False)
+        self.assertEqual(
+            first=response.context["srp_module_available_to_user"], second=True
+        )
 
     @modify_settings(
         INSTALLED_APPS={
@@ -179,23 +202,27 @@ class TestAccess(TestCase):
     )
     def test_has_access_with_timezones(self):
         """
-        Test that a user with access get to see it
+        Test that a user with access gets to see it (timezones access)
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1003)
+        self.client.force_login(user=self.user_1003)
 
         # when
-        response = self.client.get(reverse("fleetpings:index"))
+        response = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
 
         # context data
-        self.assertEqual(response.context["optimer_installed"], False)
-        self.assertEqual(response.context["fittings_installed"], False)
-        self.assertEqual(response.context["srp_module_available_to_user"], False)
+        self.assertEqual(first=response.context["optimer_installed"], second=False)
+        self.assertEqual(first=response.context["fittings_installed"], second=False)
+        self.assertEqual(
+            first=response.context["srp_module_available_to_user"], second=False
+        )
 
     @modify_settings(
         INSTALLED_APPS={
@@ -211,20 +238,24 @@ class TestAccess(TestCase):
     )
     def test_has_access_with_allianceauth_optimer(self):
         """
-        Test that a user with access get to see it
+        Test that a user with access gets to see it (allianceauth.optimer access)
+
         :return:
+        :rtype:
         """
 
         # given
-        self.client.force_login(self.user_1003)
+        self.client.force_login(user=self.user_1003)
 
         # when
-        response = self.client.get(reverse("fleetpings:index"))
+        response = self.client.get(path=reverse(viewname="fleetpings:index"))
 
         # then
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
 
         # context data
-        self.assertEqual(response.context["optimer_installed"], True)
-        self.assertEqual(response.context["fittings_installed"], False)
-        self.assertEqual(response.context["srp_module_available_to_user"], False)
+        self.assertEqual(first=response.context["optimer_installed"], second=True)
+        self.assertEqual(first=response.context["fittings_installed"], second=False)
+        self.assertEqual(
+            first=response.context["srp_module_available_to_user"], second=False
+        )

@@ -24,7 +24,6 @@ ______________________________________________________________________
 
 - [AA Fleet Pings](#aa-fleet-pings)
   - [Installation](#installation)
-    - [⚠️ Important ⚠️](#%E2%9A%A0%EF%B8%8F-important-%E2%9A%A0%EF%B8%8F)
     - [Step 1: Install the App](#step-1-install-the-app)
     - [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings)
     - [Step 3: Finalizing the Installation](#step-3-finalizing-the-installation)
@@ -50,14 +49,23 @@ ______________________________________________________________________
 
 ## Installation<a name="installation"></a>
 
-### ⚠️ Important ⚠️<a name="%E2%9A%A0%EF%B8%8F-important-%E2%9A%A0%EF%B8%8F"></a>
+> \[!NOTE\]
+>
+> **AA Fleet Pings needs at least Alliance Auth v4.0.0!**
+>
+> Please make sure to update your Alliance Auth instance _before_ you install this
+> module or update to the latest version, otherwise an update to Alliance Auth will
+> be pulled in unsupervised.
 
 This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already,
 please install it first before proceeding. (See the official [AA installation guide]
 for details)
 
-**⚠️ You also want to make sure that you have the [Discord service] installed,
-configured and activated before installing this app. ⚠️**
+> \[!NOTE\]
+>
+> You also want to make sure that you have the
+> [Discord service](https://allianceauth.readthedocs.io/en/latest/features/services/discord.html)
+> installed, configured and activated before installing this app.
 
 ### Step 1: Install the App<a name="step-1-install-the-app"></a>
 
@@ -191,6 +199,5 @@ Please make sure to read the [Contribution Guidelines](https://github.com/ppfeuf
 <!-- URLs -->
 
 [aa installation guide]: https://allianceauth.readthedocs.io/en/latest/installation/allianceauth.html "AA installation guide"
-[discord service]: https://allianceauth.readthedocs.io/en/latest/features/services/discord.html "Discord service"
 [fittings and doctrines]: https://gitlab.com/colcrunch/fittings "Fittings and Doctrines"
 [weblate engage]: https://weblate.ppfeufer.de/engage/alliance-auth-apps/ "Weblate Translations"

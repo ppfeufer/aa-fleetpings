@@ -406,7 +406,7 @@ class TestAccess(TestCase):
         # then
         self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
         self.assertContains(response=response, text="*SRP:** Yes")
-        self.assertContains(response=response, text="SRP Link:")
+        self.assertContains(response=response, text="SRP Code:")
 
     @modify_settings(
         INSTALLED_APPS={
@@ -452,4 +452,4 @@ class TestAccess(TestCase):
         # then
         self.assertEqual(first=response.status_code, second=HTTPStatus.OK)
         self.assertContains(response=response, text="*SRP:** Yes")
-        self.assertContains(response=response, text="SRP Link:")
+        self.assertContains(response=response, text="SRP Code:")

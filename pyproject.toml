@@ -45,7 +45,7 @@ dependencies = [
 ]
 [project.optional-dependencies]
 tests-allianceauth-latest = [
-    "aa-srp>=1.20",
+    "aa-srp>=1.21",
     "aa-timezones",
     "coverage",
     "django-eveuniverse",

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-01 17:17+0200\n"
-"PO-Revision-Date: 2023-10-02 09:47+0000\n"
+"PO-Revision-Date: 2023-12-29 09:04+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Korean <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/ko/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: fleetpings/__init__.py:12 fleetpings/templates/fleetpings/base.html:5
 #: fleetpings/templates/fleetpings/base.html:10
@@ -25,10 +25,8 @@ msgid "Fleet Pings"
 msgstr "함대 핑"
 
 #: fleetpings/admin.py:104 fleetpings/models.py:147
-#, fuzzy
-#| msgid "Fleet Comm"
 msgid "Fleet comm"
-msgstr "함대 음성"
+msgstr "함대 음성채널"
 
 #: fleetpings/admin.py:125 fleetpings/form.py:149
 msgid "Doctrine"
@@ -228,7 +226,7 @@ msgstr "이 그룹은 아직 디스코드와 연동되어 있지 않습니다."
 
 #: fleetpings/models.py:104
 msgid "Can access this app"
-msgstr ""
+msgstr "서비스에 접근할 수 있습니다"
 
 #: fleetpings/models.py:114
 msgid "Short name to identify this comms"

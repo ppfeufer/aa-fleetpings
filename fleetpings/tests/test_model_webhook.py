@@ -2,7 +2,6 @@
 Tests for model Webhook
 """
 
-
 # Standard Library
 from unittest import mock
 

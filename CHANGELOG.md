@@ -35,13 +35,29 @@ Section Order:
 ### Security
 -->
 
+## \[3.0.0-beta.1\] - 2024-02-18
+
 > \[!NOTE\]
 >
-> **This version needs at least Alliance Auth v4.0.0!**
+> **This version needs at least Alliance Auth v4.0.0b1!**
 >
-> Please make sure to update your Alliance Auth instance before
-> you install this version, otherwise an update to Alliance Auth will
+> Please make sure to update your Alliance Auth instance **before**
+> you install this version, otherwise, an update to Alliance Auth will
 > be pulled in unsupervised.
+
+### Added
+
+- Compatibility to Alliance Auth v4
+  - Bootstrap 5
+  - Django 4.2
+
+### Changed
+
+- Templates changed to Bootstrap 5
+
+### Removed
+
+- Compatibility to Alliance Auth v3
 
 ## \[2.26.3\] - 2023-11-15
 

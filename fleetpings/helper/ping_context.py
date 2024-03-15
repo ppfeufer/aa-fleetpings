@@ -193,6 +193,7 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
             webhook_ping_text_content += (
                 "\n**Formup (Local Time):** "
                 f'<t:{ping_context["formup_time"]["timestamp"]}:F>'
+                f' (<t:{ping_context["formup_time"]["timestamp"]}:R>)'
             )
     # Check if fleet comms is available
     if ping_context["fleet_comms"]:

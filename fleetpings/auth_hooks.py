@@ -24,7 +24,7 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
         MenuItemHook.__init__(
             self,
             text=__title__,
-            classes="far fa-bell",
+            classes="fa-regular fa-bell",
             url_name="fleetpings:index",
             navactive=["fleetpings:index"],
         )

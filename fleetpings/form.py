@@ -13,8 +13,10 @@ from fleetpings.models import FleetType, Setting
 
 def _get_discord_markdown_hint_text() -> str:
     """
-    Get the formatted help text for any field that allows Discord Markdown
+    Get the Discord Markdown hint text
+
     :return:
+    :rtype:
     """
 
     discord_helpdesk_url = (
@@ -51,7 +53,7 @@ class FleetTypeAdminForm(forms.ModelForm):
 
 class SettingAdminForm(forms.ModelForm):
     """
-    Form definitions for the FleetType form in admin
+    Form definitions for the Setting form in admin
     """
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -66,7 +68,7 @@ class SettingAdminForm(forms.ModelForm):
 
 class FleetPingForm(forms.Form):
     """
-    Fleet Ping Form
+    Form definitions for the FleetPing form
     """
 
     ping_target = forms.CharField(

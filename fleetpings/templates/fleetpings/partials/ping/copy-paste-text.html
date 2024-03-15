@@ -55,12 +55,12 @@
         {% if formup_time.timestamp %}
             {#Check if aa-timezones is available#}
             {% if timezones_installed %}
-                - {{ SITE_URL }}{% url "timezones:index" formup_time.timestamp %}
+                ([Time Zone Conversion]({{ SITE_URL }}{% url "timezones:index" formup_time.timestamp %}))
             {% endif %}
 
             {#Add local time#}
             <br>
-            **Formup (Local Time):** &lt;t:{{ formup_time.timestamp }}:F&gt;
+            **Formup (Local Time):** &lt;t:{{ formup_time.timestamp }}:F&gt; (&lt;t:{{ formup_time.timestamp }}:R&gt;)
         {% endif %}
     {% endif %}
 
@@ -77,7 +77,7 @@
 
         {#Check for doctrine link#}
         {% if doctrine.link %}
-            - {{ doctrine.link }}
+            ([Doctrine Link]({{ doctrine.link }}))
         {% endif %}
     {% endif %}
 
@@ -88,7 +88,7 @@
 
         {#Check if we have an SRP link#}
         {% if srp.link.link %}
-            (SRP Link: {{ srp.link.link }})
+            (SRP Code: [{{ srp.link.code }}]({{ srp.link.link }}))
         {% endif %}
     {% endif %}
 

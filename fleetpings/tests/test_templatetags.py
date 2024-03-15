@@ -20,21 +20,25 @@ class TestVersionedStatic(TestCase):
 
     def test_versioned_static(self):
         """
-        Test should return versioned static
+        Test should return a versioned static URL
+
         :return:
+        :rtype:
         """
 
-        context = Context({"version": __version__})
+        context = Context(dict_={"version": __version__})
         template_to_render = Template(
-            "{% load fleetpings_versioned_static %}"
-            "{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}"
+            template_string=(
+                "{% load fleetpings %}"
+                "{% fleetpings_static 'fleetpings/css/fleetpings.min.css' %}"
+            )
         )
 
-        rendered_template = template_to_render.render(context)
+        rendered_template = template_to_render.render(context=context)
 
         self.assertInHTML(
-            f'/static/fleetpings/css/fleetpings.min.css?v={context["version"]}',
-            rendered_template,
+            needle=f'/static/fleetpings/css/fleetpings.min.css?v={context["version"]}',
+            haystack=rendered_template,
         )
 
 
@@ -45,22 +49,24 @@ class TestReverseUrl(TestCase):
 
     def test_reverse_url(self):
         """
-        Test should return a URL
+        Test should return a reversed URL
+
         :return:
+        :rtype:
         """
 
-        context = Context({"doctrine_pk": "1"})
+        context = Context(dict_={"doctrine_pk": "1"})
         template_to_render = Template(
-            "{% load fleetpings_urls %}"
-            "{% fleetpings_reverse_url 'fittings:view_doctrine' doctrine_pk %}"
+            template_string=(
+                "{% load fleetpings %}"
+                "{% fleetpings_reverse_url 'fittings:view_doctrine' doctrine_pk %}"
+            )
         )
 
-        rendered_template = template_to_render.render(context)
+        rendered_template = template_to_render.render(context=context)
         site_url = site_absolute_url()
 
-        # self.assertEqual(rendered_template, 0)
-
         self.assertInHTML(
-            f'{site_url}/fittings/doctrine/{context["doctrine_pk"]}/',
-            rendered_template,
+            needle=f'{site_url}/fittings/doctrine/{context["doctrine_pk"]}/',
+            haystack=rendered_template,
         )

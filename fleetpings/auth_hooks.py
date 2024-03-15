@@ -16,24 +16,31 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
     """
 
     def __init__(self):
+        """
+        Constructor
+        """
+
         # Setup menu entry for sidebar
         MenuItemHook.__init__(
             self,
-            __title__,
-            "far fa-bell fa-fw",
-            "fleetpings:index",
+            text=__title__,
+            classes="fa-regular fa-bell",
+            url_name="fleetpings:index",
             navactive=["fleetpings:index"],
         )
 
     def render(self, request):
         """
-        Check if the user has the permission to view this app
+        Render the menu item
+
         :param request:
+        :type request:
         :return:
+        :rtype:
         """
 
-        if request.user.has_perm("fleetpings.basic_access"):
-            return MenuItemHook.render(self, request)
+        if request.user.has_perm(perm="fleetpings.basic_access"):
+            return MenuItemHook.render(self, request=request)
 
         return ""
 
@@ -41,8 +48,10 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
 @hooks.register("menu_item_hook")
 def register_menu():
     """
-    Register our menu item
+    Register our menu entry
+
     :return:
+    :rtype:
     """
 
     return AaFleetpingsMenuItem()
@@ -51,8 +60,10 @@ def register_menu():
 @hooks.register("url_hook")
 def register_urls():
     """
-    Register our base url
+    Register our URLs
+
     :return:
+    :rtype:
     """
 
-    return UrlHook(urls, "fleetpings", r"^fleetpings/")
+    return UrlHook(urls=urls, namespace="fleetpings", base_url=r"^fleetpings/")

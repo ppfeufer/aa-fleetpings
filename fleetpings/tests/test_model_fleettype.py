@@ -16,7 +16,8 @@ class TestModelFleetType(TestCase):
 
     def test_should_return_fleettype_model_string_name(self):
         """
-        Test should return the FleetType model string name
+        Test should return FleetType model string name
+
         :return:
         :rtype:
         """
@@ -24,4 +25,4 @@ class TestModelFleetType(TestCase):
         fleet_type = FleetType(name="Fun Fleet")
         fleet_type.save()
 
-        self.assertEqual(str(fleet_type), "Fun Fleet")
+        self.assertEqual(first=str(fleet_type), second="Fun Fleet")

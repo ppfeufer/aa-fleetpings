@@ -1,9 +1,13 @@
 """
-Settings for the admin backend
+AA Fleet Pings :: Admin
 """
+
+# Standard Library
+from typing import Optional
 
 # Django
 from django.contrib import admin
+from django.contrib.auth.models import Group
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
@@ -20,16 +24,19 @@ from fleetpings.models import (
 )
 
 
-def custom_filter(title):
+def custom_filter(title) -> admin.FieldListFilter:
     """
     Custom filter for model properties
+
     :param title:
+    :type title:
     :return:
+    :rtype:
     """
 
     class Wrapper(admin.FieldListFilter):
         """
-        Custom_filter :: Wrapper
+        Wrapper
         """
 
         def __new__(cls, *args, **kwargs):
@@ -43,14 +50,15 @@ def custom_filter(title):
 
 class SingletonModelAdmin(admin.ModelAdmin):
     """
-    Prevents Django admin users deleting the singleton or adding extra rows.
+    Prevents Django admin users deleting the singleton or adding extra rows
     """
 
     actions = None  # Removes the default delete action.
 
-    def has_add_permission(self, request):  # pylint: disable=unused-argument
+    def has_add_permission(self, request) -> bool:  # pylint: disable=unused-argument
         """
         Has "add" permissions
+
         :param request:
         :type request:
         :return:
@@ -61,9 +69,10 @@ class SingletonModelAdmin(admin.ModelAdmin):
 
     def has_change_permission(
         self, request, obj=None  # pylint: disable=unused-argument
-    ):
+    ) -> bool:
         """
         Has "change" permissions
+
         :param request:
         :type request:
         :param obj:
@@ -76,9 +85,10 @@ class SingletonModelAdmin(admin.ModelAdmin):
 
     def has_delete_permission(
         self, request, obj=None  # pylint: disable=unused-argument
-    ):
+    ) -> bool:
         """
         Has "delete" permissions
+
         :param request:
         :type request:
         :param obj:
@@ -102,7 +112,16 @@ class FleetCommAdmin(admin.ModelAdmin):
 
     @classmethod
     @admin.display(description=_("Fleet comm"), ordering="name")
-    def _name(cls, obj):
+    def _name(cls, obj: FleetComm) -> str:
+        """
+        _name
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         return obj.name
 
 
@@ -123,19 +142,46 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
 
     @classmethod
     @admin.display(description=_("Doctrine"), ordering="name")
-    def _name(cls, obj):
+    def _name(cls, obj: FleetDoctrine) -> str:
+        """
+        _name
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         return obj.name
 
     @classmethod
     @admin.display(description=_("Doctrine link"), ordering="link")
-    def _link(cls, obj):
+    def _link(cls, obj: FleetDoctrine) -> str:
+        """
+        _link
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         return obj.name
 
     @classmethod
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj):
+    def _restricted_to_group(cls, obj: FleetDoctrine) -> Optional[str]:
+        """
+        _restricted_to_group
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -181,14 +227,32 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
 
     @classmethod
     @admin.display(description=_("Ping target"), ordering="name")
-    def _name(cls, obj):
+    def _name(cls, obj: DiscordPingTarget) -> Group:
+        """
+        _name
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         return obj.name
 
     @classmethod
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj):
+    def _restricted_to_group(cls, obj: DiscordPingTarget) -> Optional[str]:
+        """
+        _restricted_to_group
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -223,12 +287,30 @@ class FleetTypeAdmin(admin.ModelAdmin):
 
     @classmethod
     @admin.display(description=_("Fleet type"), ordering="name")
-    def _name(cls, obj):
+    def _name(cls, obj: FleetType) -> str:
+        """
+        _name
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         return obj.name
 
     @classmethod
     @admin.display(description=_("Embed color"), ordering="embed_color")
-    def _embed_color(cls, obj):
+    def _embed_color(cls, obj: FleetType) -> str:
+        """
+        _embed_color
+
+        :param obj:
+        :type obj:
+        :return:
+        :rtype:
+        """
+
         return_value = (
             "<span "
             'style="display: inline-block; width: 16px; background-color: {bg_color};">'
@@ -242,7 +324,7 @@ class FleetTypeAdmin(admin.ModelAdmin):
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj):
+    def _restricted_to_group(cls, obj: FleetType) -> Optional[str]:
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -275,19 +357,19 @@ class WebhookAdmin(admin.ModelAdmin):
 
     @classmethod
     @admin.display(description=_("Discord channel"), ordering="name")
-    def _name(cls, obj):
+    def _name(cls, obj: Webhook) -> str:
         return obj.name
 
     @classmethod
     @admin.display(description=_("Webhook URL"), ordering="url")
-    def _url(cls, obj):
+    def _url(cls, obj: Webhook) -> str:
         return obj.url
 
     @classmethod
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj):
+    def _restricted_to_group(cls, obj: Webhook) -> Optional[str]:
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:

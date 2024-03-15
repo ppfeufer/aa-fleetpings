@@ -17,7 +17,8 @@ class TestModelFleetDoctrine(TestCase):
 
     def test_should_return_fleetdoctrine_model_string_name(self):
         """
-        Test should return the FleetDoctrine model string name
+        Test should return FleetDoctrine model string name
+
         :return:
         :rtype:
         """
@@ -25,12 +26,14 @@ class TestModelFleetDoctrine(TestCase):
         doctrine = FleetDoctrine(name="Awesome Ships")
         doctrine.save()
 
-        self.assertEqual(str(doctrine), "Awesome Ships")
+        self.assertEqual(first=str(doctrine), second="Awesome Ships")
 
     def test_doctrine_link_should_throw_exception(self):
         """
-        Test if we get a ValidationError for a doctrine link
+        Test if we get a ValidationError for a doctrine link that is not valid
+
         :return:
+        :rtype:
         """
 
         # given
@@ -39,10 +42,11 @@ class TestModelFleetDoctrine(TestCase):
         )
 
         # when
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(expected_exception=ValidationError):
             doctrine.clean()
 
         with self.assertRaisesMessage(
-            ValidationError, expected_message="Your doctrine URL is not valid."
+            expected_exception=ValidationError,
+            expected_message="Your doctrine URL is not valid.",
         ):
             doctrine.clean()

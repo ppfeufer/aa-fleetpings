@@ -1,33 +1,35 @@
 {% extends "fleetpings/base.html" %}
 
 {% load i18n %}
-{% load fleetpings_versioned_static %}
+{% load fleetpings %}
 
 {% block aa_fleetpings_body %}
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading aa-fleetpings-ping-header">
-                    <span class="panel-title">{% translate "Fleet information" %}</span>
+            <div class="card card-default">
+                <div class="card-header aa-fleetpings-ping-header">
+                    <span class="card-title">{% translate "Fleet information" %}</span>
                 </div>
-                <div class="panel-body">
+
+                <div class="card-body">
                     {% include "fleetpings/partials/form/form.html" %}
                 </div>
             </div>
         </div>
 
         <div class="col-md-6 aa-fleetpings-pingtext">
-            <div class="panel panel-default">
-                <div class="panel-heading aa-fleetpings-ping-header">
-                    <span class="panel-title">{% translate "Formatted ping text" %}</span>
+            <div class="card card-default">
+                <div class="card-header aa-fleetpings-ping-header">
+                    <span class="card-title">{% translate "Formatted ping text" %}</span>
                 </div>
-                <div class="panel-body">
+
+                <div class="card-body">
                     {% include "fleetpings/partials/ping/ping.html" %}
                 </div>
             </div>
         </div>
 
-        <script type="application/javascript">
+        <script>
             const fleetpingsSettings = {
                 dateTimeLocale: '{{ LANGUAGE_CODE }}',
                 optimerInstalled: {{ optimer_installed|yesno:"true,false" }},

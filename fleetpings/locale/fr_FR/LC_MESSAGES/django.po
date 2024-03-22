@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-15 21:21+0100\n"
-"PO-Revision-Date: 2024-01-12 19:05+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/fr/>\n"
+"PO-Revision-Date: 2024-03-22 01:11+0000\n"
+"Last-Translator: erka Ekanon <M6musicT@hotmail.fr>\n"
+"Language-Team: French <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -40,7 +40,7 @@ msgstr ""
 #: fleetpings/admin.py:370 fleetpings/models.py:201 fleetpings/models.py:344
 #: fleetpings/models.py:451 fleetpings/models.py:522
 msgid "Group restrictions"
-msgstr ""
+msgstr "Restrictions de groupe"
 
 #: fleetpings/admin.py:229 fleetpings/form.py:76
 msgid "Ping target"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: fleetpings/admin.py:289 fleetpings/form.py:93 fleetpings/models.py:485
 msgid "Fleet type"
-msgstr ""
+msgstr "Type de flotte"
 
 #: fleetpings/admin.py:303 fleetpings/models.py:442
 msgid "Embed color"
@@ -56,11 +56,11 @@ msgstr ""
 
 #: fleetpings/admin.py:359 fleetpings/models.py:500
 msgid "Discord channel"
-msgstr ""
+msgstr "Canal Discord"
 
 #: fleetpings/admin.py:364 fleetpings/models.py:513
 msgid "Webhook URL"
-msgstr ""
+msgstr "Webhook URL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: fleetpings/apps.py:21
@@ -76,10 +76,11 @@ msgstr ""
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
 msgstr ""
+"Astuce : Vous pouvez utiliser {discord_markdown_link} pour formater le texte."
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"
-msgstr ""
+msgstr "À qui voulez-vous envoyer un ping ?"
 
 #: fleetpings/form.py:83
 msgid "Pre-Ping"
@@ -107,7 +108,7 @@ msgstr ""
 
 #: fleetpings/form.py:103
 msgid "Fleet name"
-msgstr ""
+msgstr "Nom de la flotte"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
@@ -187,15 +188,15 @@ msgstr ""
 
 #: fleetpings/models.py:41
 msgid "You might want to install the Discord service first …"
-msgstr ""
+msgstr "Vous souhaiterez peut-être d’abord installer le service Discord…"
 
 #: fleetpings/models.py:49
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
-msgstr ""
+msgstr "Êtes-vous sûr d'avoir lié Discord à votre Alliance Auth ?"
 
 #: fleetpings/models.py:55
 msgid "This group has not been synced to Discord yet."
-msgstr ""
+msgstr "Ce groupe n'a pas encore été synchronisé avec Discord."
 
 #: fleetpings/models.py:117
 msgid "Can access this app"
@@ -222,11 +223,13 @@ msgstr ""
 #: fleetpings/models.py:351 fleetpings/models.py:458
 msgid "You can add notes about this configuration here if you want"
 msgstr ""
+"Vous pouvez ajouter des notes sur cette configuration ici si vous le "
+"souhaitez"
 
 #: fleetpings/models.py:142 fleetpings/models.py:209 fleetpings/models.py:280
 #: fleetpings/models.py:352 fleetpings/models.py:459 fleetpings/models.py:530
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 #: fleetpings/models.py:148
 msgid "Whether this comms is enabled or not"
@@ -235,7 +238,7 @@ msgstr ""
 #: fleetpings/models.py:149 fleetpings/models.py:217 fleetpings/models.py:288
 #: fleetpings/models.py:360 fleetpings/models.py:467 fleetpings/models.py:538
 msgid "Is enabled"
-msgstr ""
+msgstr "Est activé"
 
 #: fleetpings/models.py:183
 msgid "Short name to identify this doctrine"
@@ -282,14 +285,16 @@ msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
 msgstr ""
+"Nom du rôle Discord à pinger. (Remarque : il doit s'agir d'un groupe d'AAuth "
+"synchronisé avec Discord.)"
 
 #: fleetpings/models.py:326
 msgid "Group name"
-msgstr ""
+msgstr "Nom de groupe"
 
 #: fleetpings/models.py:334
 msgid "ID of the Discord role to ping"
-msgstr ""
+msgstr "ID du rôle Discord à pinger"
 
 #: fleetpings/models.py:335
 msgid "Discord ID"
@@ -297,15 +302,15 @@ msgstr ""
 
 #: fleetpings/models.py:343 fleetpings/models.py:521
 msgid "Restrict ping rights to the following groups …"
-msgstr ""
+msgstr "Restreindre les droits de ping aux groupes suivants…"
 
 #: fleetpings/models.py:419
 msgid "Discord ping target"
-msgstr ""
+msgstr "Cible du ping Discord"
 
 #: fleetpings/models.py:420
 msgid "Discord ping targets"
-msgstr ""
+msgstr "Cibles du ping Discord"
 
 #: fleetpings/models.py:433
 msgid "Short name to identify this fleet type"
@@ -329,20 +334,21 @@ msgstr ""
 
 #: fleetpings/models.py:499
 msgid "Name of the channel this webhook posts to"
-msgstr ""
+msgstr "Nom du canal sur lequel ce webhook publie"
 
 #: fleetpings/models.py:509
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr ""
+"URL de ce webhook, par ex. https://discord.com/api/webhooks/123456/abcdef"
 
 #: fleetpings/models.py:529
 msgid "You can add notes about this webhook here if you want"
-msgstr ""
+msgstr "Vous pouvez ajouter des notes sur ce webhook ici si vous le souhaitez"
 
 #: fleetpings/models.py:537
 msgid "Whether this webhook is active or not"
-msgstr ""
+msgstr "Si ce webhook est actif ou non"
 
 #: fleetpings/models.py:556
 msgid "Webhook"
@@ -357,6 +363,9 @@ msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
 msgstr ""
+"URL du webhook non valide. L'URL du webhook que vous avez saisie ne "
+"correspond à aucun format connu pour un webhook Discord. Veuillez vérifier "
+"l'URL du webhook."
 
 #: fleetpings/models.py:596
 msgid "Use default fleet types"
@@ -524,11 +533,11 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-channel.html:3
 msgid "None, just format it for me"
-msgstr ""
+msgstr "Aucun, formate le juste pour moi"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:3
 msgid "Don't ping"
-msgstr ""
+msgstr "Ne pas pinger"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:13
 msgid "Additionally configured ping targets"
@@ -556,8 +565,8 @@ msgstr ""
 
 #: fleetpings/views.py:500
 msgid "Form invalid. Please check your input."
-msgstr ""
+msgstr "Formulaire invalide. Veuillez vérifier votre saisie."
 
 #: fleetpings/views.py:502
 msgid "No form data submitted."
-msgstr ""
+msgstr "Aucune donnée de formulaire soumise."

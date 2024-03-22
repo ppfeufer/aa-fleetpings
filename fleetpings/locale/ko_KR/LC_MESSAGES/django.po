@@ -3,21 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Author50CO <tkddlschry@gmail.com>, 2023.
 # Peter Pfeufer <info@ppfeufer.de>, 2023.
+# Mind of the Raven <okanieva@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-15 21:21+0100\n"
-"PO-Revision-Date: 2023-12-29 09:04+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Korean <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/ko/>\n"
+"PO-Revision-Date: 2024-03-22 01:11+0000\n"
+"Last-Translator: Mind of the Raven <okanieva@gmail.com>\n"
+"Language-Team: Korean <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/ko/>\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -43,10 +44,8 @@ msgid "Group restrictions"
 msgstr "그룹 제한"
 
 #: fleetpings/admin.py:229 fleetpings/form.py:76
-#, fuzzy
-#| msgid "Ping Target"
 msgid "Ping target"
-msgstr "핑 역할"
+msgstr "핑 대상자"
 
 #: fleetpings/admin.py:289 fleetpings/form.py:93 fleetpings/models.py:485
 msgid "Fleet type"
@@ -93,10 +92,8 @@ msgid "Mark this checkbox if this should be a pre-ping."
 msgstr "예고 핑인 경우 체크박스를 선택하세요."
 
 #: fleetpings/form.py:88
-#, fuzzy
-#| msgid "Ping To"
 msgid "Ping to"
-msgstr "핑 보낼 대상"
+msgstr "핑 대상자"
 
 #: fleetpings/form.py:90
 msgid "Select a channel to ping automatically."
@@ -104,23 +101,19 @@ msgstr "자동으로 핑을 보낼 채널을 선택하세요."
 
 #: fleetpings/form.py:97
 msgid "FC name"
-msgstr ""
+msgstr "FC 이름"
 
 #: fleetpings/form.py:99
 msgid "Who is the FC?"
 msgstr "함대 지휘관이 누구인가요?"
 
 #: fleetpings/form.py:103
-#, fuzzy
-#| msgid "Fleet Name"
 msgid "Fleet name"
 msgstr "함대 이름"
 
 #: fleetpings/form.py:107
-#, fuzzy
-#| msgid "What is the fleet name in fleet finder?"
 msgid "What is the fleet name in the fleet finder in Eve?"
-msgstr "함대 찾기에서 플릿 이름이 무엇인가요?"
+msgstr "게임 내 함대 이름이 무엇입니까?"
 
 #: fleetpings/form.py:113 fleetpings/models.py:305
 #, fuzzy
@@ -161,10 +154,8 @@ msgstr ""
 "된 시간을 무시합니다."
 
 #: fleetpings/form.py:144 fleetpings/models.py:168
-#, fuzzy
-#| msgid "Fleet Comms"
 msgid "Fleet comms"
-msgstr "함대 음성"
+msgstr "함대 음성채널"
 
 #: fleetpings/form.py:163
 #, fuzzy
@@ -181,10 +172,8 @@ msgid "Is this fleet covered by SRP?"
 msgstr "SRP가 가능한 함대인가요?"
 
 #: fleetpings/form.py:175
-#, fuzzy
-#| msgid "Create SRP Link"
 msgid "Create SRP link"
-msgstr "SRP 주소 생성"
+msgstr "SRP 링크 생성"
 
 #: fleetpings/form.py:177
 msgid ""
@@ -287,16 +276,12 @@ msgid "Your doctrine URL is not valid."
 msgstr "잘못된 독트린 URL 입니다."
 
 #: fleetpings/models.py:257
-#, fuzzy
-#| msgid "Fleet Doctrine"
 msgid "Fleet doctrine"
-msgstr "함대 독트린"
+msgstr "독트린"
 
 #: fleetpings/models.py:258
-#, fuzzy
-#| msgid "Fleet Doctrines"
 msgid "Fleet doctrines"
-msgstr "함대 독트린"
+msgstr "독트린"
 
 #: fleetpings/models.py:271
 msgid "Short name to identify this formup location"
@@ -329,23 +314,19 @@ msgstr "핑을 보낼 역할의 디스코드 역할 ID"
 
 #: fleetpings/models.py:335
 msgid "Discord ID"
-msgstr "역할 ID"
+msgstr "디스코드 ID"
 
 #: fleetpings/models.py:343 fleetpings/models.py:521
 msgid "Restrict ping rights to the following groups …"
 msgstr "다음 그룹만 핑을 보낼 수 있습니다…"
 
 #: fleetpings/models.py:419
-#, fuzzy
-#| msgid "Discord Ping Target"
 msgid "Discord ping target"
-msgstr "핑 보낼 디스코드 역할"
+msgstr "디스코드 핑 대상자"
 
 #: fleetpings/models.py:420
-#, fuzzy
-#| msgid "Discord Ping Targets"
 msgid "Discord ping targets"
-msgstr "핑 보낼 디스코드 역할"
+msgstr "디스코드 핑 대상자"
 
 #: fleetpings/models.py:433
 msgid "Short name to identify this fleet type"
@@ -413,10 +394,8 @@ msgid "Use Doctrines from Fittings module"
 msgstr "피팅 모듈에서 만들어진 독트린을 사용하세요"
 
 #: fleetpings/models.py:604
-#, fuzzy
-#| msgid "Verify Webhooks"
 msgid "Verify webhooks"
-msgstr "웹훅 검사"
+msgstr "웹훅 인증"
 
 #: fleetpings/models.py:605
 msgid "Default embed color"
@@ -448,13 +427,6 @@ msgstr ""
 "이 설치되어 있어야 합니다."
 
 #: fleetpings/models.py:642
-#, fuzzy
-#| msgid ""
-#| "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
-#| "will not be verified, so the app can be used with non-Discord Webhooks as "
-#| "well. When disabling webhook verification and using non-Discord webhooks, "
-#| "it is up to you to make sure your webhook understands a payload that is "
-#| "formatted for Discord webhooks."
 msgid ""
 "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs "
 "will not be verified, so the app can be used with non-Discord webhooks as "
@@ -462,10 +434,10 @@ msgid ""
 "is up to you to make sure your webhook understands a payload that is "
 "formatted for Discord webhooks."
 msgstr ""
-"웹훅 URL을 검사할지 여부 설정. 설명: 체크가 해제되어 있을 경우 웹훅 URL을 검"
-"사하지 않습니다, 따라서 디스코드가 아닌 웹훅도 사용할 수 있습니다. 웹훅 검사"
-"를 해제하고 디스코드가 아닌 웹훅을 사용할 경우, 웹훅이 디스코드로 보내질 만큼"
-"의 payload를 감당할 수 있을지 판단은 사용자의 몫입니다."
+"웹훅 URL 검사여부 설정. 설명: 체크가 해제되어 있을 경우 URL을 검사하지 "
+"않습니다, 따라서 디스코드가 아닌 URL도 사용할 수 있습니다. 웹훅 검사를 "
+"해제하고 디스코드가 아닌 웹훅을 사용할 경우, 웹훅이 전송할 부하를 감당할 수 "
+"있을지의 판단여부는 사용자의 몫입니다."
 
 #: fleetpings/models.py:655
 msgid "Default highlight color for the webhook embed."
@@ -498,31 +470,21 @@ msgid "Formatted ping text"
 msgstr "양식 적용된 핑 텍스트"
 
 #: fleetpings/templates/fleetpings/index.html:51
-#, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an optimer, you need to "
-#| "provide all of the following information:<br>» FC Name<br>» Fleet "
-#| "Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine"
 msgid ""
 "Mandatory information is missing. To create an optimer, you need to provide "
 "all of the following information:<br>» FC name<br>» Fleet name<br>» Formup "
 "location<br>» Formup time<br>» Ships / Doctrine"
 msgstr ""
-"필수 정보가 누락되었습니다. 옵 타이머를 생성하려면, 다음 정보를 모두 제공해"
-"야 합니다:<br>» 함대 지휘관 이름<br>» 플릿 이름<br>» 폼업 지역<br>» 폼업 시각"
-"<br>» 함선/독트린"
+"필수 정보가 누락되었습니다. 옵 타이머를 생성하려면, 다음 정보를 모두 "
+"제공해야 합니다:<br>» FC 이름<br>» 플릿 이름<br>» 폼업 지역<br>» 폼업 "
+"시각<br>» 함선/독트린"
 
 #: fleetpings/templates/fleetpings/index.html:56
-#, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an SRP link, you need to "
-#| "provide all of the following information:<br>» Fleet Name<br>» Ships / "
-#| "Doctrine"
 msgid ""
 "Mandatory information is missing. To create an SRP link, you need to provide "
 "all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr ""
-"필수 정보가 누락되었습니다. SRP 링크를 생성하려면, 다음 정보를 모두 제공해야 "
+"필수 정보가 누락되었습니다. SRP 항목을 생성하려면, 다음 정보를 기입해야 "
 "합니다:<br>» 함대 이름<br>» 함선 / 독트린"
 
 #: fleetpings/templates/fleetpings/index.html:60
@@ -549,7 +511,7 @@ msgstr "이 앱을 번역하거나 기존 번역을 개선하고 싶으신가요
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr "번역가 팀에 참여하세요!"
+msgstr "번역팀에 참여하세요!"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:69
 #, fuzzy
@@ -562,18 +524,6 @@ msgid "Please think twice if you really need to ping <code>@everyone</code>."
 msgstr "정말 <code>@everyone</code> 을 사용해야 하는지 확인해 주세요."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:10
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                    <code>@everyone</code>\n"
-#| "                    includes also all the people in this channel who are "
-#| "offline and\n"
-#| "                    possibly asleep at the moment and might be waking up "
-#| "when their\n"
-#| "                    mobile devices ping. Or they wake up hours later to "
-#| "irrelevant\n"
-#| "                    pings by the time they open Discord.\n"
-#| "                "
 msgid ""
 "\n"
 "                <code>@everyone</code>\n"
@@ -587,13 +537,12 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"                    <code>@everyone</code>\n"
-"                    은 이 채널에 있는 오프라인인 사람을 포함한 모든 사람과\n"
-"                    자는 사람의 휴대폰을 울려 자던 사람을 깨울 수도 있습니"
-"다.\n"
+"                <code>@everyone</code>\n"
+"                    이 채널의 오프라인인 사람을 포함한 모든 사람과\n"
+"                    누군가의 휴대폰을 울려 자던 사람을 깨울 수도 있습니다.\n"
 "                    또는 몇 시간 뒤 일어나서 디스코드를 열었을 때\n"
 "                    별로 중요하지 않은 내용의 핑을 볼 수도 있습니다.\n"
-"                "
+"            "
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:20
 msgid ""
@@ -649,10 +598,8 @@ msgid "No ping created yet …"
 msgstr "아직 생성된 핑이 없습니다…"
 
 #: fleetpings/templates/fleetpings/partials/ping/ping.html:22
-#, fuzzy
-#| msgid "Copy Ping Text"
 msgid "Copy ping text"
-msgstr "핑 텍스트 복사"
+msgstr "복사"
 
 #: fleetpings/views.py:439
 msgid "Not all mandatory information available to create an SRP link."

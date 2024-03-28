@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Peter Pfeufer <info@ppfeufer.de>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 17:22+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2024-03-28 05:39+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: Polish <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/pl/>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -46,7 +48,7 @@ msgstr ""
 
 #: fleetpings/admin.py:289 fleetpings/form.py:93 fleetpings/models.py:485
 msgid "Fleet type"
-msgstr ""
+msgstr "Typ floty"
 
 #: fleetpings/admin.py:303 fleetpings/models.py:442
 msgid "Embed color"
@@ -68,7 +70,7 @@ msgstr ""
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
-msgstr ""
+msgstr "Discord Markdown"
 
 #: fleetpings/form.py:34
 #, python-brace-format
@@ -167,7 +169,7 @@ msgstr ""
 
 #: fleetpings/form.py:183
 msgid "Additional information"
-msgstr ""
+msgstr "Dodatkowe informacje"
 
 #: fleetpings/form.py:190
 msgid "Feel free to add some more information about the fleet …"
@@ -233,7 +235,7 @@ msgstr ""
 #: fleetpings/models.py:149 fleetpings/models.py:217 fleetpings/models.py:288
 #: fleetpings/models.py:360 fleetpings/models.py:467 fleetpings/models.py:538
 msgid "Is enabled"
-msgstr ""
+msgstr "Zaznaczony"
 
 #: fleetpings/models.py:183
 msgid "Short name to identify this doctrine"
@@ -280,6 +282,8 @@ msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
 msgstr ""
+"Nazwa Discord role do pingowania. (Notatka: Musi być w Auth group, które "
+"jest zsynchronizowane z Discord.)"
 
 #: fleetpings/models.py:326
 msgid "Group name"
@@ -323,7 +327,7 @@ msgstr ""
 
 #: fleetpings/models.py:486
 msgid "Fleet types"
-msgstr ""
+msgstr "Typy floty"
 
 #: fleetpings/models.py:499
 msgid "Name of the channel this webhook posts to"
@@ -458,10 +462,12 @@ msgid ""
 "Do you want to help translate this app into your language or improve the "
 "existing translation?"
 msgstr ""
+"Chciałbyś pomóc w tłumaczeniu tej apki na Twój język bądź poprawić aktualne "
+"tłumaczenia?"
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr ""
+msgstr "Dołącz do naszego zespołu tłumaczy!"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:69
 msgid "Create ping"
@@ -496,7 +502,7 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:3
 msgid "Please select"
-msgstr ""
+msgstr "Proszę wybrać"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:7
 msgid "Roaming Fleet"
@@ -552,8 +558,8 @@ msgstr ""
 
 #: fleetpings/views.py:500
 msgid "Form invalid. Please check your input."
-msgstr ""
+msgstr "Formularz niepoprawny. Sprawdź dane."
 
 #: fleetpings/views.py:502
 msgid "No form data submitted."
-msgstr ""
+msgstr "Nie wysłano danych formularza."

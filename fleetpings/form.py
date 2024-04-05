@@ -112,7 +112,7 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Formup location"),
         widget=forms.TextInput(
-            attrs={"list": "formupLocationList", "class": "flexdatalist"}
+            attrs={"data-datalist": "formup-location-list", "data-full-width": "true"}
         ),
     )
     formup_time = forms.CharField(

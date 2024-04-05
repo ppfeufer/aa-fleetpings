@@ -55,7 +55,24 @@ const getUserDropdownData = () => {
     });
 
     getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then(formupLocations => {
-        $(inputFormupLocation).after(formupLocations);
+        if (formupLocations !== '') {
+            $(inputFormupLocation).after(formupLocations);
+
+            const optsFormupLocation = Object.assign(
+                {},
+                opts,
+                {
+                    onRenderItem: (item, label) => {
+                        return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                    },
+                }
+            );
+
+            const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                document.getElementById('id_formup_location'),
+                optsFormupLocation
+            );
+        }
     });
 
     getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {

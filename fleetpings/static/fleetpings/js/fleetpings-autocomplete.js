@@ -59,26 +59,45 @@ const getUserDropdownData = () => {
     });
 
     getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {
-        $(inputFleetComms).after(fleetComms);
+        if (fleetComms !== '') {
+            $(inputFleetComms).after(fleetComms);
 
-        const optsFleetComms = Object.assign(
-            {},
-            opts,
-            {
-                onRenderItem: (item, label) => {
-                    return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                },
-            }
-        );
+            const optsFleetComms = Object.assign(
+                {},
+                opts,
+                {
+                    onRenderItem: (item, label) => {
+                        return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                    },
+                }
+            );
 
-        const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-            document.getElementById('id_fleet_comms'),
-            optsFleetComms
-        );
+            const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                document.getElementById('id_fleet_comms'),
+                optsFleetComms
+            );
+        }
     });
 
     getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then(fleetDoctrines => {
-        $(inputFleetDoctrine).after(fleetDoctrines);
+        if (fleetDoctrines !== '') {
+            $(inputFleetDoctrine).after(fleetDoctrines);
+
+            const optsFleetDoctrine = Object.assign(
+                {},
+                opts,
+                {
+                    onRenderItem: (item, label) => {
+                        return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                    },
+                }
+            );
+
+            const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                document.getElementById('id_fleet_doctrine'),
+                optsFleetDoctrine
+            );
+        }
     });
 };
 

@@ -150,7 +150,7 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Doctrine"),
         widget=forms.TextInput(
-            attrs={"list": "fleetDoctrineList", "class": "flexdatalist"}
+            attrs={"data-datalist": "fleet-doctrine-list", "data-full-width": "true"}
         ),
     )
     fleet_doctrine_url = forms.CharField(

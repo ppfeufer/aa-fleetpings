@@ -215,7 +215,7 @@ $(document).ready(() => {
 
         if (fleetDoctrine !== '') {
             const selectedLink = $(
-                '#fleetDoctrineList [value="' + escapeInput(fleetDoctrine, false) + '"]'
+                '#fleet-doctrine-list [value="' + escapeInput(fleetDoctrine, false) + '"]'
             ).data('doctrine-url');
 
             if ('undefined' !== selectedLink && selectedLink !== '') {

@@ -1,34 +1,40 @@
 /* global fleetpingsSettings, fleetpingsTranslations, ClipboardJS */
 
+import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.25/autocomplete.min.js';
+
 $(document).ready(() => {
     'use strict';
 
     /* Variables
     --------------------------------------------------------------------------------- */
-    // Check boxes
-    const checkboxPrePing = $('input#id_pre_ping');
-    const checkboxFormupTimeNow = $('input#id_formup_now');
-    const checkboxCreateSrpLink = $('input#id_srp_link');
-    const checkboxCreateOptimer = $('input#id_optimer');
-    const checkboxFleetSrp = $('input#id_srp');
+    const fleetpingsVars= {
+        // Check boxes
+        checkboxPrePing: $('input#id_pre_ping'),
+        checkboxFormupTimeNow: $('input#id_formup_now'),
+        checkboxCreateSrpLink: $('input#id_srp_link'),
+        checkboxCreateOptimer: $('input#id_optimer'),
+        checkboxFleetSrp: $('input#id_srp'),
 
-    // Selects
-    const selectPingTarget = $('select#id_ping_target');
-    const selectFleetType = $('select#id_fleet_type');
+        // Selects
+        selectPingTarget: $('select#id_ping_target'),
+        selectPingChannel: $('select#id_ping_channel'),
+        selectFleetType: $('select#id_fleet_type'),
 
-    // Input fields
-    const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
-    const inputFleetCommander = $('input#id_fleet_commander');
-    const inputFleetName = $('input#id_fleet_name');
-    const inputFormupTime = $('input#id_formup_time');
-    const inputFormupTimestamp = $('input#id_formup_timestamp');
-    const inputFormupLocation = $('input#id_formup_location');
-    const inputFleetDoctrine = $('input#id_fleet_doctrine');
-    const inputFleetDoctrineUrl = $('input#id_fleet_doctrine_url');
-    const inputWebhookEmbedColor = $('input#id_webhook_embed_color');
+        // Input fields
+        inputCsrfMiddlewareToken: $('input[name="csrfmiddlewaretoken"]'),
+        inputFleetComms: $('input#id_fleet_comms'),
+        inputFleetCommander: $('input#id_fleet_commander'),
+        inputFleetName: $('input#id_fleet_name'),
+        inputFormupTime: $('input#id_formup_time'),
+        inputFormupTimestamp: $('input#id_formup_timestamp'),
+        inputFormupLocation: $('input#id_formup_location'),
+        inputFleetDoctrine: $('input#id_fleet_doctrine'),
+        inputFleetDoctrineUrl: $('input#id_fleet_doctrine_url'),
+        inputWebhookEmbedColor: $('input#id_webhook_embed_color'),
+    };
 
     // Initialize the datetime picker
-    inputFormupTime.datetimepicker({
+    fleetpingsVars.inputFormupTime.datetimepicker({
         lang: fleetpingsSettings.dateTimeLocale,
         maskInput: true,
         format: 'Y-m-d H:i',
@@ -39,10 +45,139 @@ $(document).ready(() => {
     /* Functions
     --------------------------------------------------------------------------------- */
     /**
+     * Get data from a given ajax URL
+     *
+     * @param {string} url The URL to query
+     * @returns {Promise<string>}
+     */
+    const getDataFromAjaxUrl = async (url) => {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            const message = `An error has occurred: ${response.status}`;
+
+            throw new Error(message);
+        }
+
+        return await response.text();
+    };
+
+    /**
+     * Get user dropdown data from the server for the selects
+     *
+     * These are the ping targets, ping webhooks, and fleet types.
+     *
+     * @returns {void}
+     */
+    const getUserDropdownDataForSelects = () => {
+        // Ping targets
+        getDataFromAjaxUrl(fleetpingsSettings.url.pingTargets).then(pingTargets => {
+            if (pingTargets !== '') {
+                $(fleetpingsVars.selectPingTarget).html(pingTargets);
+            }
+        });
+
+        // Webhooks
+        getDataFromAjaxUrl(fleetpingsSettings.url.pingWebhooks).then(webhooks => {
+            if (webhooks !== '') {
+                $(fleetpingsVars.selectPingChannel).html(webhooks);
+            }
+        });
+
+        // Fleet types
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetTypes).then(fleetTypes => {
+            if (fleetTypes !== '') {
+                $(fleetpingsVars.selectFleetType).html(fleetTypes);
+            }
+        });
+    };
+
+    /**
+     * Get user dropdown data from the server for the data lists
+     *
+     * These are the formup locations, fleet comms, and fleet doctrines,
+     * and the data lists will be converted to autocomplete fields.
+     *
+     * @returns {void}
+     */
+    const getUserDropdownDataForDatalist = () => {
+        const opts = {
+            onSelectItem: console.log,
+        };
+
+        // Formup locations
+        getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then(formupLocations => {
+            if (formupLocations !== '') {
+                $(fleetpingsVars.inputFormupLocation).after(formupLocations);
+
+                const optsFormupLocation = Object.assign(
+                    {},
+                    opts,
+                    {
+                        onRenderItem: (item, label) => {
+                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                        },
+                    }
+                );
+
+                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                    document.getElementById('id_formup_location'),
+                    optsFormupLocation
+                );
+            }
+        });
+
+        // Fleet comms
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {
+            if (fleetComms !== '') {
+                $(fleetpingsVars.inputFleetComms).after(fleetComms);
+
+                const optsFleetComms = Object.assign(
+                    {},
+                    opts,
+                    {
+                        onRenderItem: (item, label) => {
+                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                        },
+                    }
+                );
+
+                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                    document.getElementById('id_fleet_comms'),
+                    optsFleetComms
+                );
+            }
+        });
+
+        // Fleet doctrines
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then(fleetDoctrines => {
+            if (fleetDoctrines !== '') {
+                $(fleetpingsVars.inputFleetDoctrine).after(fleetDoctrines);
+
+                const optsFleetDoctrine = Object.assign(
+                    {},
+                    opts,
+                    {
+                        onRenderItem: (item, label) => {
+                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                        },
+                    }
+                );
+
+                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                    document.getElementById('id_fleet_doctrine'),
+                    optsFleetDoctrine
+                );
+            }
+        });
+    };
+
+    /**
      * Closing the message
      *
      * @param {string} element
      * @param {int} closeAfter Close Message after given time in seconds (Default: 10)
+     * @returns {void}
      */
     const closeMessageElement = (element, closeAfter = 10) => {
         $(element).fadeTo(closeAfter * 1000, 500).slideUp(500, () => {
@@ -55,6 +190,7 @@ $(document).ready(() => {
      *
      * @param {string} message
      * @param {string} element
+     * @returns {void}
      */
     const showSuccess = (message, element) => {
         $(element).html(
@@ -69,6 +205,7 @@ $(document).ready(() => {
      *
      * @param {string} message
      * @param {string} element
+     * @returns {void}
      */
     const showError = (message, element) => {
         $(element).html(
@@ -145,6 +282,8 @@ $(document).ready(() => {
 
     /**
      * Copy the fleet ping to clipboard
+     *
+     * @returns {void}
      */
     const copyFleetPing = () => {
         /**
@@ -186,9 +325,11 @@ $(document).ready(() => {
     --------------------------------------------------------------------------------- */
     /**
      * Show a hint about ping spam for `@everyone`
+     *
+     * @returns {void}
      */
-    $(selectPingTarget).change(() => {
-        if (selectPingTarget.val() === '@everyone') {
+    $(fleetpingsVars.selectPingTarget).change(() => {
+        if (fleetpingsVars.selectPingTarget.val() === '@everyone') {
             $('.hint-ping-everyone').show('fast');
         } else {
             $('.hint-ping-everyone').hide('fast');
@@ -197,20 +338,24 @@ $(document).ready(() => {
 
     /**
      * Set the formup timestamp when formup time is changed
+     *
+     * @returns {void}
      */
-    $(inputFormupTime).change(() => {
+    $(fleetpingsVars.inputFormupTime).change(() => {
         const formupTimestamp = getFormupTimestamp(
-            sanitizeInput(inputFormupTime.val())
+            sanitizeInput(fleetpingsVars.inputFormupTime.val())
         );
 
-        $(inputFormupTimestamp).val(formupTimestamp);
+        $(fleetpingsVars.inputFormupTimestamp).val(formupTimestamp);
     });
 
     /**
      * Set the fleet doctrine URL if we have one
+     *
+     * @returns {void}
      */
-    $(inputFleetDoctrine).change(() => {
-        const fleetDoctrine = sanitizeInput(inputFleetDoctrine.val());
+    $(fleetpingsVars.inputFleetDoctrine).change(() => {
+        const fleetDoctrine = sanitizeInput(fleetpingsVars.inputFleetDoctrine.val());
         let fleetDoctrineLink = null;
 
         if (fleetDoctrine !== '') {
@@ -224,39 +369,41 @@ $(document).ready(() => {
             }
         }
 
-        $(inputFleetDoctrineUrl).val(fleetDoctrineLink);
+        $(fleetpingsVars.inputFleetDoctrineUrl).val(fleetDoctrineLink);
     });
 
     /**
      * Set the webhook embed color
+     *
+     * @returns {void}
      */
-    $(selectFleetType).change(() => {
-        const fleetTypeSelected = $('option:selected', selectFleetType);
+    $(fleetpingsVars.selectFleetType).change(() => {
+        const fleetTypeSelected = $('option:selected', fleetpingsVars.selectFleetType);
         let webhookEmbedColor = null;
 
         if (fleetTypeSelected !== '') {
             webhookEmbedColor = sanitizeInput(fleetTypeSelected.data('embed-color'));
         }
 
-        $(inputWebhookEmbedColor).val(webhookEmbedColor);
+        $(fleetpingsVars.inputWebhookEmbedColor).val(webhookEmbedColor);
     });
 
     /**
      * Toggle "Create SRP Link" checkbox
      */
     if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-        if (checkboxFleetSrp.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
+        if (fleetpingsVars.checkboxFleetSrp.is(':checked') && fleetpingsVars.checkboxFormupTimeNow.is(':checked')) {
             $('.fleetpings-create-srp-link').show('fast');
         } else {
-            checkboxCreateSrpLink.prop('checked', false);
+            fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
             $('.fleetpings-create-srp-link').hide('fast');
         }
 
-        checkboxFleetSrp.change(() => {
-            if (checkboxFleetSrp.is(':checked') && checkboxFormupTimeNow.is(':checked')) {
+        fleetpingsVars.checkboxFleetSrp.change(() => {
+            if (fleetpingsVars.checkboxFleetSrp.is(':checked') && fleetpingsVars.checkboxFormupTimeNow.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             } else {
-                checkboxCreateSrpLink.prop('checked', false);
+                fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         });
@@ -274,58 +421,60 @@ $(document).ready(() => {
      *      » Formup NOW checked
      *      » Create Optimer is displayed
      *      » Create SRP Link is hidden and unchecked
+     *
+     * @returns {void}
      */
-    checkboxPrePing.on('change', () => {
-        if (checkboxPrePing.is(':checked')) {
-            checkboxFormupTimeNow.prop('checked', false);
-            inputFormupTime.prop('disabled', false);
+    fleetpingsVars.checkboxPrePing.on('change', () => {
+        if (fleetpingsVars.checkboxPrePing.is(':checked')) {
+            fleetpingsVars.checkboxFormupTimeNow.prop('checked', false);
+            fleetpingsVars.inputFormupTime.prop('disabled', false);
 
             if (fleetpingsSettings.optimerInstalled === true) {
                 $('.fleetpings-create-optimer').show('fast');
             }
 
             if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-                checkboxCreateSrpLink.prop('checked', false);
+                fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         } else {
-            checkboxFormupTimeNow.prop('checked', true);
-            inputFormupTime.prop('disabled', true);
+            fleetpingsVars.checkboxFormupTimeNow.prop('checked', true);
+            fleetpingsVars.inputFormupTime.prop('disabled', true);
 
             if (fleetpingsSettings.optimerInstalled === true) {
-                checkboxCreateOptimer.prop('checked', false);
+                fleetpingsVars.checkboxCreateOptimer.prop('checked', false);
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxFleetSrp.is(':checked')) {
+            if (fleetpingsSettings.srpModuleAvailableToUser === true && fleetpingsVars.checkboxFleetSrp.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         }
     });
 
-    checkboxFormupTimeNow.on('change', () => {
-        if (checkboxFormupTimeNow.is(':checked')) {
-            checkboxPrePing.prop('checked', false);
-            inputFormupTime.prop('disabled', true);
+    fleetpingsVars.checkboxFormupTimeNow.on('change', () => {
+        if (fleetpingsVars.checkboxFormupTimeNow.is(':checked')) {
+            fleetpingsVars.checkboxPrePing.prop('checked', false);
+            fleetpingsVars.inputFormupTime.prop('disabled', true);
 
             if (fleetpingsSettings.optimerInstalled === true) {
-                checkboxCreateOptimer.prop('checked', false);
+                fleetpingsVars.checkboxCreateOptimer.prop('checked', false);
                 $('.fleetpings-create-optimer').hide('fast');
             }
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxFleetSrp.is(':checked')) {
+            if (fleetpingsSettings.srpModuleAvailableToUser === true && fleetpingsVars.checkboxFleetSrp.is(':checked')) {
                 $('.fleetpings-create-srp-link').show('fast');
             }
         } else {
-            checkboxPrePing.prop('checked', true);
-            inputFormupTime.prop('disabled', false);
+            fleetpingsVars.checkboxPrePing.prop('checked', true);
+            fleetpingsVars.inputFormupTime.prop('disabled', false);
 
             if (fleetpingsSettings.optimerInstalled === true) {
                 $('.fleetpings-create-optimer').show('fast');
             }
 
             if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-                checkboxCreateSrpLink.prop('checked', false);
+                fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
                 $('.fleetpings-create-srp-link').hide('fast');
             }
         }
@@ -333,6 +482,8 @@ $(document).ready(() => {
 
     /**
      * Generate ping text
+     *
+     * @returns {void}
      */
     $('form').submit((event) => {
         // Stop the browser from sending the form, we take care of it here …
@@ -341,10 +492,10 @@ $(document).ready(() => {
         // Close all possible form messages
         $('.fleetpings-form-message div').remove();
 
-        if (fleetpingsSettings.srpModuleAvailableToUser === true && checkboxCreateSrpLink.is(':checked')) {
+        if (fleetpingsSettings.srpModuleAvailableToUser === true && fleetpingsVars.checkboxCreateSrpLink.is(':checked')) {
             const srpMandatoryFields = [
-                inputFleetName.val(),
-                inputFleetDoctrine.val()
+                fleetpingsVars.inputFleetName.val(),
+                fleetpingsVars.inputFleetDoctrine.val()
             ];
 
             // Check if all required fields for SRP links are filled
@@ -358,13 +509,13 @@ $(document).ready(() => {
             }
         }
 
-        if (fleetpingsSettings.optimerInstalled === true && checkboxCreateOptimer.is(':checked')) {
+        if (fleetpingsSettings.optimerInstalled === true && fleetpingsVars.checkboxCreateOptimer.is(':checked')) {
             const optimerMandatoryFields = [
-                inputFleetName.val(),
-                inputFleetDoctrine.val(),
-                inputFormupLocation.val(),
-                inputFormupTime.val(),
-                inputFleetCommander.val()
+                fleetpingsVars.inputFleetName.val(),
+                fleetpingsVars.inputFleetDoctrine.val(),
+                fleetpingsVars.inputFormupLocation.val(),
+                fleetpingsVars.inputFormupTime.val(),
+                fleetpingsVars.inputFleetCommander.val()
             ];
 
             if (optimerMandatoryFields.includes('')) {
@@ -389,7 +540,7 @@ $(document).ready(() => {
             type: 'post',
             data: formData,
             headers: {
-                'X-CSRFToken': inputCsrfMiddlewareToken.val()
+                'X-CSRFToken': fleetpingsVars.inputCsrfMiddlewareToken.val()
             },
             success: (data) => {
                 if (data.success === true) {
@@ -423,8 +574,18 @@ $(document).ready(() => {
 
     /**
      * Copy ping text
+     *
+     * @returns {void}
      */
     $('button#copyFleetPing').on('click', () => {
         copyFleetPing();
     });
+
+    /**
+     * Initialize functions that need to start on load
+     */
+    (() => {
+        getUserDropdownDataForSelects();
+        getUserDropdownDataForDatalist();
+    })();
 });

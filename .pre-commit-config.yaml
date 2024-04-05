@@ -274,7 +274,8 @@ repos:
         description: "Format Markdown files."
         exclude: |
           (?x)(
-            .github/
+            .github/|
+            static/(.*)/libs/
           )
         additional_dependencies:
           - mdformat-gfm==0.3.5  # Mdformat plugin for GitHub Flavored Markdown compatibility » https://github.com/hukkin/mdformat-gfm/tags

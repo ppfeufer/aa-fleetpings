@@ -112,7 +112,7 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Formup location"),
         widget=forms.TextInput(
-            attrs={"list": "formupLocationList", "class": "flexdatalist"}
+            attrs={"data-datalist": "formup-location-list", "data-full-width": "true"}
         ),
     )
     formup_time = forms.CharField(
@@ -143,14 +143,14 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Fleet comms"),
         widget=forms.TextInput(
-            attrs={"list": "fleetCommsList", "class": "flexdatalist"}
+            attrs={"data-datalist": "fleet-comms-list", "data-full-width": "true"}
         ),
     )
     fleet_doctrine = forms.CharField(
         required=False,
         label=_("Doctrine"),
         widget=forms.TextInput(
-            attrs={"list": "fleetDoctrineList", "class": "flexdatalist"}
+            attrs={"data-datalist": "fleet-doctrine-list", "data-full-width": "true"}
         ),
     )
     fleet_doctrine_url = forms.CharField(

@@ -1,7 +1,7 @@
 {% load fleetpings %}
 
 {% if doctrines|length > 0 %}
-    <datalist id="fleetDoctrineList">
+    <datalist id="fleet-doctrine-list">
         {% for doctrine in doctrines %}
             {% if use_fleet_doctrines %}
                 <option value="{{ doctrine.name }}" data-doctrine-url="{% fleetpings_reverse_url 'fittings:view_doctrine' doctrine.pk %}">{{ doctrine.name }}</option>

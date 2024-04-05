@@ -107,7 +107,7 @@ $(document).ready(() => {
 
         // Formup locations
         getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then(formupLocations => {
-            if (formupLocations !== '') {
+            if (formupLocations.trim() !== '') {
                 $(fleetpingsVars.inputFormupLocation).after(formupLocations);
 
                 const optsFormupLocation = Object.assign(
@@ -129,7 +129,7 @@ $(document).ready(() => {
 
         // Fleet comms
         getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {
-            if (fleetComms !== '') {
+            if (fleetComms.trim() !== '') {
                 $(fleetpingsVars.inputFleetComms).after(fleetComms);
 
                 const optsFleetComms = Object.assign(
@@ -151,7 +151,7 @@ $(document).ready(() => {
 
         // Fleet doctrines
         getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then(fleetDoctrines => {
-            if (fleetDoctrines !== '') {
+            if (fleetDoctrines.trim() !== '') {
                 $(fleetpingsVars.inputFleetDoctrine).after(fleetDoctrines);
 
                 const optsFleetDoctrine = Object.assign(

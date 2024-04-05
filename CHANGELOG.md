@@ -35,6 +35,12 @@ Section Order:
 ### Security
 -->
 
+## \[3.0.2\] - 2024-04-05
+
+### Fixed
+
+- Empty string checks in JS
+
 ## \[3.0.1\] - 2024-04-05
 
 ### Added

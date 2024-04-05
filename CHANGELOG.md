@@ -35,6 +35,20 @@ Section Order:
 ### Security
 -->
 
+## \[3.0.1\] - 2024-04-05
+
+### Added
+
+- Integrity hash to our CSS and JS
+
+### Fixed
+
+- An issue with some weird encoding in the fields that use datalists when typing special characters, like `>` ([#185](https://github.com/ppfeufer/aa-fleetpings/issues/185))
+
+### Changed
+
+- Translations updated
+
 ## \[3.0.0\] - 2024-03-16
 
 > \[!NOTE\]

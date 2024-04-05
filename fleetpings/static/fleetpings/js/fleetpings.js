@@ -3,12 +3,6 @@
 $(document).ready(() => {
     'use strict';
 
-    /* FlexDatalist - http://projects.sergiodinislopes.pt/flexdatalist/
-    --------------------------------------------------------------------------------- */
-    $('.flexdatalist').flexdatalist({
-        minLength: 1, noResultsText: '', searchContain: true
-    });
-
     /* Variables
     --------------------------------------------------------------------------------- */
     // Check boxes
@@ -20,14 +14,12 @@ $(document).ready(() => {
 
     // Selects
     const selectPingTarget = $('select#id_ping_target');
-    const selectPingChannel = $('select#id_ping_channel');
     const selectFleetType = $('select#id_fleet_type');
 
     // Input fields
     const inputCsrfMiddlewareToken = $('input[name="csrfmiddlewaretoken"]');
     const inputFleetCommander = $('input#id_fleet_commander');
     const inputFleetName = $('input#id_fleet_name');
-    const inputFleetComms = $('input#id_fleet_comms');
     const inputFormupTime = $('input#id_formup_time');
     const inputFormupTimestamp = $('input#id_formup_timestamp');
     const inputFormupLocation = $('input#id_formup_location');
@@ -46,48 +38,6 @@ $(document).ready(() => {
 
     /* Functions
     --------------------------------------------------------------------------------- */
-    /**
-     * Get data from a given ajax URL
-     *
-     * @param {string} url The URL to query
-     * @returns {Promise<string>}
-     */
-    const getDataFromAjaxUrl = async (url) => {
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            const message = `An error has occurred: ${response.status}`;
-
-            throw new Error(message);
-        }
-
-        return await response.text();
-    };
-
-    /**
-     * Get the current user's dropdown data
-     */
-    const getUserDropdownData = () => {
-        getDataFromAjaxUrl(fleetpingsSettings.url.pingTargets).then(pingTargets => {
-            $(selectPingTarget).html(pingTargets);
-        });
-        getDataFromAjaxUrl(fleetpingsSettings.url.pingWebhooks).then(pingWebhooks => {
-            $(selectPingChannel).html(pingWebhooks);
-        });
-        getDataFromAjaxUrl(fleetpingsSettings.url.fleetTypes).then(fleetTypes => {
-            $(selectFleetType).html(fleetTypes);
-        });
-        getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then(formupLocations => {
-            $(inputFormupLocation).after(formupLocations);
-        });
-        getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {
-            $(inputFleetComms).after(fleetComms);
-        });
-        getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then(fleetDoctrines => {
-            $(inputFleetDoctrine).after(fleetDoctrines);
-        });
-    };
-
     /**
      * Closing the message
      *
@@ -477,11 +427,4 @@ $(document).ready(() => {
     $('button#copyFleetPing').on('click', () => {
         copyFleetPing();
     });
-
-    /**
-     * Initialize functions that need to start on load
-     */
-    (() => {
-        getUserDropdownData();
-    })();
 });

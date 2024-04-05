@@ -143,7 +143,7 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Fleet comms"),
         widget=forms.TextInput(
-            attrs={"list": "fleetCommsList", "class": "flexdatalist"}
+            attrs={"data-datalist": "fleet-comms-list", "data-full-width": "true"}
         ),
     )
     fleet_doctrine = forms.CharField(

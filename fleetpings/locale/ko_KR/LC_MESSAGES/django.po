@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-15 21:21+0100\n"
+"POT-Creation-Date: 2024-04-21 09:10+0200\n"
 "PO-Revision-Date: 2024-03-22 01:11+0000\n"
 "Last-Translator: Mind of the Raven <okanieva@gmail.com>\n"
-"Language-Team: Korean <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/ko/>\n"
+"Language-Team: Korean <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/ko/>\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,6 +202,14 @@ msgid ""
 msgstr ""
 "이 체크박스가 활성화되어 있으면, 이 예고 핑에 대한 함대 옵 타이머가 생성됩니"
 "다."
+
+#: fleetpings/form.py:207
+msgid "Duration"
+msgstr ""
+
+#: fleetpings/form.py:208
+msgid "How long approximately will the fleet be?"
+msgstr ""
 
 #: fleetpings/models.py:41
 msgid "You might want to install the Discord service first …"
@@ -434,10 +442,10 @@ msgid ""
 "is up to you to make sure your webhook understands a payload that is "
 "formatted for Discord webhooks."
 msgstr ""
-"웹훅 URL 검사여부 설정. 설명: 체크가 해제되어 있을 경우 URL을 검사하지 "
-"않습니다, 따라서 디스코드가 아닌 URL도 사용할 수 있습니다. 웹훅 검사를 "
-"해제하고 디스코드가 아닌 웹훅을 사용할 경우, 웹훅이 전송할 부하를 감당할 수 "
-"있을지의 판단여부는 사용자의 몫입니다."
+"웹훅 URL 검사여부 설정. 설명: 체크가 해제되어 있을 경우 URL을 검사하지 않습니"
+"다, 따라서 디스코드가 아닌 URL도 사용할 수 있습니다. 웹훅 검사를 해제하고 디"
+"스코드가 아닌 웹훅을 사용할 경우, 웹훅이 전송할 부하를 감당할 수 있을지의 판"
+"단여부는 사용자의 몫입니다."
 
 #: fleetpings/models.py:655
 msgid "Default highlight color for the webhook embed."
@@ -475,17 +483,17 @@ msgid ""
 "all of the following information:<br>» FC name<br>» Fleet name<br>» Formup "
 "location<br>» Formup time<br>» Ships / Doctrine"
 msgstr ""
-"필수 정보가 누락되었습니다. 옵 타이머를 생성하려면, 다음 정보를 모두 "
-"제공해야 합니다:<br>» FC 이름<br>» 플릿 이름<br>» 폼업 지역<br>» 폼업 "
-"시각<br>» 함선/독트린"
+"필수 정보가 누락되었습니다. 옵 타이머를 생성하려면, 다음 정보를 모두 제공해"
+"야 합니다:<br>» FC 이름<br>» 플릿 이름<br>» 폼업 지역<br>» 폼업 시각<br>» 함"
+"선/독트린"
 
 #: fleetpings/templates/fleetpings/index.html:56
 msgid ""
 "Mandatory information is missing. To create an SRP link, you need to provide "
 "all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr ""
-"필수 정보가 누락되었습니다. SRP 항목을 생성하려면, 다음 정보를 기입해야 "
-"합니다:<br>» 함대 이름<br>» 함선 / 독트린"
+"필수 정보가 누락되었습니다. SRP 항목을 생성하려면, 다음 정보를 기입해야 합니"
+"다:<br>» 함대 이름<br>» 함선 / 독트린"
 
 #: fleetpings/templates/fleetpings/index.html:60
 msgid ""
@@ -513,7 +521,7 @@ msgstr "이 앱을 번역하거나 기존 번역을 개선하고 싶으신가요
 msgid "Join our team of translators!"
 msgstr "번역팀에 참여하세요!"
 
-#: fleetpings/templates/fleetpings/partials/form/form.html:69
+#: fleetpings/templates/fleetpings/partials/form/form.html:72
 #, fuzzy
 #| msgid "Create Ping"
 msgid "Create ping"

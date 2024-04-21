@@ -34,9 +34,6 @@
         {% bootstrap_field form.formup_time %}
         {% bootstrap_field form.formup_timestamp show_label=False %}
 
-        <!-- fleet_duration -->
-        {% bootstrap_field form.fleet_duration %}
-
         <!-- optimer -->
         {% if optimer_installed %}
             <div class="fleetpings-create-optimer clearfix" style="display: none;">
@@ -45,6 +42,9 @@
         {% endif %}
 
         {% bootstrap_field form.formup_now %}
+
+        <!-- fleet_duration -->
+        {% bootstrap_field form.fleet_duration %}
 
         <!-- fleet_comms -->
         {% bootstrap_field form.fleet_comms %}

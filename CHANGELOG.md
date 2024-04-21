@@ -35,9 +35,11 @@ Section Order:
 ### Security
 -->
 
+## \[3.1.0\] - 2024-04-21
+
 ### Added
 
-- Field for approximate fleet duration ([#183](https://github.com/ppfeufer/aa-fleetpings/issues/183))
+- Field for the approximate fleet duration ([#183](https://github.com/ppfeufer/aa-fleetpings/issues/183))
 
 ## \[3.0.2\] - 2024-04-05
 

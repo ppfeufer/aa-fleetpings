@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-15 21:21+0100\n"
+"POT-Creation-Date: 2024-04-21 09:10+0200\n"
 "PO-Revision-Date: 2023-10-25 07:04+0000\n"
 "Last-Translator: Geovanny David Morales De la cruz "
 "<moralesgeovanny1996@gmail.com>\n"
@@ -219,6 +219,14 @@ msgid ""
 msgstr ""
 "Si esta casilla de verificación está activa, se creará un temporizador de "
 "operaciones de flota para este pre-ping."
+
+#: fleetpings/form.py:207
+msgid "Duration"
+msgstr ""
+
+#: fleetpings/form.py:208
+msgid "How long approximately will the fleet be?"
+msgstr ""
 
 #: fleetpings/models.py:41
 msgid "You might want to install the Discord service first …"
@@ -571,7 +579,7 @@ msgstr ""
 msgid "Join our team of translators!"
 msgstr "¡Únete a nuestro equipo de traductores!"
 
-#: fleetpings/templates/fleetpings/partials/form/form.html:69
+#: fleetpings/templates/fleetpings/partials/form/form.html:72
 #, fuzzy
 #| msgid "Create Ping"
 msgid "Create ping"

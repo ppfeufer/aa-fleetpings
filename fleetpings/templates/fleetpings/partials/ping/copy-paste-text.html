@@ -1,9 +1,10 @@
 <p>
+    {# @ Mention #}
     {% if ping_target.at_mention %}
         {{ ping_target.at_mention }} ::
     {% endif %}
 
-    {#Headline#}
+    {# Headline #}
     **
 
     {% if is_pre_ping %}
@@ -24,25 +25,25 @@
 
     <br>
 
-    {#Add FC name if we have one#}
+    {# Add FC name if we have one #}
     {% if fleet_commander %}
         <br>
         **FC:** {{ fleet_commander }}
     {% endif %}
 
-    {#Check if fleet name is available#}
+    {# Check if fleet name is available #}
     {% if fleet_name %}
         <br>
         **Fleet Name:** {{ fleet_name }}
     {% endif %}
 
-    {#Check for formup location#}
+    {# Check for formup location #}
     {% if formup_location %}
         <br>
         **Formup Location:** {{ formup_location }}
     {% endif %}
 
-    {#Check if form-up time is available#}
+    {# Check if form-up time is available #}
     {% if is_formup_now %}
         <br>
         **Formup Time:** NOW
@@ -53,46 +54,52 @@
         {% endif %}
 
         {% if formup_time.timestamp %}
-            {#Check if aa-timezones is available#}
+            {# Check if aa-timezones is available #}
             {% if timezones_installed %}
                 ([Time Zone Conversion]({{ SITE_URL }}{% url "timezones:index" formup_time.timestamp %}))
             {% endif %}
 
-            {#Add local time#}
+            {# Add local time #}
             <br>
             **Formup (Local Time):** &lt;t:{{ formup_time.timestamp }}:F&gt; (&lt;t:{{ formup_time.timestamp }}:R&gt;)
         {% endif %}
     {% endif %}
 
-    {#Check if fleet comms is available#}
+    {# Check if fleet duration is available #}
+    {% if fleet_duration %}
+        <br>
+        **Duration (approximately):** {{ fleet_duration }}
+    {% endif %}
+
+    {# Check if fleet comms is available #}
     {% if fleet_comms %}
         <br>
         **Comms:** {{ fleet_comms }}
     {% endif %}
 
-    {#Check if doctrine is available#}
+    {# Check if doctrine is available #}
     {% if doctrine.name %}
         <br>
         **Ships / Doctrine:** {{ doctrine.name }}
 
-        {#Check for doctrine link#}
+        {# Check for doctrine link #}
         {% if doctrine.link %}
             ([Doctrine Link]({{ doctrine.link }}))
         {% endif %}
     {% endif %}
 
-    {#Check if srp is available#}
+    {# Check if srp is available #}
     {% if srp.has_srp %}
         <br>
         **SRP:** Yes
 
-        {#Check if we have an SRP link#}
+        {# Check if we have an SRP link #}
         {% if srp.link.link %}
             (SRP Code: [{{ srp.link.code }}]({{ srp.link.link }}))
         {% endif %}
     {% endif %}
 
-    {#Check if additional information is available#}
+    {# Check if additional information is available #}
     {% if additional_information %}
         <br><br>
         **Additional Information:**<br>

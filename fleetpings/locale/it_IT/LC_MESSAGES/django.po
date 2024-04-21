@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-15 21:21+0100\n"
+"POT-Creation-Date: 2024-04-21 09:10+0200\n"
 "PO-Revision-Date: 2023-09-24 13:14+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Italian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -183,6 +183,14 @@ msgstr ""
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
+msgstr ""
+
+#: fleetpings/form.py:207
+msgid "Duration"
+msgstr ""
+
+#: fleetpings/form.py:208
+msgid "How long approximately will the fleet be?"
 msgstr ""
 
 #: fleetpings/models.py:41
@@ -465,7 +473,7 @@ msgstr ""
 msgid "Join our team of translators!"
 msgstr ""
 
-#: fleetpings/templates/fleetpings/partials/form/form.html:69
+#: fleetpings/templates/fleetpings/partials/form/form.html:72
 msgid "Create ping"
 msgstr ""
 

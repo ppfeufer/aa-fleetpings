@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-15 21:21+0100\n"
+"POT-Creation-Date: 2024-04-21 09:10+0200\n"
 "PO-Revision-Date: 2023-10-03 11:34+0000\n"
 "Last-Translator: Max <mark25@inbox.ru>\n"
 "Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -196,6 +196,14 @@ msgid ""
 msgstr ""
 "Если флажок активен, будет создан специальный таймер сбора для данного "
 "предварительно пинга."
+
+#: fleetpings/form.py:207
+msgid "Duration"
+msgstr ""
+
+#: fleetpings/form.py:208
+msgid "How long approximately will the fleet be?"
+msgstr ""
 
 #: fleetpings/models.py:41
 msgid "You might want to install the Discord service first …"
@@ -503,7 +511,7 @@ msgstr ""
 msgid "Join our team of translators!"
 msgstr "Присоединяйтесь к нашей команде переводчиков!"
 
-#: fleetpings/templates/fleetpings/partials/form/form.html:69
+#: fleetpings/templates/fleetpings/partials/form/form.html:72
 msgid "Create ping"
 msgstr "Создать пинг"
 

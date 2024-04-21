@@ -83,6 +83,7 @@ def get_ping_context_from_form_data(form_data: dict) -> dict:
         "fleet_type": str(form_data["fleet_type"]),
         "fleet_commander": str(form_data["fleet_commander"]),
         "fleet_name": str(form_data["fleet_name"]),
+        "fleet_duration": str(form_data["fleet_duration"]),
         "formup_location": str(form_data["formup_location"]),
         "is_pre_ping": bool(form_data["pre_ping"]),
         "is_formup_now": bool(form_data["formup_now"]),
@@ -148,7 +149,7 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
 
         webhook_ping_text_header += "Fleet is up"
 
-        # Add fcName if we have one
+        # Add FC name if we have one
         if ping_context["fleet_commander"]:
             webhook_ping_text_header += f' under {ping_context["fleet_commander"]}'
 
@@ -195,6 +196,13 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
                 f'<t:{ping_context["formup_time"]["timestamp"]}:F>'
                 f' (<t:{ping_context["formup_time"]["timestamp"]}:R>)'
             )
+
+    # Check if fleet duration is available
+    if ping_context["fleet_duration"]:
+        webhook_ping_text_content += (
+            f'\n**Duration (approximately):** {ping_context["fleet_duration"]}'
+        )
+
     # Check if fleet comms is available
     if ping_context["fleet_comms"]:
         webhook_ping_text_content += f'\n**Comms:** {ping_context["fleet_comms"]}'

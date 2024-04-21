@@ -202,3 +202,8 @@ class FleetPingForm(forms.Form):
             "will be created."
         ),
     )
+    fleet_duration = forms.CharField(
+        required=False,
+        label=_("Duration"),
+        help_text=_("How long approximately will the fleet be?"),
+    )

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # erka Ekanon <M6musicT@hotmail.fr>, 2024.
 # Peter Pfeufer <info@ppfeufer.de>, 2024.
+# Matthias P <randomusernetcom@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-15 21:21+0100\n"
-"PO-Revision-Date: 2024-04-07 13:07+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"PO-Revision-Date: 2024-04-17 23:13+0000\n"
+"Last-Translator: Matthias P <randomusernetcom@gmail.com>\n"
 "Language-Team: French <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
@@ -70,7 +71,7 @@ msgstr ""
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
-msgstr ""
+msgstr "Discord Markdown"
 
 #: fleetpings/form.py:34
 #, python-brace-format
@@ -209,7 +210,7 @@ msgstr ""
 #: fleetpings/models.py:128 fleetpings/models.py:184 fleetpings/models.py:272
 #: fleetpings/models.py:434
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: fleetpings/models.py:134
 msgid "In which channel is the fleet?"
@@ -298,7 +299,7 @@ msgstr "ID du rôle Discord à pinger"
 
 #: fleetpings/models.py:335
 msgid "Discord ID"
-msgstr ""
+msgstr "ID Discord"
 
 #: fleetpings/models.py:343 fleetpings/models.py:521
 msgid "Restrict ping rights to the following groups …"

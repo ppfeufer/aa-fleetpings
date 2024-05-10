@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-21 09:10+0200\n"
-"PO-Revision-Date: 2024-04-21 13:51+0000\n"
+"PO-Revision-Date: 2024-05-10 14:04+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/de/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4.3\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -126,9 +126,9 @@ msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
 msgstr ""
-"Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping "
-"(Kontrollkästchen oben) oder deaktiviere „Flottenstart "
-"JETZT“ (Kontrollkästchen unten)."
+"Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping ("
+"Kontrollkästchen oben) oder deaktiviere „Flottenstart JETZT“ ("
+"Kontrollkästchen unten)."
 
 #: fleetpings/form.py:130
 msgid "Formup timestamp"
@@ -143,9 +143,8 @@ msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
 msgstr ""
-"Wenn dieses Kontrollkästchen aktiviert ist, wird der Flottenstart auf "
-"„JETZT“ gesetzt. und die Zeit im obigen Feld (falls vorhanden) wird "
-"ignoriert."
+"Wenn dieses Kontrollkästchen aktiviert ist, wird der Flottenstart auf „JETZT“"
+" gesetzt. und die Zeit im obigen Feld (falls vorhanden) wird ignoriert."
 
 #: fleetpings/form.py:144 fleetpings/models.py:168
 msgid "Fleet comms"
@@ -358,8 +357,7 @@ msgstr "Name des Kanals in dem dieser Webhook postet"
 #: fleetpings/models.py:509
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
-msgstr ""
-"URL des Webhooks, z. B.: https://discord.com/api/webhooks/123456/abcdef"
+msgstr "URL des Webhooks, z. B.: https://discord.com/api/webhooks/123456/abcdef"
 
 #: fleetpings/models.py:529
 msgid "You can add notes about this webhook here if you want"
@@ -422,8 +420,8 @@ msgid ""
 "Whether to use default ping targets. If checked, the default ping targets "
 "(@everyone and @here) will be added to the Ping Target dropdown."
 msgstr ""
-"Standard Pingziele nutzen. Wenn angehakt, werden die Standard Pingziele "
-"(@everyone and @here) dem Dropdown im Formular hinzugefügt."
+"Standard Pingziele nutzen. Wenn angehakt, werden die Standard Pingziele (@"
+"everyone and @here) dem Dropdown im Formular hinzugefügt."
 
 #: fleetpings/models.py:632
 msgid ""

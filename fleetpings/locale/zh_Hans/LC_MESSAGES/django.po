@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Faer Yili <yilifaer@gmail.com>, 2024.
 # Dehao Wu <wudehao2000@163.com>, 2024.
+# SAM_FPS <sam_fps@163.com>, 2024.
+# MxdHana <236833425@qq.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-21 09:10+0200\n"
-"PO-Revision-Date: 2024-05-10 14:05+0000\n"
-"Last-Translator: Faer Yili <yilifaer@gmail.com>\n"
+"PO-Revision-Date: 2024-05-15 09:20+0000\n"
+"Last-Translator: MxdHana <236833425@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -40,7 +42,7 @@ msgstr ""
 #: fleetpings/admin.py:370 fleetpings/models.py:201 fleetpings/models.py:344
 #: fleetpings/models.py:451 fleetpings/models.py:522
 msgid "Group restrictions"
-msgstr ""
+msgstr "组别限制"
 
 #: fleetpings/admin.py:229 fleetpings/form.py:76
 msgid "Ping target"
@@ -56,11 +58,11 @@ msgstr ""
 
 #: fleetpings/admin.py:359 fleetpings/models.py:500
 msgid "Discord channel"
-msgstr ""
+msgstr "Discord频道"
 
 #: fleetpings/admin.py:364 fleetpings/models.py:513
 msgid "Webhook URL"
-msgstr ""
+msgstr "Webhook URL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: fleetpings/apps.py:21
@@ -70,16 +72,16 @@ msgstr ""
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
-msgstr ""
+msgstr "Discord Markdown"
 
 #: fleetpings/form.py:34
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
+msgstr "提示:您可以使用{discord_markdown_link}来格式化文本。"
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"
-msgstr ""
+msgstr "您想ping谁?"
 
 #: fleetpings/form.py:83
 msgid "Pre-Ping"
@@ -169,7 +171,7 @@ msgstr ""
 
 #: fleetpings/form.py:183
 msgid "Additional information"
-msgstr "附加说明"
+msgstr "附加信息"
 
 #: fleetpings/form.py:190
 msgid "Feel free to add some more information about the fleet …"
@@ -195,19 +197,19 @@ msgstr ""
 
 #: fleetpings/models.py:41
 msgid "You might want to install the Discord service first …"
-msgstr ""
+msgstr "您可能想要先安装Discord服务…"
 
 #: fleetpings/models.py:49
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
-msgstr ""
+msgstr "您确定您的Discord已经连接到你的联盟Auth了吗?"
 
 #: fleetpings/models.py:55
 msgid "This group has not been synced to Discord yet."
-msgstr ""
+msgstr "这个群组还没有同步到Discord。"
 
 #: fleetpings/models.py:117
 msgid "Can access this app"
-msgstr "允许访问此软件"
+msgstr "能够访问此应用程序"
 
 #: fleetpings/models.py:127
 msgid "Short name to identify this comms"
@@ -229,12 +231,12 @@ msgstr ""
 #: fleetpings/models.py:141 fleetpings/models.py:208 fleetpings/models.py:279
 #: fleetpings/models.py:351 fleetpings/models.py:458
 msgid "You can add notes about this configuration here if you want"
-msgstr ""
+msgstr "如果您愿意，可以在这里添加关于此配置的注释"
 
 #: fleetpings/models.py:142 fleetpings/models.py:209 fleetpings/models.py:280
 #: fleetpings/models.py:352 fleetpings/models.py:459 fleetpings/models.py:530
 msgid "Notes"
-msgstr ""
+msgstr "笔记"
 
 #: fleetpings/models.py:148
 msgid "Whether this comms is enabled or not"
@@ -289,31 +291,31 @@ msgstr ""
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
-msgstr ""
+msgstr "要ping的Discord对象名称。（注意：这必须是一个与Discord同步的Auth群组。）"
 
 #: fleetpings/models.py:326
 msgid "Group name"
-msgstr ""
+msgstr "组别名称"
 
 #: fleetpings/models.py:334
 msgid "ID of the Discord role to ping"
-msgstr ""
+msgstr "要ping的Discord角色用户名"
 
 #: fleetpings/models.py:335
 msgid "Discord ID"
-msgstr ""
+msgstr "Discord用户名"
 
 #: fleetpings/models.py:343 fleetpings/models.py:521
 msgid "Restrict ping rights to the following groups …"
-msgstr ""
+msgstr "将ping权限限制到以下群组…"
 
 #: fleetpings/models.py:419
 msgid "Discord ping target"
-msgstr ""
+msgstr "Discord ping对象"
 
 #: fleetpings/models.py:420
 msgid "Discord ping targets"
-msgstr ""
+msgstr "Discord ping对象"
 
 #: fleetpings/models.py:433
 msgid "Short name to identify this fleet type"
@@ -337,34 +339,36 @@ msgstr "舰队类型"
 
 #: fleetpings/models.py:499
 msgid "Name of the channel this webhook posts to"
-msgstr ""
+msgstr "此webhook发布到的频道名称"
 
 #: fleetpings/models.py:509
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
-msgstr ""
+msgstr "此webhook的URL，例如https://discord.com/api/webhooks/123456/abcdef"
 
 #: fleetpings/models.py:529
 msgid "You can add notes about this webhook here if you want"
-msgstr ""
+msgstr "如果你愿意，你可以在这里添加关于这个webhook的注释"
 
 #: fleetpings/models.py:537
 msgid "Whether this webhook is active or not"
-msgstr ""
+msgstr "该webhook是否启用"
 
 #: fleetpings/models.py:556
 msgid "Webhook"
-msgstr ""
+msgstr "Webhook（Web挂钩）"
 
 #: fleetpings/models.py:557
 msgid "Webhooks"
-msgstr ""
+msgstr "Webhooks（Web挂钩）"
 
 #: fleetpings/models.py:576
 msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
 msgstr ""
+"无效的Webhook URL。您输入的Webhook URL与Discord "
+"Webhook的任何已知格式都不匹配。请检查Webhook URL。"
 
 #: fleetpings/models.py:596
 msgid "Use default fleet types"
@@ -506,7 +510,7 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:3
 msgid "Please select"
-msgstr ""
+msgstr "请选择"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:7
 msgid "Roaming Fleet"
@@ -530,11 +534,11 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-channel.html:3
 msgid "None, just format it for me"
-msgstr ""
+msgstr "没有，帮我格式化一下"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:3
 msgid "Don't ping"
-msgstr ""
+msgstr "不要ping"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:13
 msgid "Additionally configured ping targets"
@@ -562,8 +566,8 @@ msgstr ""
 
 #: fleetpings/views.py:500
 msgid "Form invalid. Please check your input."
-msgstr ""
+msgstr "格式无效。请检查您输入的内容。"
 
 #: fleetpings/views.py:502
 msgid "No form data submitted."
-msgstr ""
+msgstr "没有提交表单数据。"

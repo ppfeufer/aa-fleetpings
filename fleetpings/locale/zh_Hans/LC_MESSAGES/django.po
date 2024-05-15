@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-21 09:10+0200\n"
-"PO-Revision-Date: 2024-05-15 09:20+0000\n"
-"Last-Translator: MxdHana <236833425@qq.com>\n"
+"PO-Revision-Date: 2024-05-15 15:31+0000\n"
+"Last-Translator: SAM_FPS <sam_fps@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -24,11 +24,11 @@ msgstr ""
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
-msgstr ""
+msgstr "舰队Ping"
 
 #: fleetpings/admin.py:114 fleetpings/models.py:167
 msgid "Fleet comm"
-msgstr ""
+msgstr "舰队通讯"
 
 #: fleetpings/admin.py:144 fleetpings/form.py:151
 msgid "Doctrine"
@@ -36,7 +36,7 @@ msgstr "舰船要求"
 
 #: fleetpings/admin.py:158 fleetpings/form.py:158 fleetpings/models.py:192
 msgid "Doctrine link"
-msgstr ""
+msgstr "配置链接"
 
 #: fleetpings/admin.py:173 fleetpings/admin.py:244 fleetpings/admin.py:325
 #: fleetpings/admin.py:370 fleetpings/models.py:201 fleetpings/models.py:344
@@ -46,7 +46,7 @@ msgstr "组别限制"
 
 #: fleetpings/admin.py:229 fleetpings/form.py:76
 msgid "Ping target"
-msgstr ""
+msgstr "Ping的对象"
 
 #: fleetpings/admin.py:289 fleetpings/form.py:93 fleetpings/models.py:485
 msgid "Fleet type"
@@ -54,7 +54,7 @@ msgstr "舰队类型"
 
 #: fleetpings/admin.py:303 fleetpings/models.py:442
 msgid "Embed color"
-msgstr ""
+msgstr "嵌入颜色"
 
 #: fleetpings/admin.py:359 fleetpings/models.py:500
 msgid "Discord channel"
@@ -68,7 +68,7 @@ msgstr "Webhook URL"
 #: fleetpings/apps.py:21
 #, python-brace-format
 msgid "Fleet Pings v{__version__}"
-msgstr ""
+msgstr "舰队Ping v{__version__}"
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
@@ -85,27 +85,27 @@ msgstr "您想ping谁?"
 
 #: fleetpings/form.py:83
 msgid "Pre-Ping"
-msgstr ""
+msgstr "提前Ping"
 
 #: fleetpings/form.py:84
 msgid "Mark this checkbox if this should be a pre-ping."
-msgstr ""
+msgstr "如果这应该是提前ping，请勾选此框。"
 
 #: fleetpings/form.py:88
 msgid "Ping to"
-msgstr ""
+msgstr "Ping给"
 
 #: fleetpings/form.py:90
 msgid "Select a channel to ping automatically."
-msgstr ""
+msgstr "选择要自动ping的频道。"
 
 #: fleetpings/form.py:97
 msgid "FC name"
-msgstr ""
+msgstr "舰队指挥名字"
 
 #: fleetpings/form.py:99
 msgid "Who is the FC?"
-msgstr ""
+msgstr "谁是舰队指挥？"
 
 #: fleetpings/form.py:103
 msgid "Fleet name"
@@ -113,51 +113,53 @@ msgstr "舰队名字"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
-msgstr ""
+msgstr "舰队在EVE的舰队搜寻器的名称是什么？"
 
 #: fleetpings/form.py:113 fleetpings/models.py:305
 msgid "Formup location"
-msgstr ""
+msgstr "起队位置"
 
 #: fleetpings/form.py:120
 msgid "Formup time"
-msgstr ""
+msgstr "起队时间"
 
 #: fleetpings/form.py:124
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
-msgstr ""
+msgstr "要启用此字段，要么将其设置为提前ping（上面的选择框），要么取消选中“现在格式化"
+"”（下面的选择框）。"
 
 #: fleetpings/form.py:130
 msgid "Formup timestamp"
-msgstr ""
+msgstr "起队时间戳"
 
 #: fleetpings/form.py:136
 msgid "Formup NOW"
-msgstr ""
+msgstr "现在起队"
 
 #: fleetpings/form.py:138
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
-msgstr ""
+msgstr "如果勾选了此框，则起队时间将设置为“现在”，并且上面字段中的时间（如果设置了）"
+"将被忽略。"
 
 #: fleetpings/form.py:144 fleetpings/models.py:168
 msgid "Fleet comms"
-msgstr ""
+msgstr "舰队通讯"
 
 #: fleetpings/form.py:163
 msgid "Webhook embed color"
-msgstr ""
+msgstr "Webhook嵌入颜色"
 
 #: fleetpings/form.py:169
 msgid "SRP"
-msgstr ""
+msgstr "补损"
 
 #: fleetpings/form.py:170
 msgid "Is this fleet covered by SRP?"
-msgstr ""
+msgstr "这个舰队有SRP吗？"
 
 #: fleetpings/form.py:175
 msgid "Create SRP link"
@@ -167,7 +169,7 @@ msgstr "创建舰船补损链接"
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
-msgstr ""
+msgstr "如果勾选了此框，则将创建此舰队专用的补损链接。<br>不确定则留空。"
 
 #: fleetpings/form.py:183
 msgid "Additional information"
@@ -175,7 +177,7 @@ msgstr "附加信息"
 
 #: fleetpings/form.py:190
 msgid "Feel free to add some more information about the fleet …"
-msgstr ""
+msgstr "请随意添加一些关于舰队的更多信息…"
 
 #: fleetpings/form.py:199
 msgid "Create Optimer"

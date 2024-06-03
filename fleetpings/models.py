@@ -42,7 +42,9 @@ def _get_discord_group_info(ping_target: Group) -> dict:
         )
 
     try:
-        discord_group_info = DiscordUser.objects.group_to_role(group=ping_target)
+        discord_group_info = DiscordUser.objects.group_to_role(  # pylint: disable=possibly-used-before-assignment
+            group=ping_target
+        )
     except HTTPError as http_error:
         raise ValidationError(
             message=_(

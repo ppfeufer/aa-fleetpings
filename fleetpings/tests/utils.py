@@ -4,7 +4,6 @@ Some utility functions used in our tests
 
 # Standard Library
 import re
-from typing import List
 
 # Django
 from django.contrib.auth.models import User
@@ -24,7 +23,7 @@ def create_fake_user(
     corporation_ticker: str = None,
     alliance_id: int = None,
     alliance_name: str = None,
-    permissions: List[str] = None,
+    permissions: list[str] = None,
 ) -> User:
     """
     Create fake user

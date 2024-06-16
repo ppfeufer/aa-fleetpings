@@ -2,9 +2,6 @@
 AA Fleet Pings :: Admin
 """
 
-# Standard Library
-from typing import Optional
-
 # Django
 from django.contrib import admin
 from django.contrib.auth.models import Group
@@ -172,7 +169,7 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj: FleetDoctrine) -> Optional[str]:
+    def _restricted_to_group(cls, obj: FleetDoctrine) -> str | None:
         """
         _restricted_to_group
 
@@ -243,7 +240,7 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj: DiscordPingTarget) -> Optional[str]:
+    def _restricted_to_group(cls, obj: DiscordPingTarget) -> str | None:
         """
         _restricted_to_group
 
@@ -324,7 +321,7 @@ class FleetTypeAdmin(admin.ModelAdmin):
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj: FleetType) -> Optional[str]:
+    def _restricted_to_group(cls, obj: FleetType) -> str | None:
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:
@@ -369,7 +366,7 @@ class WebhookAdmin(admin.ModelAdmin):
     @admin.display(
         description=_("Group restrictions"), ordering="restricted_to_group__name"
     )
-    def _restricted_to_group(cls, obj: Webhook) -> Optional[str]:
+    def _restricted_to_group(cls, obj: Webhook) -> str | None:
         names = [x.name for x in obj.restricted_to_group.all().order_by("name")]
 
         if names:

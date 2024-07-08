@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Xrandier <xrandier@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-21 09:10+0200\n"
-"PO-Revision-Date: 2024-05-10 14:04+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-07-08 05:27+0000\n"
+"Last-Translator: Xrandier <xrandier@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/ja/>\n"
 "Language: ja\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -30,7 +29,7 @@ msgstr ""
 
 #: fleetpings/admin.py:144 fleetpings/form.py:151
 msgid "Doctrine"
-msgstr ""
+msgstr "装着機器（モジュール）"
 
 #: fleetpings/admin.py:158 fleetpings/form.py:158 fleetpings/models.py:192
 msgid "Doctrine link"
@@ -48,7 +47,7 @@ msgstr ""
 
 #: fleetpings/admin.py:289 fleetpings/form.py:93 fleetpings/models.py:485
 msgid "Fleet type"
-msgstr ""
+msgstr "艦隊種類"
 
 #: fleetpings/admin.py:303 fleetpings/models.py:442
 msgid "Embed color"
@@ -107,7 +106,7 @@ msgstr ""
 
 #: fleetpings/form.py:103
 msgid "Fleet name"
-msgstr ""
+msgstr "艦隊名"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
@@ -169,7 +168,7 @@ msgstr ""
 
 #: fleetpings/form.py:183
 msgid "Additional information"
-msgstr ""
+msgstr "その他"
 
 #: fleetpings/form.py:190
 msgid "Feel free to add some more information about the fleet …"
@@ -216,7 +215,7 @@ msgstr ""
 #: fleetpings/models.py:128 fleetpings/models.py:184 fleetpings/models.py:272
 #: fleetpings/models.py:434
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: fleetpings/models.py:134
 msgid "In which channel is the fleet?"
@@ -243,7 +242,7 @@ msgstr ""
 #: fleetpings/models.py:149 fleetpings/models.py:217 fleetpings/models.py:288
 #: fleetpings/models.py:360 fleetpings/models.py:467 fleetpings/models.py:538
 msgid "Is enabled"
-msgstr ""
+msgstr "有効"
 
 #: fleetpings/models.py:183
 msgid "Short name to identify this doctrine"

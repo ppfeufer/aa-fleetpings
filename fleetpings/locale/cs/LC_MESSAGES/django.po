@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Dadas Aideron <dadas.aideron@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-21 09:10+0200\n"
-"PO-Revision-Date: 2024-05-10 14:05+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-07-10 14:26+0000\n"
+"Last-Translator: Dadas Aideron <dadas.aideron@gmail.com>\n"
 "Language-Team: Czech <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/cs/>\n"
 "Language: cs\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -41,7 +40,7 @@ msgstr ""
 #: fleetpings/admin.py:370 fleetpings/models.py:201 fleetpings/models.py:344
 #: fleetpings/models.py:451 fleetpings/models.py:522
 msgid "Group restrictions"
-msgstr ""
+msgstr "Omezení skupiny"
 
 #: fleetpings/admin.py:229 fleetpings/form.py:76
 msgid "Ping target"
@@ -57,11 +56,11 @@ msgstr ""
 
 #: fleetpings/admin.py:359 fleetpings/models.py:500
 msgid "Discord channel"
-msgstr ""
+msgstr "Discord kanál"
 
 #: fleetpings/admin.py:364 fleetpings/models.py:513
 msgid "Webhook URL"
-msgstr ""
+msgstr "Webhook URL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: fleetpings/apps.py:21
@@ -76,11 +75,11 @@ msgstr ""
 #: fleetpings/form.py:34
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
+msgstr "Tip: Pro formátování můžeš použít {discord_markdown_link}."
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"
-msgstr ""
+msgstr "Co chceš pingnout?"
 
 #: fleetpings/form.py:83
 msgid "Pre-Ping"
@@ -196,19 +195,19 @@ msgstr ""
 
 #: fleetpings/models.py:41
 msgid "You might want to install the Discord service first …"
-msgstr ""
+msgstr "Možná bys měl začít instalací Discord služby…"
 
 #: fleetpings/models.py:49
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
-msgstr ""
+msgstr "Jsi si jistý, že chceš provázat Discord a Aliance Auth?"
 
 #: fleetpings/models.py:55
 msgid "This group has not been synced to Discord yet."
-msgstr ""
+msgstr "Tato skupina zatím nebyla synchronizována s Discordem."
 
 #: fleetpings/models.py:117
 msgid "Can access this app"
-msgstr ""
+msgstr "Má přístup k této aplikaci"
 
 #: fleetpings/models.py:127
 msgid "Short name to identify this comms"
@@ -230,12 +229,12 @@ msgstr ""
 #: fleetpings/models.py:141 fleetpings/models.py:208 fleetpings/models.py:279
 #: fleetpings/models.py:351 fleetpings/models.py:458
 msgid "You can add notes about this configuration here if you want"
-msgstr ""
+msgstr "Tady si můžeš přidat poznámky ke konfiguraci"
 
 #: fleetpings/models.py:142 fleetpings/models.py:209 fleetpings/models.py:280
 #: fleetpings/models.py:352 fleetpings/models.py:459 fleetpings/models.py:530
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 #: fleetpings/models.py:148
 msgid "Whether this comms is enabled or not"
@@ -244,7 +243,7 @@ msgstr ""
 #: fleetpings/models.py:149 fleetpings/models.py:217 fleetpings/models.py:288
 #: fleetpings/models.py:360 fleetpings/models.py:467 fleetpings/models.py:538
 msgid "Is enabled"
-msgstr ""
+msgstr "Aktivní"
 
 #: fleetpings/models.py:183
 msgid "Short name to identify this doctrine"
@@ -291,14 +290,16 @@ msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
 msgstr ""
+"Jméno Discord role pro ping. (Poznámka: Toto musí být Auth skupina která je "
+"synchronizovaná s Discordem.)"
 
 #: fleetpings/models.py:326
 msgid "Group name"
-msgstr ""
+msgstr "Název skupiny"
 
 #: fleetpings/models.py:334
 msgid "ID of the Discord role to ping"
-msgstr ""
+msgstr "ID Discord role pro ping"
 
 #: fleetpings/models.py:335
 msgid "Discord ID"
@@ -306,15 +307,15 @@ msgstr ""
 
 #: fleetpings/models.py:343 fleetpings/models.py:521
 msgid "Restrict ping rights to the following groups …"
-msgstr ""
+msgstr "Omez ping práva pro následující skupiny …"
 
 #: fleetpings/models.py:419
 msgid "Discord ping target"
-msgstr ""
+msgstr "Cíl Discord pingu"
 
 #: fleetpings/models.py:420
 msgid "Discord ping targets"
-msgstr ""
+msgstr "Cíle Discord pingu"
 
 #: fleetpings/models.py:433
 msgid "Short name to identify this fleet type"
@@ -338,34 +339,36 @@ msgstr ""
 
 #: fleetpings/models.py:499
 msgid "Name of the channel this webhook posts to"
-msgstr ""
+msgstr "Název kanálu kam tento webhook posílá posty"
 
 #: fleetpings/models.py:509
 msgid ""
 "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
-msgstr ""
+msgstr "URL pro webhook, např. https://discord.com/api/webhooks/123456/abcdef"
 
 #: fleetpings/models.py:529
 msgid "You can add notes about this webhook here if you want"
-msgstr ""
+msgstr "Tady si můžeš přidat poznámku k webhooku"
 
 #: fleetpings/models.py:537
 msgid "Whether this webhook is active or not"
-msgstr ""
+msgstr "Jestli je webhook aktivní či ne"
 
 #: fleetpings/models.py:556
 msgid "Webhook"
-msgstr ""
+msgstr "Webhook"
 
 #: fleetpings/models.py:557
 msgid "Webhooks"
-msgstr ""
+msgstr "Webhooky"
 
 #: fleetpings/models.py:576
 msgid ""
 "Invalid webhook URL. The webhook URL you entered does not match any known "
 "format for a Discord webhook. Please check the webhook URL."
 msgstr ""
+"Invalidní webhook URL. Webhook URL kterou jsi zadal nesouhlasí s žádným "
+"formátem pro Discord webhook. Prosím zkontroluj webhook URL."
 
 #: fleetpings/models.py:596
 msgid "Use default fleet types"
@@ -469,10 +472,12 @@ msgid ""
 "Do you want to help translate this app into your language or improve the "
 "existing translation?"
 msgstr ""
+"Chceš pomoc s překladem této aplikace do tvého jazyka, nebo vylepšit "
+"současný překlad?"
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr ""
+msgstr "Připoj se k našemu týmu překladatelů!"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:72
 msgid "Create ping"
@@ -531,11 +536,11 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-channel.html:3
 msgid "None, just format it for me"
-msgstr ""
+msgstr "Žádné, vytvoř formátování za mě"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:3
 msgid "Don't ping"
-msgstr ""
+msgstr "Nepinguj"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:13
 msgid "Additionally configured ping targets"
@@ -563,8 +568,8 @@ msgstr ""
 
 #: fleetpings/views.py:500
 msgid "Form invalid. Please check your input."
-msgstr ""
+msgstr "Formulář je invalidní. Prosím zkontroluj hodnoty."
 
 #: fleetpings/views.py:502
 msgid "No form data submitted."
-msgstr ""
+msgstr "Formulář je prázdný."

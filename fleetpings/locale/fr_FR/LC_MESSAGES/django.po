@@ -5,13 +5,14 @@
 # Peter Pfeufer <info@ppfeufer.de>, 2024.
 # Matthias P <randomusernetcom@gmail.com>, 2024.
 # Hexo <ghostcig@free.fr>, 2024.
+# Houbi_Houba <paul.lacape@live.fr>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-21 09:10+0200\n"
-"PO-Revision-Date: 2024-07-04 07:27+0000\n"
-"Last-Translator: Hexo <ghostcig@free.fr>\n"
+"PO-Revision-Date: 2024-07-10 09:27+0000\n"
+"Last-Translator: Houbi_Houba <paul.lacape@live.fr>\n"
 "Language-Team: French <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -28,11 +29,11 @@ msgstr "Pings de flotte"
 
 #: fleetpings/admin.py:114 fleetpings/models.py:167
 msgid "Fleet comm"
-msgstr ""
+msgstr "Communication de flotte"
 
 #: fleetpings/admin.py:144 fleetpings/form.py:151
 msgid "Doctrine"
-msgstr ""
+msgstr "Doctrine"
 
 #: fleetpings/admin.py:158 fleetpings/form.py:158 fleetpings/models.py:192
 msgid "Doctrine link"

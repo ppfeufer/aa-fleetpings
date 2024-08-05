@@ -2,15 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Xrandier <xrandier@gmail.com>, 2024.
+# Anata_no_Usiro <yt23542354m@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-27 20:55+0200\n"
-"PO-Revision-Date: 2024-07-08 05:27+0000\n"
-"Last-Translator: Xrandier <xrandier@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/ja/>\n"
+"PO-Revision-Date: 2024-08-05 10:10+0000\n"
+"Last-Translator: Anata_no_Usiro <yt23542354m@gmail.com>\n"
+"Language-Team: Japanese <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +22,11 @@ msgstr ""
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
-msgstr ""
+msgstr "フリート通知"
 
 #: fleetpings/admin.py:111 fleetpings/models.py:169
 msgid "Fleet comm"
-msgstr ""
+msgstr "フリート通信"
 
 #: fleetpings/admin.py:141 fleetpings/form.py:151
 msgid "Doctrine"
@@ -33,33 +34,33 @@ msgstr "装着機器（モジュール）"
 
 #: fleetpings/admin.py:155 fleetpings/form.py:158 fleetpings/models.py:194
 msgid "Doctrine link"
-msgstr ""
+msgstr "ドクトリンのリンク"
 
 #: fleetpings/admin.py:170 fleetpings/admin.py:241 fleetpings/admin.py:322
 #: fleetpings/admin.py:367 fleetpings/models.py:203 fleetpings/models.py:346
 #: fleetpings/models.py:453 fleetpings/models.py:524
 msgid "Group restrictions"
-msgstr ""
+msgstr "グループの制限"
 
 #: fleetpings/admin.py:226 fleetpings/form.py:76
 msgid "Ping target"
-msgstr ""
+msgstr "通知の対象"
 
 #: fleetpings/admin.py:286 fleetpings/form.py:93 fleetpings/models.py:487
 msgid "Fleet type"
-msgstr "艦隊種類"
+msgstr "フリートの種類"
 
 #: fleetpings/admin.py:300 fleetpings/models.py:444
 msgid "Embed color"
-msgstr ""
+msgstr "色付け"
 
 #: fleetpings/admin.py:356 fleetpings/models.py:502
 msgid "Discord channel"
-msgstr ""
+msgstr "Discordのチャンネル"
 
 #: fleetpings/admin.py:361 fleetpings/models.py:515
 msgid "Webhook URL"
-msgstr ""
+msgstr "ウェブフックURL"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: fleetpings/apps.py:21
@@ -69,12 +70,12 @@ msgstr ""
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
-msgstr ""
+msgstr "ディスコードにおけるテキストの装飾"
 
 #: fleetpings/form.py:34
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
+msgstr "ヒント：{discord_markdown_link}を使ってテキストを装飾することができます。"
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"
@@ -206,7 +207,7 @@ msgstr ""
 
 #: fleetpings/models.py:119
 msgid "Can access this app"
-msgstr ""
+msgstr "このアプリにアクセス可能です"
 
 #: fleetpings/models.py:129
 msgid "Short name to identify this comms"
@@ -288,11 +289,12 @@ msgstr ""
 msgid ""
 "Name of the Discord role to ping. (Note: This must be an Auth group that is "
 "synced to Discord.)"
-msgstr ""
+msgstr "通知を送信するDiscordのロールの名(注意:これはDiscordと同期が完了しているAuth"
+"のグループである必要があります)"
 
 #: fleetpings/models.py:328
 msgid "Group name"
-msgstr ""
+msgstr "グループ名"
 
 #: fleetpings/models.py:336
 msgid "ID of the Discord role to ping"

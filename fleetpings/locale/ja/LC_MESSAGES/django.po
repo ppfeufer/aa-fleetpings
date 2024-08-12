@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Xrandier <xrandier@gmail.com>, 2024.
 # Anata_no_Usiro <yt23542354m@gmail.com>, 2024.
+# Peter Pfeufer <info@ppfeufer.de>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-27 20:55+0200\n"
-"PO-Revision-Date: 2024-08-05 10:10+0000\n"
-"Last-Translator: Anata_no_Usiro <yt23542354m@gmail.com>\n"
+"PO-Revision-Date: 2024-08-06 11:28+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/"
 "alliance-auth-apps/aa-fleetpings/ja/>\n"
 "Language: ja\n"
@@ -48,7 +49,7 @@ msgstr "通知の対象"
 
 #: fleetpings/admin.py:286 fleetpings/form.py:93 fleetpings/models.py:487
 msgid "Fleet type"
-msgstr "フリートの種類"
+msgstr "艦隊種類"
 
 #: fleetpings/admin.py:300 fleetpings/models.py:444
 msgid "Embed color"
@@ -243,7 +244,7 @@ msgstr ""
 #: fleetpings/models.py:151 fleetpings/models.py:219 fleetpings/models.py:290
 #: fleetpings/models.py:362 fleetpings/models.py:469 fleetpings/models.py:540
 msgid "Is enabled"
-msgstr "有効"
+msgstr "有効になっています"
 
 #: fleetpings/models.py:185
 msgid "Short name to identify this doctrine"

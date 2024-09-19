@@ -40,7 +40,13 @@ compile_translations:
 		-l uk \
 		-l zh_Hans
 
-# Migrations
+# Migrate all database changes
+.PHONY: migrate
+migrate:
+	@echo "Migrating the database"
+	@python ../myauth/manage.py migrate $(package)
+
+# Make migrations for the app
 .PHONY: migrations
 migrations:
 	@echo "Creating or updating migrations"
@@ -50,6 +56,7 @@ migrations:
 .PHONY: help
 help::
 	@echo "  $(TEXT_UNDERLINE)Translation:$(TEXT_UNDERLINE_END)"
+	@echo "    migrate                   Migrate all database changes"
 	@echo "    migrations                Create or update migrations"
 	@echo "    translations              Create or update translation files"
 	@echo "    compile_translations      Compile translation files"

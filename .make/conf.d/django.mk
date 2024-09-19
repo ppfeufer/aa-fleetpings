@@ -40,10 +40,17 @@ compile_translations:
 		-l uk \
 		-l zh_Hans
 
+# Migrations
+.PHONY: migrations
+migrations:
+	@echo "Creating or updating migrations"
+	@python ../myauth/manage.py makemigrations $(package)
+
 # Help message
 .PHONY: help
 help::
 	@echo "  $(TEXT_UNDERLINE)Translation:$(TEXT_UNDERLINE_END)"
+	@echo "    migrations                Create or update migrations"
 	@echo "    translations              Create or update translation files"
 	@echo "    compile_translations      Compile translation files"
 	@echo ""

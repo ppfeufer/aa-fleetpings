@@ -2,6 +2,9 @@
 AA Fleet Pings :: Admin
 """
 
+# Third Party
+from solo.admin import SingletonModelAdmin
+
 # Django
 from django.contrib import admin
 from django.contrib.auth.models import Group
@@ -43,58 +46,6 @@ def custom_filter(title) -> admin.FieldListFilter:
             return instance
 
     return Wrapper
-
-
-class SingletonModelAdmin(admin.ModelAdmin):
-    """
-    Prevents Django admin users deleting the singleton or adding extra rows
-    """
-
-    actions = None  # Removes the default delete action.
-
-    def has_add_permission(self, request) -> bool:  # pylint: disable=unused-argument
-        """
-        Has "add" permissions
-
-        :param request:
-        :type request:
-        :return:
-        :rtype:
-        """
-
-        return self.model.objects.all().count() == 0
-
-    def has_change_permission(
-        self, request, obj=None  # pylint: disable=unused-argument
-    ) -> bool:
-        """
-        Has "change" permissions
-
-        :param request:
-        :type request:
-        :param obj:
-        :type obj:
-        :return:
-        :rtype:
-        """
-
-        return True
-
-    def has_delete_permission(
-        self, request, obj=None  # pylint: disable=unused-argument
-    ) -> bool:
-        """
-        Has "delete" permissions
-
-        :param request:
-        :type request:
-        :param obj:
-        :type obj:
-        :return:
-        :rtype:
-        """
-
-        return False
 
 
 @admin.register(FleetComm)

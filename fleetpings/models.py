@@ -7,6 +7,7 @@ import re
 
 # Third Party
 from requests.exceptions import HTTPError
+from solo.models import SingletonModel
 
 # Django
 from django.contrib.auth.models import Group
@@ -58,50 +59,6 @@ def _get_discord_group_info(ping_target: Group) -> dict:
         )
 
     return discord_group_info
-
-
-class SingletonModel(models.Model):
-    """
-    Singleton model
-    """
-
-    class Meta:  # pylint: disable=too-few-public-methods
-        """
-        SingletonModel :: Meta
-        """
-
-        abstract = True
-
-    def save(self, *args, **kwargs):
-        """
-        Save action
-
-        :param args:
-        :type args:
-        :param kwargs:
-        :type kwargs:
-        :return:
-        :rtype:
-        """
-
-        if self.__class__.objects.count():
-            self.pk = self.__class__.objects.first().pk  # pylint: disable=invalid-name
-
-        super().save(*args, **kwargs)
-
-    def delete(self, *args, **kwargs):
-        """
-        Delete action
-
-        :param args:
-        :type args:
-        :param kwargs:
-        :type kwargs:
-        :return:
-        :rtype:
-        """
-
-        pass  # pylint: disable=unnecessary-pass
 
 
 class AaFleetpings(models.Model):

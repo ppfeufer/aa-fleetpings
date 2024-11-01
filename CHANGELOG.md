@@ -35,6 +35,13 @@ Section Order:
 ### Security
 -->
 
+## \[3.4.1\] - 2024-11-01
+
+### Changed
+
+- Italian translation improved
+- Ukrainian translation improved
+
 ## \[3.4.0\] - 2024-09-19
 
 ### Changed

@@ -119,7 +119,13 @@ class FleetPingForm(forms.Form):
         required=False,
         label=_("Formup time"),
         max_length=254,
-        widget=forms.TextInput(attrs={"disabled": "disabled", "autocomplete": "off"}),
+        widget=forms.TextInput(
+            attrs={
+                "disabled": "disabled",
+                "autocomplete": "off",
+                "placeholder": _("Formup time (Eve time)"),
+            }
+        ),
         help_text=_(
             "To enable this field, either make it a pre-ping (checkbox above) or "
             'uncheck "Formup NOW" (checkbox below).'

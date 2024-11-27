@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 19:02+0200\n"
+"POT-Creation-Date: 2024-11-28 00:00+0100\n"
 "PO-Revision-Date: 2024-11-09 11:25+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/uk/>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,11 +35,11 @@ msgstr "Інструмент пінгування флоту"
 msgid "Fleet comm"
 msgstr "Зв'язок флоту"
 
-#: fleetpings/admin.py:92 fleetpings/form.py:151
+#: fleetpings/admin.py:92 fleetpings/form.py:157
 msgid "Doctrine"
 msgstr "Доктрина"
 
-#: fleetpings/admin.py:106 fleetpings/form.py:158 fleetpings/models.py:151
+#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:151
 msgid "Doctrine link"
 msgstr "Посилання на доктрину"
 
@@ -148,7 +148,13 @@ msgstr "Місце формування"
 msgid "Formup time"
 msgstr "Час формування"
 
-#: fleetpings/form.py:124
+#: fleetpings/form.py:126
+#, fuzzy
+#| msgid "Formup Timestamp"
+msgid "Formup time (Eve time)"
+msgstr "Мітка часу(timestamp) для формування"
+
+#: fleetpings/form.py:130
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
@@ -156,17 +162,17 @@ msgstr ""
 "Щоб увімкнути це поле, зробіть його попереднім пінгом (прапорець вище) або "
 "зніміть прапорець «Створити ЗАРАЗ» (прапорець нижче)."
 
-#: fleetpings/form.py:130
+#: fleetpings/form.py:136
 #, fuzzy
 #| msgid "Formup Timestamp"
 msgid "Formup timestamp"
 msgstr "Мітка часу(timestamp) для формування"
 
-#: fleetpings/form.py:136
+#: fleetpings/form.py:142
 msgid "Formup NOW"
 msgstr "Формування зараз"
 
-#: fleetpings/form.py:138
+#: fleetpings/form.py:144
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
@@ -174,33 +180,33 @@ msgstr ""
 "Якщо цей прапорець активний, час формування буде встановлено на «ЗАРАЗ», а "
 "час у полі вище (якщо він встановлений) буде проігноровано."
 
-#: fleetpings/form.py:144 fleetpings/models.py:127
+#: fleetpings/form.py:150 fleetpings/models.py:127
 #, fuzzy
 #| msgid "Fleet Comms"
 msgid "Fleet comms"
 msgstr "Канал зв'язку для флоту"
 
-#: fleetpings/form.py:163
+#: fleetpings/form.py:169
 #, fuzzy
 #| msgid "Webhook Embed Color"
 msgid "Webhook embed color"
 msgstr "Колір вставки Webhook"
 
-#: fleetpings/form.py:169
+#: fleetpings/form.py:175
 msgid "SRP"
 msgstr "srp"
 
-#: fleetpings/form.py:170
+#: fleetpings/form.py:176
 msgid "Is this fleet covered by SRP?"
 msgstr "Чи поширюється на цей флот дія SRP?"
 
-#: fleetpings/form.py:175
+#: fleetpings/form.py:181
 #, fuzzy
 #| msgid "Create SRP Link"
 msgid "Create SRP link"
 msgstr "Створіть SRP-посилання"
 
-#: fleetpings/form.py:177
+#: fleetpings/form.py:183
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -208,23 +214,23 @@ msgstr ""
 "Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для "
 "цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
 
-#: fleetpings/form.py:183
+#: fleetpings/form.py:189
 #, fuzzy
 #| msgid "Additional Information"
 msgid "Additional information"
 msgstr "Додаткова інформація"
 
-#: fleetpings/form.py:190
+#: fleetpings/form.py:196
 #, fuzzy
 #| msgid "Feel free to add some more information about the fleet…"
 msgid "Feel free to add some more information about the fleet …"
 msgstr "Не соромтеся додавати додаткову інформацію про флот…"
 
-#: fleetpings/form.py:199
+#: fleetpings/form.py:205
 msgid "Create Optimer"
 msgstr "Створити таймер операції"
 
-#: fleetpings/form.py:201
+#: fleetpings/form.py:207
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -232,11 +238,11 @@ msgstr ""
 "Якщо цей прапорець активний, буде створено таймер операцій флоту для цього "
 "попереднього пінгу."
 
-#: fleetpings/form.py:207
+#: fleetpings/form.py:213
 msgid "Duration"
 msgstr ""
 
-#: fleetpings/form.py:208
+#: fleetpings/form.py:214
 msgid "How long approximately will the fleet be?"
 msgstr ""
 

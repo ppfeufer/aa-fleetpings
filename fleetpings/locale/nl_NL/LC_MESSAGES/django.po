@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 19:02+0200\n"
+"POT-Creation-Date: 2024-11-28 00:00+0100\n"
 "PO-Revision-Date: 2024-05-10 14:05+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Dutch <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -28,11 +28,11 @@ msgstr ""
 msgid "Fleet comm"
 msgstr ""
 
-#: fleetpings/admin.py:92 fleetpings/form.py:151
+#: fleetpings/admin.py:92 fleetpings/form.py:157
 msgid "Doctrine"
 msgstr ""
 
-#: fleetpings/admin.py:106 fleetpings/form.py:158 fleetpings/models.py:151
+#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:151
 msgid "Doctrine link"
 msgstr ""
 
@@ -121,75 +121,79 @@ msgstr ""
 msgid "Formup time"
 msgstr ""
 
-#: fleetpings/form.py:124
+#: fleetpings/form.py:126
+msgid "Formup time (Eve time)"
+msgstr ""
+
+#: fleetpings/form.py:130
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
 msgstr ""
 
-#: fleetpings/form.py:130
+#: fleetpings/form.py:136
 msgid "Formup timestamp"
 msgstr ""
 
-#: fleetpings/form.py:136
+#: fleetpings/form.py:142
 msgid "Formup NOW"
 msgstr ""
 
-#: fleetpings/form.py:138
+#: fleetpings/form.py:144
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
 msgstr ""
 
-#: fleetpings/form.py:144 fleetpings/models.py:127
+#: fleetpings/form.py:150 fleetpings/models.py:127
 msgid "Fleet comms"
 msgstr ""
 
-#: fleetpings/form.py:163
+#: fleetpings/form.py:169
 msgid "Webhook embed color"
 msgstr ""
 
-#: fleetpings/form.py:169
+#: fleetpings/form.py:175
 msgid "SRP"
 msgstr ""
 
-#: fleetpings/form.py:170
+#: fleetpings/form.py:176
 msgid "Is this fleet covered by SRP?"
 msgstr ""
 
-#: fleetpings/form.py:175
+#: fleetpings/form.py:181
 msgid "Create SRP link"
 msgstr ""
 
-#: fleetpings/form.py:177
+#: fleetpings/form.py:183
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
 msgstr ""
 
-#: fleetpings/form.py:183
+#: fleetpings/form.py:189
 msgid "Additional information"
 msgstr ""
 
-#: fleetpings/form.py:190
+#: fleetpings/form.py:196
 msgid "Feel free to add some more information about the fleet …"
 msgstr ""
 
-#: fleetpings/form.py:199
+#: fleetpings/form.py:205
 msgid "Create Optimer"
 msgstr ""
 
-#: fleetpings/form.py:201
+#: fleetpings/form.py:207
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
 msgstr ""
 
-#: fleetpings/form.py:207
+#: fleetpings/form.py:213
 msgid "Duration"
 msgstr ""
 
-#: fleetpings/form.py:208
+#: fleetpings/form.py:214
 msgid "How long approximately will the fleet be?"
 msgstr ""
 

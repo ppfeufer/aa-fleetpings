@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 19:02+0200\n"
+"POT-Creation-Date: 2024-11-28 00:00+0100\n"
 "PO-Revision-Date: 2024-11-09 11:25+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Russian <https://weblate.ppfeufer.de/projects/"
-"alliance-auth-apps/aa-fleetpings/ru/>\n"
+"Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-"
+"apps/aa-fleetpings/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,11 +31,11 @@ msgstr "Анонсы флота"
 msgid "Fleet comm"
 msgstr "Флит ком"
 
-#: fleetpings/admin.py:92 fleetpings/form.py:151
+#: fleetpings/admin.py:92 fleetpings/form.py:157
 msgid "Doctrine"
 msgstr "Формат"
 
-#: fleetpings/admin.py:106 fleetpings/form.py:158 fleetpings/models.py:151
+#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:151
 msgid "Doctrine link"
 msgstr "Ссылка на формат"
 
@@ -126,7 +126,13 @@ msgstr "Место сбора"
 msgid "Formup time"
 msgstr "Время сбора"
 
-#: fleetpings/form.py:124
+#: fleetpings/form.py:126
+#, fuzzy
+#| msgid "Formup timestamp"
+msgid "Formup time (Eve time)"
+msgstr "Метка времени сбора"
+
+#: fleetpings/form.py:130
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
@@ -134,15 +140,15 @@ msgstr ""
 "Для активации этого поля задайте предварительный пинг (флажок выше) или "
 "отмените «СЕЙЧАС» (флажок ниже)."
 
-#: fleetpings/form.py:130
+#: fleetpings/form.py:136
 msgid "Formup timestamp"
 msgstr "Метка времени сбора"
 
-#: fleetpings/form.py:136
+#: fleetpings/form.py:142
 msgid "Formup NOW"
 msgstr "Сбор СЕЙЧАС"
 
-#: fleetpings/form.py:138
+#: fleetpings/form.py:144
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
@@ -150,27 +156,27 @@ msgstr ""
 "Если флажок активен, время сбора будет задано «СЕЙЧАС» и заданное выше время "
 "(при наличии) будет проигнорировано."
 
-#: fleetpings/form.py:144 fleetpings/models.py:127
+#: fleetpings/form.py:150 fleetpings/models.py:127
 msgid "Fleet comms"
 msgstr "Вид голосовой связи"
 
-#: fleetpings/form.py:163
+#: fleetpings/form.py:169
 msgid "Webhook embed color"
 msgstr "Цвет фона анонса"
 
-#: fleetpings/form.py:169
+#: fleetpings/form.py:175
 msgid "SRP"
 msgstr "Компенс"
 
-#: fleetpings/form.py:170
+#: fleetpings/form.py:176
 msgid "Is this fleet covered by SRP?"
 msgstr "Компенс есть?"
 
-#: fleetpings/form.py:175
+#: fleetpings/form.py:181
 msgid "Create SRP link"
 msgstr "Создание SRP ссылки"
 
-#: fleetpings/form.py:177
+#: fleetpings/form.py:183
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -178,19 +184,19 @@ msgstr ""
 "Если флажок активен, специальная ссылка для компенса будет создана."
 "<br>Оставьте неактивным, если не уверены."
 
-#: fleetpings/form.py:183
+#: fleetpings/form.py:189
 msgid "Additional information"
 msgstr "Дополнительная информация"
 
-#: fleetpings/form.py:190
+#: fleetpings/form.py:196
 msgid "Feel free to add some more information about the fleet …"
 msgstr "Разместите любую дополнительную информацию о флоте …"
 
-#: fleetpings/form.py:199
+#: fleetpings/form.py:205
 msgid "Create Optimer"
 msgstr "Создать таймер"
 
-#: fleetpings/form.py:201
+#: fleetpings/form.py:207
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -198,11 +204,11 @@ msgstr ""
 "Если флажок активен, будет создан специальный таймер сбора для данного "
 "предварительно пинга."
 
-#: fleetpings/form.py:207
+#: fleetpings/form.py:213
 msgid "Duration"
 msgstr "Продолжительность"
 
-#: fleetpings/form.py:208
+#: fleetpings/form.py:214
 msgid "How long approximately will the fleet be?"
 msgstr "Какой примерно длины будет флот?"
 

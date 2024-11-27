@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 19:02+0200\n"
+"POT-Creation-Date: 2024-11-28 00:00+0100\n"
 "PO-Revision-Date: 2024-05-10 14:04+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-"
@@ -27,11 +27,11 @@ msgstr "Flotten-Ankündigungen"
 msgid "Fleet comm"
 msgstr "Flottenkommunikation"
 
-#: fleetpings/admin.py:92 fleetpings/form.py:151
+#: fleetpings/admin.py:92 fleetpings/form.py:157
 msgid "Doctrine"
 msgstr "Doktrin"
 
-#: fleetpings/admin.py:106 fleetpings/form.py:158 fleetpings/models.py:151
+#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:151
 msgid "Doctrine link"
 msgstr "Doktrin Link"
 
@@ -121,24 +121,30 @@ msgstr "Treffpunkt"
 msgid "Formup time"
 msgstr "Flottenstart"
 
-#: fleetpings/form.py:124
+#: fleetpings/form.py:126
+#, fuzzy
+#| msgid "Formup timestamp"
+msgid "Formup time (Eve time)"
+msgstr "Flottenstart Zeitstempel"
+
+#: fleetpings/form.py:130
 msgid ""
 "To enable this field, either make it a pre-ping (checkbox above) or uncheck "
 "\"Formup NOW\" (checkbox below)."
 msgstr ""
 "Um dieses Feld zu aktivieren, mach es entweder zu einem Pre-Ping "
-"(Kontrollkästchen oben) oder deaktiviere „Flottenstart "
-"JETZT“ (Kontrollkästchen unten)."
+"(Kontrollkästchen oben) oder deaktiviere „Flottenstart JETZT“ "
+"(Kontrollkästchen unten)."
 
-#: fleetpings/form.py:130
+#: fleetpings/form.py:136
 msgid "Formup timestamp"
 msgstr "Flottenstart Zeitstempel"
 
-#: fleetpings/form.py:136
+#: fleetpings/form.py:142
 msgid "Formup NOW"
 msgstr "Flottenstart JETZT"
 
-#: fleetpings/form.py:138
+#: fleetpings/form.py:144
 msgid ""
 "If this checkbox is active, formup time will be set to \"NOW\" and the time "
 "in the field above (if any is set) will be ignored."
@@ -147,27 +153,27 @@ msgstr ""
 "„JETZT“ gesetzt. und die Zeit im obigen Feld (falls vorhanden) wird "
 "ignoriert."
 
-#: fleetpings/form.py:144 fleetpings/models.py:127
+#: fleetpings/form.py:150 fleetpings/models.py:127
 msgid "Fleet comms"
 msgstr "Flottenkommunikationen"
 
-#: fleetpings/form.py:163
+#: fleetpings/form.py:169
 msgid "Webhook embed color"
 msgstr "Webhook Embed-Farbe"
 
-#: fleetpings/form.py:169
+#: fleetpings/form.py:175
 msgid "SRP"
 msgstr "SRP"
 
-#: fleetpings/form.py:170
+#: fleetpings/form.py:176
 msgid "Is this fleet covered by SRP?"
 msgstr "Ist diese Flotte durch SRP abgedeckt?"
 
-#: fleetpings/form.py:175
+#: fleetpings/form.py:181
 msgid "Create SRP link"
 msgstr "SRP-Link erstellen"
 
-#: fleetpings/form.py:177
+#: fleetpings/form.py:183
 msgid ""
 "If this checkbox is active, a SRP link specific for this fleet will be "
 "created.<br>Leave blank if unsure."
@@ -176,19 +182,19 @@ msgstr ""
 "spezifischer SRP-Link erstellt.<br>Leer lassen, wenn Du Dir nicht sicher "
 "bist."
 
-#: fleetpings/form.py:183
+#: fleetpings/form.py:189
 msgid "Additional information"
 msgstr "Zusätzliche Informationen"
 
-#: fleetpings/form.py:190
+#: fleetpings/form.py:196
 msgid "Feel free to add some more information about the fleet …"
 msgstr "Fühl Dich frei, weitere Informationen über die Flotte hinzuzufügen …"
 
-#: fleetpings/form.py:199
+#: fleetpings/form.py:205
 msgid "Create Optimer"
 msgstr "Op Timer erstellen"
 
-#: fleetpings/form.py:201
+#: fleetpings/form.py:207
 msgid ""
 "If this checkbox is active, a fleet operations timer for this pre-ping will "
 "be created."
@@ -196,11 +202,11 @@ msgstr ""
 "Wenn dieses Kontrollkästchen aktiviert ist, wird ein Op Timer für diesen Pre-"
 "Ping erstellt."
 
-#: fleetpings/form.py:207
+#: fleetpings/form.py:213
 msgid "Duration"
 msgstr "Dauer"
 
-#: fleetpings/form.py:208
+#: fleetpings/form.py:214
 msgid "How long approximately will the fleet be?"
 msgstr "Wie lange wird die Flotte etwa dauern?"
 

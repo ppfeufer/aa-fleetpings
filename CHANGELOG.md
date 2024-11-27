@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Added
+
+- Eve time hint in placeholder for formup time (#237)
+
 ### Changed
 
 - Autocomplete JS updated

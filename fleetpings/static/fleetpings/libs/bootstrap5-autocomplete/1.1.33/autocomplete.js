@@ -1,5 +1,7 @@
 /**
  * Bootstrap 5 autocomplete
+ * https://github.com/lekoala/bootstrap5-autocomplete
+ * @license MIT
  */
 
 // #region config
@@ -27,6 +29,14 @@
  */
 
 /**
+ * @callback ErrorCallback
+ * @param {Error} e
+ * @param {AbortSignal} signal
+ * @param {Autocomplete} inst
+ * @returns {void}
+ */
+
+/**
  * @callback FetchCallback
  * @param {Autocomplete} inst
  * @returns {void}
@@ -39,6 +49,7 @@
  * @property {Number} maximumItems Maximum number of items to display
  * @property {Boolean} autoselectFirst Always select the first item
  * @property {Boolean} ignoreEnter Ignore enter if no items are selected (play nicely with autoselectFirst=0)
+ * @property {Boolean} tabSelect Tab will trigger selection if active
  * @property {Boolean} updateOnSelect Update input value on selection (doesn't play nice with autoselectFirst)
  * @property {Boolean} highlightTyped Highlight matched part of the label
  * @property {String} highlightClass Class added to the mark label
@@ -72,6 +83,7 @@
  * @property {RenderCallback} onRenderItem Callback function that returns the label
  * @property {ItemCallback} onSelectItem Callback function to call on selection
  * @property {ServerCallback} onServerResponse Callback function to process server response. Must return a Promise
+ * @property {ErrorCallback} onServerError Callback function to process server errors.
  * @property {ItemCallback} onChange Callback function to call on change-event. Returns currently selected item if any
  * @property {FetchCallback} onBeforeFetch Callback function before fetch
  * @property {FetchCallback} onAfterFetch Callback function after fetch
@@ -86,6 +98,7 @@ const DEFAULTS = {
   maximumItems: 0,
   autoselectFirst: true,
   ignoreEnter: false,
+  tabSelect: false,
   updateOnSelect: false,
   highlightTyped: false,
   highlightClass: "",
@@ -122,6 +135,13 @@ const DEFAULTS = {
   onSelectItem: (item, inst) => {},
   onServerResponse: (response, inst) => {
     return response.json();
+  },
+  onServerError: (e, signal, inst) => {
+    // Current version of Firefox rejects the promise with a DOMException
+    if (e.name === "AbortError" || signal.aborted) {
+      return;
+    }
+    console.error(e);
   },
   onChange: (item, inst) => {},
   onBeforeFetch: (inst) => {},
@@ -272,6 +292,7 @@ class Autocomplete {
     this._configure(config);
 
     // Private vars
+    this._isMouse = false;
     this._preventInput = false;
     this._keyboardNavigation = false;
     this._searchFunc = debounce(() => {
@@ -296,7 +317,7 @@ class Autocomplete {
     ["focus", "change", "blur", "input", "keydown"].forEach((type) => {
       this._searchInput.addEventListener(type, this);
     });
-    ["mousemove", "mouseleave"].forEach((type) => {
+    ["mousemove", "mouseenter", "mouseleave"].forEach((type) => {
       this._dropElement.addEventListener(type, this);
     });
 
@@ -341,7 +362,7 @@ class Autocomplete {
     ["focus", "change", "blur", "input", "keydown"].forEach((type) => {
       this._searchInput.removeEventListener(type, this);
     });
-    ["mousemove", "mouseleave"].forEach((type) => {
+    ["mousemove", "mouseenter", "mouseleave"].forEach((type) => {
       this._dropElement.removeEventListener(type, this);
     });
 
@@ -520,14 +541,16 @@ class Autocomplete {
 
   onchange(e) {
     const search = this._searchInput.value;
-    const item = Object.values(this._items).find((item) => item.label === search);
+    const item = this._items.find((item) => item.label === search);
     this._config.onChange(item, this);
   }
 
   onblur(e) {
-    // Clicking on the scrollbar will trigger a blur in modals...
-    if (e.relatedTarget && e.relatedTarget.classList.contains("modal")) {
-      // Set focus back in
+    const related = e.relatedTarget;
+    // Clicking on the scroll in a modal blur the element incorrectly
+    // In chrome >= 127, the related target is the dropdown menu
+    if (this._isMouse && related && (related.classList.contains("modal") || related.classList.contains("autocomplete-menu"))) {
+      // Restore focus
       this._searchInput.focus();
       return;
     }
@@ -559,6 +582,16 @@ class Autocomplete {
           }
         }
         break;
+      case 9:
+      case "Tab":
+        if (this.isDropdownVisible() && this._config.tabSelect) {
+          const selection = this.getSelection();
+          if (selection) {
+            selection.click();
+            e.preventDefault();
+          }
+        }
+        break;
       case 38:
       case "ArrowUp":
         e.preventDefault();
@@ -586,12 +619,18 @@ class Autocomplete {
     }
   }
 
+  onmouseenter(e) {
+    this._isMouse = true;
+  }
+
   onmousemove(e) {
+    this._isMouse = true;
     // Moving the mouse means no longer using keyboard
     this._keyboardNavigation = false;
   }
 
   onmouseleave(e) {
+    this._isMouse = false;
     // Remove selection
     this.removeSelection();
   }
@@ -628,7 +667,7 @@ class Autocomplete {
   }
 
   setData(src) {
-    this._items = {};
+    this._items = [];
     this._addItems(src);
   }
 
@@ -869,12 +908,14 @@ class Autocomplete {
 
     // Hover sets active item
     newChildLink.addEventListener("mouseenter", (event) => {
-      // Don't trigger enter if using arrows
-      if (this._keyboardNavigation) {
+      // Don't trigger enter if using arrows or not currently using the mouse
+      if (this._keyboardNavigation || !this._isMouse) {
         return;
       }
       this.removeSelection();
-      newChild.querySelector("a").classList.add(...this._activeClasses());
+      const a = newChild.querySelector("a");
+      a.classList.add(...this._activeClasses());
+      this._searchInput.setAttribute("aria-activedescendant", a.id);
     });
     // Prevent searchInput losing focus and close the menu
     newChildLink.addEventListener("mousedown", (event) => {
@@ -910,15 +951,11 @@ class Autocomplete {
     const lookup = normalize(this._searchInput.value);
     this._dropElement.innerHTML = "";
 
-    const keys = Object.keys(this._items);
     let count = 0;
     let firstItem = null;
 
     const groups = [];
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const entry = this._items[key];
-
+    for (const entry of this._items) {
       // Check search length since we can trigger dropdown with arrow
       const showAllSuggestions = this._config.showAllSuggestions || lookup.length === 0;
       // Do we find a matching string or do we display immediately ?
@@ -1098,7 +1135,7 @@ class Autocomplete {
   }
 
   _fetchData() {
-    this._items = {};
+    this._items = [];
 
     // From an array of items or an object
     this._addItems(this._config.items);
@@ -1132,23 +1169,36 @@ class Autocomplete {
 
   _setHiddenVal() {
     if (this._config.hiddenInput && !this._config.hiddenValue) {
-      for (const [value, entry] of Object.entries(this._items)) {
+      for (const entry of this._items) {
         if (entry.label == this._searchInput.value) {
-          this._hiddenInput.value = value;
+          this._hiddenInput.value = entry.value;
         }
       }
     }
+  }
+
+  _normalizeData(src) {
+    if (Array.isArray(src)) {
+      return src;
+    }
+
+    let arr = [];
+    // Normalize objects into an array of value/label objects
+    for (const [value, label] of Object.entries(src)) {
+      arr.push({
+        value,
+        label,
+      });
+    }
+    return arr;
   }
 
   /**
    * @param {Array|Object} src An array of items or a value:label object
    */
   _addItems(src) {
-    const keys = Object.keys(src);
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const entry = src[key];
-
+    src = this._normalizeData(src);
+    for (const entry of src) {
       if (entry.group && entry.items) {
         entry.items.forEach((e) => (e.group = entry.group));
         this._addItems(entry.items);
@@ -1158,13 +1208,13 @@ class Autocomplete {
       const label = typeof entry === "string" ? entry : entry.label;
       const item = typeof entry !== "object" ? {} : entry;
 
-      // Normalize entry
+      // Normalize entry when the entry is just a string (value = label)
       item.label = entry[this._config.labelField] ?? label;
-      item.value = entry[this._config.valueField] ?? key;
+      item.value = entry[this._config.valueField] ?? label;
 
       // Make sure we have a label
       if (item.label) {
-        this._items[item.value] = item;
+        this._items.push(item);
       }
     }
   }
@@ -1234,11 +1284,7 @@ class Autocomplete {
         }
       })
       .catch((e) => {
-        // Current version of Firefox rejects the promise with a DOMException
-        if (e.name === "AbortError" || this._abortController.signal.aborted) {
-          return;
-        }
-        console.error(e);
+        this._config.onServerError(e, this._abortController.signal, this);
       })
       .finally((e) => {
         this._searchInput.classList.remove(LOADING_CLASS);

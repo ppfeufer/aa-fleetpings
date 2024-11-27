@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## \[3.4.2\] - 2024-11-28
+
 ### Added
 
 - Eve time hint in placeholder for formup time (#237)

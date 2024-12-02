@@ -22,7 +22,7 @@ https://docs.github.com/assets/cb-41128/mw-1440/images/help/writing/alerts-rende
 > Critical content demanding immediate user attention due to potential risks.
 -->
 
-## \[In Development\] - Unreleased
+## [In Development] - Unreleased
 
 <!--
 Section Order:
@@ -35,7 +35,7 @@ Section Order:
 ### Security
 -->
 
-## \[3.4.2\] - 2024-11-28
+## [3.4.2] - 2024-11-28
 
 ### Added
 
@@ -45,20 +45,20 @@ Section Order:
 
 - Autocomplete JS updated
 
-## \[3.4.1\] - 2024-11-01
+## [3.4.1] - 2024-11-01
 
 ### Changed
 
 - Italian translation improved
 - Ukrainian translation improved
 
-## \[3.4.0\] - 2024-09-19
+## [3.4.0] - 2024-09-19
 
 ### Changed
 
 - Switch to `django-solo` to provide the singleton for the settings model, instead of the custom implementation
 
-## \[3.3.0\] - 2024-09-16
+## [3.3.0] - 2024-09-16
 
 ### Changed
 
@@ -68,7 +68,7 @@ Section Order:
 - Japanese translation improved
 - Lingua codes updated to match Alliance Auth v4.3.1
 
-## \[3.2.0\] - 2024-07-27
+## [3.2.0] - 2024-07-27
 
 ### Added
 
@@ -84,31 +84,31 @@ Section Order:
 
 - Support for Python 3.8 and Python 3.9
 
-## \[3.1.2\] - 2024-06-03
+## [3.1.2] - 2024-06-03
 
 ### Changed
 
 - Chinese translation updated
 
-## \[3.1.1\] - 2024-05-16
+## [3.1.1] - 2024-05-16
 
 ### Changed
 
 - Translations updated
 
-## \[3.1.0\] - 2024-04-21
+## [3.1.0] - 2024-04-21
 
 ### Added
 
 - Field for the approximate fleet duration ([#183](https://github.com/ppfeufer/aa-fleetpings/issues/183))
 
-## \[3.0.2\] - 2024-04-05
+## [3.0.2] - 2024-04-05
 
 ### Fixed
 
 - Empty string checks in JS
 
-## \[3.0.1\] - 2024-04-05
+## [3.0.1] - 2024-04-05
 
 ### Added
 
@@ -122,9 +122,9 @@ Section Order:
 
 - Translations updated
 
-## \[3.0.0\] - 2024-03-16
+## [3.0.0] - 2024-03-16
 
-> \[!NOTE\]
+> [!NOTE]
 >
 > **This version needs at least Alliance Auth v4.0.0!**
 >
@@ -147,9 +147,9 @@ Section Order:
 
 - Compatibility to Alliance Auth v3
 
-## \[3.0.0-beta.1\] - 2024-02-18
+## [3.0.0-beta.1] - 2024-02-18
 
-> \[!NOTE\]
+> [!NOTE]
 >
 > **This version needs at least Alliance Auth v4.0.0b1!**
 >
@@ -171,9 +171,9 @@ Section Order:
 
 - Compatibility to Alliance Auth v3
 
-## \[2.26.3\] - 2023-11-15
+## [2.26.3] - 2023-11-15
 
-> \[!NOTE\]
+> [!NOTE]
 >
 > **This is the last version compatible with Alliance Auth v3.**
 
@@ -181,7 +181,7 @@ Section Order:
 
 - Translations updated
 
-## \[2.26.2\] - 2023-09-26
+## [2.26.2] - 2023-09-26
 
 ### Fixed
 
@@ -194,31 +194,31 @@ Section Order:
 - Test suite updated
 - Translation updates
 
-## \[2.26.1\] - 2023-09-02
+## [2.26.1] - 2023-09-02
 
 ### Changed
 
 - Korean translation improved
 
-## \[2.26.0\] - 2023-08-30
+## [2.26.0] - 2023-08-30
 
 ### Added
 
 - Korean translation
 
-## \[2.25.0\] - 2023-08-16
+## [2.25.0] - 2023-08-16
 
 ### Added
 
 - Spanish translation
 
-## \[2.24.4\] - 2023-08-13
+## [2.24.4] - 2023-08-13
 
 ### Fixed
 
 - Bootstrap CSS fix
 
-## \[2.24.3\] - 2023-07-30
+## [2.24.3] - 2023-07-30
 
 ### Added
 
@@ -230,13 +230,13 @@ Section Order:
 - Ukrainian translation improved
 - Translation string unified (No need for 2 different strings for the same thing)
 
-## \[2.24.2\] - 2023-06-27
+## [2.24.2] - 2023-06-27
 
 ### Fixed
 
 - And another one for ([#127])
 
-## \[2.24.1\] - 2023-06-27
+## [2.24.1] - 2023-06-27
 
 ### Fixed
 
@@ -244,14 +244,14 @@ Section Order:
 
 <!-- Links -->
 
-## \[2.24.0\] - 2023-06-24
+## [2.24.0] - 2023-06-24
 
 ### Changed
 
 - JS modernised
 - Model renamed to be in line with the Django naming scheme
 
-## \[2.23.0\] - 2023-06-02
+## [2.23.0] - 2023-06-02
 
 ### Added
 
@@ -261,7 +261,7 @@ Section Order:
 
 - German translation improved
 
-## \[2.22.2\] - 2023-05-28
+## [2.22.2] - 2023-05-28
 
 ### Fixed
 
@@ -273,19 +273,19 @@ Section Order:
 - German translation updated
 - Russian translation updated
 
-## \[2.22.1\] - 2023-05-21
+## [2.22.1] - 2023-05-21
 
 ### Fixed
 
 - Dropdowns for fleet comms, formup locations and doctrines now look more like
   actual dropdowns.
 
-## \[2.22.0\] - 2023-05-20
+## [2.22.0] - 2023-05-20
 
-> \[!NOTE\]
+> [!NOTE]
 >
 > After this update and successful migration, you can remove this app's settings
-> from  your `local.py`. All settings are now handled through the Django Admin
+> from your `local.py`. All settings are now handled through the Django Admin
 > Backend under `/admin/fleetpings/setting/`
 
 ### Changed
@@ -295,7 +295,7 @@ Section Order:
 - Russian translation updated
 - Ukrainian translation updated (not complete yet, currently at 90% translated)
 
-## \[2.21.0\] - 2023-04-25
+## [2.21.0] - 2023-04-25
 
 ### Added
 
@@ -306,25 +306,25 @@ Section Order:
 - Russian translation updated
 - Moved the build process to PEP 621 / pyproject.toml
 
-## \[2.20.0\] - 2023-04-16
+## [2.20.0] - 2023-04-16
 
 ### Added
 
 - Russian translation
 
-## \[2.19.0\] - 2023-04-13
+## [2.19.0] - 2023-04-13
 
 ### Added
 
 - German translation
 
-## \[2.18.0\] - 2023-01-03
+## [2.18.0] - 2023-01-03
 
 ### Changed
 
 - Enable ordering for the webhooks (Thanks to [@pvyParts] » [#89])
 
-## \[2.17.0\] - 2022-12-06
+## [2.17.0] - 2022-12-06
 
 ### Added
 
@@ -333,7 +333,7 @@ Section Order:
   to ensure your webhook understands a payload formatted for Discord webhooks.
   (Thanks to [@pvyParts] » [#87])
 
-## \[2.16.0\] - 2022-09-18
+## [2.16.0] - 2022-09-18
 
 ### Added
 
@@ -345,14 +345,14 @@ Section Order:
 - Minimum Requirement:
   - Alliance Auth >= 3.2.0
 
-## \[2.15.0\] - 2022-08-15
+## [2.15.0] - 2022-08-15
 
 ### Added
 
 - Warning about ping spam when `@everyone` is selected as target. Hopefully this
   will fight ping spam a little.
 
-## \[2.14.1\] - 2022-08-05
+## [2.14.1] - 2022-08-05
 
 ### Fixed
 
@@ -363,7 +363,7 @@ Section Order:
 - Simplified checks for mandatory fields in JS (If you're still using Internet
   Explorer 11 or older, you should feel bad and update to a modern browser)
 
-## \[2.14.0\] - 2022-07-11
+## [2.14.0] - 2022-07-11
 
 ### Fixed
 
@@ -375,19 +375,19 @@ Section Order:
 - Minimum Requirement:
   - Alliance Auth >= 2.14.0
 
-## \[2.13.2\] - 2022-04-21
+## [2.13.2] - 2022-04-21
 
 ### Fixed
 
 - Issue: Custom ping targets not auto-linking in Discord properly. ([#74])
 
-## \[2.13.1\] - 2022-04-17
+## [2.13.1] - 2022-04-17
 
 ### Added
 
 - Missing `helper` directory
 
-## \[2.13.0\] - 2022-04-17
+## [2.13.0] - 2022-04-17
 
 ### Added
 
@@ -409,7 +409,7 @@ Section Order:
 - Support for Slack Webhooks. Slack is not supported by Alliance Auth, so it has
   been dropped from this app as well.
 
-## \[2.13.0-beta.1\] - 2022-04-06
+## [2.13.0-beta.1] - 2022-04-06
 
 ### Added
 
@@ -419,7 +419,7 @@ Section Order:
 
 - Get `timezones` app URL from Django instead of it being hardcoded
 
-## \[2.12.0\] - 2022-03-02
+## [2.12.0] - 2022-03-02
 
 ### Added
 
@@ -433,7 +433,7 @@ Section Order:
 
 - Deprecated settings
 
-## \[2.11.0\] - 2022-02-28
+## [2.11.0] - 2022-02-28
 
 ### Added
 
@@ -450,20 +450,20 @@ Section Order:
 
 ### Fixed
 
-- \[Compatibility\] AA 3.x / Django 4 :: ImportError: cannot import name
+- [Compatibility] AA 3.x / Django 4 :: ImportError: cannot import name
   'ugettext_lazy' from 'django.utils.translation'
 
 ### Changed
 
 - JavaScript modernised
 
-## \[2.10.1\] - 2022-02-02
+## [2.10.1] - 2022-02-02
 
 ### Changed
 
 - Using `path` in URL config instead of soon-to-be removed `url`
 
-## \[2.10.0\] - 2022-01-12
+## [2.10.0] - 2022-01-12
 
 ### Added
 
@@ -474,7 +474,7 @@ Section Order:
 
 - JS rewrite
 
-## \[2.9.0\] - 2022-01-11
+## [2.9.0] - 2022-01-11
 
 ### Added
 
@@ -485,7 +485,7 @@ Section Order:
 - An issue where the checkboxes haven't been cleared properly when switching between
   "Pre-Ping" and "Formup NOW"
 
-## \[2.8.0\] - 2022-01-02
+## [2.8.0] - 2022-01-02
 
 ### Added
 
@@ -501,7 +501,7 @@ Section Order:
 
 - Check for AA-GDPR, since we don't load any external resources it is not needed
 
-## \[2.7.0\] - 2021-11-30
+## [2.7.0] - 2021-11-30
 
 ### Changed
 
@@ -509,7 +509,7 @@ Section Order:
   - Python 3.7
   - Alliance Auth v2.9.3
 
-## \[2.6.0\] - 2021-11-15
+## [2.6.0] - 2021-11-15
 
 ### Added
 
@@ -521,26 +521,26 @@ Section Order:
 - Minimum Python version set to 3.7
 - Minimum AA version set to 2.8.8
 
-## \[2.5.5\] - 2021-07-08
+## [2.5.5] - 2021-07-08
 
 ### Added
 
 - Python 3.9 and Django 3.2 compatibility
 
-## \[2.5.4\] - 2021-05-05
+## [2.5.4] - 2021-05-05
 
 ### Fixed
 
 - Using Django application registry instead of directly accessing `INSTALLED_APPS` (#49)
 
-## \[2.5.3\] - 2021-05-05
+## [2.5.3] - 2021-05-05
 
 ### Fixed
 
 - Interference with Discord service migrations in case the Discord service is
   activated _after_ this app is installed.
 
-## \[2.5.2\] - 2021-01-19
+## [2.5.2] - 2021-01-19
 
 ### Added
 
@@ -551,7 +551,7 @@ Section Order:
 
 - Creating multiple SRP links with the same SRP code.
 
-## \[2.5.1\] - 2021-01-17
+## [2.5.1] - 2021-01-17
 
 ### Fixed
 
@@ -563,7 +563,7 @@ Section Order:
 - Set input field for formup time to `autocomplete="off"` so you don't have to fiddle
   around to use the datetime picker anymore
 
-## \[2.5.0\] - 2021-01-12
+## [2.5.0] - 2021-01-12
 
 ### Added
 
@@ -581,39 +581,39 @@ Section Order:
 
 - Django 2 support
 
-## \[2.4.4\] - 2020-12-16
+## [2.4.4] - 2020-12-16
 
 ### Fixed
 
 - Bootstrap classes in template
 
-## \[2.4.3\] - 2020-12-10
+## [2.4.3] - 2020-12-10
 
 ### Fixed
 
 - An issue with quotes in the doctrine field ([#38])
 
-## \[2.4.2\] - 2020-11-08
+## [2.4.2] - 2020-11-08
 
 ### Fixed
 
 - Create optimer is visible even if optimer is not active ([#35])
 
-## \[2.4.1\] - 2020-11-05
+## [2.4.1] - 2020-11-05
 
 ### Added
 
 - "Don't Ping" option to ping targets
 
-## \[2.4.0\] - 2020-10-26
+## [2.4.0] - 2020-10-26
 
 ### Added
 
 - Checkbox to automatically create a fleet operations timer for a pre-ping
 
-## \[2.3.0\] - 2020-10-14
+## [2.3.0] - 2020-10-14
 
-> \[!IMPORTANT\]
+> [!IMPORTANT]
 >
 > Before updating to this version, make sure you have your Alliance Auth updated to
 > version 2.8.0 (or newer). This version of AA Fleetpings uses a JavaScript library
@@ -641,13 +641,13 @@ Section Order:
   bundled with Alliance Auth
 - Unused lib removed
 
-## \[2.2.2\] - 2020-09-23
+## [2.2.2] - 2020-09-23
 
 ### Added
 
 - Django 3 stuff in `setup.py`, Should probably be in there as well …
 
-## \[2.2.1\] - 2020-09-23
+## [2.2.1] - 2020-09-23
 
 ### Added
 
@@ -657,22 +657,22 @@ Section Order:
 
 - Fleet type embed color is now a color picker in admin backend
 
-## \[2.2.0\] - 2020-09-16
+## [2.2.0] - 2020-09-16
 
 ### Added
 
 - Option to use the fittings from the [Fittings and Doctrines](https://gitlab.com/colcrunch/fittings) module if you have it installed
 
-## \[2.1.0\] - 2020-09-16
+## [2.1.0] - 2020-09-16
 
 ### Added
 
 - Restrictions to fleet types
 - Restrictions to doctrines
 
-## \[2.0.0\] - 2020-09-15
+## [2.0.0] - 2020-09-15
 
-> \[!NOTE\]
+> [!NOTE]
 >
 > This is the official re-brand of AA Discord Ping Formatter, since the original name
 > didn't fit anymore with the new features, like automatic pings and now the new
@@ -713,19 +713,19 @@ settings in the admin backend, since we just nuked them from the old app.
 
 ## From the discontinued AA Discord Ping Formatter (to keep the history alive)
 
-## \[1.1.4\] - 2020-08-14
+## [1.1.4] - 2020-08-14
 
 ### Fixed
 
 - Little logic error in embedded pre-pings when no FC is set
 
-## \[1.1.3\] - 2020-08-11
+## [1.1.3] - 2020-08-11
 
 ### Fixed
 
 - Single quote issue finally fixed ([#31])
 
-## \[1.1.2\] - 2020-08-10
+## [1.1.2] - 2020-08-10
 
 ### Fixed
 
@@ -733,7 +733,7 @@ settings in the admin backend, since we just nuked them from the old app.
 - Hopefully escaped possible single quotes in a character name, so they will not be
   transformed into their respective HTML entities in a ping
 
-## \[1.1.1\] - 2020-08-02
+## [1.1.1] - 2020-08-02
 
 ### Changed
 
@@ -741,7 +741,7 @@ settings in the admin backend, since we just nuked them from the old app.
 - Added a bit more information to the embedded ping, so on mobile phones or system
   notification there is a bit more than just `@everyone` or `@here` to see.
 
-## \[1.1.0\] - 2020-07-17
+## [1.1.0] - 2020-07-17
 
 ### Added
 
@@ -750,7 +750,7 @@ settings in the admin backend, since we just nuked them from the old app.
   `AA_DISCORDFORMATTER_FLEET_DOCTRINES` and
   `AA_DISCORDFORMATTER_FLEET_FORMUP_LOCATIONS`.
 
-## \[1.0.0\] - 2020-07-16
+## [1.0.0] - 2020-07-16
 
 ### Added
 
@@ -768,7 +768,7 @@ settings in the admin backend, since we just nuked them from the old app.
   now able to pre-ping fleets that are coming up in 2-hours Eve time, which might
   still be in their past local time, depending on how far in the future they live. ([#19])
 
-## \[0.1.10\] - 2020-07-16
+## [0.1.10] - 2020-07-16
 
 ### Added
 
@@ -785,13 +785,13 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Link to time zones conversion is now a named link
 
-## \[0.1.9\] - 2020-07-14
+## [0.1.9] - 2020-07-14
 
 ### Added
 
 - Ping creator at the end auf automatic pings via webhooks
 
-## \[0.1.8\] - 2020-07-09
+## [0.1.8] - 2020-07-09
 
 ### Added
 
@@ -810,26 +810,26 @@ settings in the admin backend, since we just nuked them from the old app.
   or disable the Formup NOW checkbox below the Formup Time field
 - Formup Time is set to NOW by default
 
-## \[0.1.7\] - 2020-07-08
+## [0.1.7] - 2020-07-08
 
 ### Added
 
 - Link to timezones conversion on formup time if the
   [aa-timezones](https://github.com/ppfeufer/aa-timezones) module is installed
 
-## \[0.1.6\] - 2020-07-04
+## [0.1.6] - 2020-07-04
 
 ### Fixed
 
 - Ping for non-default roles via Webhook ([#9])
 
-## \[0.1.5\] - 2020-06-24
+## [0.1.5] - 2020-06-24
 
 ### Added
 
 - Configurable Discord webhooks to ping channels automagically
 
-## \[0.1.4\] - 2020-06-18
+## [0.1.4] - 2020-06-18
 
 ### Fixed
 
@@ -839,25 +839,25 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Ping Type renamed to Ping Target in form
 
-## \[0.1.3\] - 2020-06-15
+## [0.1.3] - 2020-06-15
 
 ### Added
 
 - Configuration for additional ping targets and fleet types
 
-## \[0.1.2\] - 2020-06-14
+## [0.1.2] - 2020-06-14
 
 ### Fixed
 
 - Sanitizing form field input
 
-## \[0.1.1\] - 2020-06-13
+## [0.1.1] - 2020-06-13
 
 ### Fixed
 
 - There should always be an empty line before Additional Information ...
 
-## \[0.1.0\] - 2020-06-13
+## [0.1.0] - 2020-06-13
 
 ### Added
 

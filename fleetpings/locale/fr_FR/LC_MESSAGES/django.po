@@ -7,21 +7,22 @@
 # Hexo <ghostcig@free.fr>, 2024.
 # Houbi_Houba <paul.lacape@live.fr>, 2024.
 # Mickael Gr4vity <patte.mickael@gmail.com>, 2024.
+# balbozorre <loic.petiot2002@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-28 00:00+0100\n"
-"PO-Revision-Date: 2024-11-09 11:25+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/fr/>\n"
+"PO-Revision-Date: 2024-12-11 23:15+0000\n"
+"Last-Translator: balbozorre <loic.petiot2002@gmail.com>\n"
+"Language-Team: French <https://weblate.ppfeufer.de/projects/"
+"alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8.3\n"
+"X-Generator: Weblate 5.8.4\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -70,7 +71,7 @@ msgstr "Webhook URL"
 #: fleetpings/apps.py:21
 #, python-brace-format
 msgid "Fleet Pings v{__version__}"
-msgstr ""
+msgstr "Pings de Flotte v{__version__}"
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
@@ -100,7 +101,7 @@ msgstr ""
 
 #: fleetpings/form.py:90
 msgid "Select a channel to ping automatically."
-msgstr ""
+msgstr "Selectionnez un canal à ping automatiquement."
 
 #: fleetpings/form.py:97
 msgid "FC name"
@@ -178,7 +179,7 @@ msgstr ""
 
 #: fleetpings/form.py:189
 msgid "Additional information"
-msgstr ""
+msgstr "Informations complémentaires"
 
 #: fleetpings/form.py:196
 msgid "Feel free to add some more information about the fleet …"
@@ -346,7 +347,7 @@ msgstr ""
 
 #: fleetpings/models.py:445
 msgid "Fleet types"
-msgstr ""
+msgstr "Types de flotte"
 
 #: fleetpings/models.py:458
 msgid "Name of the channel this webhook posts to"

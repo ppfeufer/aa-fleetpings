@@ -8,21 +8,21 @@
 # Houbi_Houba <paul.lacape@live.fr>, 2024.
 # Mickael Gr4vity <patte.mickael@gmail.com>, 2024.
 # balbozorre <loic.petiot2002@gmail.com>, 2024.
+# Onyx <The_Onyx_best@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2024-12-14 17:49+0100\n"
-"PO-Revision-Date: 2024-12-13 16:15+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/fr/>\n"
+"PO-Revision-Date: 2025-01-10 22:15+0000\n"
+"Last-Translator: Onyx <The_Onyx_best@hotmail.com>\n"
+"Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -57,7 +57,7 @@ msgstr "Type de flotte"
 
 #: fleetpings/admin.py:251 fleetpings/models.py:401
 msgid "Embed color"
-msgstr ""
+msgstr "Intégrer la couleur"
 
 #: fleetpings/admin.py:307 fleetpings/models.py:459
 msgid "Discord channel"
@@ -89,11 +89,11 @@ msgstr "À qui voulez-vous envoyer un ping ?"
 
 #: fleetpings/form.py:83
 msgid "Pre-Ping"
-msgstr ""
+msgstr "Pre-Ping"
 
 #: fleetpings/form.py:84
 msgid "Mark this checkbox if this should be a pre-ping."
-msgstr ""
+msgstr "Cochez cette case s'il doit s'agir d'un pré-ping."
 
 #: fleetpings/form.py:88
 msgid "Ping to"
@@ -105,11 +105,11 @@ msgstr "Selectionnez un canal à ping automatiquement."
 
 #: fleetpings/form.py:97
 msgid "FC name"
-msgstr ""
+msgstr "Nom du FC"
 
 #: fleetpings/form.py:99
 msgid "Who is the FC?"
-msgstr ""
+msgstr "Qui est le FC?"
 
 #: fleetpings/form.py:103
 msgid "Fleet name"
@@ -117,7 +117,7 @@ msgstr "Nom de la flotte"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
-msgstr ""
+msgstr "Quel est le nom de la flotte dans l'outil de recherche de flotte d'Eve ?"
 
 #: fleetpings/form.py:113 fleetpings/models.py:264
 msgid "Formup location"
@@ -125,11 +125,11 @@ msgstr ""
 
 #: fleetpings/form.py:120
 msgid "Formup time"
-msgstr ""
+msgstr "Heure de la formation"
 
 #: fleetpings/form.py:126
 msgid "Formup time (Eve time)"
-msgstr ""
+msgstr "Heure de la formation (Heure d'Eve)"
 
 #: fleetpings/form.py:130
 msgid ""

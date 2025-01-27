@@ -37,6 +37,7 @@ Section Order:
 
 ### Changed
 
+- Use `django-sri` for sri hashes
 - Set own user agent for dhooks-lite
 
 ## [3.4.3] - 2024-12-14

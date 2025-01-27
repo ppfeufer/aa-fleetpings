@@ -1,8 +1,3 @@
 {% load fleetpings %}
 
-<script
-    type="module"
-    src="{% fleetpings_static 'fleetpings/js/fleetpings.min.js' %}"
-    integrity="sha512-+WukzJKmxTeDpw6vEQ1DDaPlrhpYwbT3UHYCS33W/gVNUCTkXFMH1bGsAYaqj5FKxioVvQKhD+wMhZdw837C0w=="
-    crossorigin="anonymous"
-></script>
+{% fleetpings_static 'js/fleetpings.min.js' 'module' %}

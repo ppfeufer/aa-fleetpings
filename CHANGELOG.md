@@ -35,10 +35,14 @@ Section Order:
 ### Security
 -->
 
+## [3.5.0] - 2025-01-27
+
 ### Changed
 
 - Use `django-sri` for sri hashes
 - Set own user agent for dhooks-lite
+- Minimum requirements
+  - Alliance Auth >= 4.6.0
 
 ## [3.4.3] - 2024-12-14
 

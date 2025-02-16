@@ -6,21 +6,21 @@
 # SAM_FPS <sam_fps@163.com>, 2024.
 # MxdHana <236833425@qq.com>, 2024.
 # Peter Pfeufer <info@ppfeufer.de>, 2024.
+# Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2024-12-14 17:49+0100\n"
-"PO-Revision-Date: 2024-11-09 11:25+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/"
-"projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
+"PO-Revision-Date: 2025-02-16 09:17+0000\n"
+"Last-Translator: Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>\n"
+"Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.3\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -78,7 +78,7 @@ msgstr "Discord Markdown"
 #: fleetpings/form.py:34
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr "提示:您可以使用{discord_markdown_link}来格式化文本。"
+msgstr "提示：您可以使用{discord_markdown_link}来格式化文本。"
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"
@@ -90,7 +90,7 @@ msgstr "提前Ping"
 
 #: fleetpings/form.py:84
 msgid "Mark this checkbox if this should be a pre-ping."
-msgstr "如果这应该是提前ping，请勾选此框。"
+msgstr "如果这应该是一个提前ping，请勾选此框。"
 
 #: fleetpings/form.py:88
 msgid "Ping to"
@@ -125,10 +125,8 @@ msgid "Formup time"
 msgstr "起队时间"
 
 #: fleetpings/form.py:126
-#, fuzzy
-#| msgid "Formup timestamp"
 msgid "Formup time (Eve time)"
-msgstr "起队时间戳"
+msgstr "起队时间（EVE时间）"
 
 #: fleetpings/form.py:130
 msgid ""
@@ -311,7 +309,7 @@ msgstr "群组名称"
 
 #: fleetpings/models.py:293
 msgid "ID of the Discord role to ping"
-msgstr "要ping的Discord角色用户名"
+msgstr "要ping的Discord用户组的ID"
 
 #: fleetpings/models.py:294
 msgid "Discord ID"

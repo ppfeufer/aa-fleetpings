@@ -15,33 +15,32 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N8CL1BY)
 
-App for Alliance Auth that can format your fleet pings and also ping for you to
+App for Alliance Auth that can format your fleet pings and ping for you to
 Discord.
 
 ______________________________________________________________________
 
-<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
-- [AA Fleet Pings](#aa-fleet-pings)
-  - [Installation](#installation)
-    - [Step 1: Install the App](#step-1-install-the-app)
-    - [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings)
-    - [Step 3: Finalizing the Installation](#step-3-finalizing-the-installation)
-    - [Step 4: Setting up Permission](#step-4-setting-up-permission)
-    - [Step 5: Setting up the App](#step-5-setting-up-the-app)
-  - [Updating](#updating)
-  - [Screenshots](#screenshots)
-    - [View in Alliance Auth](#view-in-alliance-auth)
-    - [Discord Ping Example](#discord-ping-example)
-  - [Configuration](#configuration)
-    - [Use Default Fleet Types](#use-default-fleet-types)
-    - [Use Default Ping Targets](#use-default-ping-targets)
-    - [Use Doctrines From Fittings Module](#use-doctrines-from-fittings-module)
-    - [Webhook Verification](#webhook-verification)
-    - [Default Embed Color](#default-embed-color)
-  - [Changelog](#changelog)
-  - [Translation Status](#translation-status)
-  - [Contributing](#contributing)
+- [Installation](#installation)
+  - [Step 1: Install the App](#step-1-install-the-app)
+  - [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings)
+  - [Step 3: Finalizing the Installation](#step-3-finalizing-the-installation)
+  - [Step 4: Setting up Permission](#step-4-setting-up-permission)
+  - [Step 5: Setting up the App](#step-5-setting-up-the-app)
+- [Updating](#updating)
+- [Screenshots](#screenshots)
+  - [View in Alliance Auth](#view-in-alliance-auth)
+  - [Discord Ping Example](#discord-ping-example)
+- [Configuration](#configuration)
+  - [Use Default Fleet Types](#use-default-fleet-types)
+  - [Use Default Ping Targets](#use-default-ping-targets)
+  - [Use Doctrines From Fittings Module](#use-doctrines-from-fittings-module)
+  - [Webhook Verification](#webhook-verification)
+  - [Default Embed Color](#default-embed-color)
+- [Changelog](#changelog)
+- [Translation Status](#translation-status)
+- [Contributing](#contributing)
 
 <!-- mdformat-toc end -->
 

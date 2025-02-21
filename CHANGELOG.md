@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.5.1] - 2025-02-21
+
 ### Fixed
 
 - JavaScript timing issue where the doctrine link didn't get attached to the doctrine when selected

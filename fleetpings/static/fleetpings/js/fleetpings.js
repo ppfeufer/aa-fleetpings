@@ -102,7 +102,12 @@ $(document).ready(() => {
      */
     const getUserDropdownDataForDatalist = () => {
         const opts = {
-            onSelectItem: console.log,
+            onSelectItem: (selected_item, datalist) => {
+                if (datalist.e.datalist === 'fleet-doctrine-list') {
+                    setFleetDoctrineUrl();
+                }
+            },
+            preventBrowserAutocomplete: true,
         };
 
         // Formup locations
@@ -354,7 +359,7 @@ $(document).ready(() => {
      *
      * @returns {void}
      */
-    $(fleetpingsVars.inputFleetDoctrine).change(() => {
+    const setFleetDoctrineUrl = () => {
         const fleetDoctrine = sanitizeInput(fleetpingsVars.inputFleetDoctrine.val());
         let fleetDoctrineLink = null;
 
@@ -370,7 +375,7 @@ $(document).ready(() => {
         }
 
         $(fleetpingsVars.inputFleetDoctrineUrl).val(fleetDoctrineLink);
-    });
+    };
 
     /**
      * Set the webhook embed color

@@ -39,6 +39,10 @@ Section Order:
 
 - Code for the template tag has been improved
 
+### Removed
+
+- Unnecessary CSS class from form
+
 ## [3.5.1] - 2025-02-21
 
 ### Fixed

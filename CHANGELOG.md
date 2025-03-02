@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Removed
+
+- Unnecessary CSS class from form
+
 ## [3.5.1] - 2025-02-21
 
 ### Fixed

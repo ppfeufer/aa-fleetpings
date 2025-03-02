@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Changed
+
+- Code for the template tag has been improved
+
 ### Removed
 
 - Unnecessary CSS class from form

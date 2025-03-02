@@ -20,6 +20,7 @@ from app_utils.urls import reverse_absolute
 
 # AA Fleet Pings
 from fleetpings import __title__, __version__
+from fleetpings.constants import PACKAGE_NAME
 from fleetpings.helper.static_files import calculate_integrity_hash
 
 logger = LoggerAddTag(my_logger=get_extension_logger(__name__), prefix=__title__)
@@ -46,7 +47,7 @@ def fleetpings_static(relative_file_path: str, script_type: str = None) -> str |
     """
     Versioned static URL
 
-    :param relative_file_path: The file path relative to the `aa-fleetpings/fleetpings/static/fleetpings` folder
+    :param relative_file_path: The file path relative to the `{APP_NAME}/{PACKAGE_NAME}/static/{PACKAGE_NAME}` folder
     :type relative_file_path: str
     :param script_type: The script type
     :type script_type: str
@@ -64,7 +65,7 @@ def fleetpings_static(relative_file_path: str, script_type: str = None) -> str |
     if file_type not in ["css", "js"]:
         raise ValueError(f"Unsupported file type: {file_type}")
 
-    static_file_path = os.path.join("fleetpings", relative_file_path)
+    static_file_path = os.path.join(PACKAGE_NAME, relative_file_path)
     static_url = static(static_file_path)
 
     # Integrity hash calculation only for non-debug mode
@@ -83,16 +84,20 @@ def fleetpings_static(relative_file_path: str, script_type: str = None) -> str |
         else static_url + "?v=" + __version__
     )
 
+    return_value = None
+
     # Return the versioned URL with integrity hash for CSS
     if file_type == "css":
-        return mark_safe(f'<link rel="stylesheet" href="{versioned_url}"{sri_string}>')
+        return_value = mark_safe(
+            f'<link rel="stylesheet" href="{versioned_url}"{sri_string}>'
+        )
 
     # Return the versioned URL with integrity hash for JS files
     if file_type == "js":
         js_type = f' type="{script_type}"' if script_type else ""
 
-        return mark_safe(
+        return_value = mark_safe(
             f'<script{js_type} src="{versioned_url}"{sri_string}></script>'
         )
 
-    return None
+    return return_value

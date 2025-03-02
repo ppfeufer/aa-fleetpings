@@ -11,6 +11,7 @@ from app_utils.urls import site_absolute_url
 
 # AA Fleet Pings
 from fleetpings import __version__
+from fleetpings.constants import PACKAGE_NAME
 from fleetpings.helper.static_files import calculate_integrity_hash
 
 
@@ -40,13 +41,13 @@ class TestVersionedStatic(TestCase):
         rendered_template = template_to_render.render(context=context)
 
         expected_static_css_src = (
-            f'/static/fleetpings/css/fleetpings.min.css?v={context["version"]}'
+            f'/static/{PACKAGE_NAME}/css/fleetpings.min.css?v={context["version"]}'
         )
         expected_static_css_src_integrity = calculate_integrity_hash(
             "css/fleetpings.min.css"
         )
         expected_static_js_src = (
-            f'/static/fleetpings/js/fleetpings.min.js?v={context["version"]}'
+            f'/static/{PACKAGE_NAME}/js/fleetpings.min.js?v={context["version"]}'
         )
         expected_static_js_src_integrity = calculate_integrity_hash(
             "js/fleetpings.min.js"
@@ -81,7 +82,7 @@ class TestVersionedStatic(TestCase):
         rendered_template = template_to_render.render(context=context)
 
         expected_static_css_src = (
-            f'/static/fleetpings/css/fleetpings.min.css?v={context["version"]}'
+            f'/static/{PACKAGE_NAME}/css/fleetpings.min.css?v={context["version"]}'
         )
 
         self.assertIn(member=expected_static_css_src, container=rendered_template)

@@ -37,6 +37,7 @@ Section Order:
 
 ### Changed
 
+- Better constant names
 - Code for the template tag has been improved
 
 ### Removed

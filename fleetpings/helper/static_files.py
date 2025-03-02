@@ -17,7 +17,7 @@ from app_utils.logging import LoggerAddTag
 
 # AA Fleet Pings
 from fleetpings import __title__
-from fleetpings.constants import AA_FLEETPINGS_STATIC_DIR
+from fleetpings.constants import APP_STATIC_DIR
 
 logger = LoggerAddTag(my_logger=get_extension_logger(__name__), prefix=__title__)
 
@@ -34,7 +34,7 @@ def calculate_integrity_hash(relative_file_path: str) -> str:
     :rtype: str
     """
 
-    file_path = os.path.join(AA_FLEETPINGS_STATIC_DIR, relative_file_path)
+    file_path = os.path.join(APP_STATIC_DIR, relative_file_path)
     integrity_hash = calculate_integrity(Path(file_path), Algorithm.SHA512)
 
     return integrity_hash

@@ -35,15 +35,16 @@ Section Order:
 ### Security
 -->
 
+## [3.5.2] - 2025-03-06
+
 ### Changed
 
-- Templatetag improved
 - Better constant names
 - Code for the template tag has been improved
 
 ### Removed
 
-- Unnecessary CSS class from form
+- Unnecessary CSS class from the form
 
 ## [3.5.1] - 2025-02-21
 

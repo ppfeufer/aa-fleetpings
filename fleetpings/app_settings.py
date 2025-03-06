@@ -2,8 +2,12 @@
 App settings for fleetpings
 """
 
+# Standard Library
+from re import RegexFlag
+
 # Django
 from django.apps import apps
+from django.conf import settings
 from django.core.handlers.wsgi import WSGIRequest
 
 
@@ -126,3 +130,14 @@ def use_fittings_module_for_doctrines() -> bool:
         )
         is True
     )
+
+
+def debug_enabled() -> RegexFlag:
+    """
+    Check if DEBUG is enabled
+
+    :return:
+    :rtype:
+    """
+
+    return settings.DEBUG

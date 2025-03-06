@@ -6,7 +6,6 @@ Template tags
 import os
 
 # Django
-from django.conf import settings
 from django.template.defaulttags import register
 from django.templatetags.static import static
 from django.utils.safestring import mark_safe
@@ -20,6 +19,7 @@ from app_utils.urls import reverse_absolute
 
 # AA Fleet Pings
 from fleetpings import __title__, __version__
+from fleetpings.app_settings import debug_enabled
 from fleetpings.constants import PACKAGE_NAME
 from fleetpings.helper.static_files import calculate_integrity_hash
 
@@ -71,7 +71,7 @@ def fleetpings_static(relative_file_path: str, script_type: str = None) -> str |
     # Integrity hash calculation only for non-debug mode
     sri_string = (
         f' integrity="{calculate_integrity_hash(relative_file_path)}" crossorigin="anonymous"'
-        if not settings.DEBUG
+        if not debug_enabled()
         else ""
     )
 

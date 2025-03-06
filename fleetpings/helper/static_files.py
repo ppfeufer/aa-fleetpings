@@ -35,6 +35,8 @@ def calculate_integrity_hash(relative_file_path: str) -> str:
     """
 
     file_path = os.path.join(APP_STATIC_DIR, relative_file_path)
-    integrity_hash = calculate_integrity(Path(file_path), Algorithm.SHA512)
+    integrity_hash = calculate_integrity(
+        path=Path(file_path), algorithm=Algorithm.SHA512
+    )
 
     return integrity_hash

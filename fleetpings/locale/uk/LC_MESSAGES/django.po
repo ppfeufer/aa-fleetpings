@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2024-12-14 17:49+0100\n"
+"POT-Creation-Date: 2025-03-06 22:45+0100\n"
 "PO-Revision-Date: 2025-03-03 22:52+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/uk/>\n"
@@ -81,9 +81,7 @@ msgstr "Розмітка Discord"
 #: fleetpings/form.py:34
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr ""
-"Підказка: Ви можете використовувати {discord_markdown_link} для форматування "
-"тексту."
+msgstr "Підказка: Ви можете використовувати {discord_markdown_link} для форматування тексту."
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"
@@ -136,12 +134,8 @@ msgid "Formup time (Eve time)"
 msgstr "Мітка часу (Час за Eve) для збору"
 
 #: fleetpings/form.py:130
-msgid ""
-"To enable this field, either make it a pre-ping (checkbox above) or uncheck "
-"\"Formup NOW\" (checkbox below)."
-msgstr ""
-"Щоб увімкнути це поле, зробіть його попереднім пінгом (прапорець вище) або "
-"зніміть прапорець «Створити ЗАРАЗ» (прапорець нижче)."
+msgid "To enable this field, either make it a pre-ping (checkbox above) or uncheck \"Formup NOW\" (checkbox below)."
+msgstr "Щоб увімкнути це поле, зробіть його попереднім пінгом (прапорець вище) або зніміть прапорець «Створити ЗАРАЗ» (прапорець нижче)."
 
 #: fleetpings/form.py:136
 msgid "Formup timestamp"
@@ -152,12 +146,8 @@ msgid "Formup NOW"
 msgstr "Формування ВЖЕ"
 
 #: fleetpings/form.py:144
-msgid ""
-"If this checkbox is active, formup time will be set to \"NOW\" and the time "
-"in the field above (if any is set) will be ignored."
-msgstr ""
-"Якщо цей прапорець активний, час формування буде встановлено на «ЗАРАЗ», а "
-"час у полі вище (якщо він встановлений) буде проігноровано."
+msgid "If this checkbox is active, formup time will be set to \"NOW\" and the time in the field above (if any is set) will be ignored."
+msgstr "Якщо цей прапорець активний, час формування буде встановлено на «ЗАРАЗ», а час у полі вище (якщо він встановлений) буде проігноровано."
 
 #: fleetpings/form.py:150 fleetpings/models.py:127
 msgid "Fleet comms"
@@ -182,12 +172,8 @@ msgid "Create SRP link"
 msgstr "Створіть SRP-посилання"
 
 #: fleetpings/form.py:183
-msgid ""
-"If this checkbox is active, a SRP link specific for this fleet will be "
-"created.<br>Leave blank if unsure."
-msgstr ""
-"Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для "
-"цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
+msgid "If this checkbox is active, a SRP link specific for this fleet will be created.<br>Leave blank if unsure."
+msgstr "Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
 
 #: fleetpings/form.py:189
 #, fuzzy
@@ -204,12 +190,8 @@ msgid "Create Optimer"
 msgstr "Створити таймер операції"
 
 #: fleetpings/form.py:207
-msgid ""
-"If this checkbox is active, a fleet operations timer for this pre-ping will "
-"be created."
-msgstr ""
-"Якщо цей прапорець активний, буде створено таймер операцій флоту для цього "
-"попереднього пінгу."
+msgid "If this checkbox is active, a fleet operations timer for this pre-ping will be created."
+msgstr "Якщо цей прапорець активний, буде створено таймер операцій флоту для цього попереднього пінгу."
 
 #: fleetpings/form.py:213
 msgid "Duration"
@@ -318,12 +300,8 @@ msgid "Formup locations"
 msgstr "Місця збору"
 
 #: fleetpings/models.py:281
-msgid ""
-"Name of the Discord role to ping. (Note: This must be an Auth group that is "
-"synced to Discord.)"
-msgstr ""
-"Ім'я ролі Discord, яку потрібно пінгувати. (Примітка: це має бути група "
-"Auth, яка синхронізована з Discord.)"
+msgid "Name of the Discord role to ping. (Note: This must be an Auth group that is synced to Discord.)"
+msgstr "Ім'я ролі Discord, яку потрібно пінгувати. (Примітка: це має бути група Auth, яка синхронізована з Discord.)"
 
 #: fleetpings/models.py:285
 msgid "Group name"
@@ -384,8 +362,7 @@ msgid "Name of the channel this webhook posts to"
 msgstr "Назва каналу, до якого цей вебхук надсилає повідомлення"
 
 #: fleetpings/models.py:468
-msgid ""
-"URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
+msgid "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr "URL цього вебхука, наприклад https://discord.com/api/webhooks/123456/abcdef"
 
 #: fleetpings/models.py:488
@@ -405,9 +382,7 @@ msgid "Webhooks"
 msgstr "Вебхуки"
 
 #: fleetpings/models.py:535
-msgid ""
-"Invalid webhook URL. The webhook URL you entered does not match any known "
-"format for a Discord webhook. Please check the webhook URL."
+msgid "Invalid webhook URL. The webhook URL you entered does not match any known format for a Discord webhook. Please check the webhook URL."
 msgstr "Недійсний URL вебхука. Вказаний вами URL не відповідає жодному з відомих форматів для Discord вебхука. Перевірте URL."
 
 #: fleetpings/models.py:555
@@ -431,31 +406,19 @@ msgid "Default embed color"
 msgstr "Колір ембеду за замовчуванням"
 
 #: fleetpings/models.py:570
-msgid ""
-"Whether to use default fleet types. If checked, the default fleet types "
-"(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
-"dropdown."
+msgid "Whether to use default fleet types. If checked, the default fleet types (Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type dropdown."
 msgstr "Чи використовувати стандартні типи флотів. Якщо позначено, стандартні типи флотів (Roaming, Home Defense, StratOP та CTA) будуть додані до випадаючого списку типів флотів."
 
 #: fleetpings/models.py:581
-msgid ""
-"Whether to use default ping targets. If checked, the default ping targets "
-"(@everyone and @here) will be added to the Ping Target dropdown."
+msgid "Whether to use default ping targets. If checked, the default ping targets (@everyone and @here) will be added to the Ping Target dropdown."
 msgstr "Чи використовувати стандартні цілі для пінгу. Якщо позначено, стандартні цілі для пінгу (@everyone та @here) будуть додані до випадаючого списку цілей для пінгу."
 
 #: fleetpings/models.py:591
-msgid ""
-"Whether to use the doctrines from the Fittings modules in the doctrine "
-"dropdown. Note: The fittings module needs to be installed for this."
+msgid "Whether to use the doctrines from the Fittings modules in the doctrine dropdown. Note: The fittings module needs to be installed for this."
 msgstr "Чи використовувати доктрини з модуля фітингів у випадаючому списку доктрин. Примітка: для цього необхідно встановити модуль фітингів."
 
 #: fleetpings/models.py:601
-msgid ""
-"Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs "
-"will not be verified, so the app can be used with non-Discord webhooks as "
-"well. When disabling webhook verification and using non-Discord webhooks, it "
-"is up to you to make sure your webhook understands a payload that is "
-"formatted for Discord webhooks."
+msgid "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs will not be verified, so the app can be used with non-Discord webhooks as well. When disabling webhook verification and using non-Discord webhooks, it is up to you to make sure your webhook understands a payload that is formatted for Discord webhooks."
 msgstr "Чи перевіряти URL вебхуків чи ні. Примітка: Якщо не позначено, URL вебхуків перевірятися не будуть, тому додаток також може бути використаний з вебхуками, які не від Discord. При вимкненні перевірки вебхуків і використанні не-Discord вебхуків, вам слід переконатися, що ваш вебхук розуміє формат даних, який використовується для вебхуків Discord."
 
 #: fleetpings/models.py:614
@@ -487,48 +450,26 @@ msgid "Formatted ping text"
 msgstr "Відформатований текст пінгу"
 
 #: fleetpings/templates/fleetpings/index.html:51
-msgid ""
-"Mandatory information is missing. To create an optimer, you need to provide "
-"all of the following information:<br>» FC name<br>» Fleet name<br>» Formup "
-"location<br>» Formup time<br>» Ships / Doctrine"
+msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC name<br>» Fleet name<br>» Formup location<br>» Formup time<br>» Ships / Doctrine"
 msgstr "Обов'язкова інформація відсутня. Для того щоб створити пінг флотової операції ви маєте заповнити всю інформацію нижче: <br>» Нік ФК<br>» Назва флоту<br>» Місце збору<br>» Чис збору<br>» Кораблі / Доктрина"
 
 #: fleetpings/templates/fleetpings/index.html:56
 #, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an SRP link, you need to "
-#| "provide all of the following information:<br>» Fleet Name<br>» Ships / "
-#| "Doctrine"
-msgid ""
-"Mandatory information is missing. To create an SRP link, you need to provide "
-"all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
-msgstr ""
-"Обов'язкова інформація відсутня. Щоб створити посилання SRP, вам потрібно "
-"надати всю наступну інформацію: <br> » Назва флоту <br> » Кораблі / Доктрина"
+#| msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet Name<br>» Ships / Doctrine"
+msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
+msgstr "Обов'язкова інформація відсутня. Щоб створити посилання SRP, вам потрібно надати всю наступну інформацію: <br> » Назва флоту <br> » Кораблі / Доктрина"
 
 #: fleetpings/templates/fleetpings/index.html:60
-msgid ""
-"Error! Your ping was not copied to your clipboard. Maybe your browser "
-"doesn&apos;t support this feature."
-msgstr ""
-"Помилка! Ваш пінг не було скопійовано до буфера обміну. Можливо, ваш браузер "
-"не підтримує цю функцію."
+msgid "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature."
+msgstr "Помилка! Ваш пінг не було скопійовано до буфера обміну. Можливо, ваш браузер не підтримує цю функцію."
 
 #: fleetpings/templates/fleetpings/index.html:61
-msgid ""
-"Success! Your ping text has been copied to your clipboard. Now be a good FC "
-"and throw it in your chat so you actually get some people in fleet."
-msgstr ""
-"Успішно! Текст вашого пінгу було скопійовано до буфера обміну. Тепер будь "
-"хорошим ФК і кинь його у свій чат, щоб дійсно отримати кілька людей у флот."
+msgid "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."
+msgstr "Успішно! Текст вашого пінгу було скопійовано до буфера обміну. Тепер будь хорошим ФК і кинь його у свій чат, щоб дійсно отримати кілька людей у флот."
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:5
-msgid ""
-"Do you want to help translate this app into your language or improve the "
-"existing translation?"
-msgstr ""
-"Хочете допомогти перекласти цю програму вашою мовою чи покращити наявний "
-"переклад?"
+msgid "Do you want to help translate this app into your language or improve the existing translation?"
+msgstr "Хочете допомогти перекласти цю програму вашою мовою чи покращити наявний переклад?"
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
@@ -542,32 +483,24 @@ msgstr "Створити пінг"
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:6
 msgid "Please think twice if you really need to ping <code>@everyone</code>."
-msgstr ""
-"Будь ласка, подумайте двічі, якщо вам дійсно потрібно пінгувати "
-"<code>@everybody</code>."
+msgstr "Будь ласка, подумайте двічі, якщо вам дійсно потрібно пінгувати <code>@everybody</code>."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:10
 #, fuzzy
 #| msgid ""
 #| "\n"
 #| "                    <code>@everyone</code>\n"
-#| "                    includes also all the people in this channel who are "
-#| "offline and\n"
-#| "                    possibly asleep at the moment and might be waking up "
-#| "when their\n"
-#| "                    mobile devices ping. Or they wake up hours later to "
-#| "irrelevant\n"
+#| "                    includes also all the people in this channel who are offline and\n"
+#| "                    possibly asleep at the moment and might be waking up when their\n"
+#| "                    mobile devices ping. Or they wake up hours later to irrelevant\n"
 #| "                    pings by the time they open Discord.\n"
 #| "                "
 msgid ""
 "\n"
 "                <code>@everyone</code>\n"
-"                includes also all the people in this channel who are offline "
-"and\n"
-"                possibly asleep at the moment and might be waking up when "
-"their\n"
-"                mobile devices ping. Or they wake up hours later to "
-"irrelevant\n"
+"                includes also all the people in this channel who are offline and\n"
+"                possibly asleep at the moment and might be waking up when their\n"
+"                mobile devices ping. Or they wake up hours later to irrelevant\n"
 "                pings by the time they open Discord.\n"
 "            "
 msgstr ""
@@ -576,8 +509,7 @@ msgstr ""
 "            "
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:20
-msgid ""
-"Notification spam is a real thing and might entice people to mute channels."
+msgid "Notification spam is a real thing and might entice people to mute channels."
 msgstr "Спам повідомлень — це реальна проблема, яка може змусити людей вимикати сповіщення для каналів."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:24

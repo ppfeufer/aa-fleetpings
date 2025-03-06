@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2024-12-14 17:49+0100\n"
+"POT-Creation-Date: 2025-03-06 22:45+0100\n"
 "PO-Revision-Date: 2024-12-02 17:40+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
-"Language-Team: Spanish <https://weblate.ppfeufer.de/projects/alliance-auth-"
-"apps/aa-fleetpings/es/>\n"
+"Language-Team: Spanish <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,12 +140,8 @@ msgid "Formup time (Eve time)"
 msgstr "Marca de Tiempo de Formar"
 
 #: fleetpings/form.py:130
-msgid ""
-"To enable this field, either make it a pre-ping (checkbox above) or uncheck "
-"\"Formup NOW\" (checkbox below)."
-msgstr ""
-"Para habilitar este campo, conviértalo en Pre-Ping (casilla de verificación "
-"arriba) o desmarque «Formar AHORA» (casilla de verificación a continuación)."
+msgid "To enable this field, either make it a pre-ping (checkbox above) or uncheck \"Formup NOW\" (checkbox below)."
+msgstr "Para habilitar este campo, conviértalo en Pre-Ping (casilla de verificación arriba) o desmarque «Formar AHORA» (casilla de verificación a continuación)."
 
 #: fleetpings/form.py:136
 #, fuzzy
@@ -159,13 +154,8 @@ msgid "Formup NOW"
 msgstr "Formar AHORA"
 
 #: fleetpings/form.py:144
-msgid ""
-"If this checkbox is active, formup time will be set to \"NOW\" and the time "
-"in the field above (if any is set) will be ignored."
-msgstr ""
-"Si esta casilla de verificación está activa, el tiempo de formar se "
-"establecerá en «AHORA» y la hora en el campo de arriba (si se ha establecido "
-"alguna) será ignorada."
+msgid "If this checkbox is active, formup time will be set to \"NOW\" and the time in the field above (if any is set) will be ignored."
+msgstr "Si esta casilla de verificación está activa, el tiempo de formar se establecerá en «AHORA» y la hora en el campo de arriba (si se ha establecido alguna) será ignorada."
 
 #: fleetpings/form.py:150 fleetpings/models.py:127
 #, fuzzy
@@ -194,12 +184,8 @@ msgid "Create SRP link"
 msgstr "Crear el Enlace de SRP"
 
 #: fleetpings/form.py:183
-msgid ""
-"If this checkbox is active, a SRP link specific for this fleet will be "
-"created.<br>Leave blank if unsure."
-msgstr ""
-"Si esta casilla de verificación está activa, se creará un enlace SRP "
-"específico para esta flota.<br>Deje en blanco si no está seguro."
+msgid "If this checkbox is active, a SRP link specific for this fleet will be created.<br>Leave blank if unsure."
+msgstr "Si esta casilla de verificación está activa, se creará un enlace SRP específico para esta flota.<br>Deje en blanco si no está seguro."
 
 #: fleetpings/form.py:189
 #, fuzzy
@@ -216,12 +202,8 @@ msgid "Create Optimer"
 msgstr "Crear Optiempo"
 
 #: fleetpings/form.py:207
-msgid ""
-"If this checkbox is active, a fleet operations timer for this pre-ping will "
-"be created."
-msgstr ""
-"Si esta casilla de verificación está activa, se creará un temporizador de "
-"operaciones de flota para este pre-ping."
+msgid "If this checkbox is active, a fleet operations timer for this pre-ping will be created."
+msgstr "Si esta casilla de verificación está activa, se creará un temporizador de operaciones de flota para este pre-ping."
 
 #: fleetpings/form.py:213
 msgid "Duration"
@@ -330,12 +312,8 @@ msgid "Formup locations"
 msgstr "Ubicaciones para Formar"
 
 #: fleetpings/models.py:281
-msgid ""
-"Name of the Discord role to ping. (Note: This must be an Auth group that is "
-"synced to Discord.)"
-msgstr ""
-"Nombre del rol de Discord para hacer ping. (Nota: debe ser un grupo de "
-"autenticación sincronizado con Discord.)"
+msgid "Name of the Discord role to ping. (Note: This must be an Auth group that is synced to Discord.)"
+msgstr "Nombre del rol de Discord para hacer ping. (Nota: debe ser un grupo de autenticación sincronizado con Discord.)"
 
 #: fleetpings/models.py:285
 msgid "Group name"
@@ -392,10 +370,8 @@ msgid "Name of the channel this webhook posts to"
 msgstr "Nombre del canal en el que publica este webhook"
 
 #: fleetpings/models.py:468
-msgid ""
-"URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
-msgstr ""
-"URL de este webhook, p.ej. https://discord.com/api/webhooks/123456/abcdef"
+msgid "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
+msgstr "URL de este webhook, p.ej. https://discord.com/api/webhooks/123456/abcdef"
 
 #: fleetpings/models.py:488
 msgid "You can add notes about this webhook here if you want"
@@ -414,13 +390,8 @@ msgid "Webhooks"
 msgstr "Webhooks"
 
 #: fleetpings/models.py:535
-msgid ""
-"Invalid webhook URL. The webhook URL you entered does not match any known "
-"format for a Discord webhook. Please check the webhook URL."
-msgstr ""
-"URL de webhook no válida. La URL del webhook que ingresó no coincide con "
-"ningún formato conocido para un webhook de Discord. Compruebe la URL del "
-"webhook."
+msgid "Invalid webhook URL. The webhook URL you entered does not match any known format for a Discord webhook. Please check the webhook URL."
+msgstr "URL de webhook no válida. La URL del webhook que ingresó no coincide con ningún formato conocido para un webhook de Discord. Compruebe la URL del webhook."
 
 #: fleetpings/models.py:555
 msgid "Use default fleet types"
@@ -445,53 +416,22 @@ msgid "Default embed color"
 msgstr "Color incrustado predeterminado"
 
 #: fleetpings/models.py:570
-msgid ""
-"Whether to use default fleet types. If checked, the default fleet types "
-"(Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type "
-"dropdown."
-msgstr ""
-"Ya sea para usar tipos de flota predeterminados. Si está marcado, los tipos "
-"de flota predeterminados (Roaming, Home Defense, StratOP y CTA) se agregarán "
-"al menú desplegable Tipo de flota."
+msgid "Whether to use default fleet types. If checked, the default fleet types (Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type dropdown."
+msgstr "Ya sea para usar tipos de flota predeterminados. Si está marcado, los tipos de flota predeterminados (Roaming, Home Defense, StratOP y CTA) se agregarán al menú desplegable Tipo de flota."
 
 #: fleetpings/models.py:581
-msgid ""
-"Whether to use default ping targets. If checked, the default ping targets "
-"(@everyone and @here) will be added to the Ping Target dropdown."
-msgstr ""
-"a sea para usar objetivos de ping predeterminados. Si está marcado, los "
-"destinos de ping predeterminados (@everyone and @here) se agregarán al menú "
-"desplegable Destino de ping."
+msgid "Whether to use default ping targets. If checked, the default ping targets (@everyone and @here) will be added to the Ping Target dropdown."
+msgstr "a sea para usar objetivos de ping predeterminados. Si está marcado, los destinos de ping predeterminados (@everyone and @here) se agregarán al menú desplegable Destino de ping."
 
 #: fleetpings/models.py:591
-msgid ""
-"Whether to use the doctrines from the Fittings modules in the doctrine "
-"dropdown. Note: The fittings module needs to be installed for this."
-msgstr ""
-"Si usar las doctrinas de los módulos de Fiteos en el menú desplegable de "
-"doctrinas. Nota: Para ello, es necesario instalar el módulo de fiteos."
+msgid "Whether to use the doctrines from the Fittings modules in the doctrine dropdown. Note: The fittings module needs to be installed for this."
+msgstr "Si usar las doctrinas de los módulos de Fiteos en el menú desplegable de doctrinas. Nota: Para ello, es necesario instalar el módulo de fiteos."
 
 #: fleetpings/models.py:601
 #, fuzzy
-#| msgid ""
-#| "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs "
-#| "will not be verified, so the app can be used with non-Discord Webhooks as "
-#| "well. When disabling webhook verification and using non-Discord webhooks, "
-#| "it is up to you to make sure your webhook understands a payload that is "
-#| "formatted for Discord webhooks."
-msgid ""
-"Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs "
-"will not be verified, so the app can be used with non-Discord webhooks as "
-"well. When disabling webhook verification and using non-Discord webhooks, it "
-"is up to you to make sure your webhook understands a payload that is "
-"formatted for Discord webhooks."
-msgstr ""
-"Si verificar o no las URL de Webhooks. Nota: Cuando las URL de Webhook no "
-"estén marcadas, no se verificarán, por lo que la aplicación también se puede "
-"usar con Webhooks que no sean de Discord. Al deshabilitar la verificación de "
-"webhooks y usar webhooks que no sean de Discord, depende de usted asegurarse "
-"de que su webhook comprenda una carga útil con formato para webhooks de "
-"Discord."
+#| msgid "Whether to verify Webhooks URLs or not. Note: When unchecked Webhook URLs will not be verified, so the app can be used with non-Discord Webhooks as well. When disabling webhook verification and using non-Discord webhooks, it is up to you to make sure your webhook understands a payload that is formatted for Discord webhooks."
+msgid "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs will not be verified, so the app can be used with non-Discord webhooks as well. When disabling webhook verification and using non-Discord webhooks, it is up to you to make sure your webhook understands a payload that is formatted for Discord webhooks."
+msgstr "Si verificar o no las URL de Webhooks. Nota: Cuando las URL de Webhook no estén marcadas, no se verificarán, por lo que la aplicación también se puede usar con Webhooks que no sean de Discord. Al deshabilitar la verificación de webhooks y usar webhooks que no sean de Discord, depende de usted asegurarse de que su webhook comprenda una carga útil con formato para webhooks de Discord."
 
 #: fleetpings/models.py:614
 msgid "Default highlight color for the webhook embed."
@@ -527,56 +467,27 @@ msgstr "Formato de Texto para el Ping"
 
 #: fleetpings/templates/fleetpings/index.html:51
 #, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an optimer, you need to "
-#| "provide all of the following information:<br>» FC Name<br>» Fleet "
-#| "Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine"
-msgid ""
-"Mandatory information is missing. To create an optimer, you need to provide "
-"all of the following information:<br>» FC name<br>» Fleet name<br>» Formup "
-"location<br>» Formup time<br>» Ships / Doctrine"
-msgstr ""
-"Falta información obligatoria. Para crear un optiempo, debe proporcionar "
-"toda la siguiente información:<br>» Nombre del FC<br>» Nombre de la "
-"flota<br>» Ubicación para formar<br>» Hora para formar<br>» Naves / Doctrina"
+#| msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC Name<br>» Fleet Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine"
+msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC name<br>» Fleet name<br>» Formup location<br>» Formup time<br>» Ships / Doctrine"
+msgstr "Falta información obligatoria. Para crear un optiempo, debe proporcionar toda la siguiente información:<br>» Nombre del FC<br>» Nombre de la flota<br>» Ubicación para formar<br>» Hora para formar<br>» Naves / Doctrina"
 
 #: fleetpings/templates/fleetpings/index.html:56
 #, fuzzy
-#| msgid ""
-#| "Mandatory information is missing. To create an SRP link, you need to "
-#| "provide all of the following information:<br>» Fleet Name<br>» Ships / "
-#| "Doctrine"
-msgid ""
-"Mandatory information is missing. To create an SRP link, you need to provide "
-"all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
-msgstr ""
-"Falta información obligatoria. Para crear un enlace SRP, debe proporcionar "
-"toda la siguiente información:<br>» Nombre de la flota<br>» Naves / Doctrina"
+#| msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet Name<br>» Ships / Doctrine"
+msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
+msgstr "Falta información obligatoria. Para crear un enlace SRP, debe proporcionar toda la siguiente información:<br>» Nombre de la flota<br>» Naves / Doctrina"
 
 #: fleetpings/templates/fleetpings/index.html:60
-msgid ""
-"Error! Your ping was not copied to your clipboard. Maybe your browser "
-"doesn&apos;t support this feature."
-msgstr ""
-"Error! Su ping no se copió en su portapapeles. Tal vez su navegador no "
-"admita esta función."
+msgid "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature."
+msgstr "Error! Su ping no se copió en su portapapeles. Tal vez su navegador no admita esta función."
 
 #: fleetpings/templates/fleetpings/index.html:61
-msgid ""
-"Success! Your ping text has been copied to your clipboard. Now be a good FC "
-"and throw it in your chat so you actually get some people in fleet."
-msgstr ""
-"Éxito! Su texto de ping ha sido copiado a su portapapeles. Ahora sea un buen "
-"FC y póngalo en su chat para que realmente tenga algunas personas en la "
-"flota."
+msgid "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."
+msgstr "Éxito! Su texto de ping ha sido copiado a su portapapeles. Ahora sea un buen FC y póngalo en su chat para que realmente tenga algunas personas en la flota."
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:5
-msgid ""
-"Do you want to help translate this app into your language or improve the "
-"existing translation?"
-msgstr ""
-"¿Quieres ayudar a traducir esta aplicación a tu idioma o mejorar la "
-"traducción existente?"
+msgid "Do you want to help translate this app into your language or improve the existing translation?"
+msgstr "¿Quieres ayudar a traducir esta aplicación a tu idioma o mejorar la traducción existente?"
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
@@ -590,51 +501,38 @@ msgstr "Crear Ping"
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:6
 msgid "Please think twice if you really need to ping <code>@everyone</code>."
-msgstr ""
-"Piénselo dos veces si realmente necesita hacer ping <code>@everyone</code>."
+msgstr "Piénselo dos veces si realmente necesita hacer ping <code>@everyone</code>."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:10
 #, fuzzy
 #| msgid ""
 #| "\n"
 #| "                    <code>@everyone</code>\n"
-#| "                    includes also all the people in this channel who are "
-#| "offline and\n"
-#| "                    possibly asleep at the moment and might be waking up "
-#| "when their\n"
-#| "                    mobile devices ping. Or they wake up hours later to "
-#| "irrelevant\n"
+#| "                    includes also all the people in this channel who are offline and\n"
+#| "                    possibly asleep at the moment and might be waking up when their\n"
+#| "                    mobile devices ping. Or they wake up hours later to irrelevant\n"
 #| "                    pings by the time they open Discord.\n"
 #| "                "
 msgid ""
 "\n"
 "                <code>@everyone</code>\n"
-"                includes also all the people in this channel who are offline "
-"and\n"
-"                possibly asleep at the moment and might be waking up when "
-"their\n"
-"                mobile devices ping. Or they wake up hours later to "
-"irrelevant\n"
+"                includes also all the people in this channel who are offline and\n"
+"                possibly asleep at the moment and might be waking up when their\n"
+"                mobile devices ping. Or they wake up hours later to irrelevant\n"
 "                pings by the time they open Discord.\n"
 "            "
 msgstr ""
 "\n"
 "                    <code>@everyone</code>\n"
-"                    incluye también a todas las personas en este canal que "
-"están fuera de línea y\n"
-"                    posiblemente dormidas en este momento y podrían estar "
-"despertando mediante sus\n"
-"                    dispositivos móviles para pings. O se despiertan horas "
-"más tarde con cosas irrelevantes\n"
+"                    incluye también a todas las personas en este canal que están fuera de línea y\n"
+"                    posiblemente dormidas en este momento y podrían estar despertando mediante sus\n"
+"                    dispositivos móviles para pings. O se despiertan horas más tarde con cosas irrelevantes\n"
 "                    con los pings en el momento en que abren Discord.\n"
 "                "
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:20
-msgid ""
-"Notification spam is a real thing and might entice people to mute channels."
-msgstr ""
-"El spam es algo real en las notificaciones y puede hacer que las personas "
-"silencien los canales."
+msgid "Notification spam is a real thing and might entice people to mute channels."
+msgstr "El spam es algo real en las notificaciones y puede hacer que las personas silencien los canales."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:24
 msgid "<code>@here</code> usually does the trick just fine."
@@ -690,8 +588,7 @@ msgstr "Copiar el Texto de Ping"
 
 #: fleetpings/views.py:439
 msgid "Not all mandatory information available to create an SRP link."
-msgstr ""
-"No toda la información obligatoria está disponible para crear un enlace SRP."
+msgstr "No toda la información obligatoria está disponible para crear un enlace SRP."
 
 #: fleetpings/views.py:474
 msgid "Fleet operations timer has been created …"

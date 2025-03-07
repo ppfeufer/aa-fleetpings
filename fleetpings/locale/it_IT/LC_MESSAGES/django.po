@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-03-06 22:45+0100\n"
+"POT-Creation-Date: 2025-03-07 13:39+0100\n"
 "PO-Revision-Date: 2024-11-09 11:25+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Italian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/it/>\n"
@@ -416,19 +416,19 @@ msgstr ""
 msgid "Formatted ping text"
 msgstr ""
 
-#: fleetpings/templates/fleetpings/index.html:51
+#: fleetpings/templates/fleetpings/index.html:32
 msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC name<br>» Fleet name<br>» Formup location<br>» Formup time<br>» Ships / Doctrine"
 msgstr ""
 
-#: fleetpings/templates/fleetpings/index.html:56
+#: fleetpings/templates/fleetpings/index.html:33
 msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr ""
 
-#: fleetpings/templates/fleetpings/index.html:60
+#: fleetpings/templates/fleetpings/index.html:34
 msgid "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature."
 msgstr ""
 
-#: fleetpings/templates/fleetpings/index.html:61
+#: fleetpings/templates/fleetpings/index.html:35
 msgid "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."
 msgstr ""
 

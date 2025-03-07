@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-03-06 22:45+0100\n"
+"POT-Creation-Date: 2025-03-07 13:39+0100\n"
 "PO-Revision-Date: 2024-12-02 17:40+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Spanish <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/es/>\n"
@@ -465,23 +465,23 @@ msgstr "Información de Flota"
 msgid "Formatted ping text"
 msgstr "Formato de Texto para el Ping"
 
-#: fleetpings/templates/fleetpings/index.html:51
+#: fleetpings/templates/fleetpings/index.html:32
 #, fuzzy
 #| msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC Name<br>» Fleet Name<br>» Formup Location<br>» Formup Time<br>» Ships / Doctrine"
 msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC name<br>» Fleet name<br>» Formup location<br>» Formup time<br>» Ships / Doctrine"
 msgstr "Falta información obligatoria. Para crear un optiempo, debe proporcionar toda la siguiente información:<br>» Nombre del FC<br>» Nombre de la flota<br>» Ubicación para formar<br>» Hora para formar<br>» Naves / Doctrina"
 
-#: fleetpings/templates/fleetpings/index.html:56
+#: fleetpings/templates/fleetpings/index.html:33
 #, fuzzy
 #| msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet Name<br>» Ships / Doctrine"
 msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr "Falta información obligatoria. Para crear un enlace SRP, debe proporcionar toda la siguiente información:<br>» Nombre de la flota<br>» Naves / Doctrina"
 
-#: fleetpings/templates/fleetpings/index.html:60
+#: fleetpings/templates/fleetpings/index.html:34
 msgid "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature."
 msgstr "Error! Su ping no se copió en su portapapeles. Tal vez su navegador no admita esta función."
 
-#: fleetpings/templates/fleetpings/index.html:61
+#: fleetpings/templates/fleetpings/index.html:35
 msgid "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."
 msgstr "Éxito! Su texto de ping ha sido copiado a su portapapeles. Ahora sea un buen FC y póngalo en su chat para que realmente tenga algunas personas en la flota."
 

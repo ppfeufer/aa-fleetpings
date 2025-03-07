@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Fixed
+
+- JavaScript error with translations to certain languages
+
 ## [3.5.2] - 2025-03-06
 
 ### Changed

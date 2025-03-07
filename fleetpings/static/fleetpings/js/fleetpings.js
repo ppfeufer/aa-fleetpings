@@ -1,4 +1,4 @@
-/* global fleetpingsSettings, fleetpingsTranslations, ClipboardJS */
+/* global fleetpingsSettings, ClipboardJS */
 
 import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.33/autocomplete.min.js';
 
@@ -305,7 +305,7 @@ $(document).ready(() => {
          */
         clipboardFleetPingData.on('success', (e) => {
             showSuccess(
-                fleetpingsTranslations.copyToClipboard.success,
+                fleetpingsSettings.translation.copyToClipboard.success,
                 '.aa-fleetpings-ping-copyresult'
             );
 
@@ -318,7 +318,7 @@ $(document).ready(() => {
          */
         clipboardFleetPingData.on('error', () => {
             showError(
-                fleetpingsTranslations.copyToClipboard.error,
+                fleetpingsSettings.translation.copyToClipboard.error,
                 '.aa-fleetpings-ping-copyresult'
             );
 
@@ -506,7 +506,7 @@ $(document).ready(() => {
             // Check if all required fields for SRP links are filled
             if (srpMandatoryFields.includes('')) {
                 showError(
-                    fleetpingsTranslations.srp.error.missingFields,
+                    fleetpingsSettings.translation.srp.error.missingFields,
                     '.fleetpings-form-message'
                 );
 
@@ -525,7 +525,7 @@ $(document).ready(() => {
 
             if (optimerMandatoryFields.includes('')) {
                 showError(
-                    fleetpingsTranslations.optimer.error.missingFields,
+                    fleetpingsSettings.translation.optimer.error.missingFields,
                     '.fleetpings-form-message'
                 );
 

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2025-03-07 13:39+0100\n"
-"PO-Revision-Date: 2025-03-07 12:36+0000\n"
+"PO-Revision-Date: 2025-03-08 14:17+0000\n"
 "Last-Translator: M <skrypets@gmail.com>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
@@ -49,8 +49,6 @@ msgid "Ping target"
 msgstr "Ціль пінгу"
 
 #: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:444
-#, fuzzy
-#| msgid "Fleet Type"
 msgid "Fleet type"
 msgstr "Тип флоту"
 
@@ -110,14 +108,12 @@ msgid "Who is the FC?"
 msgstr "Хто ФК?"
 
 #: fleetpings/form.py:103
-#, fuzzy
-#| msgid "Fleet Name"
 msgid "Fleet name"
 msgstr "Назва флоту"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
-msgstr "Яка назва флоту в  фліт-файндері?"
+msgstr "Назва флоту в EVE fleet finder"
 
 #: fleetpings/form.py:113 fleetpings/models.py:264
 msgid "Formup location"
@@ -164,18 +160,14 @@ msgid "Is this fleet covered by SRP?"
 msgstr "Цей флот включений в програму відшкодування кораблів (SRP)?"
 
 #: fleetpings/form.py:181
-#, fuzzy
-#| msgid "Create SRP Link"
 msgid "Create SRP link"
-msgstr "Створіть SRP-посилання"
+msgstr "Створити SRP-посилання"
 
 #: fleetpings/form.py:183
 msgid "If this checkbox is active, a SRP link specific for this fleet will be created.<br>Leave blank if unsure."
 msgstr "Якщо цей прапорець активний, буде створено SRP-посилання, специфічне для цього флоту.<br>Залишіть порожнім, якщо ви не впевнені."
 
 #: fleetpings/form.py:189
-#, fuzzy
-#| msgid "Additional Information"
 msgid "Additional information"
 msgstr "Додаткова інформація"
 
@@ -260,8 +252,6 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "Посилання на сторінку доктрини, якщо воно є."
 
 #: fleetpings/models.py:159
-#, fuzzy
-#| msgid "Restrict this doctrine to the following group(s) …"
 msgid "Restrict this doctrine to the following groups …"
 msgstr "Обмежте цю доктрину наступними групами …"
 
@@ -274,14 +264,10 @@ msgid "Your doctrine URL is not valid."
 msgstr "Ваше посилання на доктрину невірне."
 
 #: fleetpings/models.py:216
-#, fuzzy
-#| msgid "Fleet Doctrine"
 msgid "Fleet doctrine"
 msgstr "Доктрина флоту"
 
 #: fleetpings/models.py:217
-#, fuzzy
-#| msgid "Fleet Doctrines"
 msgid "Fleet doctrines"
 msgstr "Доктрини флоту"
 
@@ -314,20 +300,14 @@ msgid "Discord ID"
 msgstr ""
 
 #: fleetpings/models.py:302 fleetpings/models.py:480
-#, fuzzy
-#| msgid "Restrict ping rights to the following group(s) …"
 msgid "Restrict ping rights to the following groups …"
 msgstr "Обмежити права на пінг для наступних груп …"
 
 #: fleetpings/models.py:378
-#, fuzzy
-#| msgid "Discord Ping Target"
 msgid "Discord ping target"
 msgstr "Ціль для пінгу в Discord"
 
 #: fleetpings/models.py:379
-#, fuzzy
-#| msgid "Discord Ping Targets"
 msgid "Discord ping targets"
 msgstr "Цілі для пінгу в Discord"
 
@@ -340,8 +320,6 @@ msgid "Highlight color for the embed"
 msgstr "Колір виділення для ембеду"
 
 #: fleetpings/models.py:409
-#, fuzzy
-#| msgid "Restrict this fleet type to the following group(s) …"
 msgid "Restrict this fleet type to the following groups …"
 msgstr "Обмежте цей тип флоту наступними групами …"
 
@@ -350,10 +328,8 @@ msgid "Whether this fleet type is enabled or not"
 msgstr "Увімкнено цей тип флоту чи ні"
 
 #: fleetpings/models.py:445
-#, fuzzy
-#| msgid "Fleet Types"
 msgid "Fleet types"
-msgstr "Типи флоту"
+msgstr "Тип флоту"
 
 #: fleetpings/models.py:458
 msgid "Name of the channel this webhook posts to"
@@ -436,14 +412,10 @@ msgid "Fleet Pings Settings"
 msgstr "Налаштування фліт-пінгів"
 
 #: fleetpings/templates/fleetpings/index.html:11
-#, fuzzy
-#| msgid "Fleet Information"
 msgid "Fleet information"
 msgstr "Інформація про флот"
 
 #: fleetpings/templates/fleetpings/index.html:23
-#, fuzzy
-#| msgid "Formatted Ping Text"
 msgid "Formatted ping text"
 msgstr "Відформатований текст пінгу"
 
@@ -472,8 +444,6 @@ msgid "Join our team of translators!"
 msgstr "Приєднуйтесь до нашої команди перекладачів!"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:72
-#, fuzzy
-#| msgid "Create Ping"
 msgid "Create ping"
 msgstr "Створити пінг"
 
@@ -482,15 +452,6 @@ msgid "Please think twice if you really need to ping <code>@everyone</code>."
 msgstr "Будь ласка, подумайте двічі, якщо вам дійсно потрібно пінгувати <code>@everybody</code>."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:10
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                    <code>@everyone</code>\n"
-#| "                    includes also all the people in this channel who are offline and\n"
-#| "                    possibly asleep at the moment and might be waking up when their\n"
-#| "                    mobile devices ping. Or they wake up hours later to irrelevant\n"
-#| "                    pings by the time they open Discord.\n"
-#| "                "
 msgid ""
 "\n"
 "                <code>@everyone</code>\n"
@@ -541,8 +502,6 @@ msgid "None, just format it for me"
 msgstr "Ніякий, лише форматування"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/ping-targets.html:3
-#, fuzzy
-#| msgid "Don't Ping"
 msgid "Don't ping"
 msgstr "Не пінгувати"
 
@@ -555,8 +514,6 @@ msgid "No ping created yet …"
 msgstr "Пінг ще не створено …"
 
 #: fleetpings/templates/fleetpings/partials/ping/ping.html:22
-#, fuzzy
-#| msgid "Copy Ping Text"
 msgid "Copy ping text"
 msgstr "Скопіювати текст пінгу"
 

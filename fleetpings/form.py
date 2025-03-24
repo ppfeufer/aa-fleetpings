@@ -123,7 +123,7 @@ class FleetPingForm(forms.Form):
             attrs={
                 "disabled": "disabled",
                 "autocomplete": "off",
-                "placeholder": _("Formup time (Eve time)"),
+                "placeholder": _("Formup time (EVE time)"),
             }
         ),
         help_text=_(

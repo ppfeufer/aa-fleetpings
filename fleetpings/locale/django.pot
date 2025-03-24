@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.5.3\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-03-07 13:39+0100\n"
+"POT-Creation-Date: 2025-03-24 13:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgid "Formup time"
 msgstr ""
 
 #: fleetpings/form.py:126
-msgid "Formup time (Eve time)"
+msgid "Formup time (EVE time)"
 msgstr ""
 
 #: fleetpings/form.py:130

@@ -175,7 +175,7 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
     else:
         if ping_context["formup_time"]["datetime_string"]:
             webhook_ping_text_content += (
-                "\n**Formup (EVE Time):** "
+                "\n**Formup (EVE time):** "
                 f'{ping_context["formup_time"]["datetime_string"]}'
             )
 

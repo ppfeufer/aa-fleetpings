@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Added
+
+- Type hinting for managers
+
 ### Fixed
 
 - Spelling (It's EVE time, not Eve time)

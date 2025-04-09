@@ -4,6 +4,7 @@ Models for the Fleet Pings app
 
 # Standard Library
 import re
+from typing import ClassVar
 
 # Third Party
 from requests.exceptions import HTTPError
@@ -615,7 +616,7 @@ class Setting(SingletonModel):
         verbose_name=Field.DEFAULT_EMBED_COLOR.label,  # pylint: disable=no-member
     )
 
-    objects = SettingManager()
+    objects: ClassVar[SettingManager] = SettingManager()
 
     class Meta:  # pylint: disable=too-few-public-methods
         """

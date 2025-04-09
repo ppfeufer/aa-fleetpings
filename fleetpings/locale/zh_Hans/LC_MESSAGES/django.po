@@ -5,29 +5,29 @@
 # Dehao Wu <wudehao2000@163.com>, 2024.
 # SAM_FPS <sam_fps@163.com>, 2024.
 # MxdHana <236833425@qq.com>, 2024.
-# Peter Pfeufer <info@ppfeufer.de>, 2024.
+# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
 # Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-03-07 13:39+0100\n"
-"PO-Revision-Date: 2025-02-16 09:17+0000\n"
-"Last-Translator: Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>\n"
+"POT-Creation-Date: 2025-04-09 10:36+0200\n"
+"PO-Revision-Date: 2025-03-25 13:24+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "舰队Ping"
 
-#: fleetpings/admin.py:62 fleetpings/models.py:126
+#: fleetpings/admin.py:62 fleetpings/models.py:127
 msgid "Fleet comm"
 msgstr "舰队通讯"
 
@@ -35,13 +35,13 @@ msgstr "舰队通讯"
 msgid "Doctrine"
 msgstr "舰船要求"
 
-#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:151
+#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:152
 msgid "Doctrine link"
 msgstr "配置链接"
 
 #: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:273
-#: fleetpings/admin.py:318 fleetpings/models.py:160 fleetpings/models.py:303
-#: fleetpings/models.py:410 fleetpings/models.py:481
+#: fleetpings/admin.py:318 fleetpings/models.py:161 fleetpings/models.py:304
+#: fleetpings/models.py:411 fleetpings/models.py:482
 msgid "Group restrictions"
 msgstr "组别限制"
 
@@ -49,19 +49,19 @@ msgstr "组别限制"
 msgid "Ping target"
 msgstr "Ping的对象"
 
-#: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:444
+#: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
 msgid "Fleet type"
 msgstr "舰队类型"
 
-#: fleetpings/admin.py:251 fleetpings/models.py:401
+#: fleetpings/admin.py:251 fleetpings/models.py:402
 msgid "Embed color"
 msgstr "嵌入颜色"
 
-#: fleetpings/admin.py:307 fleetpings/models.py:459
+#: fleetpings/admin.py:307 fleetpings/models.py:460
 msgid "Discord channel"
 msgstr "Discord频道"
 
-#: fleetpings/admin.py:312 fleetpings/models.py:472
+#: fleetpings/admin.py:312 fleetpings/models.py:473
 msgid "Webhook URL"
 msgstr "Webhooks（Web挂钩）URL"
 
@@ -116,7 +116,7 @@ msgstr "舰队名字"
 msgid "What is the fleet name in the fleet finder in Eve?"
 msgstr "舰队在EVE的舰队搜寻器的名称是什么？"
 
-#: fleetpings/form.py:113 fleetpings/models.py:264
+#: fleetpings/form.py:113 fleetpings/models.py:265
 msgid "Formup location"
 msgstr "起队位置"
 
@@ -125,7 +125,7 @@ msgid "Formup time"
 msgstr "起队时间"
 
 #: fleetpings/form.py:126
-msgid "Formup time (Eve time)"
+msgid "Formup time (EVE time)"
 msgstr "起队时间（EVE时间）"
 
 #: fleetpings/form.py:130
@@ -144,7 +144,7 @@ msgstr "现在起队"
 msgid "If this checkbox is active, formup time will be set to \"NOW\" and the time in the field above (if any is set) will be ignored."
 msgstr "如果勾选了此框，则起队时间将设置为“现在”，并且上面字段中的时间（如果设置了）将被忽略。"
 
-#: fleetpings/form.py:150 fleetpings/models.py:127
+#: fleetpings/form.py:150 fleetpings/models.py:128
 msgid "Fleet comms"
 msgstr "舰队通讯"
 
@@ -192,223 +192,223 @@ msgstr "持续时间"
 msgid "How long approximately will the fleet be?"
 msgstr "舰队大概会持续多长时间？"
 
-#: fleetpings/models.py:42
+#: fleetpings/models.py:43
 msgid "You might want to install the Discord service first …"
 msgstr "您可能想要先安装Discord服务…"
 
-#: fleetpings/models.py:52
+#: fleetpings/models.py:53
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
 msgstr "您确定您的Discord已经连接到你的联盟Auth了吗?"
 
-#: fleetpings/models.py:58
+#: fleetpings/models.py:59
 msgid "This group has not been synced to Discord yet."
 msgstr "这个群组还没有同步到Discord。"
 
-#: fleetpings/models.py:76
+#: fleetpings/models.py:77
 msgid "Can access this app"
 msgstr "能够访问此应用程序"
 
-#: fleetpings/models.py:86
+#: fleetpings/models.py:87
 msgid "Short name to identify this comms"
 msgstr "此讯息的简称"
 
-#: fleetpings/models.py:87 fleetpings/models.py:143 fleetpings/models.py:231
-#: fleetpings/models.py:393
+#: fleetpings/models.py:88 fleetpings/models.py:144 fleetpings/models.py:232
+#: fleetpings/models.py:394
 msgid "Name"
 msgstr "名字"
 
-#: fleetpings/models.py:93
+#: fleetpings/models.py:94
 msgid "In which channel is the fleet?"
 msgstr "舰队在哪个语音频道中？"
 
-#: fleetpings/models.py:94
+#: fleetpings/models.py:95
 msgid "Channel"
 msgstr "频道"
 
-#: fleetpings/models.py:100 fleetpings/models.py:167 fleetpings/models.py:238
-#: fleetpings/models.py:310 fleetpings/models.py:417
+#: fleetpings/models.py:101 fleetpings/models.py:168 fleetpings/models.py:239
+#: fleetpings/models.py:311 fleetpings/models.py:418
 msgid "You can add notes about this configuration here if you want"
 msgstr "如果您愿意，可以在这里添加关于此配置的注释"
 
-#: fleetpings/models.py:101 fleetpings/models.py:168 fleetpings/models.py:239
-#: fleetpings/models.py:311 fleetpings/models.py:418 fleetpings/models.py:489
+#: fleetpings/models.py:102 fleetpings/models.py:169 fleetpings/models.py:240
+#: fleetpings/models.py:312 fleetpings/models.py:419 fleetpings/models.py:490
 msgid "Notes"
 msgstr "笔记"
 
-#: fleetpings/models.py:107
+#: fleetpings/models.py:108
 msgid "Whether this comms is enabled or not"
 msgstr "这个讯息是否已被启用"
 
-#: fleetpings/models.py:108 fleetpings/models.py:176 fleetpings/models.py:247
-#: fleetpings/models.py:319 fleetpings/models.py:426 fleetpings/models.py:497
+#: fleetpings/models.py:109 fleetpings/models.py:177 fleetpings/models.py:248
+#: fleetpings/models.py:320 fleetpings/models.py:427 fleetpings/models.py:498
 msgid "Is enabled"
 msgstr "已启用"
 
-#: fleetpings/models.py:142
+#: fleetpings/models.py:143
 msgid "Short name to identify this doctrine"
 msgstr "此配置的简称"
 
-#: fleetpings/models.py:150
+#: fleetpings/models.py:151
 msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "如果你有的话，这个装配页面的链接。"
 
-#: fleetpings/models.py:159
+#: fleetpings/models.py:160
 msgid "Restrict this doctrine to the following groups …"
 msgstr "限制此配置为这些群组可用…"
 
-#: fleetpings/models.py:175
+#: fleetpings/models.py:176
 msgid "Whether this doctrine is enabled or not"
 msgstr "这个配置是否被启用"
 
-#: fleetpings/models.py:196
+#: fleetpings/models.py:197
 msgid "Your doctrine URL is not valid."
 msgstr "您的配置的URL不可用。"
 
-#: fleetpings/models.py:216
+#: fleetpings/models.py:217
 msgid "Fleet doctrine"
 msgstr "舰队配置"
 
-#: fleetpings/models.py:217
+#: fleetpings/models.py:218
 msgid "Fleet doctrines"
 msgstr "舰队配置"
 
-#: fleetpings/models.py:230
+#: fleetpings/models.py:231
 msgid "Short name to identify this formup location"
 msgstr "起队地点的简称"
 
-#: fleetpings/models.py:246 fleetpings/models.py:318
+#: fleetpings/models.py:247 fleetpings/models.py:319
 msgid "Whether this formup location is enabled or not"
 msgstr "这个起队地点是否已启用"
 
-#: fleetpings/models.py:265
+#: fleetpings/models.py:266
 msgid "Formup locations"
 msgstr "起队地点"
 
-#: fleetpings/models.py:281
+#: fleetpings/models.py:282
 msgid "Name of the Discord role to ping. (Note: This must be an Auth group that is synced to Discord.)"
 msgstr "要ping的Discord对象名称。（注意：这必须是一个与Discord同步的Auth群组。）"
 
-#: fleetpings/models.py:285
+#: fleetpings/models.py:286
 msgid "Group name"
 msgstr "群组名称"
 
-#: fleetpings/models.py:293
+#: fleetpings/models.py:294
 msgid "ID of the Discord role to ping"
 msgstr "要ping的Discord用户组的ID"
 
-#: fleetpings/models.py:294
+#: fleetpings/models.py:295
 msgid "Discord ID"
 msgstr "Discord用户名"
 
-#: fleetpings/models.py:302 fleetpings/models.py:480
+#: fleetpings/models.py:303 fleetpings/models.py:481
 msgid "Restrict ping rights to the following groups …"
 msgstr "将ping权限限制到以下群组…"
 
-#: fleetpings/models.py:378
+#: fleetpings/models.py:379
 msgid "Discord ping target"
 msgstr "Discord ping对象"
 
-#: fleetpings/models.py:379
+#: fleetpings/models.py:380
 msgid "Discord ping targets"
 msgstr "Discord ping对象"
 
-#: fleetpings/models.py:392
+#: fleetpings/models.py:393
 msgid "Short name to identify this fleet type"
 msgstr "此舰队类型的简称"
 
-#: fleetpings/models.py:400
+#: fleetpings/models.py:401
 msgid "Highlight color for the embed"
 msgstr "高亮显示嵌入的颜色"
 
-#: fleetpings/models.py:409
+#: fleetpings/models.py:410
 msgid "Restrict this fleet type to the following groups …"
 msgstr "限制此舰队类型为这些群组可用…"
 
-#: fleetpings/models.py:425
+#: fleetpings/models.py:426
 msgid "Whether this fleet type is enabled or not"
 msgstr "这个舰队类型是否已启用"
 
-#: fleetpings/models.py:445
+#: fleetpings/models.py:446
 msgid "Fleet types"
 msgstr "舰队类型"
 
-#: fleetpings/models.py:458
+#: fleetpings/models.py:459
 msgid "Name of the channel this webhook posts to"
 msgstr "此webhook发布到的频道名称"
 
-#: fleetpings/models.py:468
+#: fleetpings/models.py:469
 msgid "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr "此webhook的URL，例如https://discord.com/api/webhooks/123456/abcdef"
 
-#: fleetpings/models.py:488
+#: fleetpings/models.py:489
 msgid "You can add notes about this webhook here if you want"
 msgstr "如果你愿意，你可以在这里添加关于这个webhook的注释"
 
-#: fleetpings/models.py:496
+#: fleetpings/models.py:497
 msgid "Whether this webhook is active or not"
 msgstr "该webhook是否启用"
 
-#: fleetpings/models.py:515
+#: fleetpings/models.py:516
 msgid "Webhook"
 msgstr "Webhook（Web挂钩）"
 
-#: fleetpings/models.py:516
+#: fleetpings/models.py:517
 msgid "Webhooks"
 msgstr "Webhooks（Web挂钩）"
 
-#: fleetpings/models.py:535
+#: fleetpings/models.py:536
 msgid "Invalid webhook URL. The webhook URL you entered does not match any known format for a Discord webhook. Please check the webhook URL."
 msgstr "无效的Webhook URL。您输入的Webhook URL与Discord Webhook的任何已知格式都不匹配。请检查Webhook URL。"
 
-#: fleetpings/models.py:555
+#: fleetpings/models.py:556
 msgid "Use default fleet types"
 msgstr "使用默认舰队类型"
 
-#: fleetpings/models.py:558
+#: fleetpings/models.py:559
 msgid "Use default ping targets"
 msgstr "使用默认ping对象"
 
-#: fleetpings/models.py:561
+#: fleetpings/models.py:562
 msgid "Use Doctrines from Fittings module"
 msgstr "使用配置模板中的配置"
 
-#: fleetpings/models.py:563
+#: fleetpings/models.py:564
 msgid "Verify webhooks"
 msgstr "确认webhooks（web挂钩）"
 
-#: fleetpings/models.py:564
+#: fleetpings/models.py:565
 msgid "Default embed color"
 msgstr "默认嵌入颜色"
 
-#: fleetpings/models.py:570
+#: fleetpings/models.py:571
 msgid "Whether to use default fleet types. If checked, the default fleet types (Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type dropdown."
 msgstr "是否使用默认的舰队类型。选中后，默认的舰队类型（Roaming、Home Defense、StratOP和CTA）将被添加到舰队类型下拉列表中。"
 
-#: fleetpings/models.py:581
+#: fleetpings/models.py:582
 msgid "Whether to use default ping targets. If checked, the default ping targets (@everyone and @here) will be added to the Ping Target dropdown."
 msgstr "是否使用默认的ping对象。选中后，默认的ping对象（@everyone和@here）将被添加到ping对象下拉列表中。"
 
-#: fleetpings/models.py:591
+#: fleetpings/models.py:592
 msgid "Whether to use the doctrines from the Fittings modules in the doctrine dropdown. Note: The fittings module needs to be installed for this."
 msgstr "是否使用配置下拉列表中配置模板中的配置。注：为此需要有配置模板。"
 
-#: fleetpings/models.py:601
+#: fleetpings/models.py:602
 msgid "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs will not be verified, so the app can be used with non-Discord webhooks as well. When disabling webhook verification and using non-Discord webhooks, it is up to you to make sure your webhook understands a payload that is formatted for Discord webhooks."
 msgstr "是否验证webhook URL。注意：未选中时，webhook URL将不会被验证，因此该应用程序也可以与非discord webhook一起使用。当禁用webhook验证并使用非Discord webhook时，由您来确保您的webhook是Discord webhook格式化的有效格式。"
 
-#: fleetpings/models.py:614
+#: fleetpings/models.py:615
 msgid "Default highlight color for the webhook embed."
 msgstr "webhook嵌入的默认高亮颜色。"
 
-#: fleetpings/models.py:626
+#: fleetpings/models.py:627
 msgid "Setting"
 msgstr "设置"
 
-#: fleetpings/models.py:627
+#: fleetpings/models.py:628
 msgid "Settings"
 msgstr "设置"
 
-#: fleetpings/models.py:637
+#: fleetpings/models.py:638
 msgid "Fleet Pings Settings"
 msgstr "舰队ping设置"
 

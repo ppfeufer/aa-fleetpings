@@ -37,6 +37,7 @@ Section Order:
 
 ### Added
 
+- Prefix for internal URLs
 - Error handling for Fetch API calls
 
 ### Changed

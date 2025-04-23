@@ -1,6 +1,6 @@
 /* global fleetpingsSettings, ClipboardJS */
 
-import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.33/autocomplete.min.js';
+import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.39/autocomplete.min.js';
 
 $(document).ready(() => {
     'use strict';

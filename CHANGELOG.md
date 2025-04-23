@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Added
+
+- Error handling for Fetch API calls
+
 ## [3.5.4] - 2025-04-09
 
 ### Added

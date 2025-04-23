@@ -54,7 +54,7 @@ $(document).ready(() => {
         const response = await fetch(url);
 
         if (!response.ok) {
-            const message = `An error has occurred: ${response.status}`;
+            const message = `Error ${response.status}: ${response.statusText}`;
 
             throw new Error(message);
         }
@@ -71,24 +71,30 @@ $(document).ready(() => {
      */
     const getUserDropdownDataForSelects = () => {
         // Ping targets
-        getDataFromAjaxUrl(fleetpingsSettings.url.pingTargets).then(pingTargets => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.pingTargets).then((pingTargets) => {
             if (pingTargets !== '') {
                 $(fleetpingsVars.selectPingTarget).html(pingTargets);
             }
+        }).catch((error) => {
+            console.error('Error fetching ping targets:', error);
         });
 
         // Webhooks
-        getDataFromAjaxUrl(fleetpingsSettings.url.pingWebhooks).then(webhooks => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.pingWebhooks).then((webhooks) => {
             if (webhooks !== '') {
                 $(fleetpingsVars.selectPingChannel).html(webhooks);
             }
+        }).catch((error) => {
+            console.error('Error fetching webhooks:', error);
         });
 
         // Fleet types
-        getDataFromAjaxUrl(fleetpingsSettings.url.fleetTypes).then(fleetTypes => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetTypes).then((fleetTypes) => {
             if (fleetTypes !== '') {
                 $(fleetpingsVars.selectFleetType).html(fleetTypes);
             }
+        }).catch((error) => {
+            console.error('Error fetching fleet types:', error);
         });
     };
 
@@ -111,7 +117,7 @@ $(document).ready(() => {
         };
 
         // Formup locations
-        getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then(formupLocations => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.formupLocations).then((formupLocations) => {
             if (formupLocations.trim() !== '') {
                 $(fleetpingsVars.inputFormupLocation).after(formupLocations);
 
@@ -130,10 +136,12 @@ $(document).ready(() => {
                     optsFormupLocation
                 );
             }
+        }).catch((error) => {
+            console.error('Error fetching formup locations:', error);
         });
 
         // Fleet comms
-        getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then(fleetComms => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetComms).then((fleetComms) => {
             if (fleetComms.trim() !== '') {
                 $(fleetpingsVars.inputFleetComms).after(fleetComms);
 
@@ -152,10 +160,12 @@ $(document).ready(() => {
                     optsFleetComms
                 );
             }
+        }).catch((error) => {
+            console.error('Error fetching fleet comms:', error);
         });
 
         // Fleet doctrines
-        getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then(fleetDoctrines => {
+        getDataFromAjaxUrl(fleetpingsSettings.url.fleetDoctrines).then((fleetDoctrines) => {
             if (fleetDoctrines.trim() !== '') {
                 $(fleetpingsVars.inputFleetDoctrine).after(fleetDoctrines);
 
@@ -174,6 +184,8 @@ $(document).ready(() => {
                     optsFleetDoctrine
                 );
             }
+        }).catch((error) => {
+            console.error('Error fetching fleet doctrines:', error);
         });
     };
 

@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.5.5] - 2025-05-05
+
 ### Added
 
 - Prefix for internal URLs
@@ -43,6 +45,7 @@ Section Order:
 ### Changed
 
 - JS Autocomplete library updated
+- Translations updated
 
 ## [3.5.4] - 2025-04-09
 

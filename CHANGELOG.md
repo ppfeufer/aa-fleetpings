@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Removed
+
+- Cache breaker for static files. Doesn't work as expected with `django-sri`.
+
 ## [3.5.5] - 2025-05-05
 
 ### Added

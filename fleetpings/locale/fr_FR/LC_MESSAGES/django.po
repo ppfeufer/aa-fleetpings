@@ -9,20 +9,21 @@
 # Mickael Gr4vity <patte.mickael@gmail.com>, 2024.
 # balbozorre <loic.petiot2002@gmail.com>, 2024.
 # Onyx <The_Onyx_best@hotmail.com>, 2025.
+# Acia Saraki <ouss2412@live.fr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2025-06-03 11:18+0200\n"
-"PO-Revision-Date: 2025-03-25 13:24+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"PO-Revision-Date: 2025-06-18 19:24+0000\n"
+"Last-Translator: Acia Saraki <ouss2412@live.fr>\n"
 "Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -64,6 +65,7 @@ msgid "Discord channel"
 msgstr "Canal Discord"
 
 #: fleetpings/admin.py:312 fleetpings/models.py:473
+#, fuzzy
 msgid "Webhook URL"
 msgstr "Webhook URL"
 

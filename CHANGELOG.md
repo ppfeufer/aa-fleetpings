@@ -35,9 +35,12 @@ Section Order:
 ### Security
 -->
 
+## [3.6.1] - 2025-07-08
+
 ### Changed
 
 - Moved app related variables from `constants.py` to `__init__.py`
+- Translations updated
 
 ### Removed
 

@@ -6,8 +6,7 @@ Test cases for the `fleetpings.helper.discord_webhook` module.
 from unittest import TestCase
 
 # AA Fleet Pings
-from fleetpings import __version__
-from fleetpings.constants import APP_NAME, GITHUB_URL
+from fleetpings import __app_name_useragent__, __github_url__, __version__
 from fleetpings.helper.discord_webhook import get_user_agent
 
 
@@ -25,8 +24,8 @@ class TestUserAgent(TestCase):
 
         obj = get_user_agent()
 
-        self.assertEqual(first=obj.name, second=APP_NAME)
-        self.assertEqual(first=obj.url, second=GITHUB_URL)
+        self.assertEqual(first=obj.name, second=__app_name_useragent__)
+        self.assertEqual(first=obj.url, second=__github_url__)
         self.assertEqual(first=obj.version, second=__version__)
 
     def test_useragent_str(self):
@@ -39,5 +38,6 @@ class TestUserAgent(TestCase):
         obj = get_user_agent()
 
         self.assertEqual(
-            first=str(obj), second=f"{APP_NAME} ({GITHUB_URL}, {__version__})"
+            first=str(obj),
+            second=f"{__app_name_useragent__} ({__github_url__}, {__version__})",
         )

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Xrandier <xrandier@gmail.com>, 2024.
 # Anata_no_Usiro <yt23542354m@gmail.com>, 2024.
-# Peter Pfeufer <info@ppfeufer.de>, 2024.
+# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2025-06-03 11:18+0200\n"
-"PO-Revision-Date: 2024-11-09 11:25+0000\n"
+"PO-Revision-Date: 2025-06-28 08:30+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/ja/>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.3\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -195,7 +195,7 @@ msgstr ""
 
 #: fleetpings/models.py:53
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
-msgstr ""
+msgstr "貴殿のアライアンスAuthがDiscordにリンクされていますか？"
 
 #: fleetpings/models.py:59
 msgid "This group has not been synced to Discord yet."

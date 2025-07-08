@@ -10,8 +10,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # AA Fleet Pings
-from fleetpings import __version__
-from fleetpings.constants import APP_NAME, GITHUB_URL
+from fleetpings import __app_name_useragent__, __github_url__, __version__
 from fleetpings.helper.eve_images import get_character_portrait_from_evecharacter
 from fleetpings.helper.ping_context import _get_webhook_ping_context
 
@@ -24,7 +23,9 @@ def get_user_agent() -> UserAgent:
     :rtype: UserAgent
     """
 
-    return UserAgent(APP_NAME, GITHUB_URL, __version__)
+    return UserAgent(
+        name=__app_name_useragent__, url=__github_url__, version=__version__
+    )
 
 
 def ping_discord_webhook(ping_context: dict, user: User) -> None:

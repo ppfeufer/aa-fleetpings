@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Changed
+
+- CSS cleanup
+
 ## [3.6.1] - 2025-07-08
 
 ### Changed

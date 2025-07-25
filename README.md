@@ -22,16 +22,25 @@ ______________________________________________________________________
 
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
-- [Installation](#installation)
-  - [Step 1: Install the App](#step-1-install-the-app)
-  - [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings)
-  - [Step 3: Finalizing the Installation](#step-3-finalizing-the-installation)
-  - [Step 4: Setting up Permission](#step-4-setting-up-permission)
-  - [Step 5: Setting up the App](#step-5-setting-up-the-app)
-- [Updating](#updating)
 - [Screenshots](#screenshots)
   - [View in Alliance Auth](#view-in-alliance-auth)
   - [Discord Ping Example](#discord-ping-example)
+- [Installation](#installation)
+  - [Bare Metal Installation](#bare-metal-installation)
+    - [Step 1: Install the App](#step-1-install-the-app)
+    - [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings)
+    - [Step 3: Finalizing the Installation](#step-3-finalizing-the-installation)
+  - [Docker Installation](#docker-installation)
+    - [Step 1: Add the App](#step-1-add-the-app)
+    - [Step 2: Update Your AA Settings](#step-2-update-your-aa-settings-1)
+    - [Step 3: Build Auth and Restart Your Containers](#step-3-build-auth-and-restart-your-containers)
+    - [Step 4: Finalizing the Installation](#step-4-finalizing-the-installation)
+  - [Common Setup Steps](#common-setup-steps)
+    - [Permission Setup](#permission-setup)
+    - [App Setup](#app-setup)
+- [Updating](#updating)
+  - [Bare Metal Installation](#bare-metal-installation-1)
+  - [Docker Installation](#docker-installation-1)
 - [Configuration](#configuration)
   - [Use Default Fleet Types](#use-default-fleet-types)
   - [Use Default Ping Targets](#use-default-ping-targets)
@@ -46,17 +55,17 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Installation<a name="installation"></a>
+## Screenshots<a name="screenshots"></a>
 
-> [!NOTE]
->
-> **AA Fleet Pings >= 3.0.0 needs at least Alliance Auth v4.0.0!**
->
-> Please make sure to update your Alliance Auth instance _before_ you install this
-> module or update to the latest version, otherwise an update to Alliance Auth will
-> be pulled in unsupervised.
->
-> The last version of AA Fleet Pings that supports Alliance Auth v3 is `2.26.3`.
+### View in Alliance Auth<a name="view-in-alliance-auth"></a>
+
+![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/aa-view.jpg "View in Alliance Auth")
+
+### Discord Ping Example<a name="discord-ping-example"></a>
+
+![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/discord-ping.jpg "Discord Ping Example")
+
+## Installation<a name="installation"></a>
 
 This app is a plugin for Alliance Auth. If you don't have Alliance Auth running already,
 please install it first before proceeding. (See the official [AA installation guide]
@@ -68,22 +77,24 @@ for details)
 > [Discord service](https://allianceauth.readthedocs.io/en/latest/features/services/discord.html)
 > installed, configured and activated before installing this app.
 
-### Step 1: Install the App<a name="step-1-install-the-app"></a>
+### Bare Metal Installation<a name="bare-metal-installation"></a>
+
+#### Step 1: Install the App<a name="step-1-install-the-app"></a>
 
 Make sure you're in the virtual environment (venv) of your Alliance Auth installation.
 Then install the latest version:
 
 ```bash
-pip install aa-fleetpings
+pip install aa-fleetpings==3.6.1
 ```
 
-### Step 2: Update Your AA Settings<a name="step-2-update-your-aa-settings"></a>
+#### Step 2: Update Your AA Settings<a name="step-2-update-your-aa-settings"></a>
 
 Configure your AA settings (`local.py`) as follows:
 
 - Add `'fleetpings',` to `INSTALLED_APPS`
 
-### Step 3: Finalizing the Installation<a name="step-3-finalizing-the-installation"></a>
+#### Step 3: Finalizing the Installation<a name="step-3-finalizing-the-installation"></a>
 
 Copy static files and run migrations
 
@@ -94,13 +105,55 @@ python manage.py migrate
 
 Restart your supervisor services for AA
 
-### Step 4: Setting up Permission<a name="step-4-setting-up-permission"></a>
+Continue with the [common setup](#common-setup-steps) steps below.
+
+### Docker Installation<a name="docker-installation"></a>
+
+#### Step 1: Add the App<a name="step-1-add-the-app"></a>
+
+Add the app to your `conf/requirements.txt`:
+
+```text
+aa-fleetpings==3.6.1
+```
+
+#### Step 2: Update Your AA Settings<a name="step-2-update-your-aa-settings-1"></a>
+
+Configure your AA settings (conf/local.py) as follows:
+
+- Add `'fleetpings',` to `INSTALLED_APPS`
+
+#### Step 3: Build Auth and Restart Your Containers<a name="step-3-build-auth-and-restart-your-containers"></a>
+
+Run the following commands from your AA project directory (the one that contains `docker-compose.yml`):
+
+```shell
+docker compose build --no-cache
+docker compose --env-file=.env up -d
+```
+
+#### Step 4: Finalizing the Installation<a name="step-4-finalizing-the-installation"></a>
+
+Copy static files and run migrations
+
+```shell
+docker compose exec allianceauth_gunicorn bash
+
+auth collectstatic
+auth migrate
+```
+
+Continue with the [common setup](#common-setup-steps) steps below.
+
+### Common Setup Steps<a name="common-setup-steps"></a>
+
+#### Permission Setup<a name="permission-setup"></a>
 
 Now you can set up permissions in Alliance Auth for your users.
 Add `fleetpings | aa fleetpings | Can access this app` to the states and/or
 groups you would like to have access.
 
-### Step 5: Setting up the App<a name="step-5-setting-up-the-app"></a>
+#### App Setup<a name="app-setup"></a>
 
 In your admin backend you'll find a new section called `Fleet Pings`.
 This is where you set all your stuff up, like the webhooks you want to ping and who
@@ -109,6 +162,8 @@ forward, so you shouldn't have any issues. Go nuts!
 
 ## Updating<a name="updating"></a>
 
+### Bare Metal Installation<a name="bare-metal-installation-1"></a>
+
 To update your existing installation of AA Discord Ping Formatter, first enable your
 virtual environment.
 
@@ -116,7 +171,7 @@ Then run the following commands from your AA project directory (the one that
 contains `manage.py`).
 
 ```bash
-pip install -U aa-fleetpings
+pip install aa-fleetpings==3.6.1
 
 python manage.py collectstatic
 python manage.py migrate
@@ -124,15 +179,29 @@ python manage.py migrate
 
 Finally, restart your AA supervisor services.
 
-## Screenshots<a name="screenshots"></a>
+### Docker Installation<a name="docker-installation-1"></a>
 
-### View in Alliance Auth<a name="view-in-alliance-auth"></a>
+To update your existing installation of AA Fleet Pings, all you need to do is to update the respective line in your `conf/requirements.txt` file to the latest version.
 
-![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/aa-view.jpg "View in Alliance Auth")
+```text
+aa-fleetpings==3.6.1
+```
 
-### Discord Ping Example<a name="discord-ping-example"></a>
+Now rebuild your containers:
 
-![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/discord-ping.jpg "Discord Ping Example")
+```shell
+docker compose build
+docker compose --env-file=.env up -d
+```
+
+After that, run the following commands to update your database and static files:
+
+```shell
+docker compose exec allianceauth_gunicorn bash
+
+auth collectstatic
+auth migrate
+```
 
 ## Configuration<a name="configuration"></a>
 

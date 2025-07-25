@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Added
+
+- Install and update instructions for Docker
+
 ### Changed
 
 - CSS cleanup

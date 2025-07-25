@@ -5,7 +5,7 @@
 
 {% block aa_fleetpings_body %}
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3 aa-fleetpings-pingform">
             <div class="card card-default">
                 <div class="card-header aa-fleetpings-ping-header">
                     <span class="card-title">{% translate "Fleet information" %}</span>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="col-md-6 aa-fleetpings-pingtext">
-            <div class="card card-default">
+            <div class="card card-default position-sticky" style="top: 1rem;">
                 <div class="card-header aa-fleetpings-ping-header">
                     <span class="card-title">{% translate "Formatted ping text" %}</span>
                 </div>

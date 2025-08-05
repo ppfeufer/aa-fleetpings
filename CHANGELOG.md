@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.6.2] - 2025-08-05
+
 ### Added
 
 - Install and update instructions for Docker
@@ -42,6 +44,7 @@ Section Order:
 ### Changed
 
 - CSS cleanup
+- Translations updated
 
 ### Removed
 

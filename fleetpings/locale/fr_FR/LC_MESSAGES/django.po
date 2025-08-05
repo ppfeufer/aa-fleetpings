@@ -10,20 +10,21 @@
 # balbozorre <loic.petiot2002@gmail.com>, 2024.
 # Onyx <The_Onyx_best@hotmail.com>, 2025.
 # Acia Saraki <ouss2412@live.fr>, 2025.
+# The “Devcutter” Guy <mick162534@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-06-03 11:18+0200\n"
-"PO-Revision-Date: 2025-06-18 19:24+0000\n"
-"Last-Translator: Acia Saraki <ouss2412@live.fr>\n"
+"POT-Creation-Date: 2025-08-05 07:51+0200\n"
+"PO-Revision-Date: 2025-08-03 03:41+0000\n"
+"Last-Translator: The “Devcutter” Guy <mick162534@gmail.com>\n"
 "Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
@@ -50,7 +51,7 @@ msgstr "Restrictions de groupe"
 
 #: fleetpings/admin.py:177 fleetpings/form.py:76
 msgid "Ping target"
-msgstr ""
+msgstr "Cible de ping"
 
 #: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
 msgid "Fleet type"
@@ -65,9 +66,8 @@ msgid "Discord channel"
 msgstr "Canal Discord"
 
 #: fleetpings/admin.py:312 fleetpings/models.py:473
-#, fuzzy
 msgid "Webhook URL"
-msgstr "Webhook URL"
+msgstr "URL du webhook"
 
 #. Translators: This is the app name and version, which will appear in the Django Backend
 #: fleetpings/apps.py:21
@@ -290,7 +290,7 @@ msgstr ""
 
 #: fleetpings/models.py:282
 msgid "Name of the Discord role to ping. (Note: This must be an Auth group that is synced to Discord.)"
-msgstr "Nom du rôle Discord à pinger. (Remarque : il doit s'agir d'un groupe d'AAuth synchronisé avec Discord.)"
+msgstr "Nom du rôle Discord à pinger. (Remarque : il doit s'agir d'un groupe synchronisé avec Discord.)"
 
 #: fleetpings/models.py:286
 msgid "Group name"
@@ -354,11 +354,11 @@ msgstr "Si ce webhook est actif ou non"
 
 #: fleetpings/models.py:516
 msgid "Webhook"
-msgstr ""
+msgstr "Webhook"
 
 #: fleetpings/models.py:517
 msgid "Webhooks"
-msgstr ""
+msgstr "Webhooks"
 
 #: fleetpings/models.py:536
 msgid "Invalid webhook URL. The webhook URL you entered does not match any known format for a Discord webhook. Please check the webhook URL."

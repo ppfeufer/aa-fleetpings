@@ -7,7 +7,7 @@ from dhooks_lite import Embed, Footer, UserAgent, Webhook
 
 # Django
 from django.contrib.auth.models import User
-from django.utils import timezone
+from django.utils import dateformat, timezone
 
 # AA Fleet Pings
 from fleetpings import __app_name_useragent__, __github_url__, __version__
@@ -51,14 +51,17 @@ def ping_discord_webhook(ping_context: dict, user: User) -> None:
         character=user.profile.main_character, size=256
     )
     author_eve_name = user.profile.main_character.character_name
+    formatted_ping_date = dateformat.format(
+        value=timezone.now(), format_string="Y-m-d H:i"
+    )
 
     embed = Embed(
         description=message_to_send,
         title=".: Fleet Details :.",
-        timestamp=timezone.now(),
         color=int(embed_color.lstrip("#"), 16),
         footer=Footer(
-            text=f"Ping sent by: {author_eve_name}", icon_url=author_eve_avatar
+            text=f"Ping sent by: {author_eve_name} • {formatted_ping_date} EVE time",
+            icon_url=author_eve_avatar,
         ),
     )
 

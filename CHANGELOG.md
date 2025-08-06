@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Fixed
+
+- Posted at time at the end of the embed ping is now EVE time, not local time
+
 ## [3.6.2] - 2025-08-05
 
 ### Added

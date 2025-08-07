@@ -44,7 +44,6 @@ $(document).ready(() => {
 
     /* Functions
     --------------------------------------------------------------------------------- */
-
     /**
      * Checks if the given item is a plain object, excluding arrays and dates.
      *
@@ -177,6 +176,40 @@ $(document).ready(() => {
         });
     };
 
+    /**
+     * Create an autocomplete field after a given element
+     *
+     * @param {HTMLElement} afterElement Element after which the autocomplete field will be created
+     * @param {string} elementId ID of the autocomplete input field
+     * @param {string} data HTML data for the datalist
+     */
+    const createAutoComplete = (afterElement, elementId, data) => {
+        const opts = {
+            onSelectItem: (selected_item, datalist) => {
+                if (datalist.e.datalist === 'fleet-doctrine-list') {
+                    setFleetDoctrineUrl();
+                }
+            },
+            preventBrowserAutocomplete: true,
+        };
+
+        afterElement.after(data);
+
+        const options = Object.assign(
+            {},
+            opts,
+            {
+                onRenderItem: (item, label) => {
+                    return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                },
+            }
+        );
+
+        const autoComplete = new Autocomplete( // eslint-disable-line no-unused-vars
+            document.getElementById(elementId),
+            options
+        );
+    };
 
     /**
      * Get user dropdown data from the server for the selects
@@ -226,36 +259,16 @@ $(document).ready(() => {
      * @returns {void}
      */
     const getUserDropdownDataForDatalist = () => {
-        const opts = {
-            onSelectItem: (selected_item, datalist) => {
-                if (datalist.e.datalist === 'fleet-doctrine-list') {
-                    setFleetDoctrineUrl();
-                }
-            },
-            preventBrowserAutocomplete: true,
-        };
-
         // Formup locations
         fetchGet({
             url: fleetpingsSettings.url.formupLocations,
             responseIsJson: false
         }).then((data) => {
             if (data.trim() !== '') {
-                $(fleetpingsVars.inputFormupLocation).after(data);
-
-                const optsFormupLocation = Object.assign(
-                    {},
-                    opts,
-                    {
-                        onRenderItem: (item, label) => {
-                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                        },
-                    }
-                );
-
-                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-                    document.getElementById('id_formup_location'),
-                    optsFormupLocation
+                createAutoComplete(
+                    fleetpingsVars.inputFormupLocation,
+                    'id_formup_location',
+                    data
                 );
             }
         }).catch((error) => {
@@ -268,21 +281,10 @@ $(document).ready(() => {
             responseIsJson: false
         }).then((data) => {
             if (data.trim() !== '') {
-                $(fleetpingsVars.inputFleetComms).after(data);
-
-                const optsFleetComms = Object.assign(
-                    {},
-                    opts,
-                    {
-                        onRenderItem: (item, label) => {
-                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                        },
-                    }
-                );
-
-                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-                    document.getElementById('id_fleet_comms'),
-                    optsFleetComms
+                createAutoComplete(
+                    fleetpingsVars.inputFleetComms,
+                    'id_fleet_comms',
+                    data
                 );
             }
         }).catch((error) => {
@@ -295,21 +297,10 @@ $(document).ready(() => {
             responseIsJson: false
         }).then((data) => {
             if (data.trim() !== '') {
-                $(fleetpingsVars.inputFleetDoctrine).after(data);
-
-                const optsFleetDoctrine = Object.assign(
-                    {},
-                    opts,
-                    {
-                        onRenderItem: (item, label) => {
-                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                        },
-                    }
-                );
-
-                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-                    document.getElementById('id_fleet_doctrine'),
-                    optsFleetDoctrine
+                createAutoComplete(
+                    fleetpingsVars.inputFleetDoctrine,
+                    'id_fleet_doctrine',
+                    data
                 );
             }
         }).catch((error) => {
@@ -320,7 +311,7 @@ $(document).ready(() => {
     /**
      * Closing the message
      *
-     * @param {string} element
+     * @param {string} element Element to close
      * @param {int} closeAfter Close Message after given time in seconds (Default: 10)
      * @returns {void}
      */
@@ -333,8 +324,8 @@ $(document).ready(() => {
     /**
      * Show a success message box
      *
-     * @param {string} message
-     * @param {string} element
+     * @param {string} message The success message to show
+     * @param {string} element Element where the message will be shown
      * @returns {void}
      */
     const showSuccess = (message, element) => {
@@ -348,8 +339,8 @@ $(document).ready(() => {
     /**
      * Show an error message box
      *
-     * @param {string} message
-     * @param {string} element
+     * @param {string} message The error message to show
+     * @param {string} element Element where the error message will be shown
      * @returns {void}
      */
     const showError = (message, element) => {
@@ -416,7 +407,7 @@ $(document).ready(() => {
     /**
      * Get the timestamp for the formup time
      *
-     * @param {string} formupTime
+     * @param {string} formupTime Formup time in a format that can be parsed by Date (e.g., '2023-10-01 12:00')
      * @returns {number}
      */
     const getFormupTimestamp = (formupTime) => {

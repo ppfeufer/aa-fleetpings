@@ -160,7 +160,7 @@ $(document).ready(() => {
      * @param {string|null} payload The payload (JSON) to send with the request (default: null)
      * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
      */
-    const fetchPost = ({ // eslint-disable-line no-unused-vars
+    const fetchPost = ({
         url,
         csrfToken,
         payload = null,

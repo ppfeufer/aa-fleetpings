@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-08-05 07:51+0200\n"
+"POT-Creation-Date: 2025-08-07 17:36+0200\n"
 "PO-Revision-Date: 2025-07-29 20:18+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Polish <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/pl/>\n"
@@ -514,18 +514,18 @@ msgstr ""
 msgid "Not all mandatory information available to create an SRP link."
 msgstr ""
 
-#: fleetpings/views.py:474
+#: fleetpings/views.py:478
 msgid "Fleet operations timer has been created …"
 msgstr ""
 
-#: fleetpings/views.py:483
+#: fleetpings/views.py:487
 msgid "SRP link has been created …"
 msgstr ""
 
-#: fleetpings/views.py:500
+#: fleetpings/views.py:504
 msgid "Form invalid. Please check your input."
 msgstr "Formularz niepoprawny. Sprawdź dane."
 
-#: fleetpings/views.py:502
+#: fleetpings/views.py:506
 msgid "No form data submitted."
 msgstr "Nie wysłano danych formularza."

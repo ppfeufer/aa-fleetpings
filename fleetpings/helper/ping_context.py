@@ -2,6 +2,9 @@
 Handling ping context data
 """
 
+# Django
+from django.utils import timezone
+
 # Alliance Auth (External Libs)
 from app_utils.urls import reverse_absolute
 
@@ -171,7 +174,9 @@ def _get_webhook_ping_context(ping_context: dict) -> dict:
 
     # Check if form-up time is available
     if ping_context["is_formup_now"]:
-        webhook_ping_text_content += "\n**Formup Time:** NOW"
+        webhook_ping_text_content += (
+            f"\n**Formup Time:** NOW (<t:{int(timezone.now().timestamp())}:R>)"
+        )
     else:
         if ping_context["formup_time"]["datetime_string"]:
             webhook_ping_text_content += (

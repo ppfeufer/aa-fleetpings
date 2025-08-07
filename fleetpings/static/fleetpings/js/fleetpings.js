@@ -65,7 +65,7 @@ $(document).ready(() => {
      * @param {string|null} csrfToken The CSRF token to include in the request headers (default: null)
      * @param {string|null} payload The payload (JSON) to send with the request (default: null)
      * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
-     * @returns {Promise<any>} The fetched data
+     * @returns {Promise<string>} The fetched data
      */
     const _fetchAjaxData = async ({
         url,
@@ -136,6 +136,7 @@ $(document).ready(() => {
      * @param {string} url The URL to fetch data from
      * @param {string|null} payload The payload (JSON) to send with the request (default: null)
      * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
+     * @return {Promise<string>} The fetched data
      */
     const fetchGet = ({
         url,
@@ -159,6 +160,7 @@ $(document).ready(() => {
      * @param {string|null} csrfToken The CSRF token to include in the request headers (default: null)
      * @param {string|null} payload The payload (JSON) to send with the request (default: null)
      * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
+     * @return {Promise<string>} The fetched data
      */
     const fetchPost = ({
         url,
@@ -185,28 +187,34 @@ $(document).ready(() => {
      */
     const getUserDropdownDataForSelects = () => {
         // Ping targets
-        fetchGet({url: fleetpingsSettings.url.pingTargets, responseIsJson: false})
-            .then((data) => {
-                $(fleetpingsVars.selectPingTarget).html(data);
-            }).catch((error) => {
-                console.error('Error fetching ping targets:', error);
-            });
+        fetchGet({
+            url: fleetpingsSettings.url.pingTargets,
+            responseIsJson: false
+        }).then((data) => {
+            $(fleetpingsVars.selectPingTarget).html(data);
+        }).catch((error) => {
+            console.error('Error fetching ping targets:', error);
+        });
 
         // Webhooks
-        fetchGet({url: fleetpingsSettings.url.pingWebhooks, responseIsJson: false})
-            .then((data) => {
-                $(fleetpingsVars.selectPingChannel).html(data);
-            }).catch((error) => {
-                console.error('Error fetching webhooks:', error);
-            });
+        fetchGet({
+            url: fleetpingsSettings.url.pingWebhooks,
+            responseIsJson: false
+        }).then((data) => {
+            $(fleetpingsVars.selectPingChannel).html(data);
+        }).catch((error) => {
+            console.error('Error fetching webhooks:', error);
+        });
 
         // Fleet types
-        fetchGet({url: fleetpingsSettings.url.fleetTypes, responseIsJson: false})
-            .then((data) => {
-                $(fleetpingsVars.selectFleetType).html(data);
-            }).catch((error) => {
-                console.error('Error fetching fleet types:', error);
-            });
+        fetchGet({
+            url: fleetpingsSettings.url.fleetTypes,
+            responseIsJson: false
+        }).then((data) => {
+            $(fleetpingsVars.selectFleetType).html(data);
+        }).catch((error) => {
+            console.error('Error fetching fleet types:', error);
+        });
     };
 
     /**
@@ -228,79 +236,85 @@ $(document).ready(() => {
         };
 
         // Formup locations
-        fetchGet({url: fleetpingsSettings.url.formupLocations, responseIsJson: false})
-            .then((data) => {
-                if (data.trim() !== '') {
-                    $(fleetpingsVars.inputFormupLocation).after(data);
+        fetchGet({
+            url: fleetpingsSettings.url.formupLocations,
+            responseIsJson: false
+        }).then((data) => {
+            if (data.trim() !== '') {
+                $(fleetpingsVars.inputFormupLocation).after(data);
 
-                    const optsFormupLocation = Object.assign(
-                        {},
-                        opts,
-                        {
-                            onRenderItem: (item, label) => {
-                                return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                            },
-                        }
-                    );
+                const optsFormupLocation = Object.assign(
+                    {},
+                    opts,
+                    {
+                        onRenderItem: (item, label) => {
+                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                        },
+                    }
+                );
 
-                    const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-                        document.getElementById('id_formup_location'),
-                        optsFormupLocation
-                    );
-                }
-            }).catch((error) => {
-                console.error('Error fetching formup locations:', error);
-            });
+                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                    document.getElementById('id_formup_location'),
+                    optsFormupLocation
+                );
+            }
+        }).catch((error) => {
+            console.error('Error fetching formup locations:', error);
+        });
 
         // Fleet comms
-        fetchGet({url: fleetpingsSettings.url.fleetComms, responseIsJson: false})
-            .then((data) => {
-                if (data.trim() !== '') {
-                    $(fleetpingsVars.inputFleetComms).after(data);
+        fetchGet({
+            url: fleetpingsSettings.url.fleetComms,
+            responseIsJson: false
+        }).then((data) => {
+            if (data.trim() !== '') {
+                $(fleetpingsVars.inputFleetComms).after(data);
 
-                    const optsFleetComms = Object.assign(
-                        {},
-                        opts,
-                        {
-                            onRenderItem: (item, label) => {
-                                return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                            },
-                        }
-                    );
+                const optsFleetComms = Object.assign(
+                    {},
+                    opts,
+                    {
+                        onRenderItem: (item, label) => {
+                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                        },
+                    }
+                );
 
-                    const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-                        document.getElementById('id_fleet_comms'),
-                        optsFleetComms
-                    );
-                }
-            }).catch((error) => {
-                console.error('Error fetching fleet comms:', error);
-            });
+                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                    document.getElementById('id_fleet_comms'),
+                    optsFleetComms
+                );
+            }
+        }).catch((error) => {
+            console.error('Error fetching fleet comms:', error);
+        });
 
         // Fleet doctrines
-        fetchGet({url: fleetpingsSettings.url.fleetDoctrines, responseIsJson: false})
-            .then((data) => {
-                if (data.trim() !== '') {
-                    $(fleetpingsVars.inputFleetDoctrine).after(data);
+        fetchGet({
+            url: fleetpingsSettings.url.fleetDoctrines,
+            responseIsJson: false
+        }).then((data) => {
+            if (data.trim() !== '') {
+                $(fleetpingsVars.inputFleetDoctrine).after(data);
 
-                    const optsFleetDoctrine = Object.assign(
-                        {},
-                        opts,
-                        {
-                            onRenderItem: (item, label) => {
-                                return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                            },
-                        }
-                    );
+                const optsFleetDoctrine = Object.assign(
+                    {},
+                    opts,
+                    {
+                        onRenderItem: (item, label) => {
+                            return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
+                        },
+                    }
+                );
 
-                    const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
-                        document.getElementById('id_fleet_doctrine'),
-                        optsFleetDoctrine
-                    );
-                }
-            }).catch((error) => {
-                console.error('Error fetching fleet comms:', error);
-            });
+                const autoCompleteFleetComms = new Autocomplete( // eslint-disable-line no-unused-vars
+                    document.getElementById('id_fleet_doctrine'),
+                    optsFleetDoctrine
+                );
+            }
+        }).catch((error) => {
+            console.error('Error fetching fleet comms:', error);
+        });
     };
 
     /**
@@ -675,30 +689,24 @@ $(document).ready(() => {
             if (data.success === true) {
                 $('.aa-fleetpings-no-ping').hide('fast');
                 $('.aa-fleetpings-ping').show('fast');
-
                 $('.aa-fleetpings-ping-text').html(data.ping_context);
 
                 if (data.message) {
-                    showSuccess(
-                        data.message,
-                        '.fleetpings-form-message'
-                    );
+                    showSuccess(data.message, '.fleetpings-form-message');
                 }
+            } else {
+                showError(
+                    data.message || 'Something went wrong, no details given.',
+                    '.fleetpings-form-message'
+                );
             }
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
 
-            if (error.message) {
-                showError(
-                    error.message,
-                    '.fleetpings-form-message'
-                );
-            } else {
-                showError(
-                    'Something went wrong, no details given.',
-                    '.fleetpings-form-message'
-                );
-            }
+            showError(
+                error.message || 'Something went wrong, no details given.',
+                '.fleetpings-form-message'
+            );
         });
     });
 

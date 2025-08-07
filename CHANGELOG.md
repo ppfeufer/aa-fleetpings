@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Changed
+
+- JS error handling improved
+
 ## [3.7.1] - 2025-08-07
 
 ### Changed

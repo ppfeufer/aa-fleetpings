@@ -93,7 +93,7 @@ Make sure you're in the virtual environment (venv) of your Alliance Auth install
 Then install the latest version:
 
 ```bash
-pip install aa-fleetpings==3.6.2
+pip install aa-fleetpings==3.7.0
 ```
 
 #### Step 2: Update Your AA Settings<a name="step-2-update-your-aa-settings"></a>
@@ -122,7 +122,7 @@ Continue with the [common setup](#common-setup-steps) steps below.
 Add the app to your `conf/requirements.txt`:
 
 ```text
-aa-fleetpings==3.6.2
+aa-fleetpings==3.7.0
 ```
 
 #### Step 2: Update Your AA Settings<a name="step-2-update-your-aa-settings-1"></a>
@@ -179,7 +179,7 @@ Then run the following commands from your AA project directory (the one that
 contains `manage.py`).
 
 ```bash
-pip install aa-fleetpings==3.6.2
+pip install aa-fleetpings==3.7.0
 
 python manage.py collectstatic
 python manage.py migrate
@@ -192,13 +192,13 @@ Finally, restart your AA supervisor services.
 To update your existing installation of AA Fleet Pings, all you need to do is to update the respective line in your `conf/requirements.txt` file to the latest version.
 
 ```text
-aa-fleetpings==3.6.2
+aa-fleetpings==3.7.0
 ```
 
 Now rebuild your containers:
 
 ```shell
-docker compose build
+docker compose build --no-cache
 docker compose --env-file=.env up -d
 ```
 

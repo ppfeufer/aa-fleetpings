@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.7.0] - 2025-08-07
+
 ### Added
 
 - Relative Discord timestamp for NOW pings ([#301](https://github.com/ppfeufer/aa-fleetpings/issues/301))

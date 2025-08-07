@@ -24,7 +24,9 @@ ______________________________________________________________________
 
 - [Screenshots](#screenshots)
   - [View in Alliance Auth](#view-in-alliance-auth)
-  - [Discord Ping Example](#discord-ping-example)
+  - [Discord Ping Examples](#discord-ping-examples)
+    - [Pre-Ping](#pre-ping)
+    - [Formup: NOW](#formup-now)
 - [Installation](#installation)
   - [Bare Metal Installation](#bare-metal-installation)
     - [Step 1: Install the App](#step-1-install-the-app)
@@ -61,9 +63,15 @@ ______________________________________________________________________
 
 ![View in Alliance Auth](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/aa-view.jpg "View in Alliance Auth")
 
-### Discord Ping Example<a name="discord-ping-example"></a>
+### Discord Ping Examples<a name="discord-ping-examples"></a>
 
-![Discord Ping Example](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/discord-ping.jpg "Discord Ping Example")
+#### Pre-Ping<a name="pre-ping"></a>
+
+![Discord Ping Example: Pre-Ping](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/discord-ping.jpg "Discord Ping Example: Pre-Ping")
+
+#### Formup: NOW<a name="formup-now"></a>
+
+![Discord Ping Example: Formup NOW](https://raw.githubusercontent.com/ppfeufer/aa-fleetpings/master/docs/images/discord-ping-formup-now.jpg "Discord Ping Example: Formup NOW")
 
 ## Installation<a name="installation"></a>
 

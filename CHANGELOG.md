@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.7.1] - 2025-08-07
+
 ### Changed
 
 - Fetch API functions refactored

@@ -1,4 +1,4 @@
-/* global fleetpingsSettings, ClipboardJS, isObject */
+/* global fleetpingsSettings, ClipboardJS */
 
 import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.39/autocomplete.min.js';
 
@@ -44,6 +44,18 @@ $(document).ready(() => {
 
     /* Functions
     --------------------------------------------------------------------------------- */
+
+    /**
+     * Checks if the given item is a plain object, excluding arrays and dates.
+     *
+     * @param {*} item - The item to check.
+     * @returns {boolean} True if the item is a plain object, false otherwise.
+     */
+    const isObject = (item) => {
+        return (
+            item && typeof item === 'object' && !Array.isArray(item) && !(item instanceof Date)
+        );
+    };
 
     /**
      * Fetch data from an ajax URL
@@ -654,39 +666,38 @@ $(document).ready(() => {
             return obj;
         }, {});
 
-        $.ajax({
+        fetchPost({
             url: fleetpingsSettings.url.fleetPing,
-            type: 'post',
-            data: formData,
-            headers: {
-                'X-CSRFToken': fleetpingsVars.inputCsrfMiddlewareToken.val()
-            },
-            success: (data) => {
-                if (data.success === true) {
-                    $('.aa-fleetpings-no-ping').hide('fast');
-                    $('.aa-fleetpings-ping').show('fast');
+            csrfToken: fleetpingsVars.inputCsrfMiddlewareToken.val(),
+            payload: formData,
+            responseIsJson: true
+        }).then((data) => {
+            if (data.success === true) {
+                $('.aa-fleetpings-no-ping').hide('fast');
+                $('.aa-fleetpings-ping').show('fast');
 
-                    $('.aa-fleetpings-ping-text').html(data.ping_context);
+                $('.aa-fleetpings-ping-text').html(data.ping_context);
 
-                    if (data.message) {
-                        showSuccess(
-                            data.message,
-                            '.fleetpings-form-message'
-                        );
-                    }
-                } else {
-                    if (data.message) {
-                        showError(
-                            data.message,
-                            '.fleetpings-form-message'
-                        );
-                    } else {
-                        showError(
-                            'Something went wrong, no details given.',
-                            '.fleetpings-form-message'
-                        );
-                    }
+                if (data.message) {
+                    showSuccess(
+                        data.message,
+                        '.fleetpings-form-message'
+                    );
                 }
+            }
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+
+            if (error.message) {
+                showError(
+                    error.message,
+                    '.fleetpings-form-message'
+                );
+            } else {
+                showError(
+                    'Something went wrong, no details given.',
+                    '.fleetpings-form-message'
+                );
             }
         });
     });

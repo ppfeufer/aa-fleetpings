@@ -456,13 +456,18 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     success = False
 
     if request.method == "POST":
-        form = FleetPingForm(data=request.POST)
+        # form = FleetPingForm(data=request.POST)
+        form = FleetPingForm(data=json.loads(request.body))
+
+        logger.debug(msg=f"Fleet ping form data: {form.data}")
 
         if form.is_valid():
             logger.info(msg="Fleet ping information received")
 
             # Get ping context
             ping_context = get_ping_context_from_form_data(form_data=form.cleaned_data)
+
+            logger.debug(msg=f"Ping context: {ping_context}")
 
             # Create optimer is requested
             if optimer_installed() and ping_context["create_optimer"]:

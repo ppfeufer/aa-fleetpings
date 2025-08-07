@@ -456,7 +456,6 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     success = False
 
     if request.method == "POST":
-        # form = FleetPingForm(data=request.POST)
         form = FleetPingForm(data=json.loads(request.body))
 
         logger.debug(msg=f"Fleet ping form data: {form.data}")

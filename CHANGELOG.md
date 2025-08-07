@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Added
+
+- Relative Discord timestamp for NOW pings ([#301](https://github.com/ppfeufer/aa-fleetpings/issues/301))
+
 ### Fixed
 
 - Posted at time at the end of the embed ping is now EVE time, not local time

@@ -35,6 +35,10 @@ Section Order:
 ### Security
 -->
 
+### Changed
+
+- Fetch API functions refactored
+
 ## [3.7.0] - 2025-08-07
 
 ### Added

@@ -3,6 +3,7 @@ Test ajax calls
 """
 
 # Standard Library
+import json
 from http import HTTPStatus
 
 # Django
@@ -14,7 +15,7 @@ from django.urls import reverse
 from fleetpings.tests.utils import create_fake_user
 
 
-class TestAccess(TestCase):
+class TestAjaxCalls(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """
@@ -340,7 +341,9 @@ class TestAccess(TestCase):
 
         # when
         response = self.client.post(
-            path=reverse(viewname="fleetpings:ajax_create_fleet_ping"), data=form_data
+            path=reverse("fleetpings:ajax_create_fleet_ping"),
+            data=json.dumps(form_data),
+            content_type="application/json",
         )
 
         # then
@@ -400,7 +403,9 @@ class TestAccess(TestCase):
 
         # when
         response = self.client.post(
-            path=reverse(viewname="fleetpings:ajax_create_fleet_ping"), data=form_data
+            path=reverse("fleetpings:ajax_create_fleet_ping"),
+            data=json.dumps(form_data),
+            content_type="application/json",
         )
 
         # then
@@ -446,7 +451,9 @@ class TestAccess(TestCase):
 
         # when
         response = self.client.post(
-            path=reverse(viewname="fleetpings:ajax_create_fleet_ping"), data=form_data
+            path=reverse("fleetpings:ajax_create_fleet_ping"),
+            data=json.dumps(form_data),
+            content_type="application/json",
         )
 
         # then

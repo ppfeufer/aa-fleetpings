@@ -59,6 +59,8 @@ $(document).ready(() => {
     /**
      * Fetch data from an ajax URL
      *
+     * Do not call this function directly, use fetchGet or fetchPost instead.
+     *
      * @param {string} url The URL to fetch data from
      * @param {string} method The HTTP method to use for the request (default: 'get')
      * @param {string|null} csrfToken The CSRF token to include in the request headers (default: null)

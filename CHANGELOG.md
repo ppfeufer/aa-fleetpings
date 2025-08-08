@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.7.2] - 2025-08-08
+
 ### Changed
 
 - Autocomplete JS refactored

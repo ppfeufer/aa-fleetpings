@@ -1,40 +1,39 @@
-/* global fleetpingsSettings, ClipboardJS */
+/* global fleetpingsSettings, ClipboardJS, fetchGet, fetchPost */
 
 import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.39/autocomplete.min.js';
 
 $(document).ready(() => {
     'use strict';
 
-    /* Variables
-    --------------------------------------------------------------------------------- */
-    const fleetpingsVars= {
-        // Check boxes
-        checkboxPrePing: $('input#id_pre_ping'),
-        checkboxFormupTimeNow: $('input#id_formup_now'),
-        checkboxCreateSrpLink: $('input#id_srp_link'),
-        checkboxCreateOptimer: $('input#id_optimer'),
-        checkboxFleetSrp: $('input#id_srp'),
+    /* DOM Elements Cache */
+    const elements = {
+        // Checkboxes
+        prePing: $('#id_pre_ping'),
+        formupTimeNow: $('#id_formup_now'),
+        createSrpLink: $('#id_srp_link'),
+        createOptimer: $('#id_optimer'),
+        fleetSrp: $('#id_srp'),
 
         // Selects
-        selectPingTarget: $('select#id_ping_target'),
-        selectPingChannel: $('select#id_ping_channel'),
-        selectFleetType: $('select#id_fleet_type'),
+        pingTarget: $('#id_ping_target'),
+        pingChannel: $('#id_ping_channel'),
+        fleetType: $('#id_fleet_type'),
 
-        // Input fields
-        inputCsrfMiddlewareToken: $('input[name="csrfmiddlewaretoken"]'),
-        inputFleetComms: $('input#id_fleet_comms'),
-        inputFleetCommander: $('input#id_fleet_commander'),
-        inputFleetName: $('input#id_fleet_name'),
-        inputFormupTime: $('input#id_formup_time'),
-        inputFormupTimestamp: $('input#id_formup_timestamp'),
-        inputFormupLocation: $('input#id_formup_location'),
-        inputFleetDoctrine: $('input#id_fleet_doctrine'),
-        inputFleetDoctrineUrl: $('input#id_fleet_doctrine_url'),
-        inputWebhookEmbedColor: $('input#id_webhook_embed_color'),
+        // Inputs
+        csrfToken: $('input[name="csrfmiddlewaretoken"]'),
+        fleetComms: $('#id_fleet_comms'),
+        fleetCommander: $('#id_fleet_commander'),
+        fleetName: $('#id_fleet_name'),
+        formupTime: $('#id_formup_time'),
+        formupTimestamp: $('#id_formup_timestamp'),
+        formupLocation: $('#id_formup_location'),
+        fleetDoctrine: $('#id_fleet_doctrine'),
+        fleetDoctrineUrl: $('#id_fleet_doctrine_url'),
+        webhookEmbedColor: $('#id_webhook_embed_color')
     };
 
-    // Initialize the datetime picker
-    fleetpingsVars.inputFormupTime.datetimepicker({
+    /* Initialize datetime picker */
+    elements.formupTime.datetimepicker({
         lang: fleetpingsSettings.dateTimeLocale,
         maskInput: true,
         format: 'Y-m-d H:i',
@@ -42,681 +41,379 @@ $(document).ready(() => {
         step: 15
     });
 
-    /* Functions
-    --------------------------------------------------------------------------------- */
-    /**
-     * Checks if the given item is a plain object, excluding arrays and dates.
-     *
-     * @param {*} item - The item to check.
-     * @returns {boolean} True if the item is a plain object, false otherwise.
-     */
-    const isObject = (item) => {
-        return (
-            item && typeof item === 'object' && !Array.isArray(item) && !(item instanceof Date)
-        );
-    };
+    /* Utility Functions */
+    const utils = {
+        /**
+         * Sanitize input by removing HTML tags.
+         *
+         * @param {string} input The input string to sanitize.
+         * @returns {string} The sanitized string with HTML tags removed.
+         */
+        sanitizeInput: (input) => {
+            return input && input.replace ? input.replace(/<[^>]*>/g, '') : input;
+        },
 
-    /**
-     * Fetch data from an ajax URL
-     *
-     * Do not call this function directly, use fetchGet or fetchPost instead.
-     *
-     * @param {string} url The URL to fetch data from
-     * @param {string} method The HTTP method to use for the request (default: 'get')
-     * @param {string|null} csrfToken The CSRF token to include in the request headers (default: null)
-     * @param {string|null} payload The payload (JSON) to send with the request (default: null)
-     * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
-     * @returns {Promise<string>} The fetched data
-     */
-    const _fetchAjaxData = async ({
-        url,
-        method = 'get',
-        csrfToken = null,
-        payload = null,
-        responseIsJson = true
-    }) => {
-        const normalizedMethod = method.toLowerCase();
-
-        // Validate the method
-        if (!['get', 'post'].includes(normalizedMethod)) {
-            throw new Error(`Invalid method: ${method}. Valid methods are: get, post`);
-        }
-
-        const headers = {};
-
-        // Set headers based on response type
-        if (responseIsJson) {
-            headers['Accept'] = 'application/json'; // jshint ignore:line
-            headers['Content-Type'] = 'application/json';
-        }
-
-        let requestUrl = url;
-        let body = null;
-
-        if (normalizedMethod === 'post') {
-            if (!csrfToken) {
-                throw new Error('CSRF token is required for POST requests');
+        /**
+         * Escape input by replacing special characters with HTML entities or escaped characters.
+         *
+         * @param {string} input The input string to escape.
+         * @param {boolean} [quotesToEntities=false] If true, replaces double quotes with HTML entities; otherwise, escapes them.
+         * @returns {string} The escaped string with special characters replaced.
+         */
+        escapeInput: (input, quotesToEntities = false) => {
+            if (!input) {
+                return input;
             }
 
-            headers['X-CSRFToken'] = csrfToken;
+            const escaped = utils.sanitizeInput(input).replace(/&/g, '&amp;');
 
-            if (payload !== null && !isObject(payload)) {
-                throw new Error('Payload must be an object when using POST method');
+            return quotesToEntities ? escaped.replace(/"/g, '&quot;') : escaped.replace(/"/g, '\\"');
+        },
+
+        /**
+         * Get the timestamp for the formup time.
+         * This function converts the formup time to a Unix timestamp in seconds.
+         *
+         * @param {string} formupTime The formup time in a format recognized by the Date constructor.
+         * @returns {number} The Unix timestamp in seconds.
+         */
+        getFormupTimestamp: (formupTime) => {
+            const formupDateTime = new Date(formupTime);
+
+            return (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() * 60 * 1000) / 1000;
+        },
+
+        /**
+         * Display a message in the specified element.
+         * This function creates an alert message with a close button and optional auto-close functionality.
+         *
+         * @param {string} message The message to display.
+         * @param {string} element The selector for the element where the message will be displayed.
+         * @param {string} [type=success] The type of message ('success' or 'error').
+         * @param {boolean} [autoClose=true] Whether to automatically close the message after a certain time.
+         * @return {void}
+         */
+        showMessage: (message, element, type = 'success', autoClose = true) => {
+            const alertType = type === 'success' ? 'alert-success' : 'alert-danger';
+            const closeAfter = type === 'success' ? 10000 : 9999000;
+            const containerClasses = `alert ${alertType} alert-dismissible alert-message-${type} align-items-center fade show`;
+
+            $(element).html(`<div class="${containerClasses}">${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`);
+
+            if (autoClose) {
+                $(`${element} > .alert-message-${type}`).fadeTo(closeAfter, 500).slideUp(500, () => {
+                    $(`${element} > .alert-message-${type}`).remove();
+                });
             }
-
-            body = payload ? JSON.stringify(payload) : null;
-        } else if (normalizedMethod === 'get' && payload) {
-            const queryParams = new URLSearchParams(payload).toString(); // jshint ignore:line
-
-            requestUrl += (url.includes('?') ? '&' : '?') + queryParams;
         }
+    };
 
-        try {
-            const response = await fetch(requestUrl, {
-                method: method.toUpperCase(),
-                headers: headers,
-                body: body
-            });
+    /* Data Loading Functions */
+    const dataLoader = {
+        /**
+         * Load data into a select element from a given URL.
+         *
+         * @param {string} url The URL to fetch data from.
+         * @param {string} target The selector for the target select element where the data will be loaded.
+         * @returns {Promise<void>} A promise that resolves when the data is loaded.
+         */
+        loadSelectData: async (url, target) => {
+            try {
+                const data = await fetchGet({url, responseIsJson: false});
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                $(target).html(data);
+            } catch (error) {
+                console.error(`Error loading data from ${url}:`, error);
             }
+        },
 
-            return responseIsJson ? await response.json() : await response.text();
-        } catch (error) {
-            console.log(`Error: ${error.message}`);
+        /**
+         * Load autocomplete data from a given URL and create an autocomplete instance.
+         *
+         * @param {string} url The URL to fetch autocomplete data from.
+         * @param {HTMLElement} inputElement The input element where the autocomplete will be attached.
+         * @param {string} elementId The ID of the element where the autocomplete will be created.
+         * @returns {Promise<void>} A promise that resolves when the autocomplete data is loaded and the instance is created.
+         */
+        loadAutocompleteData: async (url, inputElement, elementId) => {
+            try {
+                const data = await fetchGet({url, responseIsJson: false});
 
-            throw error;
-        }
-    };
-
-    /**
-     * Fetch data from an ajax URL using the GET method.
-     * This function is a wrapper around _fetchAjaxData to simplify GET requests.
-     *
-     * @param {string} url The URL to fetch data from
-     * @param {string|null} payload The payload (JSON) to send with the request (default: null)
-     * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
-     * @return {Promise<string>} The fetched data
-     */
-    const fetchGet = ({
-        url,
-        payload = null,
-        responseIsJson = true
-    }) => {
-        return _fetchAjaxData({
-            url: url,
-            method: 'get',
-            payload: payload,
-            responseIsJson: responseIsJson
-        });
-    };
-
-    /**
-     * Fetch data from an ajax URL using the POST method.
-     * This function is a wrapper around _fetchAjaxData to simplify POST requests.
-     * It requires a CSRF token for security purposes.
-     *
-     * @param {string} url The URL to fetch data from
-     * @param {string|null} csrfToken The CSRF token to include in the request headers (default: null)
-     * @param {string|null} payload The payload (JSON) to send with the request (default: null)
-     * @param {boolean} responseIsJson Whether the response is expected to be JSON or not (default: true)
-     * @return {Promise<string>} The fetched data
-     */
-    const fetchPost = ({
-        url,
-        csrfToken,
-        payload = null,
-        responseIsJson = true
-    }) => {
-        return _fetchAjaxData({
-            url: url,
-            method: 'post',
-            csrfToken: csrfToken,
-            payload: payload,
-            responseIsJson: responseIsJson
-        });
-    };
-
-    /**
-     * Create an autocomplete field after a given element
-     *
-     * @param {HTMLElement} afterElement Element after which the autocomplete field will be created
-     * @param {string} elementId ID of the autocomplete input field
-     * @param {string} data HTML data for the datalist
-     */
-    const createAutoComplete = (afterElement, elementId, data) => {
-        const opts = {
-            onSelectItem: (selected_item, datalist) => {
-                if (datalist.e.datalist === 'fleet-doctrine-list') {
-                    setFleetDoctrineUrl();
+                if (data.trim()) {
+                    dataLoader.createAutocomplete(inputElement, elementId, data);
                 }
-            },
-            preventBrowserAutocomplete: true,
-        };
+            } catch (error) {
+                console.error(`Error loading autocomplete data from ${url}:`, error);
+            }
+        },
 
-        afterElement.after(data);
-
-        const options = Object.assign(
-            {},
-            opts,
-            {
+        /**
+         * Create an autocomplete instance after the specified element.
+         *
+         * @param {HTMLElement} afterElement The element after which the autocomplete will be created.
+         * @param {string} elementId The ID of the input element for the autocomplete.
+         * @param {string} data The HTML data to be used for the autocomplete options.
+         * @returns {void}
+         */
+        createAutocomplete: (afterElement, elementId, data) => {
+            const options = {
+                onSelectItem: (selected_item, datalist) => {
+                    if (datalist.e.datalist === 'fleet-doctrine-list') {
+                        handlers.setFleetDoctrineUrl();
+                    }
+                },
+                preventBrowserAutocomplete: true,
                 onRenderItem: (item, label) => {
                     return `<l-i set="fl" name="${item.value.toLowerCase()}" size="16"></l-i> ${label}`;
-                },
-            }
-        );
+                }
+            };
 
-        const autoComplete = new Autocomplete( // eslint-disable-line no-unused-vars
-            document.getElementById(elementId),
-            options
-        );
-    };
+            afterElement.after(data);
 
-    /**
-     * Get user dropdown data from the server for the selects
-     *
-     * These are the ping targets, ping webhooks, and fleet types.
-     *
-     * @returns {void}
-     */
-    const getUserDropdownDataForSelects = () => {
-        // Ping targets
-        fetchGet({
-            url: fleetpingsSettings.url.pingTargets,
-            responseIsJson: false
-        }).then((data) => {
-            $(fleetpingsVars.selectPingTarget).html(data);
-        }).catch((error) => {
-            console.error('Error fetching ping targets:', error);
-        });
-
-        // Webhooks
-        fetchGet({
-            url: fleetpingsSettings.url.pingWebhooks,
-            responseIsJson: false
-        }).then((data) => {
-            $(fleetpingsVars.selectPingChannel).html(data);
-        }).catch((error) => {
-            console.error('Error fetching webhooks:', error);
-        });
-
-        // Fleet types
-        fetchGet({
-            url: fleetpingsSettings.url.fleetTypes,
-            responseIsJson: false
-        }).then((data) => {
-            $(fleetpingsVars.selectFleetType).html(data);
-        }).catch((error) => {
-            console.error('Error fetching fleet types:', error);
-        });
-    };
-
-    /**
-     * Get user dropdown data from the server for the data lists
-     *
-     * These are the formup locations, fleet comms, and fleet doctrines,
-     * and the data lists will be converted to autocomplete fields.
-     *
-     * @returns {void}
-     */
-    const getUserDropdownDataForDatalist = () => {
-        // Formup locations
-        fetchGet({
-            url: fleetpingsSettings.url.formupLocations,
-            responseIsJson: false
-        }).then((data) => {
-            if (data.trim() !== '') {
-                createAutoComplete(
-                    fleetpingsVars.inputFormupLocation,
-                    'id_formup_location',
-                    data
-                );
-            }
-        }).catch((error) => {
-            console.error('Error fetching formup locations:', error);
-        });
-
-        // Fleet comms
-        fetchGet({
-            url: fleetpingsSettings.url.fleetComms,
-            responseIsJson: false
-        }).then((data) => {
-            if (data.trim() !== '') {
-                createAutoComplete(
-                    fleetpingsVars.inputFleetComms,
-                    'id_fleet_comms',
-                    data
-                );
-            }
-        }).catch((error) => {
-            console.error('Error fetching fleet comms:', error);
-        });
-
-        // Fleet doctrines
-        fetchGet({
-            url: fleetpingsSettings.url.fleetDoctrines,
-            responseIsJson: false
-        }).then((data) => {
-            if (data.trim() !== '') {
-                createAutoComplete(
-                    fleetpingsVars.inputFleetDoctrine,
-                    'id_fleet_doctrine',
-                    data
-                );
-            }
-        }).catch((error) => {
-            console.error('Error fetching fleet comms:', error);
-        });
-    };
-
-    /**
-     * Closing the message
-     *
-     * @param {string} element Element to close
-     * @param {int} closeAfter Close Message after given time in seconds (Default: 10)
-     * @returns {void}
-     */
-    const closeMessageElement = (element, closeAfter = 10) => {
-        $(element).fadeTo(closeAfter * 1000, 500).slideUp(500, () => {
-            $(element).remove();
-        });
-    };
-
-    /**
-     * Show a success message box
-     *
-     * @param {string} message The success message to show
-     * @param {string} element Element where the message will be shown
-     * @returns {void}
-     */
-    const showSuccess = (message, element) => {
-        $(element).html(
-            `<div class="alert alert-success alert-dismissible alert-message-success d-flex align-items-center fade show">${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`
-        );
-
-        closeMessageElement('.alert-message-success');
-    };
-
-    /**
-     * Show an error message box
-     *
-     * @param {string} message The error message to show
-     * @param {string} element Element where the error message will be shown
-     * @returns {void}
-     */
-    const showError = (message, element) => {
-        $(element).html(
-            `<div class="alert alert-danger alert-dismissible alert-message-error d-flex align-items-center fade show">${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`
-        );
-
-        closeMessageElement('.alert-message-error', 9999);
-    };
-
-    /**
-     * Sanitize input string
-     *
-     * @param {string} input String to sanitize
-     * @returns {string} Sanitized string
-     */
-    const sanitizeInput = (input) => {
-        if (input) {
-            return input.replace(
-                /<(|\/|[^>/bi]|\/[^>bi]|[^/>][^>]+|\/[^>][^>]+)>/g,
-                ''
+            const autoComplete = new Autocomplete( // eslint-disable-line no-unused-vars
+                document.getElementById(elementId),
+                options
             );
-        } else {
-            return input;
-        }
-    };
+        },
 
-    /**
-     * Escape input string
-     *
-     * @param {string} input String to escape
-     * @param {boolean} quotesToEntities Transform quotes into entities
-     * @returns {string} Escaped string
-     */
-    const escapeInput = (input, quotesToEntities) => {
-        quotesToEntities = quotesToEntities || false;
-
-        if (input) {
-            let returnValue = sanitizeInput(input).replace(
-                /&/g,
-                '&amp;'
-            );
-
-            if (quotesToEntities === true) {
-                returnValue = returnValue.replace(
-                    /"/g,
-                    '&quot;'
-                );
-            }
-
-            if (quotesToEntities === false) {
-                returnValue = returnValue.replace(
-                    /"/g,
-                    '\\"'
-                );
-            }
-
-            return returnValue;
-        } else {
-            return input;
-        }
-    };
-
-    /**
-     * Get the timestamp for the formup time
-     *
-     * @param {string} formupTime Formup time in a format that can be parsed by Date (e.g., '2023-10-01 12:00')
-     * @returns {number}
-     */
-    const getFormupTimestamp = (formupTime) => {
-        const formupDateTime = new Date(formupTime);
-
-        return (formupDateTime.getTime() - formupDateTime.getTimezoneOffset() * 60 * 1000) / 1000;
-    };
-
-    /**
-     * Copy the fleet ping to clipboard
-     *
-     * @returns {void}
-     */
-    const copyFleetPing = () => {
         /**
-         * Copy text to clipboard
+         * Initialize the data loader by loading all necessary data for the form.
          *
-         * @type Clipboard
+         * @returns {Promise<void>} A promise that resolves when all data is loaded.
          */
-        const clipboardFleetPingData = new ClipboardJS('button#copyFleetPing');
+        initialize: async () => {
+            // Load select dropdowns
+            await Promise.all([
+                dataLoader.loadSelectData(fleetpingsSettings.url.pingTargets, elements.pingTarget),
+                dataLoader.loadSelectData(fleetpingsSettings.url.pingWebhooks, elements.pingChannel),
+                dataLoader.loadSelectData(fleetpingsSettings.url.fleetTypes, elements.fleetType)
+            ]);
 
+            // Load autocomplete data
+            await Promise.all([
+                dataLoader.loadAutocompleteData(fleetpingsSettings.url.formupLocations, elements.formupLocation, 'id_formup_location'),
+                dataLoader.loadAutocompleteData(fleetpingsSettings.url.fleetComms, elements.fleetComms, 'id_fleet_comms'),
+                dataLoader.loadAutocompleteData(fleetpingsSettings.url.fleetDoctrines, elements.fleetDoctrine, 'id_fleet_doctrine')
+            ]);
+        }
+    };
+
+    /* Event Handlers */
+    const handlers = {
         /**
-         * Copy success
+         * Update the visibility of checkboxes based on the current state of other checkboxes.
          *
-         * @param {type} e
+         * @returns {void}
          */
-        clipboardFleetPingData.on('success', (e) => {
-            showSuccess(
-                fleetpingsSettings.translation.copyToClipboard.success,
-                '.aa-fleetpings-ping-copyresult'
-            );
+        updateCheckboxVisibility: () => {
+            const isPrePingChecked = elements.prePing.is(':checked');
+            const isFormupNow = elements.formupTimeNow.is(':checked');
+            const isFleetSrpChecked = elements.fleetSrp.is(':checked');
 
-            e.clearSelection();
-            clipboardFleetPingData.destroy();
-        });
+            // Handle Optimer visibility
+            if (fleetpingsSettings.optimerInstalled) {
+                if (isPrePingChecked) {
+                    $('.fleetpings-create-optimer').show('fast');
+                } else {
+                    $('.fleetpings-create-optimer').hide('fast');
+
+                    elements.createOptimer.prop('checked', false);
+                }
+            }
+
+            // Handle SRP Link visibility
+            if (fleetpingsSettings.srpModuleAvailableToUser) {
+                const shouldShowSrpLink = isFormupNow && isFleetSrpChecked;
+                console.log(`SRP Link visibility: ${shouldShowSrpLink}`);
+
+                if (shouldShowSrpLink) {
+                    $('.fleetpings-create-srp-link').show('fast');
+                } else {
+                    $('.fleetpings-create-srp-link').hide('fast');
+
+                    elements.createSrpLink.prop('checked', false);
+                }
+            }
+        },
 
         /**
-         * Copy error
+         * Set the fleet doctrine URL based on the selected doctrine.
+         *
+         * @returns {void}
          */
-        clipboardFleetPingData.on('error', () => {
-            showError(
-                fleetpingsSettings.translation.copyToClipboard.error,
-                '.aa-fleetpings-ping-copyresult'
-            );
+        setFleetDoctrineUrl: () => {
+            const fleetDoctrine = utils.sanitizeInput(elements.fleetDoctrine.val());
 
-            clipboardFleetPingData.destroy();
-        });
-    };
+            if (!fleetDoctrine) {
+                elements.fleetDoctrineUrl.val(null);
 
-    /* Events
-    --------------------------------------------------------------------------------- */
-    /**
-     * Show a hint about ping spam for `@everyone`
-     *
-     * @returns {void}
-     */
-    $(fleetpingsVars.selectPingTarget).change(() => {
-        if (fleetpingsVars.selectPingTarget.val() === '@everyone') {
-            $('.hint-ping-everyone').show('fast');
-        } else {
-            $('.hint-ping-everyone').hide('fast');
-        }
-    });
+                return;
+            }
 
-    /**
-     * Set the formup timestamp when formup time is changed
-     *
-     * @returns {void}
-     */
-    $(fleetpingsVars.inputFormupTime).change(() => {
-        const formupTimestamp = getFormupTimestamp(
-            sanitizeInput(fleetpingsVars.inputFormupTime.val())
-        );
+            const selectedLink = $(`#fleet-doctrine-list [value="${utils.escapeInput(fleetDoctrine)}"]`).data('doctrine-url');
 
-        $(fleetpingsVars.inputFormupTimestamp).val(formupTimestamp);
-    });
+            elements.fleetDoctrineUrl.val(selectedLink || null);
+        },
 
-    /**
-     * Set the fleet doctrine URL if we have one
-     *
-     * @returns {void}
-     */
-    const setFleetDoctrineUrl = () => {
-        const fleetDoctrine = sanitizeInput(fleetpingsVars.inputFleetDoctrine.val());
-        let fleetDoctrineLink = null;
+        /**
+         * Submit the fleet ping form.
+         * This function handles the form submission, validates the input fields, and sends the data to the server.
+         * It also handles the response and displays appropriate messages to the user.
+         *
+         * @param {Event} event The event object from the form submission.
+         * @returns {Promise<void>} A promise that resolves when the form submission is complete.
+         */
+        submitForm: async (event) => {
+            event.preventDefault();
 
-        if (fleetDoctrine !== '') {
-            const selectedLink = $(
-                '#fleet-doctrine-list [value="' + escapeInput(fleetDoctrine, false) + '"]'
-            ).data('doctrine-url');
+            $('.fleetpings-form-message div').remove();
 
-            if ('undefined' !== selectedLink && selectedLink !== '') {
-                // Houston, we have a link!
-                fleetDoctrineLink = selectedLink;
+            // Validation
+            const validateFields = (fields, errorMessage) => {
+                if (fields.some(field => !field)) {
+                    utils.showMessage(errorMessage, '.fleetpings-form-message', 'error');
+
+                    return false;
+                }
+
+                return true;
+            };
+
+            if (fleetpingsSettings.srpModuleAvailableToUser && elements.createSrpLink.is(':checked')) {
+                if (!validateFields(
+                    [elements.fleetName.val(), elements.fleetDoctrine.val()],
+                    fleetpingsSettings.translation.srp.error.missingFields
+                )) {
+                    return;
+                }
+            }
+
+            if (fleetpingsSettings.optimerInstalled && elements.createOptimer.is(':checked')) {
+                if (!validateFields(
+                    [
+                        elements.fleetName.val(), elements.fleetDoctrine.val(),
+                        elements.formupLocation.val(), elements.formupTime.val(),
+                        elements.fleetCommander.val()
+                    ],
+                    fleetpingsSettings.translation.optimer.error.missingFields
+                )) {
+                    return;
+                }
+            }
+
+            try {
+                const formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
+                    obj[item.name] = item.value;
+
+                    return obj;
+                }, {});
+
+                const data = await fetchPost({
+                    url: fleetpingsSettings.url.fleetPing,
+                    csrfToken: elements.csrfToken.val(),
+                    payload: formData,
+                    responseIsJson: true
+                });
+
+                if (data.success) {
+                    $('.aa-fleetpings-no-ping').hide('fast');
+                    $('.aa-fleetpings-ping').show('fast');
+                    $('.aa-fleetpings-ping-text').html(data.ping_context);
+
+                    if (data.message) {
+                        utils.showMessage(
+                            data.message,
+                            '.fleetpings-form-message'
+                        );
+                    }
+                } else {
+                    utils.showMessage(
+                        data.message || 'Something went wrong, no details given.',
+                        '.fleetpings-form-message',
+                        'error'
+                    );
+                }
+            } catch (error) {
+                console.error('Error:', error.message);
+
+                utils.showMessage(
+                    error.message || 'Something went wrong, no details given.',
+                    '.fleetpings-form-message',
+                    'error'
+                );
             }
         }
-
-        $(fleetpingsVars.inputFleetDoctrineUrl).val(fleetDoctrineLink);
     };
 
-    /**
-     * Set the webhook embed color
-     *
-     * @returns {void}
-     */
-    $(fleetpingsVars.selectFleetType).change(() => {
-        const fleetTypeSelected = $('option:selected', fleetpingsVars.selectFleetType);
-        let webhookEmbedColor = null;
-
-        if (fleetTypeSelected !== '') {
-            webhookEmbedColor = sanitizeInput(fleetTypeSelected.data('embed-color'));
-        }
-
-        $(fleetpingsVars.inputWebhookEmbedColor).val(webhookEmbedColor);
+    /* Event Listeners */
+    elements.pingTarget.on('change', () => {
+        $('.hint-ping-everyone').toggle(elements.pingTarget.val() === '@everyone');
     });
 
-    /**
-     * Toggle "Create SRP Link" checkbox
-     */
-    if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-        if (fleetpingsVars.checkboxFleetSrp.is(':checked') && fleetpingsVars.checkboxFormupTimeNow.is(':checked')) {
-            $('.fleetpings-create-srp-link').show('fast');
-        } else {
-            fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
-            $('.fleetpings-create-srp-link').hide('fast');
-        }
+    elements.formupTime.on('change', () => {
+        const timestamp = utils.getFormupTimestamp(utils.sanitizeInput(elements.formupTime.val()));
 
-        fleetpingsVars.checkboxFleetSrp.change(() => {
-            if (fleetpingsVars.checkboxFleetSrp.is(':checked') && fleetpingsVars.checkboxFormupTimeNow.is(':checked')) {
-                $('.fleetpings-create-srp-link').show('fast');
-            } else {
-                fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
-                $('.fleetpings-create-srp-link').hide('fast');
-            }
-        });
+        elements.formupTimestamp.val(timestamp);
+    });
+
+    elements.fleetType.on('change', () => {
+        const selectedOption = $('option:selected', elements.fleetType);
+        const embedColor = utils.sanitizeInput(selectedOption.data('embed-color')) || null;
+
+        elements.webhookEmbedColor.val(embedColor);
+    });
+
+    elements.prePing.on('change', () => {
+        const isChecked = elements.prePing.is(':checked');
+
+        elements.formupTimeNow.prop('checked', !isChecked);
+        elements.formupTime.prop('disabled', !isChecked);
+
+        handlers.updateCheckboxVisibility();
+    });
+
+    elements.formupTimeNow.on('change', () => {
+        const isChecked = elements.formupTimeNow.is(':checked');
+
+        elements.prePing.prop('checked', !isChecked);
+        elements.formupTime.prop('disabled', isChecked);
+
+        handlers.updateCheckboxVisibility();
+    });
+
+    if (fleetpingsSettings.srpModuleAvailableToUser) {
+        elements.fleetSrp.on('change', handlers.updateCheckboxVisibility);
     }
 
-    /**
-     * Toggle "Formup NOW" checkbox when "Pre-Ping" is toggled
-     *
-     * Behaviour:
-     *  Pre-Ping checked
-     *      » Formup NOW unchecked
-     *      » Create Optimer is unchecked and hidden
-     *      » Create SRP Link is displayed
-     *  Pre-Ping unchecked
-     *      » Formup NOW checked
-     *      » Create Optimer is displayed
-     *      » Create SRP Link is hidden and unchecked
-     *
-     * @returns {void}
-     */
-    fleetpingsVars.checkboxPrePing.on('change', () => {
-        if (fleetpingsVars.checkboxPrePing.is(':checked')) {
-            fleetpingsVars.checkboxFormupTimeNow.prop('checked', false);
-            fleetpingsVars.inputFormupTime.prop('disabled', false);
+    $('form').on('submit', handlers.submitForm);
 
-            if (fleetpingsSettings.optimerInstalled === true) {
-                $('.fleetpings-create-optimer').show('fast');
-            }
+    $('#copyFleetPing').on('click', () => {
+        const clipboard = new ClipboardJS('#copyFleetPing');
 
-            if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-                fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
-                $('.fleetpings-create-srp-link').hide('fast');
-            }
-        } else {
-            fleetpingsVars.checkboxFormupTimeNow.prop('checked', true);
-            fleetpingsVars.inputFormupTime.prop('disabled', true);
-
-            if (fleetpingsSettings.optimerInstalled === true) {
-                fleetpingsVars.checkboxCreateOptimer.prop('checked', false);
-                $('.fleetpings-create-optimer').hide('fast');
-            }
-
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && fleetpingsVars.checkboxFleetSrp.is(':checked')) {
-                $('.fleetpings-create-srp-link').show('fast');
-            }
-        }
-    });
-
-    fleetpingsVars.checkboxFormupTimeNow.on('change', () => {
-        if (fleetpingsVars.checkboxFormupTimeNow.is(':checked')) {
-            fleetpingsVars.checkboxPrePing.prop('checked', false);
-            fleetpingsVars.inputFormupTime.prop('disabled', true);
-
-            if (fleetpingsSettings.optimerInstalled === true) {
-                fleetpingsVars.checkboxCreateOptimer.prop('checked', false);
-                $('.fleetpings-create-optimer').hide('fast');
-            }
-
-            if (fleetpingsSettings.srpModuleAvailableToUser === true && fleetpingsVars.checkboxFleetSrp.is(':checked')) {
-                $('.fleetpings-create-srp-link').show('fast');
-            }
-        } else {
-            fleetpingsVars.checkboxPrePing.prop('checked', true);
-            fleetpingsVars.inputFormupTime.prop('disabled', false);
-
-            if (fleetpingsSettings.optimerInstalled === true) {
-                $('.fleetpings-create-optimer').show('fast');
-            }
-
-            if (fleetpingsSettings.srpModuleAvailableToUser === true) {
-                fleetpingsVars.checkboxCreateSrpLink.prop('checked', false);
-                $('.fleetpings-create-srp-link').hide('fast');
-            }
-        }
-    });
-
-    /**
-     * Generate ping text
-     *
-     * @returns {void}
-     */
-    $('form').submit((event) => {
-        // Stop the browser from sending the form, we take care of it here …
-        event.preventDefault();
-
-        // Close all possible form messages
-        $('.fleetpings-form-message div').remove();
-
-        if (fleetpingsSettings.srpModuleAvailableToUser === true && fleetpingsVars.checkboxCreateSrpLink.is(':checked')) {
-            const srpMandatoryFields = [
-                fleetpingsVars.inputFleetName.val(),
-                fleetpingsVars.inputFleetDoctrine.val()
-            ];
-
-            // Check if all required fields for SRP links are filled
-            if (srpMandatoryFields.includes('')) {
-                showError(
-                    fleetpingsSettings.translation.srp.error.missingFields,
-                    '.fleetpings-form-message'
+        clipboard
+            .on('success', (e) => {
+                utils.showMessage(
+                    fleetpingsSettings.translation.copyToClipboard.success,
+                    '.aa-fleetpings-ping-copyresult'
                 );
 
-                return false;
-            }
-        }
+                e.clearSelection();
 
-        if (fleetpingsSettings.optimerInstalled === true && fleetpingsVars.checkboxCreateOptimer.is(':checked')) {
-            const optimerMandatoryFields = [
-                fleetpingsVars.inputFleetName.val(),
-                fleetpingsVars.inputFleetDoctrine.val(),
-                fleetpingsVars.inputFormupLocation.val(),
-                fleetpingsVars.inputFormupTime.val(),
-                fleetpingsVars.inputFleetCommander.val()
-            ];
+                clipboard.destroy();
+            })
+            .on('error', () => {
+                utils.showMessage(
+                    fleetpingsSettings.translation.copyToClipboard.error,
 
-            if (optimerMandatoryFields.includes('')) {
-                showError(
-                    fleetpingsSettings.translation.optimer.error.missingFields,
-                    '.fleetpings-form-message'
+                    '.aa-fleetpings-ping-copyresult',
+                    'error'
                 );
 
-                return false;
-            }
-        }
-
-        // Get the form data
-        const formData = $('#aa-fleetping-form').serializeArray().reduce((obj, item) => {
-            obj[item.name] = item.value;
-
-            return obj;
-        }, {});
-
-        fetchPost({
-            url: fleetpingsSettings.url.fleetPing,
-            csrfToken: fleetpingsVars.inputCsrfMiddlewareToken.val(),
-            payload: formData,
-            responseIsJson: true
-        }).then((data) => {
-            if (data.success === true) {
-                $('.aa-fleetpings-no-ping').hide('fast');
-                $('.aa-fleetpings-ping').show('fast');
-                $('.aa-fleetpings-ping-text').html(data.ping_context);
-
-                if (data.message) {
-                    showSuccess(data.message, '.fleetpings-form-message');
-                }
-            } else {
-                showError(
-                    data.message || 'Something went wrong, no details given.',
-                    '.fleetpings-form-message'
-                );
-            }
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-
-            showError(
-                error.message || 'Something went wrong, no details given.',
-                '.fleetpings-form-message'
-            );
-        });
+                clipboard.destroy();
+            });
     });
 
-    /**
-     * Copy ping text
-     *
-     * @returns {void}
-     */
-    $('button#copyFleetPing').on('click', () => {
-        copyFleetPing();
-    });
-
-    /**
-     * Initialize functions that need to start on load
-     */
-    (() => {
-        getUserDropdownDataForSelects();
-        getUserDropdownDataForDatalist();
-    })();
+    /* Initialize */
+    handlers.updateCheckboxVisibility();
+    dataLoader.initialize();
 });

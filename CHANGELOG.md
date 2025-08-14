@@ -35,6 +35,8 @@ Section Order:
 ### Security
 -->
 
+## [3.8.0] - 2025-08-14
+
 ### Changed
 
 - Use AA framework JS functions

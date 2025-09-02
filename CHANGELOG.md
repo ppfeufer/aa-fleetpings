@@ -35,9 +35,12 @@ Section Order:
 ### Security
 -->
 
+## [3.8.1] - 2025-09-02
+
 ### Changed
 
 - Switch to Terser for JavaScript compression
+- Translations updated
 
 ## [3.8.0] - 2025-08-14
 

@@ -2,8 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog] and this project adheres to [Semantic Versioning].
 
 <!--
 GitHub MD Syntax:
@@ -15,11 +14,17 @@ https://docs.github.com/assets/cb-41128/mw-1440/images/help/writing/alerts-rende
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 
+> [!TIP]
+> Optional information to help a user be more successful.
+
 > [!IMPORTANT]
 > Crucial information necessary for users to succeed.
 
 > [!WARNING]
-> Critical content demanding immediate user attention due to potential risks.
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advised about risks or negative outcomes of certain actions.
 -->
 
 ## [In Development] - Unreleased
@@ -34,6 +39,8 @@ Section Order:
 ### Removed
 ### Security
 -->
+
+<!-- Your changes go here -->
 
 ## [3.8.1] - 2025-09-02
 
@@ -379,8 +386,6 @@ Section Order:
 ### Fixed
 
 - Discord Message Format Inconsistency ([#127])
-
-<!-- Links -->
 
 ## [2.24.0] - 2023-06-24
 
@@ -989,12 +994,6 @@ settings in the admin backend, since we just nuked them from the old app.
 
 - Sanitizing form field input
 
-## [0.1.1] - 2020-06-13
-
-### Fixed
-
-- There should always be an empty line before Additional Information ...
-
 ## [0.1.0] - 2020-06-13
 
 ### Added
@@ -1019,4 +1018,102 @@ settings in the admin backend, since we just nuked them from the old app.
 [#87]: https://github.com/ppfeufer/aa-fleetpings/pull/87 "Allow disabling of Discord webhook url verification"
 [#89]: https://github.com/ppfeufer/aa-fleetpings/pull/89 "Enable Ordering for the webhooks"
 [#9]: https://github.com/ppfeufer/aa-discord-ping-formatter/issues/9 "Cant ping additional ping targets via direct ping"
+[0.1.0]: https://github.com/ppfeufer/aa-discord-ping-formatter/commits/v0.1.0 "v0.1.0"
+[0.1.10]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.9...v0.1.10 "v0.1.10"
+[0.1.2]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.0...v0.1.2 "v0.1.2"
+[0.1.3]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.2...v0.1.3 "v0.1.3"
+[0.1.4]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.3...v0.1.4 "v0.1.4"
+[0.1.5]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.4...v0.1.5 "v0.1.5"
+[0.1.6]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.5...v0.1.6 "v0.1.6"
+[0.1.7]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.6...v0.1.7 "v0.1.7"
+[0.1.8]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.7...v0.1.8 "v0.1.8"
+[0.1.9]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.8...v0.1.9 "v0.1.9"
+[1.0.0]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v0.1.10...v1.0.0 "v1.0.0"
+[1.1.0]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v1.0.0...v1.1.0 "v1.1.0"
+[1.1.1]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v1.1.0...v1.1.1 "v1.1.1"
+[1.1.2]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v1.1.1...v1.1.2 "v1.1.2"
+[1.1.3]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v1.1.2...v1.1.3 "v1.1.3"
+[1.1.4]: https://github.com/ppfeufer/aa-discord-ping-formatter/compare/v1.1.3...v1.1.4 "v1.1.4"
+[2.0.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.0.0a5...v2.0.0 "v2.0.0"
+[2.1.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.0.0...v2.1.0 "v2.1.0"
+[2.10.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.9.0...v2.10.0 "v2.10.0"
+[2.10.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.10.0...v2.10.1 "v2.10.1"
+[2.11.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.10.1...v2.11.0 "v2.11.0"
+[2.12.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.11.0...v2.12.0 "v2.12.0"
+[2.13.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.12.0...v2.13.0 "v2.13.0"
+[2.13.0-beta.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.12.0...v2.13.0-beta.1 "v2.13.0-beta.1"
+[2.13.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.13.0...v2.13.1 "v2.13.1"
+[2.13.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.13.1...v2.13.2 "v2.13.2"
+[2.14.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.13.2...v2.14.0 "v2.14.0"
+[2.14.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.14.0...v2.14.1 "v2.14.1"
+[2.15.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.14.1...v2.15.0 "v2.15.0"
+[2.16.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.15.0...v2.16.0 "v2.16.0"
+[2.17.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.16.0...v2.17.0 "v2.17.0"
+[2.18.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.17.0...v2.18.0 "v2.18.0"
+[2.19.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.18.0...v2.19.0 "v2.19.0"
+[2.2.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.1.0...v2.2.0 "v2.2.0"
+[2.2.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.2.0...v2.2.1 "v2.2.1"
+[2.2.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.2.1...v2.2.2 "v2.2.2"
+[2.20.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.19.0...v2.20.0 "v2.20.0"
+[2.21.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.20.0...v2.21.0 "v2.21.0"
+[2.22.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.21.0...v2.22.0 "v2.22.0"
+[2.22.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.22.0...v2.22.1 "v2.22.1"
+[2.22.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.22.1...v2.22.2 "v2.22.2"
+[2.23.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.22.2...v2.23.0 "v2.23.0"
+[2.24.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.23.0...v2.24.0 "v2.24.0"
+[2.24.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.24.0...v2.24.1 "v2.24.1"
+[2.24.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.24.1...v2.24.2 "v2.24.2"
+[2.24.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.24.2...v2.24.3 "v2.24.3"
+[2.24.4]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.24.3...v2.24.4 "v2.24.4"
+[2.25.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.24.4...v2.25.0 "v2.25.0"
+[2.26.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.25.0...v2.26.0 "v2.26.0"
+[2.26.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.26.0...v2.26.1 "v2.26.1"
+[2.26.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.26.1...v2.26.2 "v2.26.2"
+[2.26.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.26.2...v2.26.3 "v2.26.3"
+[2.3.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.2.2...v2.3.0 "v2.3.0"
+[2.4.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.3.0...v2.4.0 "v2.4.0"
+[2.4.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.4.0...v2.4.1 "v2.4.1"
+[2.4.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.4.1...v2.4.2 "v2.4.2"
+[2.4.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.4.2...v2.4.3 "v2.4.3"
+[2.4.4]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.4.3...v2.4.4 "v2.4.4"
+[2.5.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.4.4...v2.5.0 "v2.5.0"
+[2.5.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.5.0...v2.5.1 "v2.5.1"
+[2.5.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.5.1...v2.5.2 "v2.5.2"
+[2.5.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.5.2...v2.5.3 "v2.5.3"
+[2.5.4]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.5.3...v2.5.4 "v2.5.4"
+[2.5.5]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.5.4...v2.5.5 "v2.5.5"
+[2.6.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.5.5...v2.6.0 "v2.6.0"
+[2.7.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.6.0...v2.7.0 "v2.7.0"
+[2.8.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.7.0...v2.8.0 "v2.8.0"
+[2.9.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.8.0...v2.9.0 "v2.9.0"
+[3.0.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.26.3...v3.0.0 "v3.0.0"
+[3.0.0-beta.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v2.26.3...v3.0.0-beta.1 "v3.0.0-beta.1"
+[3.0.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.0.0...v3.0.1 "v3.0.1"
+[3.0.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.0.1...v3.0.2 "v3.0.2"
+[3.1.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.0.2...v3.1.0 "v3.1.0"
+[3.1.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.1.0...v3.1.1 "v3.1.1"
+[3.1.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.1.1...v3.1.2 "v3.1.2"
+[3.2.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.1.2...v3.2.0 "v3.2.0"
+[3.3.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.2.0...v3.3.0 "v3.3.0"
+[3.4.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.3.0...v3.4.0 "v3.4.0"
+[3.4.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.4.0...v3.4.1 "v3.4.1"
+[3.4.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.4.1...v3.4.2 "v3.4.2"
+[3.4.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.4.2...v3.4.3 "v3.4.3"
+[3.5.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.4.3...v3.5.0 "v3.5.0"
+[3.5.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.5.0...v3.5.1 "v3.5.1"
+[3.5.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.5.1...v3.5.2 "v3.5.2"
+[3.5.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.5.2...v3.5.3 "v3.5.3"
+[3.5.4]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.5.3...v3.5.4 "v3.5.4"
+[3.5.5]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.5.4...v3.5.5 "v3.5.5"
+[3.6.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.5.5...v3.6.0 "v3.6.0"
+[3.6.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.6.0...v3.6.1 "v3.6.1"
+[3.6.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.6.1...v3.6.2 "v3.6.2"
+[3.7.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.6.2...v3.7.0 "v3.7.0"
+[3.7.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.7.0...v3.7.1 "v3.7.1"
+[3.7.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.7.1...v3.7.2 "v3.7.2"
+[3.8.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.7.2...v3.8.0 "v3.8.0"
+[3.8.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.0...v3.8.1 "v3.8.1"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.1...HEAD "In Development"
+[keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
+[semantic versioning]: http://semver.org/ "Semantic Versioning"

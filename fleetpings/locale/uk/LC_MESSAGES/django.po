@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2025-09-02 06:52+0200\n"
-"PO-Revision-Date: 2025-09-29 12:43+0000\n"
+"PO-Revision-Date: 2025-10-13 11:43+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
@@ -47,7 +47,7 @@ msgstr "Обмеження групи"
 
 #: fleetpings/admin.py:177 fleetpings/form.py:76
 msgid "Ping target"
-msgstr "Ціль пінгу"
+msgstr "Мета пінгу"
 
 #: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
 msgid "Fleet type"

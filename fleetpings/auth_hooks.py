@@ -7,7 +7,7 @@ from allianceauth import hooks
 from allianceauth.services.hooks import MenuItemHook, UrlHook
 
 # AA Fleet Pings
-from fleetpings import __title__, urls
+from fleetpings import __title_translated__, urls
 
 
 class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-methods
@@ -23,7 +23,7 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
         # Setup menu entry for sidebar
         MenuItemHook.__init__(
             self,
-            text=__title__,
+            text=__title_translated__,
             classes="fa-regular fa-bell",
             url_name="fleetpings:index",
             navactive=["fleetpings:index"],

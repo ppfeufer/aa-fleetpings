@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 
 __version__ = "3.8.2"
 __title__ = _("Fleet Pings")
+__title_translated__ = _("Fleet Pings")
 
 __package_name__ = "aa-fleetpings"
 __app_name__ = "fleetpings"

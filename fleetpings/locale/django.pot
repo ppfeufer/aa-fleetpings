@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: AA Fleet Pings 3.8.1\n"
+"Project-Id-Version: AA Fleet Pings 3.8.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-09-02 06:52+0200\n"
+"POT-Creation-Date: 2025-10-23 14:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
+#: fleetpings/__init__.py:10 fleetpings/__init__.py:11
+#: fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr ""
@@ -58,12 +59,6 @@ msgstr ""
 
 #: fleetpings/admin.py:312 fleetpings/models.py:473
 msgid "Webhook URL"
-msgstr ""
-
-#. Translators: This is the app name and version, which will appear in the Django Backend
-#: fleetpings/apps.py:21
-#, python-brace-format
-msgid "Fleet Pings v{__version__}"
 msgstr ""
 
 #: fleetpings/form.py:27

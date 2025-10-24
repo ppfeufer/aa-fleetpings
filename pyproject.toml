@@ -52,11 +52,13 @@ optional-dependencies.tests-allianceauth-latest = [
     "fittings",
 ]
 urls.Changelog = "https://github.com/ppfeufer/aa-fleetpings/blob/master/CHANGELOG.md"
+urls.Codecov = "https://codecov.io/gh/ppfeufer/aa-fleetpings"
+urls.Discord = "https://discord.gg/fjnHAmk"
 urls.Documentation = "https://github.com/ppfeufer/aa-fleetpings/blob/master/README.md"
-urls.Donations = "https://ko-fi.com/ppfeufer"
-urls.Homepage = "https://github.com/ppfeufer/aa-fleetpings"
-urls.Source = "https://github.com/ppfeufer/aa-fleetpings.git"
+urls.Donation = "https://ko-fi.com/ppfeufer"
+urls.GitHub = "https://github.com/ppfeufer/aa-fleetpings"
 urls.Tracker = "https://github.com/ppfeufer/aa-fleetpings/issues"
+urls.Translation = "https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/"
 
 [tool.hatch.build]
 include = [

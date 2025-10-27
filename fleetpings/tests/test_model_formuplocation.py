@@ -2,14 +2,12 @@
 Tests for model FormupLocation
 """
 
-# Django
-from django.test import TestCase
-
 # AA Fleet Pings
 from fleetpings.models import FormupLocation
+from fleetpings.tests import BaseTestCase
 
 
-class TestModelFormupLocation(TestCase):
+class TestModelFormupLocation(BaseTestCase):
     """
     Testing the FormupLocation model
     """

@@ -4,14 +4,14 @@ Tests for model Setting
 
 # Django
 from django.db.utils import IntegrityError
-from django.test import TestCase
 
 # AA Fleet Pings
 from fleetpings.models import Setting
+from fleetpings.tests import BaseTestCase
 from fleetpings.tests.utils import create_setting
 
 
-class TestSetting(TestCase):
+class TestSetting(BaseTestCase):
     """
     Testing the Setting model
     """

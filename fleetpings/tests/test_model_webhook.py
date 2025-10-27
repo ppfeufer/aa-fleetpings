@@ -7,13 +7,13 @@ from unittest import mock
 
 # Django
 from django.core.exceptions import ValidationError
-from django.test import TestCase
 
 # AA Fleet Pings
 from fleetpings.models import Webhook
+from fleetpings.tests import BaseTestCase
 
 
-class TestModelWebhook(TestCase):
+class TestModelWebhook(BaseTestCase):
     """
     Testing the Webhook model
     """

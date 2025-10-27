@@ -8,14 +8,15 @@ from http import HTTPStatus
 
 # Django
 from django.contrib.auth.models import Group
-from django.test import TestCase, modify_settings
+from django.test import modify_settings
 from django.urls import reverse
 
 # AA Fleet Pings
+from fleetpings.tests import BaseTestCase
 from fleetpings.tests.utils import create_fake_user
 
 
-class TestAjaxCalls(TestCase):
+class TestAjaxCalls(BaseTestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """

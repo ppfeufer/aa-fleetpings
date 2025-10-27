@@ -4,13 +4,13 @@ Tests for model FleetDoctrine
 
 # Django
 from django.core.exceptions import ValidationError
-from django.test import TestCase
 
 # AA Fleet Pings
 from fleetpings.models import FleetDoctrine
+from fleetpings.tests import BaseTestCase
 
 
-class TestModelFleetDoctrine(TestCase):
+class TestModelFleetDoctrine(BaseTestCase):
     """
     Testing the FleetDoctrine model
     """

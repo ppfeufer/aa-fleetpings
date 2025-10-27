@@ -2,17 +2,15 @@
 Tests for the eve_images helper
 """
 
-# Django
-from django.test import TestCase
-
 # Alliance Auth (External Libs)
 from app_utils.testing import create_fake_user
 
 # AA Fleet Pings
 from fleetpings.helper.eve_images import get_character_portrait_from_evecharacter
+from fleetpings.tests import BaseTestCase
 
 
-class TestHelperEveImages(TestCase):
+class TestHelperEveImages(BaseTestCase):
     """
     Test eve_images helper
     """

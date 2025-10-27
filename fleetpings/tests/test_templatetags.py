@@ -4,13 +4,15 @@ Testing the template tags
 
 # Django
 from django.template import Context, Template
-from django.test import TestCase
 
 # Alliance Auth (External Libs)
 from app_utils.urls import site_absolute_url
 
+# AA Fleet Pings
+from fleetpings.tests import BaseTestCase
 
-class TestReverseUrl(TestCase):
+
+class TestReverseUrl(BaseTestCase):
     """
     Test fleetpings_reverse_url template tag
     """

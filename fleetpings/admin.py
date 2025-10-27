@@ -24,7 +24,7 @@ from fleetpings.models import (
 )
 
 
-def custom_filter(title) -> admin.FieldListFilter:
+def _custom_filter(title: str) -> admin.FieldListFilter:
     """
     Custom filter for model properties
 
@@ -39,7 +39,7 @@ def custom_filter(title) -> admin.FieldListFilter:
         Wrapper
         """
 
-        def __new__(cls, *args, **kwargs):
+        def __new__(cls, *args, **kwargs) -> admin.FieldListFilter:
             instance = admin.FieldListFilter.create(*args, **kwargs)
             instance.title = title
 
@@ -84,8 +84,8 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter(title="active")),
-        ("restricted_to_group", custom_filter(title="restriction")),
+        ("is_enabled", _custom_filter(title="active")),
+        ("restricted_to_group", _custom_filter(title="restriction")),
     )
 
     @classmethod
@@ -114,7 +114,7 @@ class FleetDoctrineAdmin(admin.ModelAdmin):
         :rtype:
         """
 
-        return obj.name
+        return obj.link
 
     @classmethod
     @admin.display(
@@ -168,9 +168,9 @@ class DiscordPingTargetsAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter(title="active")),
-        ("name", custom_filter(title="target")),
-        ("restricted_to_group", custom_filter(title="restriction")),
+        ("is_enabled", _custom_filter(title="active")),
+        ("name", _custom_filter(title="target")),
+        ("restricted_to_group", _custom_filter(title="restriction")),
     )
 
     @classmethod
@@ -229,8 +229,8 @@ class FleetTypeAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter(title="active")),
-        ("restricted_to_group", custom_filter(title="restriction")),
+        ("is_enabled", _custom_filter(title="active")),
+        ("restricted_to_group", _custom_filter(title="restriction")),
     )
 
     @classmethod
@@ -259,14 +259,17 @@ class FleetTypeAdmin(admin.ModelAdmin):
         :rtype:
         """
 
-        return_value = (
-            "<span "
-            'style="display: inline-block; width: 16px; background-color: {bg_color};">'
-            "&nbsp;&nbsp;"
-            "</span> {bg_color}".format(bg_color=obj.embed_color)
-        )
+        if obj.embed_color:
+            return_value = (
+                "<span "
+                'style="display: inline-block; width: 16px; background-color: {bg_color};">'
+                "&nbsp;&nbsp;"
+                "</span> {bg_color}".format(bg_color=obj.embed_color)
+            )
 
-        return mark_safe(return_value)
+            return mark_safe(return_value)
+
+        return ""
 
     @classmethod
     @admin.display(
@@ -299,8 +302,8 @@ class WebhookAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
     list_filter = (
-        ("is_enabled", custom_filter(title="active")),
-        ("restricted_to_group", custom_filter(title="restriction")),
+        ("is_enabled", _custom_filter(title="active")),
+        ("restricted_to_group", _custom_filter(title="restriction")),
     )
 
     @classmethod

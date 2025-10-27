@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.8.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-10-23 14:31+0200\n"
+"POT-Creation-Date: 2025-10-27 15:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,8 +35,8 @@ msgstr ""
 msgid "Doctrine link"
 msgstr ""
 
-#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:273
-#: fleetpings/admin.py:318 fleetpings/models.py:161 fleetpings/models.py:304
+#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:276
+#: fleetpings/admin.py:321 fleetpings/models.py:161 fleetpings/models.py:304
 #: fleetpings/models.py:411 fleetpings/models.py:482
 msgid "Group restrictions"
 msgstr ""
@@ -53,11 +53,11 @@ msgstr ""
 msgid "Embed color"
 msgstr ""
 
-#: fleetpings/admin.py:307 fleetpings/models.py:460
+#: fleetpings/admin.py:310 fleetpings/models.py:460
 msgid "Discord channel"
 msgstr ""
 
-#: fleetpings/admin.py:312 fleetpings/models.py:473
+#: fleetpings/admin.py:315 fleetpings/models.py:473
 msgid "Webhook URL"
 msgstr ""
 

@@ -2,14 +2,12 @@
 Tests for model FleetType
 """
 
-# Django
-from django.test import TestCase
-
 # AA Fleet Pings
 from fleetpings.models import FleetType
+from fleetpings.tests import BaseTestCase
 
 
-class TestModelFleetType(TestCase):
+class TestModelFleetType(BaseTestCase):
     """
     Testing the FleetType model
     """

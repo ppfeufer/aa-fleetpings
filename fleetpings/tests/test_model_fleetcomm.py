@@ -4,13 +4,13 @@ Tests for model FleetComm
 
 # Django
 from django.db.utils import IntegrityError
-from django.test import TestCase
 
 # AA Fleet Pings
 from fleetpings.models import FleetComm
+from fleetpings.tests import BaseTestCase
 
 
-class TestModelFleetComm(TestCase):
+class TestModelFleetComm(BaseTestCase):
     """
     Testing FleetComm model
     """

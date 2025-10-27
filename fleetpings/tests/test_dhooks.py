@@ -2,15 +2,13 @@
 Test cases for the `fleetpings.helper.discord_webhook` module.
 """
 
-# Standard Library
-from unittest import TestCase
-
 # AA Fleet Pings
 from fleetpings import __app_name_useragent__, __github_url__, __version__
 from fleetpings.helper.discord_webhook import get_user_agent
+from fleetpings.tests import BaseTestCase
 
 
-class TestUserAgent(TestCase):
+class TestUserAgent(BaseTestCase):
     """
     Test cases for the `UserAgent` class
     """

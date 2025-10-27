@@ -3,7 +3,7 @@ Test checks for installed modules we might use
 """
 
 # Django
-from django.test import TestCase, modify_settings
+from django.test import modify_settings
 
 # AA Fleet Pings
 from fleetpings.app_settings import (
@@ -13,9 +13,10 @@ from fleetpings.app_settings import (
     srp_module_is,
     timezones_installed,
 )
+from fleetpings.tests import BaseTestCase
 
 
-class TestModulesInstalled(TestCase):
+class TestModulesInstalled(BaseTestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """

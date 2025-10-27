@@ -3,7 +3,7 @@ Test the settings
 """
 
 # Django
-from django.test import TestCase, modify_settings, override_settings
+from django.test import modify_settings, override_settings
 
 # AA Fleet Pings
 from fleetpings.app_settings import (
@@ -15,9 +15,10 @@ from fleetpings.app_settings import (
     srp_module_is,
     timezones_installed,
 )
+from fleetpings.tests import BaseTestCase
 
 
-class TestSettings(TestCase):
+class TestSettings(BaseTestCase):
     """
     Test the settings
     """

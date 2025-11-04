@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-09-02 06:52+0200\n"
-"PO-Revision-Date: 2025-09-29 12:43+0000\n"
+"POT-Creation-Date: 2025-11-04 11:11+0100\n"
+"PO-Revision-Date: 2025-10-25 23:37+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -20,9 +20,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13.3\n"
+"X-Generator: Weblate 5.14\n"
 
-#: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
+#: fleetpings/__init__.py:10 fleetpings/__init__.py:11
+#: fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "舰队Ping"
@@ -39,8 +40,8 @@ msgstr "舰船要求"
 msgid "Doctrine link"
 msgstr "配置链接"
 
-#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:273
-#: fleetpings/admin.py:318 fleetpings/models.py:161 fleetpings/models.py:304
+#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:276
+#: fleetpings/admin.py:321 fleetpings/models.py:161 fleetpings/models.py:304
 #: fleetpings/models.py:411 fleetpings/models.py:482
 msgid "Group restrictions"
 msgstr "组别限制"
@@ -57,19 +58,13 @@ msgstr "舰队类型"
 msgid "Embed color"
 msgstr "嵌入颜色"
 
-#: fleetpings/admin.py:307 fleetpings/models.py:460
+#: fleetpings/admin.py:310 fleetpings/models.py:460
 msgid "Discord channel"
 msgstr "Discord频道"
 
-#: fleetpings/admin.py:312 fleetpings/models.py:473
+#: fleetpings/admin.py:315 fleetpings/models.py:473
 msgid "Webhook URL"
 msgstr "Webhooks（Web挂钩）URL"
-
-#. Translators: This is the app name and version, which will appear in the Django Backend
-#: fleetpings/apps.py:21
-#, python-brace-format
-msgid "Fleet Pings v{__version__}"
-msgstr "舰队Ping v{__version__}"
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
@@ -246,7 +241,7 @@ msgstr "已启用"
 
 #: fleetpings/models.py:143
 msgid "Short name to identify this doctrine"
-msgstr "此配置的简称"
+msgstr "此建制的简称"
 
 #: fleetpings/models.py:151
 msgid "A link to a doctrine page for this doctrine if you have."
@@ -390,7 +385,7 @@ msgstr "是否使用默认的ping对象。选中后，默认的ping对象（@eve
 
 #: fleetpings/models.py:592
 msgid "Whether to use the doctrines from the Fittings modules in the doctrine dropdown. Note: The fittings module needs to be installed for this."
-msgstr "是否使用配置下拉列表中配置模板中的配置。注：为此需要有配置模板。"
+msgstr "是否使用建制下拉列表中装配模板中的建制。注：为此需要有装配模板。"
 
 #: fleetpings/models.py:602
 msgid "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs will not be verified, so the app can be used with non-Discord webhooks as well. When disabling webhook verification and using non-Discord webhooks, it is up to you to make sure your webhook understands a payload that is formatted for Discord webhooks."
@@ -534,3 +529,7 @@ msgstr "格式无效。请检查您输入的内容。"
 #: fleetpings/views.py:506
 msgid "No form data submitted."
 msgstr "没有提交表单数据。"
+
+#, python-brace-format
+#~ msgid "Fleet Pings v{__version__}"
+#~ msgstr "舰队Ping v{__version__}"

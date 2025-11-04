@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-09-02 06:52+0200\n"
+"POT-Creation-Date: 2025-11-04 11:11+0100\n"
 "PO-Revision-Date: 2025-07-29 20:18+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Spanish <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/es/>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12.2\n"
 
-#: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
+#: fleetpings/__init__.py:10 fleetpings/__init__.py:11
+#: fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "Pings de Flotas"
@@ -36,8 +37,8 @@ msgstr "Doctrina"
 msgid "Doctrine link"
 msgstr "Enlace de la Doctrina"
 
-#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:273
-#: fleetpings/admin.py:318 fleetpings/models.py:161 fleetpings/models.py:304
+#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:276
+#: fleetpings/admin.py:321 fleetpings/models.py:161 fleetpings/models.py:304
 #: fleetpings/models.py:411 fleetpings/models.py:482
 msgid "Group restrictions"
 msgstr "Restricciones de grupo"
@@ -56,19 +57,13 @@ msgstr "Tipo de Flota"
 msgid "Embed color"
 msgstr "Color incrustado"
 
-#: fleetpings/admin.py:307 fleetpings/models.py:460
+#: fleetpings/admin.py:310 fleetpings/models.py:460
 msgid "Discord channel"
 msgstr "Canal de Discord"
 
-#: fleetpings/admin.py:312 fleetpings/models.py:473
+#: fleetpings/admin.py:315 fleetpings/models.py:473
 msgid "Webhook URL"
 msgstr "URL del webhook"
-
-#. Translators: This is the app name and version, which will appear in the Django Backend
-#: fleetpings/apps.py:21
-#, python-brace-format
-msgid "Fleet Pings v{__version__}"
-msgstr "Pings de Flota v{__version__}"
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
@@ -544,3 +539,7 @@ msgstr "Formulario inválido. Por favor, compruebe su entrada."
 #: fleetpings/views.py:506
 msgid "No form data submitted."
 msgstr "No se enviaron datos del formulario."
+
+#, python-brace-format
+#~ msgid "Fleet Pings v{__version__}"
+#~ msgstr "Pings de Flota v{__version__}"

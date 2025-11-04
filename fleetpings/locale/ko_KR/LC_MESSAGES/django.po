@@ -9,18 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-09-02 06:52+0200\n"
-"PO-Revision-Date: 2025-09-29 12:43+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"POT-Creation-Date: 2025-11-04 11:11+0100\n"
+"PO-Revision-Date: 2025-10-25 13:04+0000\n"
+"Last-Translator: SiO4 <hohoit0078@gmail.com>\n"
 "Language-Team: Korean <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/ko/>\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13.3\n"
+"X-Generator: Weblate 5.14\n"
 
-#: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
+#: fleetpings/__init__.py:10 fleetpings/__init__.py:11
+#: fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "함대 핑"
@@ -37,8 +38,8 @@ msgstr "독트린"
 msgid "Doctrine link"
 msgstr "독트린 링크"
 
-#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:273
-#: fleetpings/admin.py:318 fleetpings/models.py:161 fleetpings/models.py:304
+#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:276
+#: fleetpings/admin.py:321 fleetpings/models.py:161 fleetpings/models.py:304
 #: fleetpings/models.py:411 fleetpings/models.py:482
 msgid "Group restrictions"
 msgstr "그룹 제한"
@@ -55,19 +56,13 @@ msgstr "함대 종류"
 msgid "Embed color"
 msgstr "Embed 색상"
 
-#: fleetpings/admin.py:307 fleetpings/models.py:460
+#: fleetpings/admin.py:310 fleetpings/models.py:460
 msgid "Discord channel"
 msgstr "디스코드 채널"
 
-#: fleetpings/admin.py:312 fleetpings/models.py:473
+#: fleetpings/admin.py:315 fleetpings/models.py:473
 msgid "Webhook URL"
 msgstr "웹훅 URL"
-
-#. Translators: This is the app name and version, which will appear in the Django Backend
-#: fleetpings/apps.py:21
-#, python-brace-format
-msgid "Fleet Pings v{__version__}"
-msgstr "플릿 핑 v{__version__}"
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
@@ -556,8 +551,12 @@ msgstr "SRP 링크가 생성되었습니다…"
 
 #: fleetpings/views.py:504
 msgid "Form invalid. Please check your input."
-msgstr "잘못된 양식. 내용을 확인해 주세요."
+msgstr "잘못된 양식입니다. 내용을 확인해 주세요."
 
 #: fleetpings/views.py:506
 msgid "No form data submitted."
-msgstr "양식 데이터가 없습니다."
+msgstr "데이터 양식이 없습니다."
+
+#, python-brace-format
+#~ msgid "Fleet Pings v{__version__}"
+#~ msgstr "플릿 핑 v{__version__}"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-09-02 06:52+0200\n"
-"PO-Revision-Date: 2025-09-29 12:43+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"POT-Creation-Date: 2025-11-04 11:11+0100\n"
+"PO-Revision-Date: 2025-10-19 10:50+0000\n"
+"Last-Translator: s0k0l -_- <salarysalo@gmail.com>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,8 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : (n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.13.3\n"
 
-#: fleetpings/__init__.py:10 fleetpings/templates/fleetpings/base.html:6
+#: fleetpings/__init__.py:10 fleetpings/__init__.py:11
+#: fleetpings/templates/fleetpings/base.html:6
 #: fleetpings/templates/fleetpings/base.html:10
 msgid "Fleet Pings"
 msgstr "Флотові Пінги"
@@ -39,15 +40,15 @@ msgstr "Доктрина"
 msgid "Doctrine link"
 msgstr "Посилання на доктрину"
 
-#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:273
-#: fleetpings/admin.py:318 fleetpings/models.py:161 fleetpings/models.py:304
+#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:276
+#: fleetpings/admin.py:321 fleetpings/models.py:161 fleetpings/models.py:304
 #: fleetpings/models.py:411 fleetpings/models.py:482
 msgid "Group restrictions"
 msgstr "Обмеження групи"
 
 #: fleetpings/admin.py:177 fleetpings/form.py:76
 msgid "Ping target"
-msgstr "Ціль пінгу"
+msgstr "Мета пінгу"
 
 #: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
 msgid "Fleet type"
@@ -57,19 +58,13 @@ msgstr "Тип флоту"
 msgid "Embed color"
 msgstr "Колір повідомлення"
 
-#: fleetpings/admin.py:307 fleetpings/models.py:460
+#: fleetpings/admin.py:310 fleetpings/models.py:460
 msgid "Discord channel"
 msgstr "Discord канал"
 
-#: fleetpings/admin.py:312 fleetpings/models.py:473
+#: fleetpings/admin.py:315 fleetpings/models.py:473
 msgid "Webhook URL"
 msgstr "URL вебхука"
-
-#. Translators: This is the app name and version, which will appear in the Django Backend
-#: fleetpings/apps.py:21
-#, python-brace-format
-msgid "Fleet Pings v{__version__}"
-msgstr "Флотові пінги v{__version__}"
 
 #: fleetpings/form.py:27
 msgid "Discord Markdown"
@@ -402,7 +397,7 @@ msgstr "Колір виділення за замовчуванням для е�
 
 #: fleetpings/models.py:627
 msgid "Setting"
-msgstr "Налаштування"
+msgstr "Налаштуваннячко"
 
 #: fleetpings/models.py:628
 msgid "Settings"
@@ -541,3 +536,7 @@ msgstr "Форма невалідна. Будь ласка, перевірте �
 #: fleetpings/views.py:506
 msgid "No form data submitted."
 msgstr "Не подано жодних даних."
+
+#, python-brace-format
+#~ msgid "Fleet Pings v{__version__}"
+#~ msgstr "Флотові пінги v{__version__}"

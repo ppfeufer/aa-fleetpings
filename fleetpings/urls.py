@@ -9,7 +9,7 @@ from django.urls import include, path
 from fleetpings import views
 from fleetpings.constants import INTERNAL_URL_PREFIX
 
-app_name: str = "fleetpings"
+app_name: str = "fleetpings"  # pylint: disable=invalid-name
 
 ajax_urls = path(
     route="ajax/",

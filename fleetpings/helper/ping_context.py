@@ -5,15 +5,13 @@ Handling ping context data
 # Django
 from django.utils import timezone
 
-# Alliance Auth (External Libs)
-from app_utils.urls import reverse_absolute
-
 # AA Fleet Pings
 from fleetpings.app_settings import (
     fittings_installed,
     optimer_installed,
     timezones_installed,
 )
+from fleetpings.helper.urls import reverse_absolute
 from fleetpings.models import DiscordPingTarget, Setting, Webhook
 
 

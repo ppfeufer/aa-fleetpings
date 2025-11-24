@@ -8,6 +8,7 @@ The views
 import json
 
 # Django
+from django.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
@@ -19,10 +20,6 @@ from django.utils.translation import gettext_lazy as _
 
 # Alliance Auth
 from allianceauth.services.hooks import get_extension_logger
-
-# Alliance Auth (External Libs)
-from app_utils.logging import LoggerAddTag
-from app_utils.urls import reverse_absolute, site_absolute_url
 
 # AA Fleet Pings
 from fleetpings import __title__
@@ -37,6 +34,7 @@ from fleetpings.app_settings import (
 from fleetpings.form import FleetPingForm
 from fleetpings.helper.discord_webhook import ping_discord_webhook
 from fleetpings.helper.ping_context import get_ping_context_from_form_data
+from fleetpings.helper.urls import reverse_absolute
 from fleetpings.models import (
     DiscordPingTarget,
     FleetComm,
@@ -46,8 +44,9 @@ from fleetpings.models import (
     Setting,
     Webhook,
 )
+from fleetpings.providers import AppLogger
 
-logger = LoggerAddTag(my_logger=get_extension_logger(name=__name__), prefix=__title__)
+logger = AppLogger(my_logger=get_extension_logger(name=__name__), prefix=__title__)
 
 
 @login_required
@@ -78,7 +77,7 @@ def index(request: WSGIRequest) -> HttpResponse:
             | Q(restricted_to_group__isnull=True),
             is_enabled=True,
         ).exists(),
-        "site_url": site_absolute_url(),
+        "site_url": settings.SITE_URL,
         "optimer_installed": optimer_installed(),
         "fittings_installed": fittings_installed(),
         "main_character": request.user.profile.main_character,

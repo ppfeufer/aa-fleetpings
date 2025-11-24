@@ -3,10 +3,8 @@ Testing the template tags
 """
 
 # Django
+from django.conf import settings
 from django.template import Context, Template
-
-# Alliance Auth (External Libs)
-from app_utils.urls import site_absolute_url
 
 # AA Fleet Pings
 from fleetpings.tests import BaseTestCase
@@ -34,9 +32,8 @@ class TestReverseUrl(BaseTestCase):
         )
 
         rendered_template = template_to_render.render(context=context)
-        site_url = site_absolute_url()
 
         self.assertInHTML(
-            needle=f'{site_url}/fittings/doctrine/{context["doctrine_pk"]}/',
+            needle=f'{settings.SITE_URL}/fittings/doctrine/{context["doctrine_pk"]}/',
             haystack=rendered_template,
         )

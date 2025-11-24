@@ -39,7 +39,6 @@ dynamic = [
 ]
 dependencies = [
     "allianceauth>=4.9,<5",
-    "allianceauth-app-utils>=1.13",
     "dhooks-lite>=0.6.1",
 ]
 optional-dependencies.tests-allianceauth-latest = [

@@ -2,9 +2,6 @@
 App settings for fleetpings
 """
 
-# Standard Library
-from re import RegexFlag
-
 # Django
 from django.apps import apps
 from django.conf import settings
@@ -93,21 +90,19 @@ def can_add_srp_links(request: WSGIRequest, module_name: str) -> bool:
     :rtype:
     """
 
-    return_value = False
-
     if module_name == "aasrp" and (
         request.user.has_perm(perm="aasrp.manage_srp")
         or request.user.has_perm(perm="aasrp.create_srp")
     ):
-        return_value = True
+        return True
 
     if module_name == "allianceauth.srp" and (
         request.user.has_perm(perm="auth.srp_management")
         or request.user.has_perm(perm="srp.add_srpfleetmain")
     ):
-        return_value = True
+        return True
 
-    return return_value
+    return False
 
 
 def use_fittings_module_for_doctrines() -> bool:
@@ -132,7 +127,7 @@ def use_fittings_module_for_doctrines() -> bool:
     )
 
 
-def debug_enabled() -> RegexFlag:
+def debug_enabled() -> bool:
     """
     Check if DEBUG is enabled
 

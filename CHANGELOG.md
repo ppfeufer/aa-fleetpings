@@ -42,6 +42,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Changed
+
+- Some internal code improvements/simplifications
+
 ### Removed
 
 - `allianceauth-app-utils` as dependency

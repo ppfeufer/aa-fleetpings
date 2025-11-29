@@ -63,12 +63,10 @@ def index(request: WSGIRequest) -> HttpResponse:
 
     logger.info(msg=f"Fleet pings view called by user {request.user}")
 
-    srp_module_available_to_user = False
-    if srp_module_installed() and (
-        can_add_srp_links(request=request, module_name="aasrp")
-        or can_add_srp_links(request=request, module_name="allianceauth.srp")
-    ):
-        srp_module_available_to_user = True
+    srp_module_available_to_user = srp_module_installed() and any(
+        can_add_srp_links(request=request, module_name=module_name)
+        for module_name in ["aasrp", "allianceauth.srp"]
+    )
 
     context = {
         "title": __title__,
@@ -298,9 +296,6 @@ def _create_optimer(request: WSGIRequest, ping_context: dict):
     # Alliance Auth
     from allianceauth.optimer.models import OpTimer
 
-    post_time = timezone.now()
-    character = request.user.profile.main_character
-
     OpTimer(
         doctrine=ping_context["doctrine"]["name"],
         system=ping_context["formup_location"],
@@ -308,8 +303,8 @@ def _create_optimer(request: WSGIRequest, ping_context: dict):
         duration="N/A",
         operation_name=ping_context["fleet_name"],
         fc=ping_context["fleet_commander"],
-        post_time=post_time,
-        eve_character=character,
+        post_time=timezone.now(),
+        eve_character=request.user.profile.main_character,
     ).save()
 
     logger.info(msg=f"Optimer created by user {request.user}")
@@ -335,16 +330,14 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
     # Django
     from django.utils.crypto import get_random_string
 
-    post_time = timezone.now()
-    creator = request.user.profile.main_character
     srp_code = get_random_string(length=16)
 
     SrpLink(
         srp_name=ping_context["fleet_name"],
-        fleet_time=post_time,
+        fleet_time=timezone.now(),
         fleet_doctrine=ping_context["doctrine"]["name"],
         srp_code=srp_code,
-        fleet_commander=creator,
+        fleet_commander=request.user.profile.main_character,
         creator=request.user,
     ).save()
 
@@ -375,16 +368,14 @@ def _create_allianceauth_srp_link(request: WSGIRequest, ping_context: dict) -> d
     from allianceauth.srp.models import SrpFleetMain
     from allianceauth.srp.views import random_string
 
-    post_time = timezone.now()
-    creator = request.user.profile.main_character
     srp_code = random_string(8)
 
     SrpFleetMain(
         fleet_name=ping_context["fleet_name"],
         fleet_doctrine=ping_context["doctrine"]["name"],
-        fleet_time=post_time,
+        fleet_time=timezone.now(),
         fleet_srp_code=srp_code,
-        fleet_commander=creator,
+        fleet_commander=request.user.profile.main_character,
     ).save()
 
     logger.info(msg=f"SRP Link created by user {request.user}")
@@ -419,19 +410,15 @@ def _create_srp_link(request: WSGIRequest, ping_context: dict) -> dict:
         if srp_module_is(module_name="aasrp") and can_add_srp_links(
             request=request, module_name="aasrp"
         ):
-            aasrp_info = _create_aasrp_link(request=request, ping_context=ping_context)
-
-            return aasrp_info
+            return _create_aasrp_link(request=request, ping_context=ping_context)
 
         # Create allianceauth.srp link
         if srp_module_is(module_name="allianceauth.srp") and can_add_srp_links(
             request=request, module_name="allianceauth.srp"
         ):
-            allianceauth_srp_info = _create_allianceauth_srp_link(
+            return _create_allianceauth_srp_link(
                 request=request, ping_context=ping_context
             )
-
-            return allianceauth_srp_info
 
     return {
         "success": False,
@@ -451,8 +438,7 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
     :rtype:
     """
 
-    context = {}
-    success = False
+    context = {"success": False, "message": ""}
 
     if request.method == "POST":
         form = FleetPingForm(data=json.loads(request.body))
@@ -498,12 +484,10 @@ def ajax_create_fleet_ping(request: WSGIRequest) -> HttpResponse:
                 context=ping_context,
                 request=request,
             )
-            success = True
+            context["success"] = True
         else:
             context["message"] = str(_("Form invalid. Please check your input."))
     else:
         context["message"] = str(_("No form data submitted."))
-
-    context["success"] = success
 
     return HttpResponse(content=json.dumps(context), content_type="application/json")

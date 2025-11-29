@@ -39,10 +39,11 @@ class AaFleetpingsMenuItem(MenuItemHook):  # pylint: disable=too-few-public-meth
         :rtype:
         """
 
-        if request.user.has_perm(perm="fleetpings.basic_access"):
-            return MenuItemHook.render(self, request=request)
-
-        return ""
+        return (
+            MenuItemHook.render(self, request=request)
+            if request.user.has_perm(perm="fleetpings.basic_access")
+            else ""
+        )
 
 
 @hooks.register("menu_item_hook")

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-11-04 11:11+0100\n"
+"POT-Creation-Date: 2025-12-02 04:20+0100\n"
 "PO-Revision-Date: 2025-10-25 13:04+0000\n"
 "Last-Translator: SiO4 <hohoit0078@gmail.com>\n"
 "Language-Team: Korean <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/ko/>\n"
@@ -537,23 +537,23 @@ msgstr "아직 생성된 핑이 없습니다…"
 msgid "Copy ping text"
 msgstr "복사"
 
-#: fleetpings/views.py:439
+#: fleetpings/views.py:425
 msgid "Not all mandatory information available to create an SRP link."
 msgstr "SRP 링크를 생성하기 위해 필요한 필수 정보들이 부족합니다."
 
-#: fleetpings/views.py:478
+#: fleetpings/views.py:463
 msgid "Fleet operations timer has been created …"
 msgstr "함대 오퍼레이션 타이머가 생성되었습니다…"
 
-#: fleetpings/views.py:487
+#: fleetpings/views.py:472
 msgid "SRP link has been created …"
 msgstr "SRP 링크가 생성되었습니다…"
 
-#: fleetpings/views.py:504
+#: fleetpings/views.py:489
 msgid "Form invalid. Please check your input."
 msgstr "잘못된 양식입니다. 내용을 확인해 주세요."
 
-#: fleetpings/views.py:506
+#: fleetpings/views.py:491
 msgid "No form data submitted."
 msgstr "데이터 양식이 없습니다."
 

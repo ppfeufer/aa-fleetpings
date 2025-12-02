@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-11-04 11:11+0100\n"
+"POT-Creation-Date: 2025-12-02 04:20+0100\n"
 "PO-Revision-Date: 2025-10-19 10:50+0000\n"
 "Last-Translator: s0k0l -_- <salarysalo@gmail.com>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/uk/>\n"
@@ -517,23 +517,23 @@ msgstr "Пінг ще не створено …"
 msgid "Copy ping text"
 msgstr "Скопіювати текст пінгу"
 
-#: fleetpings/views.py:439
+#: fleetpings/views.py:425
 msgid "Not all mandatory information available to create an SRP link."
 msgstr "Не вся обов'язкова інформація доступна для створення SRP-посилання."
 
-#: fleetpings/views.py:478
+#: fleetpings/views.py:463
 msgid "Fleet operations timer has been created …"
 msgstr "Створено таймер операцій флоту …"
 
-#: fleetpings/views.py:487
+#: fleetpings/views.py:472
 msgid "SRP link has been created …"
 msgstr "Створено SRP-посилання …"
 
-#: fleetpings/views.py:504
+#: fleetpings/views.py:489
 msgid "Form invalid. Please check your input."
 msgstr "Форма невалідна. Будь ласка, перевірте ваші введені дані."
 
-#: fleetpings/views.py:506
+#: fleetpings/views.py:491
 msgid "No form data submitted."
 msgstr "Не подано жодних даних."
 

@@ -6,7 +6,7 @@ A couple of variables to use throughout the app
 # Django
 from django.utils.translation import gettext_lazy as _
 
-__version__ = "3.8.3"
+__version__ = "3.9.0"
 __title__ = _("Fleet Pings")
 __title_translated__ = _("Fleet Pings")
 

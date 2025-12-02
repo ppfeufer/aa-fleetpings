@@ -42,9 +42,12 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [3.9.0] - 2025-12-02
+
 ### Changed
 
 - Some internal code improvements/simplifications
+- Translations updated
 
 ### Removed
 
@@ -1139,7 +1142,8 @@ settings in the admin backend, since we just nuked them from the old app.
 [3.8.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.0...v3.8.1 "v3.8.1"
 [3.8.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.1...v3.8.2 "v3.8.2"
 [3.8.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.2...v3.8.3 "v3.8.3"
+[3.9.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.3...v3.9.0 "v3.9.0"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
-[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.8.3...HEAD "In Development"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"

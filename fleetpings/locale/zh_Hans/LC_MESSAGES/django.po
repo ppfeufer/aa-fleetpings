@@ -7,20 +7,21 @@
 # MxdHana <236833425@qq.com>, 2024.
 # Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
 # Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>, 2025.
+# LichenKass <yuanchengwei_sz@163.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-12-02 04:20+0100\n"
-"PO-Revision-Date: 2025-10-25 23:37+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"POT-Creation-Date: 2026-01-05 20:37+0100\n"
+"PO-Revision-Date: 2025-12-21 13:32+0000\n"
+"Last-Translator: LichenKass <yuanchengwei_sz@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -73,7 +74,7 @@ msgstr "Discord Markdown"
 #: fleetpings/form.py:34
 #, python-brace-format
 msgid "Hint: You can use {discord_markdown_link} to format the text."
-msgstr "提示：您可以使用{discord_markdown_link}来格式化文本。"
+msgstr "提示: 您可以使用{discord_markdown_link}来格式化文本。"
 
 #: fleetpings/form.py:78
 msgid "Who do you want to ping?"

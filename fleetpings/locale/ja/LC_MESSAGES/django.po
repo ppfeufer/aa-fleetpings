@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2025-12-02 04:20+0100\n"
-"PO-Revision-Date: 2025-12-02 04:09+0000\n"
+"POT-Creation-Date: 2026-01-05 20:37+0100\n"
+"PO-Revision-Date: 2025-12-03 08:17+0000\n"
 "Last-Translator: Dexsar <dexsar.paf@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/ja/>\n"
 "Language: ja\n"
@@ -50,7 +50,7 @@ msgstr "通知の対象"
 
 #: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
 msgid "Fleet type"
-msgstr "艦隊種類"
+msgstr "フリート種類"
 
 #: fleetpings/admin.py:251 fleetpings/models.py:402
 msgid "Embed color"
@@ -103,7 +103,7 @@ msgstr "FCは誰ですか？"
 
 #: fleetpings/form.py:103
 msgid "Fleet name"
-msgstr "艦隊名"
+msgstr "フリート名"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
@@ -235,7 +235,7 @@ msgstr "このVCが有効か無効か"
 #: fleetpings/models.py:109 fleetpings/models.py:177 fleetpings/models.py:248
 #: fleetpings/models.py:320 fleetpings/models.py:427 fleetpings/models.py:498
 msgid "Is enabled"
-msgstr "有効になっています"
+msgstr "有効です"
 
 #: fleetpings/models.py:143
 msgid "Short name to identify this doctrine"

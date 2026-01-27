@@ -42,6 +42,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Changed
+
+- Import JS library with relative path
+
 ## [3.9.1] - 2026-01-05
 
 ### Changed

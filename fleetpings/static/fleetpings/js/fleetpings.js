@@ -1,6 +1,6 @@
 /* global fleetpingsSettings, ClipboardJS, fetchGet, fetchPost */
 
-import Autocomplete from '/static/fleetpings/libs/bootstrap5-autocomplete/1.1.39/autocomplete.min.js';
+import Autocomplete from '../libs/bootstrap5-autocomplete/1.1.39/autocomplete.min.js';
 
 $(document).ready(() => {
     'use strict';
@@ -415,5 +415,7 @@ $(document).ready(() => {
 
     /* Initialize */
     handlers.updateCheckboxVisibility();
-    dataLoader.initialize();
+    dataLoader.initialize()
+        .then(() => console.log('Fleetpings form initialized'))
+        .catch((error) => console.error('Error initializing Fleetpings form:', error));
 });

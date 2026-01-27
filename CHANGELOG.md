@@ -44,6 +44,7 @@ Section Order:
 
 ### Changed
 
+- Autocomplete library updated
 - Import JS library with relative path
 
 ### Removed

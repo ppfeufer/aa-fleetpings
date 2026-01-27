@@ -46,6 +46,10 @@ Section Order:
 
 - Import JS library with relative path
 
+### Removed
+
+- Unnecessary templatetag
+
 ## [3.9.1] - 2026-01-05
 
 ### Changed

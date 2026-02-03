@@ -8,20 +8,21 @@
 # Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
 # Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>, 2025.
 # LichenKass <yuanchengwei_sz@163.com>, 2025.
+# Heimi <204420064@qq.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-01-05 20:37+0100\n"
-"PO-Revision-Date: 2025-12-21 13:32+0000\n"
-"Last-Translator: LichenKass <yuanchengwei_sz@163.com>\n"
+"POT-Creation-Date: 2026-02-03 02:44+0100\n"
+"PO-Revision-Date: 2026-01-23 00:05+0000\n"
+"Last-Translator: Heimi <204420064@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -430,7 +431,7 @@ msgstr "错误！您的ping未复制到剪贴板。也许您的浏览器不支�
 
 #: fleetpings/templates/fleetpings/index.html:35
 msgid "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."
-msgstr ""
+msgstr "成功！你的ping文本已复制到剪贴板。现在好好当个舰队指挥官，把它扔进聊天频道，这样才能真正招募到人加入舰队。"
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:5
 msgid "Do you want to help translate this app into your language or improve the existing translation?"
@@ -442,11 +443,11 @@ msgstr "加入我们的翻译团队吧！"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:72
 msgid "Create ping"
-msgstr ""
+msgstr "创建PIng"
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:6
 msgid "Please think twice if you really need to ping <code>@everyone</code>."
-msgstr ""
+msgstr "请三思而后行，是否真的需要 <code>@everyone</code>."
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:10
 msgid ""
@@ -461,11 +462,11 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:20
 msgid "Notification spam is a real thing and might entice people to mute channels."
-msgstr ""
+msgstr "通知垃圾信息确实存在，可能会诱使人们屏蔽频道。"
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:24
 msgid "<code>@here</code> usually does the trick just fine."
-msgstr ""
+msgstr "<code>@here</code>通常就能解决问题。"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:3
 msgid "Please select"
@@ -473,19 +474,19 @@ msgstr "请选择"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:7
 msgid "Roaming Fleet"
-msgstr ""
+msgstr "漫游舰队"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:8
 msgid "Home Defense"
-msgstr ""
+msgstr "家防集结"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:9
 msgid "StratOP"
-msgstr ""
+msgstr "战略集结"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:10
 msgid "CTA"
-msgstr ""
+msgstr "极限集结"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:16
 msgid "Additionally configured fleet types"
@@ -505,11 +506,11 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/ping/ping.html:5
 msgid "No ping created yet …"
-msgstr ""
+msgstr "尚未创建任何ping……"
 
 #: fleetpings/templates/fleetpings/partials/ping/ping.html:22
 msgid "Copy ping text"
-msgstr ""
+msgstr "复制Ping信息"
 
 #: fleetpings/views.py:425
 msgid "Not all mandatory information available to create an SRP link."
@@ -517,11 +518,11 @@ msgstr ""
 
 #: fleetpings/views.py:463
 msgid "Fleet operations timer has been created …"
-msgstr ""
+msgstr "舰队行动计时器已创建……"
 
 #: fleetpings/views.py:472
 msgid "SRP link has been created …"
-msgstr ""
+msgstr "补损链接已创建……"
 
 #: fleetpings/views.py:489
 msgid "Form invalid. Please check your input."

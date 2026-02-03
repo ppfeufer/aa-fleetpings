@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
+# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-01-05 20:37+0100\n"
-"PO-Revision-Date: 2025-07-29 20:18+0000\n"
+"POT-Creation-Date: 2026-02-03 02:44+0100\n"
+"PO-Revision-Date: 2026-02-01 14:23+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Polish <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/pl/>\n"
 "Language: pl_PL\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -29,7 +29,7 @@ msgstr ""
 
 #: fleetpings/admin.py:92 fleetpings/form.py:157
 msgid "Doctrine"
-msgstr ""
+msgstr "Doktryna"
 
 #: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:152
 msgid "Doctrine link"
@@ -100,7 +100,7 @@ msgstr ""
 
 #: fleetpings/form.py:103
 msgid "Fleet name"
-msgstr ""
+msgstr "Nazwa floty"
 
 #: fleetpings/form.py:107
 msgid "What is the fleet name in the fleet finder in Eve?"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: fleetpings/models.py:77
 msgid "Can access this app"
-msgstr ""
+msgstr "Ma dostęp do tej aplikacji"
 
 #: fleetpings/models.py:87
 msgid "Short name to identify this comms"

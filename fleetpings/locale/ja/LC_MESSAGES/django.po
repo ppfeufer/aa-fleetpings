@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Xrandier <xrandier@gmail.com>, 2024.
 # Anata_no_Usiro <yt23542354m@gmail.com>, 2024.
-# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
+# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025, 2026.
 # Dexsar <dexsar.paf@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-01-05 20:37+0100\n"
-"PO-Revision-Date: 2025-12-03 08:17+0000\n"
-"Last-Translator: Dexsar <dexsar.paf@gmail.com>\n"
+"POT-Creation-Date: 2026-02-03 02:44+0100\n"
+"PO-Revision-Date: 2026-01-28 15:53+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6

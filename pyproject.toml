@@ -45,7 +45,6 @@ optional-dependencies.tests-allianceauth-latest = [
     "aa-srp>=1.21",
     "aa-timezones",
     "coverage",
-    "django-eveuniverse",
     "django-webtest",
     "faker",
     "fittings",

@@ -58,10 +58,8 @@ urls.GitHub = "https://github.com/ppfeufer/aa-fleetpings"
 urls.Tracker = "https://github.com/ppfeufer/aa-fleetpings/issues"
 urls.Translation = "https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/"
 
-[tool.hatch.build]
-include = [
+[tool.hatch]
+build.include = [
     "/fleetpings",
 ]
-
-[tool.hatch.version]
-path = "fleetpings/__init__.py"
+version.path = "fleetpings/__init__.py"

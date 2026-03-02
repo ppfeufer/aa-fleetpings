@@ -64,8 +64,8 @@ INSTALLED_APPS += [
     PACKAGE,
     "allianceauth.services.modules.discord",
     "allianceauth.srp",
-    "eveuniverse",
     "aasrp",
+    "eveuniverse",  # Still needed fot fittings
     "fittings",
     "timezones",
 ]

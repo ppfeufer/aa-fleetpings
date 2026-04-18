@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
 "POT-Creation-Date: 2026-04-07 17:11+0200\n"
-"PO-Revision-Date: 2026-01-30 22:55+0000\n"
+"PO-Revision-Date: 2026-04-18 04:23+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Dutch <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/nl/>\n"
 "Language: nl_NL\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -47,7 +47,7 @@ msgstr ""
 
 #: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
 msgid "Fleet type"
-msgstr ""
+msgstr "Vloottype"
 
 #: fleetpings/admin.py:251 fleetpings/models.py:402
 msgid "Embed color"
@@ -432,7 +432,7 @@ msgstr ""
 
 #: fleetpings/templates/fleetpings/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr ""
+msgstr "Kom ons team van vertalers versterken!"
 
 #: fleetpings/templates/fleetpings/partials/form/form.html:72
 msgid "Create ping"

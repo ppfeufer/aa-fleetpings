@@ -38,9 +38,20 @@ Section Order:
 ### Deprecated
 ### Removed
 ### Security
+### Miscellaneous
 -->
 
 <!-- Your changes go here -->
+
+## [3.9.5] - 2026-05-05
+
+### Changed
+
+- Translations updated
+
+### Miscellaneous
+
+- Ready for Alliance Auth v5
 
 ## [3.9.4] - 2026-04-07
 
@@ -1177,7 +1188,8 @@ settings in the admin backend, since we just nuked them from the old app.
 [3.9.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.1...v3.9.2 "v3.9.2"
 [3.9.3]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.2...v3.9.3 "v3.9.3"
 [3.9.4]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.3...v3.9.4 "v3.9.4"
+[3.9.5]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.4...v3.9.5 "v3.9.5"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
-[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.4...HEAD "In Development"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.5...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"

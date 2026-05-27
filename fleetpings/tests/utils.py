@@ -4,6 +4,7 @@ Some utility functions used in our tests
 
 # Standard Library
 import re
+import secrets
 
 # Django
 from django.contrib.auth.models import User
@@ -91,3 +92,16 @@ def create_setting(**kwargs) -> Setting:
     """
 
     return Setting.objects.create(**kwargs)
+
+
+def random_id(n: int = 26) -> int:
+    """
+    Generate a random ID
+
+    :param n: Length of the ID, optional (default=26 (8 digits in base36))
+    :type n: int
+    :return: A random ID
+    :rtype: int
+    """
+
+    return secrets.randbits(n)

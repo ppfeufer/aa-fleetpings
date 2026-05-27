@@ -5,7 +5,7 @@ Tests for the eve_images helper
 # AA Fleet Pings
 from fleetpings.helper.eve_images import get_character_portrait_from_evecharacter
 from fleetpings.tests import BaseTestCase
-from fleetpings.tests.utils import create_fake_user
+from fleetpings.tests.utils import create_fake_user, random_id
 
 
 class TestHelperEveImages(BaseTestCase):
@@ -25,7 +25,7 @@ class TestHelperEveImages(BaseTestCase):
         super().setUpClass()
 
         cls.user_1001 = create_fake_user(
-            character_id=1001, character_name="Peter Parker"
+            character_id=random_id(), character_name="Peter Parker"
         )
 
     def test_should_return_character_portrait_url(self):

@@ -13,7 +13,7 @@ from django.urls import reverse
 
 # AA Fleet Pings
 from fleetpings.tests import BaseTestCase
-from fleetpings.tests.utils import create_fake_user
+from fleetpings.tests.utils import create_fake_user, random_id
 
 
 class TestAjaxCalls(BaseTestCase):
@@ -32,19 +32,19 @@ class TestAjaxCalls(BaseTestCase):
 
         # User cannot access fleetpings
         cls.user_1001 = create_fake_user(
-            character_id=1001, character_name="Peter Parker"
+            character_id=random_id(), character_name="Peter Parker"
         )
 
         # User can access fleetpings
         cls.user_1002 = create_fake_user(
-            character_id=1002,
+            character_id=random_id(),
             character_name="Bruce Wayne",
             permissions=["fleetpings.basic_access"],
         )
 
         # User can add srp (aasrp)
         cls.user_1003 = create_fake_user(
-            character_id=1003,
+            character_id=random_id(),
             character_name="Clark Kent",
             permissions=[
                 "fleetpings.basic_access",

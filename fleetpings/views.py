@@ -44,9 +44,9 @@ from fleetpings.models import (
     Setting,
     Webhook,
 )
-from fleetpings.providers import AppLogger
+from fleetpings.providers.applogger import AppLogger
 
-logger = AppLogger(my_logger=get_extension_logger(name=__name__), prefix=__title__)
+logger = AppLogger(my_logger=get_extension_logger(name=__name__))
 
 
 @login_required

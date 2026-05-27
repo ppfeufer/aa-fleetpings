@@ -9,11 +9,10 @@ from django.template.defaulttags import register
 from allianceauth.services.hooks import get_extension_logger
 
 # AA Fleet Pings
-from fleetpings import __title__
 from fleetpings.helper.urls import reverse_absolute
-from fleetpings.providers import AppLogger
+from fleetpings.providers.applogger import AppLogger
 
-logger = AppLogger(my_logger=get_extension_logger(__name__), prefix=__title__)
+logger = AppLogger(my_logger=get_extension_logger(__name__))
 
 
 @register.simple_tag

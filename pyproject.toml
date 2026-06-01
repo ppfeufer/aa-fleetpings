@@ -60,7 +60,7 @@ urls.Tracker = "https://github.com/ppfeufer/aa-fleetpings/issues"
 urls.Translation = "https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/"
 
 [tool.hatch]
+version.path = "fleetpings/__init__.py"
 build.include = [
     "/fleetpings",
 ]
-version.path = "fleetpings/__init__.py"

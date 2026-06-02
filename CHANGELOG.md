@@ -43,6 +43,8 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [3.10.0] - 2026-06-02
+
 ### Fixed
 
 - Grammar - No space before ellipsis
@@ -50,6 +52,7 @@ Section Order:
 ### Changed
 
 - Modular providers
+- Translations updated
 
 ## [3.9.5] - 2026-05-05
 
@@ -1169,6 +1172,7 @@ settings in the admin backend, since we just nuked them from the old app.
 [3.1.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.0.2...v3.1.0 "v3.1.0"
 [3.1.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.1.0...v3.1.1 "v3.1.1"
 [3.1.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.1.1...v3.1.2 "v3.1.2"
+[3.10.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.5...v3.10.0 "v3.10.0"
 [3.2.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.1.2...v3.2.0 "v3.2.0"
 [3.3.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.2.0...v3.3.0 "v3.3.0"
 [3.4.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.3.0...v3.4.0 "v3.4.0"
@@ -1198,6 +1202,6 @@ settings in the admin backend, since we just nuked them from the old app.
 [3.9.4]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.3...v3.9.4 "v3.9.4"
 [3.9.5]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.4...v3.9.5 "v3.9.5"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
-[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.5...HEAD "In Development"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.10.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"

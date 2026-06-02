@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Dadas Aideron <dadas.aideron@gmail.com>, 2024.
-# Peter Pfeufer <info@ppfeufer.de>, 2024.
+# Peter Pfeufer <info@ppfeufer.de>, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-05-05 14:49+0200\n"
-"PO-Revision-Date: 2024-11-09 11:25+0000\n"
+"POT-Creation-Date: 2026-06-02 11:43+0200\n"
+"PO-Revision-Date: 2026-06-02 09:48+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Czech <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/cs/>\n"
 "Language: cs_CZ\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-"X-Generator: Weblate 5.8.3\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -164,7 +164,7 @@ msgid "Additional information"
 msgstr ""
 
 #: fleetpings/form.py:196
-msgid "Feel free to add some more information about the fleet …"
+msgid "Feel free to add some more information about the fleet…"
 msgstr ""
 
 #: fleetpings/form.py:205
@@ -184,7 +184,7 @@ msgid "How long approximately will the fleet be?"
 msgstr ""
 
 #: fleetpings/models.py:43
-msgid "You might want to install the Discord service first …"
+msgid "You might want to install the Discord service first…"
 msgstr "Možná bys měl začít instalací Discord služby…"
 
 #: fleetpings/models.py:53
@@ -244,7 +244,7 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr ""
 
 #: fleetpings/models.py:160
-msgid "Restrict this doctrine to the following groups …"
+msgid "Restrict this doctrine to the following groups…"
 msgstr ""
 
 #: fleetpings/models.py:176
@@ -292,8 +292,8 @@ msgid "Discord ID"
 msgstr ""
 
 #: fleetpings/models.py:303 fleetpings/models.py:481
-msgid "Restrict ping rights to the following groups …"
-msgstr "Omez ping práva pro následující skupiny …"
+msgid "Restrict ping rights to the following groups…"
+msgstr "Omez ping práva pro následující skupiny…"
 
 #: fleetpings/models.py:379
 msgid "Discord ping target"
@@ -312,7 +312,7 @@ msgid "Highlight color for the embed"
 msgstr ""
 
 #: fleetpings/models.py:410
-msgid "Restrict this fleet type to the following groups …"
+msgid "Restrict this fleet type to the following groups…"
 msgstr ""
 
 #: fleetpings/models.py:426
@@ -511,11 +511,11 @@ msgid "Not all mandatory information available to create an SRP link."
 msgstr ""
 
 #: fleetpings/views.py:463
-msgid "Fleet operations timer has been created …"
+msgid "Fleet operations timer has been created…"
 msgstr ""
 
 #: fleetpings/views.py:472
-msgid "SRP link has been created …"
+msgid "SRP link has been created…"
 msgstr ""
 
 #: fleetpings/views.py:489

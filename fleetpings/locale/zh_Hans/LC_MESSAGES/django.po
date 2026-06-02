@@ -5,7 +5,7 @@
 # Dehao Wu <wudehao2000@163.com>, 2024.
 # SAM_FPS <sam_fps@163.com>, 2024.
 # MxdHana <236833425@qq.com>, 2024.
-# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025.
+# Peter Pfeufer <info@ppfeufer.de>, 2024, 2025, 2026.
 # Kelly Hsueh <kelly_hsueh@users.noreply.weblate.ppfeufer.de>, 2025.
 # LichenKass <yuanchengwei_sz@163.com>, 2025.
 # Heimi <204420064@qq.com>, 2026.
@@ -13,16 +13,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-05-05 14:49+0200\n"
-"PO-Revision-Date: 2026-01-23 00:05+0000\n"
-"Last-Translator: Heimi <204420064@qq.com>\n"
+"POT-Creation-Date: 2026-06-02 11:43+0200\n"
+"PO-Revision-Date: 2026-06-02 09:48+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -170,7 +170,7 @@ msgid "Additional information"
 msgstr "附加信息"
 
 #: fleetpings/form.py:196
-msgid "Feel free to add some more information about the fleet …"
+msgid "Feel free to add some more information about the fleet…"
 msgstr "请随意添加一些关于舰队的更多信息…"
 
 #: fleetpings/form.py:205
@@ -190,7 +190,7 @@ msgid "How long approximately will the fleet be?"
 msgstr "舰队大概会持续多长时间？"
 
 #: fleetpings/models.py:43
-msgid "You might want to install the Discord service first …"
+msgid "You might want to install the Discord service first…"
 msgstr "您可能想要先安装Discord服务…"
 
 #: fleetpings/models.py:53
@@ -250,7 +250,7 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "如果你有的话，这个装配页面的链接。"
 
 #: fleetpings/models.py:160
-msgid "Restrict this doctrine to the following groups …"
+msgid "Restrict this doctrine to the following groups…"
 msgstr "限制此配置为这些群组可用…"
 
 #: fleetpings/models.py:176
@@ -298,7 +298,7 @@ msgid "Discord ID"
 msgstr "Discord用户名"
 
 #: fleetpings/models.py:303 fleetpings/models.py:481
-msgid "Restrict ping rights to the following groups …"
+msgid "Restrict ping rights to the following groups…"
 msgstr "将ping权限限制到以下群组…"
 
 #: fleetpings/models.py:379
@@ -318,7 +318,7 @@ msgid "Highlight color for the embed"
 msgstr "高亮显示嵌入的颜色"
 
 #: fleetpings/models.py:410
-msgid "Restrict this fleet type to the following groups …"
+msgid "Restrict this fleet type to the following groups…"
 msgstr "限制此舰队类型为这些群组可用…"
 
 #: fleetpings/models.py:426
@@ -517,12 +517,12 @@ msgid "Not all mandatory information available to create an SRP link."
 msgstr ""
 
 #: fleetpings/views.py:463
-msgid "Fleet operations timer has been created …"
-msgstr "舰队行动计时器已创建……"
+msgid "Fleet operations timer has been created…"
+msgstr "舰队行动计时器已创建…"
 
 #: fleetpings/views.py:472
-msgid "SRP link has been created …"
-msgstr "补损链接已创建……"
+msgid "SRP link has been created…"
+msgstr "补损链接已创建…"
 
 #: fleetpings/views.py:489
 msgid "Form invalid. Please check your input."

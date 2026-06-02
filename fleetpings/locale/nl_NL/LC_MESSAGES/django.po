@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-05-05 14:49+0200\n"
+"POT-Creation-Date: 2026-06-02 11:43+0200\n"
 "PO-Revision-Date: 2026-04-18 04:23+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Dutch <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/nl/>\n"
@@ -163,7 +163,7 @@ msgid "Additional information"
 msgstr ""
 
 #: fleetpings/form.py:196
-msgid "Feel free to add some more information about the fleet …"
+msgid "Feel free to add some more information about the fleet…"
 msgstr ""
 
 #: fleetpings/form.py:205
@@ -183,7 +183,7 @@ msgid "How long approximately will the fleet be?"
 msgstr ""
 
 #: fleetpings/models.py:43
-msgid "You might want to install the Discord service first …"
+msgid "You might want to install the Discord service first…"
 msgstr ""
 
 #: fleetpings/models.py:53
@@ -243,7 +243,7 @@ msgid "A link to a doctrine page for this doctrine if you have."
 msgstr ""
 
 #: fleetpings/models.py:160
-msgid "Restrict this doctrine to the following groups …"
+msgid "Restrict this doctrine to the following groups…"
 msgstr ""
 
 #: fleetpings/models.py:176
@@ -291,7 +291,7 @@ msgid "Discord ID"
 msgstr ""
 
 #: fleetpings/models.py:303 fleetpings/models.py:481
-msgid "Restrict ping rights to the following groups …"
+msgid "Restrict ping rights to the following groups…"
 msgstr ""
 
 #: fleetpings/models.py:379
@@ -311,7 +311,7 @@ msgid "Highlight color for the embed"
 msgstr ""
 
 #: fleetpings/models.py:410
-msgid "Restrict this fleet type to the following groups …"
+msgid "Restrict this fleet type to the following groups…"
 msgstr ""
 
 #: fleetpings/models.py:426
@@ -510,11 +510,11 @@ msgid "Not all mandatory information available to create an SRP link."
 msgstr ""
 
 #: fleetpings/views.py:463
-msgid "Fleet operations timer has been created …"
+msgid "Fleet operations timer has been created…"
 msgstr ""
 
 #: fleetpings/views.py:472
-msgid "SRP link has been created …"
+msgid "SRP link has been created…"
 msgstr ""
 
 #: fleetpings/views.py:489

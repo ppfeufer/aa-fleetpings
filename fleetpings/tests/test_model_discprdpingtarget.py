@@ -97,7 +97,7 @@ class TestHelperGetDiscordGroupInfo(BaseTestCase):
                 _get_discord_group_info(group)
 
             self.assertIn(
-                "You might want to install the Discord service first …",
+                "You might want to install the Discord service first…",
                 str(context.exception),
             )
 

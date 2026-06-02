@@ -43,6 +43,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Fixed
+
+- Grammar - No space before ellipsis
+
 ### Changed
 
 - Modular providers
@@ -860,7 +864,7 @@ Section Order:
 
 ### Added
 
-- Django 3 stuff in `setup.py`, Should probably be in there as well …
+- Django 3 stuff in `setup.py`, Should probably be in there as well…
 
 ## [2.2.1] - 2020-09-23
 

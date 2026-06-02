@@ -193,7 +193,7 @@ class FleetPingForm(forms.Form):
                 "cols": 20,
                 "input_type": "textarea",
                 "placeholder": _(
-                    "Feel free to add some more information about the fleet …"
+                    "Feel free to add some more information about the fleet…"
                 ),
             }
         ),

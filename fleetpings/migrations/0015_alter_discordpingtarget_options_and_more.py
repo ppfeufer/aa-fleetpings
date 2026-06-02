@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
             name="restricted_to_group",
             field=models.ManyToManyField(
                 blank=True,
-                help_text="Restrict this fleet type to the following groups …",
+                help_text="Restrict this fleet type to the following groups…",
                 related_name="+",
                 to="auth.group",
                 verbose_name="Group restrictions",

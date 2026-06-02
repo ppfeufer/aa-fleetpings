@@ -123,7 +123,7 @@ class Migration(migrations.Migration):
             name="restricted_to_group",
             field=models.ManyToManyField(
                 blank=True,
-                help_text="Restrict ping rights to the following group(s) …",
+                help_text="Restrict ping rights to the following group(s)…",
                 related_name="discord_role_require_groups",
                 to="auth.group",
                 verbose_name="Group restrictions",
@@ -204,7 +204,7 @@ class Migration(migrations.Migration):
             name="restricted_to_group",
             field=models.ManyToManyField(
                 blank=True,
-                help_text="Restrict this doctrine to the following group(s) …",
+                help_text="Restrict this doctrine to the following group(s)…",
                 related_name="fleetdoctrine_require_groups",
                 to="auth.group",
                 verbose_name="Group restrictions",
@@ -255,7 +255,7 @@ class Migration(migrations.Migration):
             name="restricted_to_group",
             field=models.ManyToManyField(
                 blank=True,
-                help_text="Restrict this fleet type to the following group(s) …",
+                help_text="Restrict this fleet type to the following group(s)…",
                 related_name="fleettype_require_groups",
                 to="auth.group",
                 verbose_name="Group restrictions",
@@ -326,7 +326,7 @@ class Migration(migrations.Migration):
             name="restricted_to_group",
             field=models.ManyToManyField(
                 blank=True,
-                help_text="Restrict ping rights to the following group(s) …",
+                help_text="Restrict ping rights to the following group(s)…",
                 related_name="webhook_require_groups",
                 to="auth.group",
                 verbose_name="Group restrictions",

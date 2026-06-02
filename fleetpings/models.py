@@ -40,7 +40,7 @@ def _get_discord_group_info(ping_target: Group) -> dict:
 
     if not discord_service_installed():
         raise ValidationError(
-            message=_("You might want to install the Discord service first …")
+            message=_("You might want to install the Discord service first…")
         )
 
     try:
@@ -157,7 +157,7 @@ class FleetDoctrine(models.Model):
         to=Group,
         blank=True,
         related_name="fleetdoctrine_require_groups",
-        help_text=_("Restrict this doctrine to the following groups …"),
+        help_text=_("Restrict this doctrine to the following groups…"),
         verbose_name=_("Group restrictions"),
     )
 
@@ -300,7 +300,7 @@ class DiscordPingTarget(models.Model):
         to=Group,
         blank=True,
         related_name="discord_role_require_groups",
-        help_text=_("Restrict ping rights to the following groups …"),
+        help_text=_("Restrict ping rights to the following groups…"),
         verbose_name=_("Group restrictions"),
     )
 
@@ -407,7 +407,7 @@ class FleetType(models.Model):
         to=Group,
         blank=True,
         related_name="+",
-        help_text=_("Restrict this fleet type to the following groups …"),
+        help_text=_("Restrict this fleet type to the following groups…"),
         verbose_name=_("Group restrictions"),
     )
 
@@ -478,7 +478,7 @@ class Webhook(models.Model):
         to=Group,
         blank=True,
         related_name="webhook_require_groups",
-        help_text=_("Restrict ping rights to the following groups …"),
+        help_text=_("Restrict ping rights to the following groups…"),
         verbose_name=_("Group restrictions"),
     )
 

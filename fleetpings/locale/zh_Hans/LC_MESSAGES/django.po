@@ -12,9 +12,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
-"Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-06-02 11:43+0200\n"
-"PO-Revision-Date: 2026-06-02 09:48+0000\n"
+"Report-Msgid-Bugs-To: https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/\n"
+"POT-Creation-Date: 2026-07-01 10:23+0000\n"
+"PO-Revision-Date: 2026-06-26 17:58+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Chinese (Simplified Han script) <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.5\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #: fleetpings/__init__.py:10 fleetpings/__init__.py:11
 #: fleetpings/templates/fleetpings/base.html:6
@@ -466,7 +466,7 @@ msgstr "通知垃圾信息确实存在，可能会诱使人们屏蔽频道。"
 
 #: fleetpings/templates/fleetpings/partials/form/hints/ping-everyone.html:24
 msgid "<code>@here</code> usually does the trick just fine."
-msgstr "<code>@here</code>通常就能解决问题。"
+msgstr "<code>@here</code> 通常就能解决问题。"
 
 #: fleetpings/templates/fleetpings/partials/form/segments/fleet-type.html:3
 msgid "Please select"

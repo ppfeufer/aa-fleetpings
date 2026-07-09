@@ -43,6 +43,8 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [4.1.0] - 2026-07-09
+
 > [!IMPORTANT]
 >
 > **This version needs Alliance Auth v5.2.0 or newer!**
@@ -1237,7 +1239,8 @@ settings in the admin backend, since we just nuked them from the old app.
 [3.9.5]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.9.4...v3.9.5 "v3.9.5"
 [4.0.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.10.0...v4.0.0 "v4.0.0"
 [4.0.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.0.0...v4.0.1 "v4.0.1"
+[4.1.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.0.1...v4.1.0 "v4.1.0"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
-[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.0.1...HEAD "In Development"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"

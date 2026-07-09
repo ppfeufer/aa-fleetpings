@@ -6,8 +6,8 @@ Tests for the admin module.
 from types import SimpleNamespace
 from unittest.mock import patch
 
-# Django
-from django.contrib.auth.models import Group
+# Alliance Auth
+from allianceauth.groupmanagement.models import Group
 
 # AA Fleet Pings
 from fleetpings.admin import (

@@ -6,8 +6,10 @@ Handling Discord webhooks
 from dhooks_lite import Embed, Footer, UserAgent, Webhook
 
 # Django
-from django.contrib.auth.models import User
 from django.utils import dateformat, timezone
+
+# Alliance Auth
+from allianceauth.authentication.models import User
 
 # AA Fleet Pings
 from fleetpings import __app_name_useragent__, __github_url__, __version__

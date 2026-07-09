@@ -2,8 +2,8 @@
 Tests for the ping context helper functions.
 """
 
-# Django
-from django.contrib.auth.models import Group
+# Alliance Auth
+from allianceauth.groupmanagement.models import Group
 
 # AA Fleet Pings
 from fleetpings.helper.ping_context import (

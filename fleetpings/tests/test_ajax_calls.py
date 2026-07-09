@@ -7,9 +7,11 @@ import json
 from http import HTTPStatus
 
 # Django
-from django.contrib.auth.models import Group
 from django.test import modify_settings
 from django.urls import reverse
+
+# Alliance Auth
+from allianceauth.groupmanagement.models import Group
 
 # AA Fleet Pings
 from fleetpings.tests import BaseTestCase

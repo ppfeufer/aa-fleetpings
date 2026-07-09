@@ -9,8 +9,10 @@ from unittest.mock import patch
 from requests.exceptions import HTTPError
 
 # Django
-from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
+
+# Alliance Auth
+from allianceauth.groupmanagement.models import Group
 
 # AA Fleet Pings
 from fleetpings.models import DiscordPingTarget, _get_discord_group_info

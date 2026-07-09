@@ -7,9 +7,11 @@ from solo.admin import SingletonModelAdmin
 
 # Django
 from django.contrib import admin
-from django.contrib.auth.models import Group
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+
+# Alliance Auth
+from allianceauth.groupmanagement.models import Group
 
 # AA Fleet Pings
 from fleetpings.form import FleetTypeAdminForm, SettingAdminForm

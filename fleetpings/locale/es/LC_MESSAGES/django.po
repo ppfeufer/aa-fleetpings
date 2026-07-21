@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings 3.4.2\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-fleetpings/issues\n"
-"POT-Creation-Date: 2026-07-06 22:16+0200\n"
+"POT-Creation-Date: 2026-07-09 11:03+0200\n"
 "PO-Revision-Date: 2026-07-06 20:25+0000\n"
 "Last-Translator: Geovanny David Morales De la cruz <moralesgeovanny1996@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/es/>\n"
@@ -25,43 +25,43 @@ msgstr ""
 msgid "Fleet Pings"
 msgstr "Pings de Flotas"
 
-#: fleetpings/admin.py:62 fleetpings/models.py:127
+#: fleetpings/admin.py:64 fleetpings/models.py:129
 msgid "Fleet comm"
 msgstr "Canal de comunicación de la flota"
 
-#: fleetpings/admin.py:92 fleetpings/form.py:157
+#: fleetpings/admin.py:94 fleetpings/form.py:157
 msgid "Doctrine"
 msgstr "Doctrina"
 
-#: fleetpings/admin.py:106 fleetpings/form.py:164 fleetpings/models.py:152
+#: fleetpings/admin.py:108 fleetpings/form.py:164 fleetpings/models.py:154
 msgid "Doctrine link"
 msgstr "Enlace de la Doctrina"
 
-#: fleetpings/admin.py:121 fleetpings/admin.py:192 fleetpings/admin.py:276
-#: fleetpings/admin.py:321 fleetpings/models.py:161 fleetpings/models.py:304
-#: fleetpings/models.py:411 fleetpings/models.py:482
+#: fleetpings/admin.py:123 fleetpings/admin.py:194 fleetpings/admin.py:278
+#: fleetpings/admin.py:323 fleetpings/models.py:163 fleetpings/models.py:306
+#: fleetpings/models.py:413 fleetpings/models.py:484
 msgid "Group restrictions"
 msgstr "Restricciones de grupo"
 
-#: fleetpings/admin.py:177 fleetpings/form.py:76
+#: fleetpings/admin.py:179 fleetpings/form.py:76
 #, fuzzy
 #| msgid "Ping Target"
 msgid "Ping target"
 msgstr "Destino del Ping"
 
-#: fleetpings/admin.py:237 fleetpings/form.py:93 fleetpings/models.py:445
+#: fleetpings/admin.py:239 fleetpings/form.py:93 fleetpings/models.py:447
 msgid "Fleet type"
 msgstr "Tipo de Flota"
 
-#: fleetpings/admin.py:251 fleetpings/models.py:402
+#: fleetpings/admin.py:253 fleetpings/models.py:404
 msgid "Embed color"
 msgstr "Color incrustado"
 
-#: fleetpings/admin.py:310 fleetpings/models.py:460
+#: fleetpings/admin.py:312 fleetpings/models.py:462
 msgid "Discord channel"
 msgstr "Canal de Discord"
 
-#: fleetpings/admin.py:315 fleetpings/models.py:473
+#: fleetpings/admin.py:317 fleetpings/models.py:475
 msgid "Webhook URL"
 msgstr "URL del webhook"
 
@@ -112,7 +112,7 @@ msgstr "Nombre de la flota"
 msgid "What is the fleet name in the fleet finder in Eve?"
 msgstr "¿Cuál es el nombre de la flota en el buscador de flotas?"
 
-#: fleetpings/form.py:113 fleetpings/models.py:265
+#: fleetpings/form.py:113 fleetpings/models.py:267
 msgid "Formup location"
 msgstr "Ubicación para Formar"
 
@@ -142,7 +142,7 @@ msgstr "Formar AHORA"
 msgid "If this checkbox is active, formup time will be set to \"NOW\" and the time in the field above (if any is set) will be ignored."
 msgstr "Si esta casilla de verificación está activa, el tiempo de formar se establecerá en «AHORA» y la hora en el campo de arriba (si se ha establecido alguna) será ignorada."
 
-#: fleetpings/form.py:150 fleetpings/models.py:128
+#: fleetpings/form.py:150 fleetpings/models.py:130
 msgid "Fleet comms"
 msgstr "Canal de Comunicación de Flota"
 
@@ -190,223 +190,223 @@ msgstr ""
 msgid "How long approximately will the fleet be?"
 msgstr ""
 
-#: fleetpings/models.py:43
+#: fleetpings/models.py:45
 msgid "You might want to install the Discord service first…"
 msgstr "Es posible que desee instalar primero el servicio de Discord…"
 
-#: fleetpings/models.py:53
+#: fleetpings/models.py:55
 msgid "Are you sure you have your Discord linked to your Alliance Auth?"
 msgstr "¿Está seguro de que tiene su Discord vinculado a su Alliance Auth?"
 
-#: fleetpings/models.py:59
+#: fleetpings/models.py:61
 msgid "This group has not been synced to Discord yet."
 msgstr "Este grupo aún no se ha sincronizado con Discord."
 
-#: fleetpings/models.py:77
+#: fleetpings/models.py:79
 msgid "Can access this app"
 msgstr "Puede acceder esta aplicacion"
 
-#: fleetpings/models.py:87
+#: fleetpings/models.py:89
 msgid "Short name to identify this comms"
 msgstr "Nombre corto para identificar el canal de comunicación"
 
-#: fleetpings/models.py:88 fleetpings/models.py:144 fleetpings/models.py:232
-#: fleetpings/models.py:394
+#: fleetpings/models.py:90 fleetpings/models.py:146 fleetpings/models.py:234
+#: fleetpings/models.py:396
 msgid "Name"
 msgstr "Nombre"
 
-#: fleetpings/models.py:94
+#: fleetpings/models.py:96
 msgid "In which channel is the fleet?"
 msgstr "¿En qué canal está la flota?"
 
-#: fleetpings/models.py:95
+#: fleetpings/models.py:97
 msgid "Channel"
 msgstr "Canal"
 
-#: fleetpings/models.py:101 fleetpings/models.py:168 fleetpings/models.py:239
-#: fleetpings/models.py:311 fleetpings/models.py:418
+#: fleetpings/models.py:103 fleetpings/models.py:170 fleetpings/models.py:241
+#: fleetpings/models.py:313 fleetpings/models.py:420
 msgid "You can add notes about this configuration here if you want"
 msgstr "Puede agregar aquí notas sobre esta configuración si lo desea"
 
-#: fleetpings/models.py:102 fleetpings/models.py:169 fleetpings/models.py:240
-#: fleetpings/models.py:312 fleetpings/models.py:419 fleetpings/models.py:490
+#: fleetpings/models.py:104 fleetpings/models.py:171 fleetpings/models.py:242
+#: fleetpings/models.py:314 fleetpings/models.py:421 fleetpings/models.py:492
 msgid "Notes"
 msgstr "Notas"
 
-#: fleetpings/models.py:108
+#: fleetpings/models.py:110
 msgid "Whether this comms is enabled or not"
 msgstr "Si el canal de comunicaciones están habilitadas o no"
 
-#: fleetpings/models.py:109 fleetpings/models.py:177 fleetpings/models.py:248
-#: fleetpings/models.py:320 fleetpings/models.py:427 fleetpings/models.py:498
+#: fleetpings/models.py:111 fleetpings/models.py:179 fleetpings/models.py:250
+#: fleetpings/models.py:322 fleetpings/models.py:429 fleetpings/models.py:500
 msgid "Is enabled"
 msgstr "Está habilitado"
 
-#: fleetpings/models.py:143
+#: fleetpings/models.py:145
 msgid "Short name to identify this doctrine"
 msgstr "Nombre corto para identificar esta doctrina"
 
-#: fleetpings/models.py:151
+#: fleetpings/models.py:153
 msgid "A link to a doctrine page for this doctrine if you have."
 msgstr "El Enlace a la página de la doctrina, si tiene."
 
-#: fleetpings/models.py:160
+#: fleetpings/models.py:162
 msgid "Restrict this doctrine to the following groups…"
 msgstr "Restrinja esta doctrina a los siguientes grupos…"
 
-#: fleetpings/models.py:176
+#: fleetpings/models.py:178
 msgid "Whether this doctrine is enabled or not"
 msgstr "Si esta doctrina está habilitada o no"
 
-#: fleetpings/models.py:197
+#: fleetpings/models.py:199
 msgid "Your doctrine URL is not valid."
 msgstr "Su URL de doctrina no es válida."
 
-#: fleetpings/models.py:217
+#: fleetpings/models.py:219
 msgid "Fleet doctrine"
 msgstr "Doctrina de Flota"
 
-#: fleetpings/models.py:218
+#: fleetpings/models.py:220
 msgid "Fleet doctrines"
 msgstr "Doctrinas de Flota"
 
-#: fleetpings/models.py:231
+#: fleetpings/models.py:233
 msgid "Short name to identify this formup location"
 msgstr "Nombre corto para identificar la ubicación para formar"
 
-#: fleetpings/models.py:247 fleetpings/models.py:319
+#: fleetpings/models.py:249 fleetpings/models.py:321
 msgid "Whether this formup location is enabled or not"
 msgstr "Si esta ubicación para formar está habilitada o no"
 
-#: fleetpings/models.py:266
+#: fleetpings/models.py:268
 msgid "Formup locations"
 msgstr "Ubicaciones para Formar"
 
-#: fleetpings/models.py:282
+#: fleetpings/models.py:284
 msgid "Name of the Discord role to ping. (Note: This must be an Auth group that is synced to Discord.)"
 msgstr "Nombre del rol de Discord para hacer ping. (Nota: debe ser un grupo de autenticación sincronizado con Discord.)"
 
-#: fleetpings/models.py:286
+#: fleetpings/models.py:288
 msgid "Group name"
 msgstr "Nombre del grupo"
 
-#: fleetpings/models.py:294
+#: fleetpings/models.py:296
 msgid "ID of the Discord role to ping"
 msgstr "ID del rol de Discord para hacer ping"
 
-#: fleetpings/models.py:295
+#: fleetpings/models.py:297
 msgid "Discord ID"
 msgstr "ID de Discord"
 
-#: fleetpings/models.py:303 fleetpings/models.py:481
+#: fleetpings/models.py:305 fleetpings/models.py:483
 msgid "Restrict ping rights to the following groups…"
 msgstr "Restringir los derechos de ping a los siguientes grupos…"
 
-#: fleetpings/models.py:379
+#: fleetpings/models.py:381
 msgid "Discord ping target"
 msgstr "Destino del Ping de Discord"
 
-#: fleetpings/models.py:380
+#: fleetpings/models.py:382
 msgid "Discord ping targets"
 msgstr "Destinos del Ping de Discord"
 
-#: fleetpings/models.py:393
+#: fleetpings/models.py:395
 msgid "Short name to identify this fleet type"
 msgstr "Nombre corto para identificar este tipo de flota"
 
-#: fleetpings/models.py:401
+#: fleetpings/models.py:403
 msgid "Highlight color for the embed"
 msgstr "Color resaltado para la incrustación"
 
-#: fleetpings/models.py:410
+#: fleetpings/models.py:412
 msgid "Restrict this fleet type to the following groups…"
 msgstr "Restrinja este tipo de flota a los siguientes grupos…"
 
-#: fleetpings/models.py:426
+#: fleetpings/models.py:428
 msgid "Whether this fleet type is enabled or not"
 msgstr "Si este tipo de flota está habilitado o no"
 
-#: fleetpings/models.py:446
+#: fleetpings/models.py:448
 msgid "Fleet types"
 msgstr "Tipos de Flota"
 
-#: fleetpings/models.py:459
+#: fleetpings/models.py:461
 msgid "Name of the channel this webhook posts to"
 msgstr "Nombre del canal en el que publica este webhook"
 
-#: fleetpings/models.py:469
+#: fleetpings/models.py:471
 msgid "URL of this webhook, e.g. https://discord.com/api/webhooks/123456/abcdef"
 msgstr "URL de este webhook, p.ej. https://discord.com/api/webhooks/123456/abcdef"
 
-#: fleetpings/models.py:489
+#: fleetpings/models.py:491
 msgid "You can add notes about this webhook here if you want"
 msgstr "Puede agregar aquí notas sobre este webhook si lo desea"
 
-#: fleetpings/models.py:497
+#: fleetpings/models.py:499
 msgid "Whether this webhook is active or not"
 msgstr "Si este webhook está activo o no"
 
-#: fleetpings/models.py:516
+#: fleetpings/models.py:518
 msgid "Webhook"
 msgstr "Webhook"
 
-#: fleetpings/models.py:517
+#: fleetpings/models.py:519
 msgid "Webhooks"
 msgstr "Webhooks"
 
-#: fleetpings/models.py:536
+#: fleetpings/models.py:538
 msgid "Invalid webhook URL. The webhook URL you entered does not match any known format for a Discord webhook. Please check the webhook URL."
 msgstr "URL de webhook no válida. La URL del webhook que ingresó no coincide con ningún formato conocido para un webhook de Discord. Compruebe la URL del webhook."
 
-#: fleetpings/models.py:556
+#: fleetpings/models.py:558
 msgid "Use default fleet types"
 msgstr "Usar tipos de flota predeterminados"
 
-#: fleetpings/models.py:559
+#: fleetpings/models.py:561
 msgid "Use default ping targets"
 msgstr "Usar objetivos de ping predeterminados"
 
-#: fleetpings/models.py:562
+#: fleetpings/models.py:564
 msgid "Use Doctrines from Fittings module"
 msgstr "Usar doctrinas del módulo Fiteos"
 
-#: fleetpings/models.py:564
+#: fleetpings/models.py:566
 msgid "Verify webhooks"
 msgstr "Verificar Webhooks"
 
-#: fleetpings/models.py:565
+#: fleetpings/models.py:567
 msgid "Default embed color"
 msgstr "Color incrustado predeterminado"
 
-#: fleetpings/models.py:571
+#: fleetpings/models.py:573
 msgid "Whether to use default fleet types. If checked, the default fleet types (Roaming, Home Defense, StratOP, and CTA) will be added to the Fleet Type dropdown."
 msgstr "Ya sea para usar tipos de flota predeterminados. Si está marcado, los tipos de flota predeterminados (Roaming, Home Defense, StratOP y CTA) se agregarán al menú desplegable Tipo de flota."
 
-#: fleetpings/models.py:582
+#: fleetpings/models.py:584
 msgid "Whether to use default ping targets. If checked, the default ping targets (@everyone and @here) will be added to the Ping Target dropdown."
 msgstr "a sea para usar objetivos de ping predeterminados. Si está marcado, los destinos de ping predeterminados (@everyone and @here) se agregarán al menú desplegable Destino de ping."
 
-#: fleetpings/models.py:592
+#: fleetpings/models.py:594
 msgid "Whether to use the doctrines from the Fittings modules in the doctrine dropdown. Note: The fittings module needs to be installed for this."
 msgstr "Si usar las doctrinas de los módulos de Fiteos en el menú desplegable de doctrinas. Nota: Para ello, es necesario instalar el módulo de fiteos."
 
-#: fleetpings/models.py:602
+#: fleetpings/models.py:604
 msgid "Whether to verify webhooks URLs or not. Note: When unchecked, webhook URLs will not be verified, so the app can be used with non-Discord webhooks as well. When disabling webhook verification and using non-Discord webhooks, it is up to you to make sure your webhook understands a payload that is formatted for Discord webhooks."
 msgstr "Si verificar o no las URL de Webhooks. Nota: Cuando las URL de Webhook no estén marcadas, no se verificarán, por lo que la aplicación también se puede usar con Webhooks que no sean de Discord. Al deshabilitar la verificación de webhooks y usar webhooks que no sean de Discord, depende de usted asegurarse de que su webhook comprenda una carga útil con formato para webhooks de Discord."
 
-#: fleetpings/models.py:615
+#: fleetpings/models.py:617
 msgid "Default highlight color for the webhook embed."
 msgstr "Color resaltado predeterminado para la inserción de webhook."
 
-#: fleetpings/models.py:627
+#: fleetpings/models.py:629
 msgid "Setting"
 msgstr "ajuste"
 
-#: fleetpings/models.py:628
+#: fleetpings/models.py:630
 msgid "Settings"
 msgstr "ajustes"
 
-#: fleetpings/models.py:638
+#: fleetpings/models.py:640
 msgid "Fleet Pings Settings"
 msgstr "Ajustes de Pings de Flota"
 

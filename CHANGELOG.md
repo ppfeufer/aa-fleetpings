@@ -43,6 +43,12 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [4.1.1] - 2026-08-03
+
+### Changed
+
+- Translations updated
+
 ## [4.1.0] - 2026-07-09
 
 > [!IMPORTANT]
@@ -1240,7 +1246,8 @@ settings in the admin backend, since we just nuked them from the old app.
 [4.0.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v3.10.0...v4.0.0 "v4.0.0"
 [4.0.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.0.0...v4.0.1 "v4.0.1"
 [4.1.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.0.1...v4.1.0 "v4.1.0"
+[4.1.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.0...v4.1.1 "v4.1.1"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
-[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.0...HEAD "In Development"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.1...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"

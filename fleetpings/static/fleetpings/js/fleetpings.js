@@ -270,7 +270,7 @@ $(document).ready(() => {
 
             // Validation
             const validateFields = (fields, errorMessage) => {
-                if (fields.some(field => !field)) {
+                if (fields.some((field) => !field)) {
                     utils.showMessage(errorMessage, '.fleetpings-form-message', 'error');
 
                     return false;

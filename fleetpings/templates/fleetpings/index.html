@@ -1,7 +1,6 @@
 {% extends "fleetpings/base.html" %}
 
-{% load i18n %}
-{% load fleetpings %}
+{% load fleetpings i18n %}
 
 {% block aa_fleetpings_body %}
     <div class="row">
@@ -67,14 +66,14 @@
             };
         </script>
     </div>
-{% endblock %}
+{% endblock aa_fleetpings_body %}
 
 {% block extra_javascript %}
     {% include "bundles/jquery-datetimepicker-js.html" %}
     {% include "bundles/clipboard-js.html" %}
     {% include "fleetpings/bundles/fleetpings-js.html" %}
-{% endblock %}
+{% endblock extra_javascript %}
 
 {% block extra_css %}
     {% include "bundles/jquery-datetimepicker-css.html" %}
-{% endblock %}
+{% endblock extra_css %}

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Fleet Pings\n"
 "Report-Msgid-Bugs-To: https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/\n"
-"POT-Creation-Date: 2026-10-06 11:30+0200\n"
+"POT-Creation-Date: 2026-10-09 12:16+0200\n"
 "PO-Revision-Date: 2026-07-06 20:25+0000\n"
 "Last-Translator: Roycce_ <malyasov.roma@mail.ru>\n"
 "Language-Team: Russian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-fleetpings/ru/>\n"
@@ -407,27 +407,27 @@ msgstr "Настройки"
 msgid "Fleet Pings Settings"
 msgstr "Настройки Сбора флота"
 
-#: fleetpings/templates/fleetpings/index.html:11
+#: fleetpings/templates/fleetpings/index.html:10
 msgid "Fleet information"
 msgstr "Информация о флоте"
 
-#: fleetpings/templates/fleetpings/index.html:23
+#: fleetpings/templates/fleetpings/index.html:22
 msgid "Formatted ping text"
 msgstr "Отформатированный текст пинга"
 
-#: fleetpings/templates/fleetpings/index.html:32
+#: fleetpings/templates/fleetpings/index.html:31
 msgid "Mandatory information is missing. To create an optimer, you need to provide all of the following information:<br>» FC name<br>» Fleet name<br>» Formup location<br>» Formup time<br>» Ships / Doctrine"
 msgstr "Отсутствует необходимая информация. Для создания таймера должна быть предоставлена следующая информация:<br>» Ник флиткома<br>» Имя флота<br>» Точка сбора<br>» Время сбора<br>» Корабли / Формат"
 
-#: fleetpings/templates/fleetpings/index.html:33
+#: fleetpings/templates/fleetpings/index.html:32
 msgid "Mandatory information is missing. To create an SRP link, you need to provide all of the following information:<br>» Fleet name<br>» Ships / Doctrine"
 msgstr "Отсутствует необходимая информация. Для создания ссылки для компенса должна быть предоставлена следующая информация:<br>» Имя флота<br>» Корабли / Формат"
 
-#: fleetpings/templates/fleetpings/index.html:34
+#: fleetpings/templates/fleetpings/index.html:33
 msgid "Error! Your ping was not copied to your clipboard. Maybe your browser doesn&apos;t support this feature."
 msgstr "Ошибка! Ваш пинг не был скопирован в буфер обмена. Возможно, браузер не поддерживает данную функциональность."
 
-#: fleetpings/templates/fleetpings/index.html:35
+#: fleetpings/templates/fleetpings/index.html:34
 msgid "Success! Your ping text has been copied to your clipboard. Now be a good FC and throw it in your chat so you actually get some people in fleet."
 msgstr "Успех! Текст пинга был скопирован в буфер обмена. Скопируйте сообщение в чат, чтобы пилоты могли присоединиться."
 
@@ -439,7 +439,7 @@ msgstr "Вы хотите помочь перевести это приложе�
 msgid "Join our team of translators!"
 msgstr "Присоединяйтесь к нашей команде переводчиков!"
 
-#: fleetpings/templates/fleetpings/partials/form/form.html:72
+#: fleetpings/templates/fleetpings/partials/form/form.html:71
 msgid "Create ping"
 msgstr "Создать пинг"
 

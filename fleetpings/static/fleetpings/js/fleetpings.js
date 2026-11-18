@@ -291,8 +291,10 @@ $(document).ready(() => {
             if (fleetpingsSettings.optimerInstalled && elements.createOptimer.is(':checked')) {
                 if (!validateFields(
                     [
-                        elements.fleetName.val(), elements.fleetDoctrine.val(),
-                        elements.formupLocation.val(), elements.formupTime.val(),
+                        elements.fleetName.val(),
+                        elements.fleetDoctrine.val(),
+                        elements.formupLocation.val(),
+                        elements.formupTime.val(),
                         elements.fleetCommander.val()
                     ],
                     fleetpingsSettings.translation.optimer.error.missingFields

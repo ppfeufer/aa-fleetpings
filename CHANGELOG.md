@@ -43,6 +43,8 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [4.2.0] - 2026-11-18
+
 ### Removed
 
 - Fleet Commander from SRP link creation, as this field has been removed in AA-SRP v5.8.0
@@ -724,7 +726,7 @@ Section Order:
 
 ### Fixed
 
-- [Compatibility] AA 3.x / Django 4 :: ImportError: cannot import name
+- Compatibility: AA 3.x / Django 4 :: ImportError: cannot import name
   'ugettext_lazy' from 'django.utils.translation'
 
 ### Changed
@@ -1258,7 +1260,8 @@ settings in the admin backend, since we just nuked them from the old app.
 [4.1.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.0.1...v4.1.0 "v4.1.0"
 [4.1.1]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.0...v4.1.1 "v4.1.1"
 [4.1.2]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.1...v4.1.2 "v4.1.2"
+[4.2.0]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.2...v4.2.0 "v4.2.0"
 [@pvyparts]: https://github.com/pvyParts "Aaron"
-[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.1.2...HEAD "In Development"
+[in development]: https://github.com/ppfeufer/aa-fleetpings/compare/v4.2.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"

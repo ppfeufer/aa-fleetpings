@@ -43,6 +43,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Removed
+
+- Fleet Commander from SRP link creation, as this field has been removed in AA-SRP v5.8.0
+
 ## [4.1.2] - 2026-10-06
 
 ### Changed

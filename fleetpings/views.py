@@ -337,7 +337,6 @@ def _create_aasrp_link(request: WSGIRequest, ping_context: dict) -> dict:
         fleet_time=timezone.now(),
         fleet_doctrine=ping_context["doctrine"]["name"],
         srp_code=srp_code,
-        fleet_commander=request.user.profile.main_character,
         creator=request.user,
     ).save()
 
